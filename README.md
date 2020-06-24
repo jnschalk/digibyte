@@ -7,6 +7,13 @@ For more information, as well as an immediately useable, binary version of the D
 
 DigiByte FAQ
 -------------
+
+For all technical specifications, have a look at the [DGBWiki](https://www.dgbwiki.com/index.php?title=DigiByte#DigiByte_Technical_Specifications).
+
+[DigiByte Community Info Paper (White Paper)](https://digibyte.io/docs/infopaper.pdf)
+
+[DigiByte Integration Guide](https://digibyte.io/docs/integrationguide.pdf)
+
 Launch Date: January 10th, 2014
 
 Blockchain Type: Public, Decentralized, UTXO based, Multi-Algorithm
