@@ -1,9 +1,9 @@
 What is DigiByte?
 ----------------
 
-DigiByte (DGB) is a rapidly growing decentralized, global blockchain that was founded in early 2014 with a focus on cyber security, payments & secure communications technologies.
+DigiByte is a rapidly growing open-source blockchain created in late 2013 and released in early 2014. After 6 years of forward thinking development, DigiByte has become one of the safest, fastest, longest and most decentralized UTXO blockchain in existence.
 
-For more information, as well as an immediately useable, binary version of the DigiByte Core software, see https://digibyte.io
+For more information, as well as an immediately useable, binary version of the DigiByte Core software, go to the [DigiByte website])https://digibyte.io).
 
 DigiByte FAQ
 -------------
@@ -17,11 +17,11 @@ Genesis Block Hash: "USA Today: 10/Jan/2014, Target: Data stolen from up to 110M
 
 Max Total Supply: 21 Billion DigiBytes in 21 Years (2035)
 
-Current Supply: 11,692,747,373 DGB (April 2019)
+Current Supply: 13,232,243,330 (June 2020)
 
 Block Reward Reduction: 1% Monthly
 
-Current Block Reward: 688 DGB (April 2019)
+Current Block Reward: 665.63DGB (June 2020)
 
 Mining Algorithms: Five individual: SHA256, Scrypt, Odocrypt, Skein & Qubit
 
@@ -33,9 +33,9 @@ Difficulty Retarget: Every 1 Block, 5 Separate Difficulties, independent difficu
 
 SegWit Support: Yes. First major altcoin to successfully activate Segwit. (April 2017)
 
-Hardforks: 4. DigiShield, MultiAlgo, MultiShield, DigiSpeed
+Hardforks: 6. DigiShield, MultiAlgo, MultiShield, DigiSpeed, DigiSync, & Odocrypt
 
-Softforks: 3. SegWit, CSV, NVersionBits
+Softforks: 4. CSV, NVersionBits, SegWit & ReserveAlgo
 
 You can mine DigiByte on one of five separate mining algorithms. Each algo averages out to mine 20% of new blocks. This allows for much greater decentralization than other blockchains. An attacker with 99% of of any individual algorithm would still be unable to hardfork the blockchain, making DigiByte much more secure against PoW attacks than other blockchains.
 
@@ -46,6 +46,8 @@ MultiAlgo Hardfork: Block 145k, Sep. 1st 2014
 MultiShield Hardfork: Block 400k, Dec. 10th 2014
 
 DigiSpeed Hardfork: Block 1,430,000 Dec. 4th 2015
+
+DigiSync Hardfork: Block 4,394,880 Apr. 24th 2017
 
 Odocrypt Hardfork: Block 9,112,320 July 22nd 2019
 
@@ -62,8 +64,8 @@ Speed: DigiByte transactions occur much faster than Bitcoin transactions.
 DigiByte has 6x block confirmations 1.5 minutes vs. 1 hour with Bitcoin.
 
 Transaction Volume: DigiByte can handle many more transactions per second.
-Bitcoin can only handle 3-4 transactions per second.
-DigiByte currently can handle 560+ transactions per second.
+Bitcoin can only handle 7-27 transactions per second.
+DigiByte currently can handle 1066+ transactions per second.
 The 2015 DigiSpeed hardfork introduced changes that double the capacity of the network every two years.
 
 Total Supply: More DigiBytes, lower price, more micro transactions, better price stability.
