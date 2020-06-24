@@ -44,7 +44,7 @@ Hardforks: 6. DigiShield, MultiAlgo, MultiShield, DigiSpeed, DigiSync, & Odocryp
 
 Softforks: 4. CSV, NVersionBits, SegWit & ReserveAlgo
 
-You can mine DigiByte on one of five separate mining algorithms. Each algo averages out to mine 20% of new blocks. This allows for much greater decentralization than other blockchains. An attacker with 99% of of any individual algorithm would still be unable to hardfork the blockchain, making DigiByte much more secure against PoW attacks than other blockchains.
+You can mine DigiByte on one of five separate mining algorithms. Each algo averages out to mine 20% of new blocks. This allows for much greater decentralization than other blockchains. [Explanation by Jared Tate](https://twitter.com/jaredctate/status/1254788307071852544) why an attacker would still be unable to hardfork the blockchain, making DigiByte much more secure against PoW attacks than other blockchains.
 
 DigiShield Hardfork: Block 67,200, Feb. 28th, 2014
 
