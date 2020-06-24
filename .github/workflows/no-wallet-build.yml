@@ -1,0 +1,51 @@
+name: 'Build and Check without wallet'
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          os: [x86_64-linux-gnu, x86_64-apple-darwin14, x86_64-w64-mingw32]
+            
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache depends
+        id: cache-dependencies
+        uses: actions/cache@v2
+        with:
+          path: depends/
+          key: ${{ matrix.os }}-${{ hashFiles('depends/packages/*.mk') }}
+
+      - name: Update apt repos
+        run: sudo apt-get update
+
+      - name: Install base dependencies
+        run: sudo apt-get install build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git ca-certificates ccache
+      
+      - name: Install MinGW32 dependencies
+        if: matrix.os == 'x86_64-w64-mingw32'
+        run: sudo apt-get install python3 nsis g++-mingw-w64-x86-64 wine-binfmt wine64 && sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix 
+      
+      - name: Install MacOS specific dependencies
+        if: matrix.os == 'x86_64-apple-darwin14'
+        run: sudo apt-get install cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev python3-setuptools-git
+      
+      - name: Add MacOS 10.11 SDK
+        if: matrix.os == 'x86_64-apple-darwin14'
+        run: mkdir depends/SDKs && curl -L https://github.com/phracker/MacOSX-SDKs/releases/download/10.13/MacOSX10.11.sdk.tar.xz --output MacOSX10.11.sdk.tar.gz && tar -C depends/SDKs -xf ./MacOSX10.11.sdk.tar.gz
+      
+      - name: Build depends
+        run: cd depends/ && make -j4 HOST=${{matrix.os}} NO_WALLET=1
+
+      - name: Auto generate
+        run: ./autogen.sh
+
+      - name: configure
+        run: ./configure --disable-wallet --disable-dependency-tracking --disable-werror --prefix=`pwd`/depends/${{ matrix.os }} --bindir=`pwd`/release/bin --libdir=`pwd`/release/lib
+
+      - name: make
+        run: make -j4
