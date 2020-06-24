@@ -3,7 +3,7 @@ What is DigiByte?
 
 DigiByte is a rapidly growing open-source blockchain created in late 2013 and released in early 2014. After 6 years of forward thinking development, DigiByte has become one of the safest, fastest, longest and most decentralized UTXO blockchain in existence.
 
-For more information, as well as an immediately useable, binary version of the DigiByte Core software, go to the [DigiByte website])https://digibyte.io).
+For more information, as well as an immediately useable, binary version of the DigiByte Core software, go to the [DigiByte website](https://digibyte.io).
 
 DigiByte FAQ
 -------------
