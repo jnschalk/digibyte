@@ -87,6 +87,15 @@ Future DigiByte upgrades will push transaction limit to several hundred thousand
 Marketability & Usability: DigiByte is an easy brand to market to consumers.
 DigiBytes are much cheaper to acquire.
 
+## Donate
+
+[Donate to the DigiByte Foundation](https://digibytefoundation.io/donate/)
+<br>
+[Donate to the DigiByte Awareness Team](https://dgbat.org/#donate)
+
+
+We appreciate your support!
+
 License
 -------
 
