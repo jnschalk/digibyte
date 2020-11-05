@@ -19,6 +19,7 @@ enum DeploymentPos {
     DEPLOYMENT_NVERSIONBIPS, // Deployment of BIP34, BIP65, and BIP66.
     DEPLOYMENT_RESERVEALGO, // Reservation of version bits for future algos
     DEPLOYMENT_ODO, // Odo hard fork
+    DEPLOYMENT_RANDOMX, // RandomX hard fork
     //DEPLOYMENT_EQUIHASH, // Equihash algo swap
     //DEPLOYMENT_ETHASH, // Ethash algo swap
     // NOTE: Also add new deployments to VersionBitsDeploymentInfo in versionbits.cpp
@@ -125,6 +126,7 @@ struct Params {
     int64_t alwaysUpdateDiffChangeTarget;
     int64_t workComputationChangeTarget;
     int64_t algoSwapChangeTarget;
+    int nEpochLength;
 
     uint32_t nOdoShapechangeInterval;
     uint256 nMinimumChainWork;

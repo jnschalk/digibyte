@@ -1136,7 +1136,8 @@ bool ReadBlockFromDisk(CBlock& block, const FlatFilePos& pos, const Consensus::P
     }
 
     // Check the header
-    if (!CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, consensusParams))
+    uint256 dummyHash;
+    if (!CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, dummyHash, consensusParams))
         return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
 
     return true;
@@ -1846,6 +1847,8 @@ int32_t ComputeBlockVersion(const CBlockIndex* pindexPrev, const Consensus::Para
 
 bool IsAlgoActive(const CBlockIndex* pindexPrev, const Consensus::Params& consensus, int algo)
 {
+    if (IsTestnet())
+        return true;
     if (!pindexPrev)
         return algo == ALGO_SCRYPT;
     const int nHeight = pindexPrev->nHeight;
@@ -3361,7 +3364,8 @@ static bool FindUndoPos(BlockValidationState &state, int nFile, FlatFilePos &pos
 static bool CheckBlockHeader(const CBlockHeader& block, BlockValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW = true)
 {
     // Check proof of work matches claimed amount
-    if (!g_isoktogofast && fCheckPOW && !CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, consensusParams))
+    uint256 dummyHash;
+    if (!g_isoktogofast && fCheckPOW && !CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, dummyHash, consensusParams))
         return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, "high-hash", "proof of work failed");
 
     return true;
@@ -5210,6 +5214,16 @@ double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex *pin
     }
 
     return std::min<double>(pindex->nChainTx / fTxTotal, 1.0);
+}
+
+//! Returns true if client is operating in testnet
+bool IsTestnet()
+{
+    bool result = Params().NetworkIDString() == CBaseChainParams::TESTNET;
+    //! always require blockheader validation under testnet
+    if (result)
+        g_isoktogofast = false;
+    return result;
 }
 
 class CMainCleanup

@@ -14,6 +14,9 @@
 
 #include <util/system.h> //just for logs
 
+//! from validation.h
+bool IsTestnet();
+
 inline unsigned int PowLimit(const Consensus::Params& params)
 {
     return UintToArith256(params.powLimit).GetCompact();
@@ -21,6 +24,8 @@ inline unsigned int PowLimit(const Consensus::Params& params)
 
 unsigned int InitialDifficulty(const Consensus::Params& params, int algo)
 {
+    if (IsTestnet())
+        return PowLimit(params);
     const auto& it = params.initialTarget.find(algo);
     if (it == params.initialTarget.end())
         return PowLimit(params);
@@ -287,7 +292,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     return bnNew.GetCompact();
 }
 
-bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params& params)
+bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint256& bestHash, const Consensus::Params& params)
 {
     bool fNegative;
     bool fOverflow;
@@ -298,6 +303,10 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit))
         return false;
+
+    // Keep record of best hash seen
+    if (UintToArith256(hash) < UintToArith256(bestHash))
+        bestHash = hash;
 
     // Check proof of work matches claimed amount
     if (UintToArith256(hash) > bnTarget)
