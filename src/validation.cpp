@@ -1097,6 +1097,15 @@ bool GetTransaction(const uint256& hash, CTransactionRef& txOut, const Consensus
 // CBlock and CBlockIndex
 //
 
+inline int GetHeightByPrevhash(const uint256 prevHash)
+{
+    int height{0};
+    const CBlockIndex* pindexPrev = LookupBlockIndex(prevHash);
+    if (pindexPrev)
+        height = pindexPrev->nHeight+1;
+    return height;
+}
+
 static bool WriteBlockToDisk(const CBlock& block, FlatFilePos& pos, const CMessageHeader::MessageStartChars& messageStart)
 {
     // Open history file to append
@@ -1137,7 +1146,8 @@ bool ReadBlockFromDisk(CBlock& block, const FlatFilePos& pos, const Consensus::P
 
     // Check the header
     uint256 dummyHash;
-    if (!CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, dummyHash, consensusParams))
+    int height = GetHeightByPrevhash(block.hashPrevBlock);
+    if (!CheckProofOfWork(block.GetPoWAlgoHash(height), block.nBits, dummyHash, consensusParams))
         return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
 
     return true;
@@ -3365,7 +3375,8 @@ static bool CheckBlockHeader(const CBlockHeader& block, BlockValidationState& st
 {
     // Check proof of work matches claimed amount
     uint256 dummyHash;
-    if (!g_isoktogofast && fCheckPOW && !CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, dummyHash, consensusParams))
+    int height = GetHeightByPrevhash(block.hashPrevBlock);
+    if (fCheckPOW && !CheckProofOfWork(block.GetPoWAlgoHash(height), block.nBits, dummyHash, consensusParams))
         return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, "high-hash", "proof of work failed");
 
     return true;
@@ -5224,6 +5235,19 @@ bool IsTestnet()
     if (result)
         g_isoktogofast = false;
     return result;
+}
+
+//! Populate the randomx epoch cache
+void init_populaterandomx()
+{
+    CBlockIndex* pindex = ::ChainActive().Tip();
+    const int epochLen = Params().GetConsensus().nEpochLength;
+    while (pindex->nHeight > 0) {
+        if (pindex->nHeight % epochLen == 0)
+            pindex->GetBlockHeader().GetPoWAlgoHash(pindex->nHeight);
+        pindex = pindex->pprev;
+    }
+    pindex->GetBlockHeader().GetPoWAlgoHash(0);
 }
 
 class CMainCleanup

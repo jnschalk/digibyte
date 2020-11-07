@@ -1813,6 +1813,9 @@ bool AppInitMain(NodeContext& node)
         return false;
     }
 
+    // ********************************************************* Step 11.5: init randomx cache
+    init_populaterandomx();
+
     // ********************************************************* Step 12: start node
 
     int chain_active_height;

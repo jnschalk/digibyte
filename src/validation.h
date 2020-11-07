@@ -822,4 +822,7 @@ inline bool IsBlockPruned(const CBlockIndex* pblockindex)
 //! Returns true if client is operating in testnet
 bool IsTestnet();
 
+//! Populate the RandomX epoch cache
+void init_populaterandomx();
+
 #endif // BITCOIN_VALIDATION_H

@@ -3,24 +3,33 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include <primitives/block.h>
+
 #include <arith_uint256.h>
 #include <chainparams.h>
-#include <consensus/consensus.h>
 #include <crypto/hashgroestl.h>
 #include <crypto/hashodo.h>
 #include <crypto/hashqubit.h>
 #include <crypto/hashskein.h>
+#include <primitives/moneroheader.h>
 #include <hash.h>
 #include <util/strencodings.h>
+
+std::map<int, uint256> seedcache;
 
 uint256 CBlockHeader::GetHash() const
 {
     return SerializeHash(*this);
 }
 
-uint256 CBlockHeader::GetPoWAlgoHash(const Consensus::Params& params) const
+uint256 CBlockHeader::GetPoWAlgoHash(int height) const
 {
-    int hashalgo = GetAlgo(this->nVersion);
+    const int hashalgo = GetAlgo(this->nVersion);
+    const Consensus::Params& params = Params().GetConsensus();
+
+    //! maintain seedcache conservatively
+    if (height % params.nEpochLength == 0)
+        seedcache[height] = this->hashMerkleRoot;
 
     switch (hashalgo) {
     case ALGO_SHA256D:
@@ -39,6 +48,12 @@ uint256 CBlockHeader::GetPoWAlgoHash(const Consensus::Params& params) const
     case ALGO_ODO: {
         uint32_t key = OdoKey(params, nTime);
         return HashOdo(BEGIN(nVersion), END(nNonce), key);
+    }
+    case ALGO_RANDOMX: {
+        seedmanager.updateheight(height);
+        uint256 thash;
+        serialize_monero_hash(BEGIN(nVersion), BEGIN(thash), blk_reader, height);
+        return thash;
     }
     case ALGO_UNKNOWN:
         return ArithToUint256(~arith_uint256(0));

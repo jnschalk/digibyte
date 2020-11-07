@@ -6,13 +6,18 @@
 #ifndef BITCOIN_PRIMITIVES_BLOCK_H
 #define BITCOIN_PRIMITIVES_BLOCK_H
 
+#include <crypto/randomx.h>
+#include <crypto/randomx/randomx.h>
+#include <consensus/consensus.h>
 #include <multialgo.h>
 #include <primitives/transaction.h>
 #include <serialize.h>
 #include <uint256.h>
 #include <util/system.h>
 
-namespace Consensus { struct Params; }
+class rxhash;
+
+extern std::map<int, uint256> seedcache;
 
 /** Nodes collect new transactions into a block, hash them into a hash tree,
  * and scan through nonce values to make the block's hash satisfy proof-of-work
@@ -72,7 +77,7 @@ public:
     
     uint256 GetHash() const;
 
-    uint256 GetPoWAlgoHash(const Consensus::Params& params) const;
+    uint256 GetPoWAlgoHash(int height) const;
 
     int64_t GetBlockTime() const
     {
