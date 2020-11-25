@@ -147,7 +147,7 @@ unsigned int GetNextWorkRequiredV3(const CBlockIndex* pindexLast, const Consensu
     // find first block in averaging interval
     // Go back by what we want to be nAveragingInterval blocks per algo
     const CBlockIndex* pindexFirst = pindexLast;
-    for (int i = 0; pindexFirst && i < NUM_ALGOS * params.nAveragingInterval; i++) {
+    for (int i = 0; pindexFirst && i < params.maxConcurrentAlgorithms * params.nAveragingInterval; i++) {
         pindexFirst = pindexFirst->pprev;
     }
     const CBlockIndex* pindexPrevAlgo = GetLastBlockIndexForAlgo(pindexLast, params, algo);
@@ -170,7 +170,7 @@ unsigned int GetNextWorkRequiredV3(const CBlockIndex* pindexLast, const Consensu
     bnNew /= params.nAveragingTargetTimespan;
 
     // Per-algo retarget
-    int nAdjustments = pindexPrevAlgo->nHeight - pindexLast->nHeight + NUM_ALGOS - 1;
+    int nAdjustments = pindexPrevAlgo->nHeight - pindexLast->nHeight + params.maxConcurrentAlgorithms - 1;
     if (nAdjustments > 0) {
         for (int i = 0; i < nAdjustments; i++) {
             bnNew *= 100;
@@ -195,7 +195,7 @@ unsigned int GetNextWorkRequiredV4(const CBlockIndex* pindexLast, const Consensu
     // find first block in averaging interval
     // Go back by what we want to be nAveragingInterval blocks per algo
     const CBlockIndex* pindexFirst = pindexLast;
-    for (int i = 0; pindexFirst && i < NUM_ALGOS * params.nAveragingInterval; i++) {
+    for (int i = 0; pindexFirst && i < params.maxConcurrentAlgorithms * params.nAveragingInterval; i++) {
         pindexFirst = pindexFirst->pprev;
     }
 
@@ -222,7 +222,7 @@ unsigned int GetNextWorkRequiredV4(const CBlockIndex* pindexLast, const Consensu
     bnNew /= params.nAveragingTargetTimespanV4;
 
     //Per-algo retarget
-    int nAdjustments = pindexPrevAlgo->nHeight + NUM_ALGOS - 1 - pindexLast->nHeight;
+    int nAdjustments = pindexPrevAlgo->nHeight + params.maxConcurrentAlgorithms - 1 - pindexLast->nHeight;
     if (nAdjustments > 0) {
         for (int i = 0; i < nAdjustments; i++) {
             bnNew *= 100;

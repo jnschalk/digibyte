@@ -34,8 +34,6 @@ enum {
     BLOCK_VERSION_RANDOMX = (12 << 8),
 };
 
-const int NUM_ALGOS = 5;
-
 int GetAlgoWorkFactor(int nHeight, int algo);
 int GetAlgo(int nVersion);
 int GetVersionForAlgo(int algo);

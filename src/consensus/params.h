@@ -122,6 +122,7 @@ struct Params {
     int64_t alwaysUpdateDiffChangeTarget;
     int64_t workComputationChangeTarget;
     int64_t algoSwapChangeTarget;
+    int64_t maxConcurrentAlgorithms;
     int nEpochLength;
 
     uint32_t nOdoShapechangeInterval;

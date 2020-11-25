@@ -170,7 +170,7 @@ arith_uint256 GetBlockProof(const CBlockIndex& block)
             // Instead of multiplying them all together and then taking the
             // nth root at the end, take the roots individually then multiply so
             // that all intermediate values fit in 256-bit integers.
-            bnAvgTarget *= bnTarget.ApproxNthRoot(NUM_ALGOS);
+            bnAvgTarget *= bnTarget.ApproxNthRoot(params.maxConcurrentAlgorithms);
         }
         // see comment in GetProofBase
         arith_uint256 bnRes = (~bnAvgTarget / (bnAvgTarget + 1)) + 1;
