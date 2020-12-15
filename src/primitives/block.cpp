@@ -52,7 +52,7 @@ uint256 CBlockHeader::GetPoWAlgoHash(int height) const
     case ALGO_RANDOMX: {
         seedmanager.updateheight(height);
         uint256 thash;
-        serialize_monero_hash(BEGIN(nVersion), BEGIN(thash), blk_reader, height);
+        serialize_monero_hash((const char*)this, BEGIN(thash), blk_reader, height);
         return thash;
     }
     case ALGO_UNKNOWN:
