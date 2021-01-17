@@ -275,7 +275,8 @@ public:
         consensus.CSVHeight = 0;
         consensus.SegwitHeight = 0;
         consensus.MinBIP9WarningHeight = 0;
-        consensus.powLimit = uint256S("07ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("0000ffff00000000000000000000000000000000000000000000000000000000");
+        consensus.initialTarget[ALGO_RANDOMX] = consensus.powLimit;
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60 / 4;
 
@@ -337,7 +338,7 @@ public:
         consensus.alwaysUpdateDiffChangeTarget = 400; // Block 400,000 MultiShield Hard Fork
         consensus.workComputationChangeTarget = 4194304; // Block 1,430,000 DigiSpeed Hard Fork
         consensus.algoSwapChangeTarget = 20000; // Block 9,000,000 Odo PoW Hard Fork
-        consensus.maxConcurrentAlgorithms = 7; // Max concurrent algorithms per environment
+        consensus.maxConcurrentAlgorithms = 5; // Max concurrent algorithms per environment
 
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -383,12 +384,7 @@ public:
         m_assumed_blockchain_size = 40;
         m_assumed_chain_state_size = 2;
 
-        uint32_t nNonce = 0;
-        genesis = CreateGenesisBlock(1603630339, nNonce, 0x2007ffff, 549454338, 8000 * COIN);
-        while (UintToArith256(genesis.GetHash()) > UintToArith256(consensus.powLimit)) {
-           nNonce++;
-           genesis = CreateGenesisBlock(1603630339, nNonce, 0x2007ffff, 549454338, 8000 * COIN);
-        }
+        genesis = CreateGenesisBlock(1603630339, 114293, 0x1f00ffff, 549454338, 8000 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         vFixedSeeds.clear();
