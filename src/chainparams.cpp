@@ -151,11 +151,6 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_NVERSIONBIPS].nStartTime = 1489997089; // March 24th, 2017 1490355345
         consensus.vDeployments[Consensus::DEPLOYMENT_NVERSIONBIPS].nTimeout = 1521891345;    // March 24th, 2018
 
-        // Reservation of version bits for future algos
-        consensus.vDeployments[Consensus::DEPLOYMENT_RESERVEALGO].bit = 12;
-        consensus.vDeployments[Consensus::DEPLOYMENT_RESERVEALGO].nStartTime = 1542672000; // 20 Nov, 2018
-        consensus.vDeployments[Consensus::DEPLOYMENT_RESERVEALGO].nTimeout = 1574208000;   // 20 Nov, 2019
-
         // Deployment of Odo proof-of-work hardfork
         consensus.vDeployments[Consensus::DEPLOYMENT_ODO].bit = 6;
         consensus.vDeployments[Consensus::DEPLOYMENT_ODO].nStartTime = 1556668800; // 1 May, 2019
@@ -368,16 +363,6 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_RANDOMX].bit = 8;
         consensus.vDeployments[Consensus::DEPLOYMENT_RANDOMX].nStartTime = Consensus::BIP9Deployment::ALWAYS_ACTIVE;
         consensus.vDeployments[Consensus::DEPLOYMENT_RANDOMX].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
-
-        // Deployment of Equihash algo softfork
-        //consensus.vDeployments[Consensus::DEPLOYMENT_EQUIHASH].bit = 3;
-        //consensus.vDeployments[Consensus::DEPLOYMENT_EQUIHASH].nStartTime = 1489997089; // July, 2017
-        //consensus.vDeployments[Consensus::DEPLOYMENT_EQUIHASH].nTimeout = 1521891345;    // July, 2018
-
-        // Deployment of Ethash algo softfork
-        //consensus.vDeployments[Consensus::DEPLOYMENT_ETHASH].bit = 4;
-        //consensus.vDeployments[Consensus::DEPLOYMENT_ETHASH].nStartTime = 1489997089; // October, 2017
-        //consensus.vDeployments[Consensus::DEPLOYMENT_ETHASH].nTimeout = 1521891345;    // October, 2018
 
         consensus.nOdoShapechangeInterval = 1*24*60*60; // 1 day
 

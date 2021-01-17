@@ -15,7 +15,6 @@ namespace Consensus {
 enum DeploymentPos {
     DEPLOYMENT_TESTDUMMY,
     DEPLOYMENT_NVERSIONBIPS, // Deployment of BIP34, BIP65, and BIP66.
-    DEPLOYMENT_RESERVEALGO, // Reservation of version bits for future algos
     DEPLOYMENT_ODO, // Odo hard fork
     DEPLOYMENT_RANDOMX, // RandomX hard fork
     // NOTE: Also add new deployments to VersionBitsDeploymentInfo in versionbits.cpp
