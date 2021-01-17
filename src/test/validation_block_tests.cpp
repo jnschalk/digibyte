@@ -100,7 +100,8 @@ std::shared_ptr<CBlock> MinerTestingSetup::FinalizeBlock(std::shared_ptr<CBlock>
 
     pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
 
-    while (!CheckProofOfWork(pblock->GetHash(), pblock->nBits, Params().GetConsensus())) {
+    uint256 dummyHash;
+    while (!CheckProofOfWork(pblock->GetHash(), pblock->nBits, dummyHash, Params().GetConsensus())) {
         ++(pblock->nNonce);
     }
 
