@@ -56,31 +56,43 @@ You can mine DigiByte on one of five separate mining algorithms. Each algo avera
 
 ## DigiByte vs Bitcoin
 
-**Security**: 5 DigiByte mining algorithms vs. 1 Bitcoin mining algorithm.
-DigiByte mining is much more decentralized.
-DigiByte mining algorithms can be changed out in the future to prevent centralization.
+**Security**:
 
-**Speed**: DigiByte transactions occur much faster than Bitcoin transactions.
-1-2 second transaction notifications.
-15 second DigiByte blocks vs. 10 minute Bitcoin blocks.
-DigiByte has 6x block confirmations 1.5 minutes vs. 1 hour with Bitcoin.
+- 5 DigiByte mining algorithms vs. 1 Bitcoin mining algorithm.
+- DigiByte mining is much more decentralized.
+- DigiByte mining algorithms can be changed out in the future to prevent centralization.
 
-**Transaction Volume**: DigiByte can handle many more transactions per second.
-Bitcoin can only handle 3-4 transactions per second.
-DigiByte currently can handle 560+ transactions per second.
-The 2015 DigiSpeed hardfork introduced changes that double the capacity of the network every two years.
+**Speed**:
 
-**Total Supply**: More DigiBytes, lower price, more micro transactions, better price stability.
-21 billion DigiBytes will be created over 21 years.
-Only 21 million Bitcoin will be created over 140 years.
-1000:1 ratio. 1000 DigiByte for every Bitcoin.
+- DigiByte transactions occur much faster than Bitcoin transactions.
+- 1-2 second transaction notifications.
+- 15 second DigiByte blocks vs. 10 minute Bitcoin blocks.
+- DigiByte has 6x block confirmations 1.5 minutes vs. 1 hour with Bitcoin.
 
-**Flexibility**: Ability to quickly add new features.
-DigiByte can add new features & upgrades much quicker than Bitcoin.
-Future DigiByte upgrades will push transaction limit to several hundred thousand per second.
+**Transaction Volume**:
 
-Marketability & Usability: DigiByte is an easy brand to market to consumers.
-DigiBytes are much cheaper to acquire.
+- DigiByte can handle many more transactions per second.
+- Bitcoin can only handle 3-4 transactions per second.
+- DigiByte currently can handle 560+ transactions per second.
+- The 2015 DigiSpeed hardfork introduced changes that double the capacity of the network every two years.
+
+**Total Supply**:
+
+- More DigiBytes, lower price, more micro transactions, better price stability.
+- 21 billion DigiBytes will be created over 21 years.
+- Only 21 million Bitcoin will be created over 140 years.
+- 1000:1 ratio. 1000 DigiByte for every Bitcoin.
+
+**Flexibility**:
+
+- Ability to quickly add new features.
+- DigiByte can add new features & upgrades much quicker than Bitcoin.
+- Future DigiByte upgrades will push transaction limit to several hundred thousand per second.
+
+**Marketability & Usability**:
+
+- DigiByte is an easy brand to market to consumers.
+- DigiBytes are much cheaper to acquire.
 
 ## License
 
@@ -104,5 +116,4 @@ The Travis CI system makes sure that every pull request is built for Windows, Li
 
 ### Manual Quality Assurance (QA) Testing
 
-Changes are required be tested by somebody other than the developer who wrote the
-code. This is especially important for large or high-risk changes. A test plan must be included with the pull request description if testing the changes is not straightforward.
+Changes are required be tested by somebody other than the developer who wrote the code. This is especially important for large or high-risk changes. A test plan must be included with the pull request description if testing the changes is not straightforward.
