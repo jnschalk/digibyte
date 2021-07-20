@@ -1,24 +1,34 @@
 Bitcoin Upstream Merge Guide
 ====================================
-DigiByte    
+DigiByte was originally forked from the Bitcoin & Litecoin UTXO codebase. Since 2014 many unique changes have been made to DGB that separate it from the latest BTC codebase. However, there is a tremendous amount of improvements continually being made by talented open-source blockchain developers from around the world to the Bitcoin codebase that DigiByte can quite often benefit from.
+
+Therefore it is important for us to routinely take a look at how some of these improvements can be integrated into the DigiByte codebase in a safe, auditable, reviewable manner. This document is an attempt to document how to best take advantage of those code improvements from Bitcoin with a clearly defined process the community can follow. 
+
+An upstream merge from Bitcoin to DigiByte can be a very complex undertaking for any one person to do alone. There have been several major merge events in DigiBytes history and in the past mistakes have been made during many of these upstream merge events and bugs inadvertently introduced into code. By following the process below many of these issues can be avoided, and the community united in the development process.
 
 3 Approaches To Upstream BTC Merges
 ------------------------------------
-There
+There are roughly 3 different ways to keep DigiByte core up to date with the latest improvements and enhancements to Bitcoin core.
 
+1. Cherry Pick Relelvent commits every 2-4 weeks. By setting a specific day each month, devs can come together and cherry-pick relevant commits that can benefit DGB. If this is done routinely it can prevent mass merge events that are needed after upstream merges are not done for several years.
+
+2. The Bitcoin Rebase. A simple rebase of DGB specific changes onto a fresh Bitcoin clone. While this approach may have worked several years ago that is no longer the case and not recommended. There is a possibility of missing and breaking 100s of things and the only way to verify a release and commit is not breaking unknown and unseen parts of the code is to do a detailed diff comparison between the current stable DGB release and the new rebase, which pretty well leaves you at the third option anyways.
+
+3. The complete Bitcoin/ DigiByte merge. This becomes necessary when routine cherry-pick updates have not been done for some time. This requires an all-hands-on-deck effort and a detailed process that is outlined below. However, this is necessary to provide a clear documented review process for all changes, merge conflicts, and issues that arise. So anyone can publicly verify all changes and the public at large has clear visibility into developer actions. 
 Part 1: Pre-Merge Setup (Managed from Source Tree GUI to save time) 
 ------------------------------------------------------------------------------
 
 1. Completely build latest Bitcoin Core from source all the way to deployment to ensure you have the proper build environment configured. Follow latest BTC dev build environment changes & thoroughly read release notes.
 
-        git clone https://github.com/digibyte/digibyte
-        cd digibyte
+        git clone https://github.com/bitcoin/bitcoin.git
+        cd bitcoin
+	./autogen.sh
+	./configure 
+	make
 
 2.  Make Clean directory & make sure no build files are present in clean directory.
 
-        ./autogen.sh
-        ./configure
-        make
+        make clean
 
 3.  Rename any text string containing: "BTC", "btc," "Bitcoin," "BITCOIN," "bitcoin" w "DGB," "dgb," "DigiByte," "DIGIBYTE," "digibyte" through out entire codebase with case sensitivity.
     Easily done with find & replace inside visual studio code. Should be about 20,0000 changes or more. Save all and make sure case sensitivity is on.
