@@ -15,6 +15,8 @@ There are roughly 3 different ways to keep DigiByte core up to date with the lat
 2. The Bitcoin Rebase. A simple rebase of DGB specific changes onto a fresh Bitcoin clone. While this approach may have worked several years ago that is no longer the case and not recommended. There is a possibility of missing and breaking 100s of things and the only way to verify a release and commit is not breaking unknown and unseen parts of the code is to do a detailed diff comparison between the current stable DGB release and the new rebase, which pretty well leaves you at the third option anyways.
 
 3. The complete Bitcoin/ DigiByte merge. This becomes necessary when routine cherry-pick updates have not been done for some time. This requires an all-hands-on-deck effort and a detailed process that is outlined below. However, this is necessary to provide a clear documented review process for all changes, merge conflicts, and issues that arise. So anyone can publicly verify all changes and the public at large has clear visibility into developer actions. 
+
+
 Part 1: Pre-Merge Setup (Managed from Source Tree GUI to save time) 
 ------------------------------------------------------------------------------
 
