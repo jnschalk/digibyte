@@ -32,46 +32,29 @@ Part 1: Pre-Merge Setup (Managed from Source Tree GUI to save time)
 
         make clean
 
-3.  Rename any text string containing: "BTC", "btc," "Bitcoin," "BITCOIN," "bitcoin" w "DGB," "dgb," "DigiByte," "DIGIBYTE," "digibyte" through out entire codebase with case sensitivity.
-    Easily done with find & replace inside visual studio code. Should be about 20,0000 changes or more. Save all and make sure case sensitivity is on.
+3.  Rename any text or code string containing: "BTC", "btc," "Bitcoin," "BITCOIN," "bitcoin" w "DGB," "dgb," "DigiByte," "DIGIBYTE," "digibyte" throughout entire codebase with case sensitivity. This is easily done with find & replace inside visual studio code. Should be about 20,0000 changes or more. Save each separately and then commit while making sure case sensitivity is on.
 
-4. Commit all name changes and save in 1 commit for reference.
+4. Commit each separate name swap as its own commit. The idea is to break down the sheer # of name changes in a documented, easy-to-follow process. Not following a consistent naming convention throughout the code easily breaks things and can cause hours of compiler errors later on.
 
-5. Rename all filenames including the text "bitcoin" to "digibyte."
-	Easily done with finder on Mac. Open folder, use option + over arrow button, then command A to select all. Do this 10 times to open all folders and select all files in entire code base. Then rename and replace all files containing bitcoin -> digibyte.
+5. Rename all filenames including the text "bitcoin" to "digibyte." This is easily done with finder on Mac. Open folder, use option + over arrow button, then command A to select all. Do this 10 times to open all folders and select all files in the entire code base. Then rename and replace all files containing bitcoin -> digibyte. If all file names are not consistent and everything changed you will get compiler errors later on.
 
+6. Commit all filename changes and save in 1 commit for future reference.
 
-6. Commit all file name changes and save in 1 commit for future reference.
+7. Test compile BTC core wallet from scratch with all DGB name changes.
 
-
-7. Test compile core wallet from scratch with all name changes.
-
-
-8. Make Clean directory & make sure no build files are present in clean directory. Will use this branch to merge into current stable DGB release.
-
-
+8. Make Clean directory & make sure no build files are present in the clean directory. Will use this branch to merge into the current stable DGB release.
 
 Part 2: The Merge & Merge Conflicts Resolution (The Fun Part)
 ----------------------------------------------------------------
 
-1.  Select Current DigiByte version as default branch, merge the renamed bitcoin branch you just worked on into DGB core. Will be many merge conflicts to go through. This is where its of utmost importance to take your time and go line by line and know what you are changing. Very easy to make a mistake here. Here will be the trouble areas to watch out for.
+1.  Select Current DigiByte version as default branch, merge the renamed bitcoin branch you just worked on into DGB core. There will be 1000's of merge conflicts to go through. This is where it is of utmost importance to take your time and go line by line and know what you are changing. Very easy to make a mistake here. Here will be the trouble areas to watch out for. It is important the entire merge with all merge conflicts is committed in 1 commit first so anyone can reflect back on it before any merge conflicts are resolved. The idea is to break don't merge resolutions into specific commits in a detailed methodical manner.
 
-        git clone https://github.com/digibyte/digibyte
-        cd digibyte
 
-2.  Document & note every merge conflict of importance for future reference to look back on what has changed. Useful to learn updates, refactoring and important changes that can be used to identify bugs when compiling or later on.
+2.  Document & note every merge conflict of importance for future reference to look back on what has changed. Useful to learn updates, refactoring, and important changes that can be used to identify bugs when compiling or later on. There will be thousands of trivial name, date, documentation, and other non-essential merge conflicts. Go after these first.
 
-Notes: 
+3. Save all questionable merge conflicts till the end of this process, so everyone has a chance to review together. Typically this has only been a few hundred in times past.
 
-fSupportsSegwit removed
-
-MSG_BLOCK
-MSG_DANDELION_TX
-
-        ./autogen.sh
-        ./configure
-        make
-
+Key Areas to look out for Merge Conflict / Compiler Bugs: 
 
 	* Anything to do with MultiAlgo
 	* Ports, Testnet configs, Genesis block info
@@ -83,4 +66,6 @@ MSG_DANDELION_TX
 	* DGB seeds
 	* Logos, Icons, and media files, css files.
 	* Copyrights (Make sure Bitcoin devs still get all credit they deserve)
+	* Dandelion Related Code
+	
 
