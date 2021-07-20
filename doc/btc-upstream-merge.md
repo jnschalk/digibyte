@@ -23,10 +23,7 @@ Part 1: Pre-Merge Setup (Managed from Source Tree GUI to save time)
 1. Completely build latest Bitcoin Core from source all the way to deployment to ensure you have the proper build environment configured. Follow latest BTC dev build environment changes & thoroughly read release notes.
 
         git clone https://github.com/bitcoin/bitcoin.git
-        cd bitcoin
-	./autogen.sh
-	./configure 
-	make
+        cd bitcoin	./autogen.sh	./configure 	make
 
 2.  Make Clean directory & make sure no build files are present in clean directory.
 
@@ -42,19 +39,18 @@ Part 1: Pre-Merge Setup (Managed from Source Tree GUI to save time)
 
 7. Test compile BTC core wallet from scratch with all DGB name changes.
 
-8. Make Clean directory & make sure no build files are present in the clean directory. Will use this branch to merge into the current stable DGB release.
+8. Make Clean directory & make sure no build files are present in the clean directory. Will use this branch to merge into the current stable DGB release & devlop branch.
 
 Part 2: The Merge & Merge Conflicts Resolution (The Fun Part)
 ----------------------------------------------------------------
 
 1.  Select Current DigiByte version as default branch, merge the renamed bitcoin branch you just worked on into DGB core. There will be 1000's of merge conflicts to go through. This is where it is of utmost importance to take your time and go line by line and know what you are changing. Very easy to make a mistake here. Here will be the trouble areas to watch out for. It is important the entire merge with all merge conflicts is committed in 1 commit first so anyone can reflect back on it before any merge conflicts are resolved. The idea is to break down merge resolutions into specific commits in a detailed methodical manner.
 
-
 2.  Document & note every merge conflict of importance for future reference to look back on what has changed. Useful to learn updates, refactoring, and important changes that can be used to identify bugs when compiling or later on. There will be thousands of trivial name, date, documentation, and other non-essential merge conflicts. Go after these first.
 
 3. Save all questionable merge conflicts till the end of this process, so everyone has a chance to review together. Typically this has only been a few hundred critical merge conflicts in past mass merges.
 
-4. It is reccomended to resolve merge conflicts file by file. So developers can take on specific file, fix merge conflicts, make the commit and have others review it. It gets many more people invovled and many more eyes on to prevent bugs.
+4. It is recommended to resolve merge conflicts file by file. So developers can take on a specific file, fix merge conflicts, make the commit, and have others review it. It gets many more people involved and many more eyes on to prevent bugs. Think of it as taking one bite out of the elephant at a time. Take things file by file, commit by commit, merge conflict by merge conflict. The more it is broken down, the easier it is for others to help and to reflect back on later when issues arise.
 
 Key Areas to look out for Merge Conflict / Compiler Bugs: 
 
@@ -70,7 +66,7 @@ Key Areas to look out for Merge Conflict / Compiler Bugs:
 	* Copyrights (Make sure Bitcoin devs still get all credit they deserve)
 	* Dandelion Related Code
 	
-5. Once all merge conflicts are resolved it's time to get the codebase compiling. If the merge has been done methodically and precisely you might get things to compile first try. However, this has never happened in the past and you will inevitably have compiler errors to fix.
+5. Once all merge conflicts are resolved it's time to get the codebase compiling. If the merge has been done methodically and precisely you might get things to compile first try. However, this has never happened in the past and you will inevitably have many compiler errors to fix.
 
 6. Go error by error and fix each compiler bug and make a commit that clearly explains what was wrong and how it was fixed and how it was broken in the merge. This will help educate everyone else on what to look out for in the future and if there were any other major changes Bitcoin made that break other things in DGB.
 
