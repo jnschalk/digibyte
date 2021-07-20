@@ -47,12 +47,14 @@ Part 1: Pre-Merge Setup (Managed from Source Tree GUI to save time)
 Part 2: The Merge & Merge Conflicts Resolution (The Fun Part)
 ----------------------------------------------------------------
 
-1.  Select Current DigiByte version as default branch, merge the renamed bitcoin branch you just worked on into DGB core. There will be 1000's of merge conflicts to go through. This is where it is of utmost importance to take your time and go line by line and know what you are changing. Very easy to make a mistake here. Here will be the trouble areas to watch out for. It is important the entire merge with all merge conflicts is committed in 1 commit first so anyone can reflect back on it before any merge conflicts are resolved. The idea is to break don't merge resolutions into specific commits in a detailed methodical manner.
+1.  Select Current DigiByte version as default branch, merge the renamed bitcoin branch you just worked on into DGB core. There will be 1000's of merge conflicts to go through. This is where it is of utmost importance to take your time and go line by line and know what you are changing. Very easy to make a mistake here. Here will be the trouble areas to watch out for. It is important the entire merge with all merge conflicts is committed in 1 commit first so anyone can reflect back on it before any merge conflicts are resolved. The idea is to break down merge resolutions into specific commits in a detailed methodical manner.
 
 
 2.  Document & note every merge conflict of importance for future reference to look back on what has changed. Useful to learn updates, refactoring, and important changes that can be used to identify bugs when compiling or later on. There will be thousands of trivial name, date, documentation, and other non-essential merge conflicts. Go after these first.
 
-3. Save all questionable merge conflicts till the end of this process, so everyone has a chance to review together. Typically this has only been a few hundred in times past.
+3. Save all questionable merge conflicts till the end of this process, so everyone has a chance to review together. Typically this has only been a few hundred critical merge conflicts in past mass merges.
+
+4. It is reccomended to resolve merge conflicts file by file. So developers can take on specific file, fix merge conflicts, make the commit and have others review it. It gets many more people invovled and many more eyes on to prevent bugs.
 
 Key Areas to look out for Merge Conflict / Compiler Bugs: 
 
@@ -67,5 +69,13 @@ Key Areas to look out for Merge Conflict / Compiler Bugs:
 	* Logos, Icons, and media files, css files.
 	* Copyrights (Make sure Bitcoin devs still get all credit they deserve)
 	* Dandelion Related Code
+	
+5. Once all merge conflicts are resolved it's time to get the codebase compiling. If the merge has been done methodically and precisely you might get things to compile first try. However, this has never happened in the past and you will inevitably have compiler errors to fix.
+
+6. Go error by error and fix each compiler bug and make a commit that clearly explains what was wrong and how it was fixed and how it was broken in the merge. This will help educate everyone else on what to look out for in the future and if there were any other major changes Bitcoin made that break other things in DGB.
+
+7. Once the client is compiling from the command line, now try the GUI and test, test and test some more. Now it's time to get gitian building working.
+
+8. Now that you have a compiling upgraded version of DGB core, pat everyone on the back and go enjoy an ice-cold beer and celebrate.
 	
 
