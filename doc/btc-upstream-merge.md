@@ -48,7 +48,7 @@ Part 2: The Merge & Merge Conflicts Resolution (The Fun Part)
 
 2.  Document & note every merge conflict of importance for future reference to look back on what has changed. Useful to learn updates, refactoring, and important changes that can be used to identify bugs when compiling or later on. There will be thousands of trivial name, date, documentation, and other non-essential merge conflicts. Go after these first.
 
-2.5 Commit Title recommendations. Label commits starting with the 3 phases "PRE-MERGE:" "MERGE:" & and "COMPILER-FIX:" then include the names of files, the entire folder (if done folder by folder) or the type of functionality changing "Consensus, MultiAlgo, Subsidy, etc."
+2.5 Commit Title recommendations for organization. Idea is to leave a record easy for anyone to look back on later to see any potential merge issues that have been missed. Label commits starting with the 3 phases "PRE-MERGE:" "MERGE:" & and "COMPILER-FIX:" then include the names of files, the entire folder (if done folder by folder) or the type of functionality changing "Consensus, MultiAlgo, Subsidy, etc."
 
 3. Save all questionable merge conflicts till the end of this process, so everyone has a chance to review together. Typically this has only been a few hundred critical merge conflicts in past mass merges.
 
