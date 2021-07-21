@@ -10,18 +10,18 @@ BUILDDIR=${BUILDDIR:-$TOPDIR}
 BINDIR=${BINDIR:-$BUILDDIR/src}
 MANDIR=${MANDIR:-$TOPDIR/doc/man}
 
-BITCOIND=${BITCOIND:-$BINDIR/digibyted}
-BITCOINCLI=${BITCOINCLI:-$BINDIR/digibyte-cli}
-BITCOINTX=${BITCOINTX:-$BINDIR/digibyte-tx}
+DIGIBYTED=${DIGIBYTED:-$BINDIR/digibyted}
+DIGIBYTECLI=${DIGIBYTECLI:-$BINDIR/digibyte-cli}
+DIGIBYTETX=${DIGIBYTETX:-$BINDIR/digibyte-tx}
 WALLET_TOOL=${WALLET_TOOL:-$BINDIR/digibyte-wallet}
-BITCOINUTIL=${BITCOINQT:-$BINDIR/digibyte-util}
-BITCOINQT=${BITCOINQT:-$BINDIR/qt/digibyte-qt}
+DIGIBYTEUTIL=${DIGIBYTEQT:-$BINDIR/digibyte-util}
+DIGIBYTEQT=${DIGIBYTEQT:-$BINDIR/qt/digibyte-qt}
 
-[ ! -x $BITCOIND ] && echo "$BITCOIND not found or not executable." && exit 1
+[ ! -x $DIGIBYTED ] && echo "$DIGIBYTED not found or not executable." && exit 1
 
 # Don't allow man pages to be generated for binaries built from a dirty tree
 DIRTY=""
-for cmd in $BITCOIND $BITCOINCLI $BITCOINTX $WALLET_TOOL $BITCOINUTIL $BITCOINQT; do
+for cmd in $DIGIBYTED $DIGIBYTECLI $DIGIBYTETX $WALLET_TOOL $DIGIBYTEUTIL $DIGIBYTEQT; do
   VERSION_OUTPUT=$($cmd --version)
   if [[ $VERSION_OUTPUT == *"dirty"* ]]; then
     DIRTY="${DIRTY}${cmd}\n"
@@ -36,15 +36,15 @@ then
 fi
 
 # The autodetected version git tag can screw up manpage output a little bit
-read -r -a DGBVER <<< "$($BITCOINCLI --version | head -n1 | awk -F'[ -]' '{ print $6, $7 }')"
+read -r -a DGBVER <<< "$($DIGIBYTECLI --version | head -n1 | awk -F'[ -]' '{ print $6, $7 }')"
 
 # Create a footer file with copyright content.
 # This gets autodetected fine for digibyted if --version-string is not set,
 # but has different outcomes for digibyte-qt and digibyte-cli.
 echo "[COPYRIGHT]" > footer.h2m
-$BITCOIND --version | sed -n '1!p' >> footer.h2m
+$DIGIBYTED --version | sed -n '1!p' >> footer.h2m
 
-for cmd in $BITCOIND $BITCOINCLI $BITCOINTX $WALLET_TOOL $BITCOINUTIL $BITCOINQT; do
+for cmd in $DIGIBYTED $DIGIBYTECLI $DIGIBYTETX $WALLET_TOOL $DIGIBYTEUTIL $DIGIBYTEQT; do
   cmdname="${cmd##*/}"
   help2man -N --version-string=${DGBVER[0]} --include=footer.h2m -o ${MANDIR}/${cmdname}.1 ${cmd}
   sed -i "s/\\\-${DGBVER[1]}//g" ${MANDIR}/${cmdname}.1

@@ -371,7 +371,7 @@ def main():
 
     logging.debug("Temporary test directory at %s" % tmpdir)
 
-    enable_digibyted = config["components"].getboolean("ENABLE_BITCOIND")
+    enable_digibyted = config["components"].getboolean("ENABLE_DIGIBYTED")
 
     if not enable_digibyted:
         print("No functional tests to run.")

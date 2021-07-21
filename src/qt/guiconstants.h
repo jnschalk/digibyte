@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_GUICONSTANTS_H
-#define BITCOIN_QT_GUICONSTANTS_H
+#ifndef DIGIBYTE_QT_GUICONSTANTS_H
+#define DIGIBYTE_QT_GUICONSTANTS_H
 
 #include <cstdint>
 
@@ -55,4 +55,4 @@ static constexpr uint64_t GB_BYTES{1000000000};
 // Default prune target displayed in GUI.
 static constexpr int DEFAULT_PRUNE_TARGET_GB{2};
 
-#endif // BITCOIN_QT_GUICONSTANTS_H
+#endif // DIGIBYTE_QT_GUICONSTANTS_H

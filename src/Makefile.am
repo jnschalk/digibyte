@@ -24,42 +24,42 @@ else
 LIBUNIVALUE = $(UNIVALUE_LIBS)
 endif
 
-BITCOIN_INCLUDES=-I$(builddir) -I$(srcdir)/secp256k1/include $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
+DIGIBYTE_INCLUDES=-I$(builddir) -I$(srcdir)/secp256k1/include $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
 
-BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
+DIGIBYTE_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBBITCOIN_SERVER=libdigibyte_server.a
-LIBBITCOIN_COMMON=libdigibyte_common.a
-LIBBITCOIN_CONSENSUS=libdigibyte_consensus.a
-LIBBITCOIN_CLI=libdigibyte_cli.a
-LIBBITCOIN_UTIL=libdigibyte_util.a
-LIBBITCOIN_CRYPTO_BASE=crypto/libdigibyte_crypto_base.a
-LIBBITCOINQT=qt/libdigibyteqt.a
+LIBDIGIBYTE_SERVER=libdigibyte_server.a
+LIBDIGIBYTE_COMMON=libdigibyte_common.a
+LIBDIGIBYTE_CONSENSUS=libdigibyte_consensus.a
+LIBDIGIBYTE_CLI=libdigibyte_cli.a
+LIBDIGIBYTE_UTIL=libdigibyte_util.a
+LIBDIGIBYTE_CRYPTO_BASE=crypto/libdigibyte_crypto_base.a
+LIBDIGIBYTEQT=qt/libdigibyteqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBBITCOIN_ZMQ=libdigibyte_zmq.a
+LIBDIGIBYTE_ZMQ=libdigibyte_zmq.a
 endif
-if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libdigibyteconsensus.la
+if BUILD_DIGIBYTE_LIBS
+LIBDIGIBYTECONSENSUS=libdigibyteconsensus.la
 endif
 if ENABLE_WALLET
-LIBBITCOIN_WALLET=libdigibyte_wallet.a
-LIBBITCOIN_WALLET_TOOL=libdigibyte_wallet_tool.a
+LIBDIGIBYTE_WALLET=libdigibyte_wallet.a
+LIBDIGIBYTE_WALLET_TOOL=libdigibyte_wallet_tool.a
 endif
 
-LIBBITCOIN_CRYPTO= $(LIBBITCOIN_CRYPTO_BASE)
+LIBDIGIBYTE_CRYPTO= $(LIBDIGIBYTE_CRYPTO_BASE)
 if ENABLE_SSE41
-LIBBITCOIN_CRYPTO_SSE41 = crypto/libdigibyte_crypto_sse41.a
-LIBBITCOIN_CRYPTO += $(LIBBITCOIN_CRYPTO_SSE41)
+LIBDIGIBYTE_CRYPTO_SSE41 = crypto/libdigibyte_crypto_sse41.a
+LIBDIGIBYTE_CRYPTO += $(LIBDIGIBYTE_CRYPTO_SSE41)
 endif
 if ENABLE_AVX2
-LIBBITCOIN_CRYPTO_AVX2 = crypto/libdigibyte_crypto_avx2.a
-LIBBITCOIN_CRYPTO += $(LIBBITCOIN_CRYPTO_AVX2)
+LIBDIGIBYTE_CRYPTO_AVX2 = crypto/libdigibyte_crypto_avx2.a
+LIBDIGIBYTE_CRYPTO += $(LIBDIGIBYTE_CRYPTO_AVX2)
 endif
 if ENABLE_SHANI
-LIBBITCOIN_CRYPTO_SHANI = crypto/libdigibyte_crypto_shani.a
-LIBBITCOIN_CRYPTO += $(LIBBITCOIN_CRYPTO_SHANI)
+LIBDIGIBYTE_CRYPTO_SHANI = crypto/libdigibyte_crypto_shani.a
+LIBDIGIBYTE_CRYPTO += $(LIBDIGIBYTE_CRYPTO_SHANI)
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*.h) $(wildcard secp256k1/src/*.c) $(wildcard secp256k1/include/*)
@@ -68,53 +68,53 @@ $(LIBSECP256K1): $(wildcard secp256k1/src/*.h) $(wildcard secp256k1/src/*.c) $(w
 # Make is not made aware of per-object dependencies to avoid limiting building parallelization
 # But to build the less dependent modules first, we manually select their order here:
 EXTRA_LIBRARIES += \
-  $(LIBBITCOIN_CRYPTO) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_CONSENSUS) \
-  $(LIBBITCOIN_SERVER) \
-  $(LIBBITCOIN_CLI) \
-  $(LIBBITCOIN_IPC) \
-  $(LIBBITCOIN_WALLET) \
-  $(LIBBITCOIN_WALLET_TOOL) \
-  $(LIBBITCOIN_ZMQ)
+  $(LIBDIGIBYTE_CRYPTO) \
+  $(LIBDIGIBYTE_UTIL) \
+  $(LIBDIGIBYTE_COMMON) \
+  $(LIBDIGIBYTE_CONSENSUS) \
+  $(LIBDIGIBYTE_SERVER) \
+  $(LIBDIGIBYTE_CLI) \
+  $(LIBDIGIBYTE_IPC) \
+  $(LIBDIGIBYTE_WALLET) \
+  $(LIBDIGIBYTE_WALLET_TOOL) \
+  $(LIBDIGIBYTE_ZMQ)
 
-lib_LTLIBRARIES = $(LIBBITCOINCONSENSUS)
+lib_LTLIBRARIES = $(LIBDIGIBYTECONSENSUS)
 
 bin_PROGRAMS =
 noinst_PROGRAMS =
 TESTS =
 BENCHMARKS =
 
-if BUILD_BITCOIND
+if BUILD_DIGIBYTED
   bin_PROGRAMS += digibyted
 endif
 
-if BUILD_BITCOIN_NODE
+if BUILD_DIGIBYTE_NODE
   bin_PROGRAMS += digibyte-node
 endif
 
-if BUILD_BITCOIN_CLI
+if BUILD_DIGIBYTE_CLI
   bin_PROGRAMS += digibyte-cli
 endif
 
-if BUILD_BITCOIN_TX
+if BUILD_DIGIBYTE_TX
   bin_PROGRAMS += digibyte-tx
 endif
 
 if ENABLE_WALLET
-if BUILD_BITCOIN_WALLET
+if BUILD_DIGIBYTE_WALLET
   bin_PROGRAMS += digibyte-wallet
 endif
 endif
 
-if BUILD_BITCOIN_UTIL
+if BUILD_DIGIBYTE_UTIL
   bin_PROGRAMS += digibyte-util
 endif
 
 .PHONY: FORCE check-symbols check-security
 # digibyte core #
-BITCOIN_CORE_H = \
+DIGIBYTE_CORE_H = \
   addrdb.h \
   addrman.h \
   attributes.h \
@@ -318,7 +318,7 @@ ipc/capnp/libdigibyte_ipc_a-ipc.$(OBJEXT): $(libdigibyte_ipc_mpgen_input:=.h)
 # Contains code accessing mempool and chain state that is meant to be separated
 # from wallet and gui code (see node/README.md). Shared code should go in
 # libdigibyte_common or libdigibyte_util libraries, instead.
-libdigibyte_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(NATPMP_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libdigibyte_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(NATPMP_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libdigibyte_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_server_a_SOURCES = \
   addrdb.cpp \
@@ -376,7 +376,7 @@ libdigibyte_server_a_SOURCES = \
   validation.cpp \
   validationinterface.cpp \
   versionbits.cpp \
-  $(BITCOIN_CORE_H)
+  $(DIGIBYTE_CORE_H)
 
 if ENABLE_WALLET
 libdigibyte_server_a_SOURCES += wallet/init.cpp
@@ -386,7 +386,7 @@ libdigibyte_server_a_SOURCES += dummywallet.cpp
 endif
 
 if ENABLE_ZMQ
-libdigibyte_zmq_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
+libdigibyte_zmq_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(ZMQ_CFLAGS)
 libdigibyte_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
@@ -399,7 +399,7 @@ endif
 
 # wallet: shared between digibyted and digibyte-qt, but only linked
 # when wallet enabled
-libdigibyte_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(SQLITE_CFLAGS)
+libdigibyte_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(SQLITE_CFLAGS)
 libdigibyte_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_wallet_a_SOURCES = \
   wallet/coincontrol.cpp \
@@ -422,7 +422,7 @@ libdigibyte_wallet_a_SOURCES = \
   wallet/walletdb.cpp \
   wallet/walletutil.cpp \
   wallet/coinselection.cpp \
-  $(BITCOIN_CORE_H)
+  $(DIGIBYTE_CORE_H)
 
 if USE_SQLITE
 libdigibyte_wallet_a_SOURCES += wallet/sqlite.cpp
@@ -431,11 +431,11 @@ if USE_BDB
 libdigibyte_wallet_a_SOURCES += wallet/bdb.cpp wallet/salvage.cpp
 endif
 
-libdigibyte_wallet_tool_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libdigibyte_wallet_tool_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 libdigibyte_wallet_tool_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_wallet_tool_a_SOURCES = \
   wallet/wallettool.cpp \
-  $(BITCOIN_CORE_H)
+  $(DIGIBYTE_CORE_H)
 
 # crypto primitives library
 crypto_libdigibyte_crypto_base_a_CPPFLAGS = $(AM_CPPFLAGS)
@@ -494,7 +494,7 @@ crypto_libdigibyte_crypto_shani_a_CPPFLAGS += -DENABLE_SHANI
 crypto_libdigibyte_crypto_shani_a_SOURCES = crypto/sha256_shani.cpp
 
 # consensus: shared between all executables that validate any consensus rules.
-libdigibyte_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libdigibyte_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 libdigibyte_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_consensus_a_SOURCES = \
   amount.h \
@@ -531,7 +531,7 @@ libdigibyte_consensus_a_SOURCES = \
   version.h
 
 # common: shared between digibyted, and digibyte-qt and non-server tools
-libdigibyte_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libdigibyte_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 libdigibyte_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_common_a_SOURCES = \
   base58.cpp \
@@ -565,12 +565,12 @@ libdigibyte_common_a_SOURCES = \
   script/signingprovider.cpp \
   script/standard.cpp \
   warnings.cpp \
-  $(BITCOIN_CORE_H)
+  $(DIGIBYTE_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libdigibyte_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libdigibyte_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 libdigibyte_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_util_a_SOURCES = \
   support/lockedpool.cpp \
@@ -611,7 +611,7 @@ libdigibyte_util_a_SOURCES = \
   util/string.cpp \
   util/time.cpp \
   util/tokenpipe.cpp \
-  $(BITCOIN_CORE_H)
+  $(DIGIBYTE_CORE_H)
 
 if USE_LIBEVENT
 libdigibyte_util_a_SOURCES += util/url.cpp
@@ -623,20 +623,20 @@ AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
 # cli: shared between digibyte-cli and digibyte-qt
-libdigibyte_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libdigibyte_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 libdigibyte_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_cli_a_SOURCES = \
   compat/stdin.h \
   compat/stdin.cpp \
   rpc/client.cpp \
-  $(BITCOIN_CORE_H)
+  $(DIGIBYTE_CORE_H)
 
 nodist_libdigibyte_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # digibyted & digibyte-node binaries #
 digibyte_daemon_sources = digibyted.cpp
-digibyte_bin_cppflags = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+digibyte_bin_cppflags = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 digibyte_bin_cxxflags = $(AM_CXXFLAGS) $(PIE_FLAGS)
 digibyte_bin_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
@@ -645,13 +645,13 @@ digibyte_daemon_sources += digibyted-res.rc
 endif
 
 digibyte_bin_ldadd = \
-  $(LIBBITCOIN_WALLET) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
+  $(LIBDIGIBYTE_WALLET) \
+  $(LIBDIGIBYTE_COMMON) \
+  $(LIBDIGIBYTE_UTIL) \
   $(LIBUNIVALUE) \
-  $(LIBBITCOIN_ZMQ) \
-  $(LIBBITCOIN_CONSENSUS) \
-  $(LIBBITCOIN_CRYPTO) \
+  $(LIBDIGIBYTE_ZMQ) \
+  $(LIBDIGIBYTE_CONSENSUS) \
+  $(LIBDIGIBYTE_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBLEVELDB_SSE42) \
   $(LIBMEMENV) \
@@ -663,17 +663,17 @@ digibyted_SOURCES = $(digibyte_daemon_sources) init/digibyted.cpp
 digibyted_CPPFLAGS = $(digibyte_bin_cppflags)
 digibyted_CXXFLAGS = $(digibyte_bin_cxxflags)
 digibyted_LDFLAGS = $(digibyte_bin_ldflags)
-digibyted_LDADD = $(LIBBITCOIN_SERVER) $(digibyte_bin_ldadd)
+digibyted_LDADD = $(LIBDIGIBYTE_SERVER) $(digibyte_bin_ldadd)
 
 digibyte_node_SOURCES = $(digibyte_daemon_sources) init/digibyte-node.cpp
 digibyte_node_CPPFLAGS = $(digibyte_bin_cppflags)
 digibyte_node_CXXFLAGS = $(digibyte_bin_cxxflags)
 digibyte_node_LDFLAGS = $(digibyte_bin_ldflags)
-digibyte_node_LDADD = $(LIBBITCOIN_SERVER) $(digibyte_bin_ldadd) $(LIBBITCOIN_IPC) $(LIBMULTIPROCESS_LIBS)
+digibyte_node_LDADD = $(LIBDIGIBYTE_SERVER) $(digibyte_bin_ldadd) $(LIBDIGIBYTE_IPC) $(LIBMULTIPROCESS_LIBS)
 
 # digibyte-cli binary #
 digibyte_cli_SOURCES = digibyte-cli.cpp
-digibyte_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+digibyte_cli_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(EVENT_CFLAGS)
 digibyte_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 digibyte_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
@@ -682,17 +682,17 @@ digibyte_cli_SOURCES += digibyte-cli-res.rc
 endif
 
 digibyte_cli_LDADD = \
-  $(LIBBITCOIN_CLI) \
+  $(LIBDIGIBYTE_CLI) \
   $(LIBUNIVALUE) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO)
+  $(LIBDIGIBYTE_UTIL) \
+  $(LIBDIGIBYTE_CRYPTO)
 
 digibyte_cli_LDADD += $(BOOST_LIBS) $(EVENT_LIBS)
 #
 
 # digibyte-tx binary #
 digibyte_tx_SOURCES = digibyte-tx.cpp
-digibyte_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+digibyte_tx_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 digibyte_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 digibyte_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
@@ -702,10 +702,10 @@ endif
 
 digibyte_tx_LDADD = \
   $(LIBUNIVALUE) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CONSENSUS) \
-  $(LIBBITCOIN_CRYPTO) \
+  $(LIBDIGIBYTE_COMMON) \
+  $(LIBDIGIBYTE_UTIL) \
+  $(LIBDIGIBYTE_CONSENSUS) \
+  $(LIBDIGIBYTE_CRYPTO) \
   $(LIBSECP256K1)
 
 digibyte_tx_LDADD += $(BOOST_LIBS)
@@ -716,7 +716,7 @@ digibyte_wallet_SOURCES = digibyte-wallet.cpp
 digibyte_wallet_CPPFLAGS = $(digibyte_bin_cppflags)
 digibyte_wallet_CXXFLAGS = $(digibyte_bin_cxxflags)
 digibyte_wallet_LDFLAGS = $(digibyte_bin_ldflags)
-digibyte_wallet_LDADD = $(LIBBITCOIN_WALLET_TOOL) $(digibyte_bin_ldadd)
+digibyte_wallet_LDADD = $(LIBDIGIBYTE_WALLET_TOOL) $(digibyte_bin_ldadd)
 
 if TARGET_WINDOWS
 digibyte_wallet_SOURCES += digibyte-wallet-res.rc
@@ -725,7 +725,7 @@ endif
 
 # digibyte-util binary #
 digibyte_util_SOURCES = digibyte-util.cpp
-digibyte_util_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+digibyte_util_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 digibyte_util_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 digibyte_util_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
@@ -734,18 +734,18 @@ digibyte_util_SOURCES += digibyte-util-res.rc
 endif
 
 digibyte_util_LDADD = \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
+  $(LIBDIGIBYTE_COMMON) \
+  $(LIBDIGIBYTE_UTIL) \
   $(LIBUNIVALUE) \
-  $(LIBBITCOIN_CONSENSUS) \
-  $(LIBBITCOIN_CRYPTO) \
+  $(LIBDIGIBYTE_CONSENSUS) \
+  $(LIBDIGIBYTE_CRYPTO) \
   $(LIBSECP256K1)
 
 digibyte_util_LDADD += $(BOOST_LIBS)
 #
 
 # digibyteconsensus library #
-if BUILD_BITCOIN_LIBS
+if BUILD_DIGIBYTE_LIBS
 include_HEADERS = script/digibyteconsensus.h
 libdigibyteconsensus_la_SOURCES = support/cleanse.cpp $(crypto_libdigibyte_crypto_base_a_SOURCES) $(libdigibyte_consensus_a_SOURCES)
 
@@ -755,7 +755,7 @@ endif
 
 libdigibyteconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
 libdigibyteconsensus_la_LIBADD = $(LIBSECP256K1)
-libdigibyteconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libdigibyteconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_DIGIBYTE_INTERNAL
 libdigibyteconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
@@ -840,7 +840,7 @@ EXTRA_DIST += $(libdigibyte_ipc_mpgen_input)
 %.capnp:
 
 if BUILD_MULTIPROCESS
-LIBBITCOIN_IPC=libdigibyte_ipc.a
+LIBDIGIBYTE_IPC=libdigibyte_ipc.a
 libdigibyte_ipc_a_SOURCES = \
   ipc/capnp/init-types.h \
   ipc/capnp/protocol.cpp \
@@ -850,7 +850,7 @@ libdigibyte_ipc_a_SOURCES = \
   ipc/process.cpp \
   ipc/process.h \
   ipc/protocol.h
-libdigibyte_ipc_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libdigibyte_ipc_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 libdigibyte_ipc_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(LIBMULTIPROCESS_CFLAGS)
 
 include $(MPGEN_PREFIX)/include/mpgen.mk

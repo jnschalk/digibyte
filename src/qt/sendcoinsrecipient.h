@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_SENDCOINSRECIPIENT_H
-#define BITCOIN_QT_SENDCOINSRECIPIENT_H
+#ifndef DIGIBYTE_QT_SENDCOINSRECIPIENT_H
+#define DIGIBYTE_QT_SENDCOINSRECIPIENT_H
 
 #if defined(HAVE_CONFIG_H)
 #include <config/digibyte-config.h>
@@ -62,4 +62,4 @@ public:
     }
 };
 
-#endif // BITCOIN_QT_SENDCOINSRECIPIENT_H
+#endif // DIGIBYTE_QT_SENDCOINSRECIPIENT_H

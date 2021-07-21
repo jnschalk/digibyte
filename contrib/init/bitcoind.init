@@ -19,14 +19,14 @@ fi
 RETVAL=0
 
 prog=digibyted
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/digibyted
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/digibyted}
+# you can override the lockfile via DIGIBYTED_LOCKFILE in /etc/sysconfig/digibyted
+lockfile=${DIGIBYTED_LOCKFILE-/var/lock/subsys/digibyted}
 
-# digibyted defaults to /usr/bin/digibyted, override with BITCOIND_BIN
-digibyted=${BITCOIND_BIN-/usr/bin/digibyted}
+# digibyted defaults to /usr/bin/digibyted, override with DIGIBYTED_BIN
+digibyted=${DIGIBYTED_BIN-/usr/bin/digibyted}
 
-# digibyted opts default to -disablewallet, override with BITCOIND_OPTS
-digibyted_opts=${BITCOIND_OPTS--disablewallet}
+# digibyted opts default to -disablewallet, override with DIGIBYTED_OPTS
+digibyted_opts=${DIGIBYTED_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "

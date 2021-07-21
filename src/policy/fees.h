@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2020 The DigiByte Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef BITCOIN_POLICY_FEES_H
-#define BITCOIN_POLICY_FEES_H
+#ifndef DIGIBYTE_POLICY_FEES_H
+#define DIGIBYTE_POLICY_FEES_H
 
 #include <amount.h>
 #include <policy/feerate.h>
@@ -291,4 +291,4 @@ private:
     FastRandomContext insecure_rand;
 };
 
-#endif // BITCOIN_POLICY_FEES_H
+#endif // DIGIBYTE_POLICY_FEES_H

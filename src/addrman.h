@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_ADDRMAN_H
-#define BITCOIN_ADDRMAN_H
+#ifndef DIGIBYTE_ADDRMAN_H
+#define DIGIBYTE_ADDRMAN_H
 
 #include <clientversion.h>
 #include <config/digibyte-config.h>
@@ -776,4 +776,4 @@ private:
     friend class CAddrManTest;
 };
 
-#endif // BITCOIN_ADDRMAN_H
+#endif // DIGIBYTE_ADDRMAN_H

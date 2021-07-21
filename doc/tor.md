@@ -1,4 +1,4 @@
-# TOR SUPPORT IN BITCOIN
+# TOR SUPPORT IN DIGIBYTE
 
 It is possible to run DigiByte Core as a Tor onion service, and connect to such services.
 

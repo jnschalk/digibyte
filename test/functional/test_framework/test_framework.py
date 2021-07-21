@@ -237,8 +237,8 @@ class DigiByteTestFramework(metaclass=DigiByteTestMetaClass):
             "src",
             "digibyte-cli" + config["environment"]["EXEEXT"],
         )
-        self.options.digibyted = os.getenv("BITCOIND", default=fname_digibyted)
-        self.options.digibytecli = os.getenv("BITCOINCLI", default=fname_digibytecli)
+        self.options.digibyted = os.getenv("DIGIBYTED", default=fname_digibyted)
+        self.options.digibytecli = os.getenv("DIGIBYTECLI", default=fname_digibytecli)
 
         os.environ['PATH'] = os.pathsep.join([
             os.path.join(config['environment']['BUILDDIR'], 'src'),

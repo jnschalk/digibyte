@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2020 The DigiByte Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef BITCOIN_BANMAN_H
-#define BITCOIN_BANMAN_H
+#ifndef DIGIBYTE_BANMAN_H
+#define DIGIBYTE_BANMAN_H
 
 #include <addrdb.h>
 #include <bloom.h>

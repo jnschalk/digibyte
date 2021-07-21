@@ -19,15 +19,15 @@ if test "x$PKG_CONFIG" = x; then
   AC_MSG_ERROR([pkg-config not found])
 fi
 
-BITCOIN_DAEMON_NAME=digibyted
-BITCOIN_GUI_NAME=digibyte-qt
-BITCOIN_CLI_NAME=digibyte-cli
-BITCOIN_TX_NAME=digibyte-tx
-BITCOIN_UTIL_NAME=digibyte-util
-BITCOIN_WALLET_TOOL_NAME=digibyte-wallet
+DIGIBYTE_DAEMON_NAME=digibyted
+DIGIBYTE_GUI_NAME=digibyte-qt
+DIGIBYTE_CLI_NAME=digibyte-cli
+DIGIBYTE_TX_NAME=digibyte-tx
+DIGIBYTE_UTIL_NAME=digibyte-util
+DIGIBYTE_WALLET_TOOL_NAME=digibyte-wallet
 dnl Multi Process
-BITCOIN_MP_NODE_NAME=digibyte-node
-BITCOIN_MP_GUI_NAME=digibyte-gui
+DIGIBYTE_MP_NODE_NAME=digibyte-node
+DIGIBYTE_MP_GUI_NAME=digibyte-gui
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])
@@ -37,9 +37,9 @@ fi
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef BITCOIN_CONFIG_H])
-AH_TOP([#define BITCOIN_CONFIG_H])
-AH_BOTTOM([#endif //BITCOIN_CONFIG_H])
+AH_TOP([#ifndef DIGIBYTE_CONFIG_H])
+AH_TOP([#define DIGIBYTE_CONFIG_H])
+AH_BOTTOM([#endif //DIGIBYTE_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
@@ -687,7 +687,7 @@ case $host in
 
          if test "x$use_bdb" != xno && $BREW list --versions berkeley-db4 >/dev/null && test "x$BDB_CFLAGS" = "x" && test "x$BDB_LIBS" = "x"; then
            bdb_prefix=$($BREW --prefix berkeley-db4 2>/dev/null)
-           dnl This must precede the call to BITCOIN_FIND_BDB48 below.
+           dnl This must precede the call to DIGIBYTE_FIND_BDB48 below.
            BDB_CFLAGS="-I$bdb_prefix/include"
            BDB_LIBS="-L$bdb_prefix/lib -ldb_cxx-4.8"
          fi
@@ -1293,10 +1293,10 @@ if test "x$enable_fuzz" = "xyes"; then
       */ int not_main() {
      ]])])
 else
-  BITCOIN_QT_INIT
+  DIGIBYTE_QT_INIT
 
   dnl sets $digibyte_enable_qt, $digibyte_enable_qt_test, $digibyte_enable_qt_dbus
-  BITCOIN_QT_CONFIGURE([5.9.5])
+  DIGIBYTE_QT_CONFIGURE([5.9.5])
 
   dnl Keep a copy of the original $QT_INCLUDES and use it when invoking qt's moc
   QT_INCLUDES_UNSUPPRESSED=$QT_INCLUDES
@@ -1312,7 +1312,7 @@ fi
 if test x$enable_wallet != xno; then
     dnl Check for libdb_cxx only if wallet enabled
     if test "x$use_bdb" != "xno"; then
-      BITCOIN_FIND_BDB48
+      DIGIBYTE_FIND_BDB48
       if test x$suppress_external_warnings != xno ; then
         BDB_CPPFLAGS=SUPPRESS_WARNINGS($BDB_CPPFLAGS)
       fi
@@ -1477,7 +1477,7 @@ fi
 dnl QR Code encoding library check
 
 if test "x$use_qr" != xno; then
-  BITCOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
+  DIGIBYTE_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
 fi
 
 dnl ZMQ check
@@ -1557,8 +1557,8 @@ else
 fi
 
 AM_CONDITIONAL([BUILD_MULTIPROCESS],[test "x$build_multiprocess" = xyes])
-AM_CONDITIONAL([BUILD_BITCOIN_NODE], [test "x$build_multiprocess" = xyes])
-AM_CONDITIONAL([BUILD_BITCOIN_GUI], [test "x$build_multiprocess" = xyes])
+AM_CONDITIONAL([BUILD_DIGIBYTE_NODE], [test "x$build_multiprocess" = xyes])
+AM_CONDITIONAL([BUILD_DIGIBYTE_GUI], [test "x$build_multiprocess" = xyes])
 
 dnl codegen tools check
 
@@ -1572,27 +1572,27 @@ if test x$build_multiprocess != xno; then
 fi
 
 AC_MSG_CHECKING([whether to build digibyted])
-AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_digibyted = xyes])
+AM_CONDITIONAL([BUILD_DIGIBYTED], [test x$build_digibyted = xyes])
 AC_MSG_RESULT($build_digibyted)
 
 AC_MSG_CHECKING([whether to build digibyte-cli])
-AM_CONDITIONAL([BUILD_BITCOIN_CLI], [test x$build_digibyte_cli = xyes])
+AM_CONDITIONAL([BUILD_DIGIBYTE_CLI], [test x$build_digibyte_cli = xyes])
 AC_MSG_RESULT($build_digibyte_cli)
 
 AC_MSG_CHECKING([whether to build digibyte-tx])
-AM_CONDITIONAL([BUILD_BITCOIN_TX], [test x$build_digibyte_tx = xyes])
+AM_CONDITIONAL([BUILD_DIGIBYTE_TX], [test x$build_digibyte_tx = xyes])
 AC_MSG_RESULT($build_digibyte_tx)
 
 AC_MSG_CHECKING([whether to build digibyte-wallet])
-AM_CONDITIONAL([BUILD_BITCOIN_WALLET], [test x$build_digibyte_wallet = xyes])
+AM_CONDITIONAL([BUILD_DIGIBYTE_WALLET], [test x$build_digibyte_wallet = xyes])
 AC_MSG_RESULT($build_digibyte_wallet)
 
 AC_MSG_CHECKING([whether to build digibyte-util])
-AM_CONDITIONAL([BUILD_BITCOIN_UTIL], [test x$build_digibyte_util = xyes])
+AM_CONDITIONAL([BUILD_DIGIBYTE_UTIL], [test x$build_digibyte_util = xyes])
 AC_MSG_RESULT($build_digibyte_util)
 
 AC_MSG_CHECKING([whether to build libraries])
-AM_CONDITIONAL([BUILD_BITCOIN_LIBS], [test x$build_digibyte_libs = xyes])
+AM_CONDITIONAL([BUILD_DIGIBYTE_LIBS], [test x$build_digibyte_libs = xyes])
 if test x$build_digibyte_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
   AC_CONFIG_FILES([libdigibyteconsensus.pc:libdigibyteconsensus.pc.in])
@@ -1798,14 +1798,14 @@ AC_SUBST(COPYRIGHT_YEAR, _COPYRIGHT_YEAR)
 AC_SUBST(COPYRIGHT_HOLDERS, "_COPYRIGHT_HOLDERS")
 AC_SUBST(COPYRIGHT_HOLDERS_SUBSTITUTION, "_COPYRIGHT_HOLDERS_SUBSTITUTION")
 AC_SUBST(COPYRIGHT_HOLDERS_FINAL, "_COPYRIGHT_HOLDERS_FINAL")
-AC_SUBST(BITCOIN_DAEMON_NAME)
-AC_SUBST(BITCOIN_GUI_NAME)
-AC_SUBST(BITCOIN_CLI_NAME)
-AC_SUBST(BITCOIN_TX_NAME)
-AC_SUBST(BITCOIN_UTIL_NAME)
-AC_SUBST(BITCOIN_WALLET_TOOL_NAME)
-AC_SUBST(BITCOIN_MP_NODE_NAME)
-AC_SUBST(BITCOIN_MP_GUI_NAME)
+AC_SUBST(DIGIBYTE_DAEMON_NAME)
+AC_SUBST(DIGIBYTE_GUI_NAME)
+AC_SUBST(DIGIBYTE_CLI_NAME)
+AC_SUBST(DIGIBYTE_TX_NAME)
+AC_SUBST(DIGIBYTE_UTIL_NAME)
+AC_SUBST(DIGIBYTE_WALLET_TOOL_NAME)
+AC_SUBST(DIGIBYTE_MP_NODE_NAME)
+AC_SUBST(DIGIBYTE_MP_GUI_NAME)
 
 AC_SUBST(RELDFLAGS)
 AC_SUBST(DEBUG_CPPFLAGS)

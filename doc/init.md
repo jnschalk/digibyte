@@ -79,7 +79,7 @@ files out-of-the-box. This is because the command line options specified in the
 init files take precedence over the configurations in
 `/etc/digibyte/digibyte.conf`. However, some init systems have their own
 configuration mechanisms that would allow for overriding the command line
-options specified in the init files (e.g. setting `BITCOIND_DATADIR` for
+options specified in the init files (e.g. setting `DIGIBYTED_DATADIR` for
 OpenRC).
 
 ### macOS
@@ -125,7 +125,7 @@ use old versions of Upstart and do not supply the start-stop-daemon utility.
 Copy digibyted.init to /etc/init.d/digibyted. Test by running `service digibyted start`.
 
 Using this script, you can adjust the path and flags to the digibyted program by
-setting the BITCOIND and FLAGS environment variables in the file
+setting the DIGIBYTED and FLAGS environment variables in the file
 /etc/sysconfig/digibyted. You can also use the DAEMONOPTS environment variable here.
 
 ### macOS

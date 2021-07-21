@@ -1,9 +1,9 @@
 /* src/config/digibyte-config.h.  Generated from digibyte-config.h.in by configure.  */
 /* src/config/digibyte-config.h.in.  Generated from configure.ac by autoheader.  */
 
-#ifndef BITCOIN_CONFIG_H
+#ifndef DIGIBYTE_CONFIG_H
 
-#define BITCOIN_CONFIG_H
+#define DIGIBYTE_CONFIG_H
 
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
@@ -444,4 +444,4 @@
 /* Define for large files, on AIX-style hosts. */
 /* #undef _LARGE_FILES */
 
-#endif //BITCOIN_CONFIG_H
+#endif //DIGIBYTE_CONFIG_H

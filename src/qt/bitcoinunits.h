@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_BITCOINUNITS_H
-#define BITCOIN_QT_BITCOINUNITS_H
+#ifndef DIGIBYTE_QT_DIGIBYTEUNITS_H
+#define DIGIBYTE_QT_DIGIBYTEUNITS_H
 
 #include <amount.h>
 
@@ -111,4 +111,4 @@ private:
 };
 typedef DigiByteUnits::Unit DigiByteUnit;
 
-#endif // BITCOIN_QT_BITCOINUNITS_H
+#endif // DIGIBYTE_QT_DIGIBYTEUNITS_H
