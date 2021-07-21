@@ -66,7 +66,7 @@
         <translation>एड्रेस प्राप्त किए जा रहें हैं</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>भुगतान करने के लिए ये आपके बिटकॉइन एड्रेस हैं। कॉइन भेजने से पहले राशि और गंतव्य एड्रेस की हमेशा जाँच करें </translation>
     </message>
     <message>
@@ -248,7 +248,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>DigiByteGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>हस्ताक्षर और संदेश ...</translation>
@@ -319,7 +319,7 @@
         <translation>तिजोरी</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
+        <source>Send coins to a DigiByte address</source>
         <translation>इस पते पर बिटकौइन भेजें</translation>
     </message>
     <message>
@@ -464,7 +464,7 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>Bitcoin</source>
+        <source>DigiByte</source>
         <translation>बीटकोइन</translation>
     </message>
     <message>

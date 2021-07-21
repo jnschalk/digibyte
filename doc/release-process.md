@@ -92,7 +92,7 @@ Generate list of authors:
 
 ### Setup and perform Guix builds
 
-Checkout the Bitcoin Core version you'd like to build:
+Checkout the DigiByte Core version you'd like to build:
 
 ```sh
 pushd ./bitcoin
@@ -256,7 +256,7 @@ EOF
 
       - Install [golang](https://golang.org/doc/install)
 
-      - Install the new Bitcoin Core release
+      - Install the new DigiByte Core release
 
       - Run bitcoind on regtest
 
@@ -301,9 +301,9 @@ EOF
 
   - bitcoin-dev and bitcoin-core-dev mailing list
 
-  - Bitcoin Core announcements list https://bitcoincore.org/en/list/announcements/join/
+  - DigiByte Core announcements list https://bitcoincore.org/en/list/announcements/join/
 
-  - Bitcoin Core Twitter https://twitter.com/bitcoincoreorg
+  - DigiByte Core Twitter https://twitter.com/bitcoincoreorg
 
   - Celebrate
 

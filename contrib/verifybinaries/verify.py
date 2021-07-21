@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2020 The Bitcoin Core developers
+# Copyright (c) 2020 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Script for verifying Bitoin Core release binaries
@@ -131,7 +131,7 @@ def main(args):
         if retval == 1:
             print("Bad signature.")
         elif retval == 2:
-            print("gpg error. Do you have the Bitcoin Core binary release "
+            print("gpg error. Do you have the DigiByte Core binary release "
                   "signing key installed?")
         print("gpg output:")
         print(indent(output, '\t'))

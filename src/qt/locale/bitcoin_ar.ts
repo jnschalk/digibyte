@@ -66,11 +66,11 @@
         <translation>العنوان الرقمي المُرسَل إليه</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>هذه هي عناوين البيتكوين لإرسال المدفوعات. دائما تحقق من المبلغ وعنوان المستلم قبل الإرسال.</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.
+        <source>These are your DigiByte addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.
 Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>هذه هي عناوين بتكوين الخاصة بك لتلقي المدفوعات. استخدم الزر "إنشاء عنوان استلام جديد" في علامة تبويب الاستلام لإنشاء عناوين جديدة.
 التوقيع ممكن فقط مع عناوين من النوع "قديم".</translation>
@@ -250,7 +250,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>DigiByteGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>التوقيع و الرسائل</translation>
@@ -360,7 +360,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>%1 اتصال نشط بشبكة البيتكوين</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
+        <source>Send coins to a DigiByte address</source>
         <translation>ارسل عملات الى عنوان بيتكوين</translation>
     </message>
     <message>
@@ -396,12 +396,12 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>تشفير المفتاح الخاص بمحفظتك</translation>
     </message>
     <message>
-        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>وقَع الرسائل بواسطة ال: Bitcoin الخاص بك لإثبات امتلاكك لهم</translation>
+        <source>Sign messages with your DigiByte addresses to prove you own them</source>
+        <translation>وقَع الرسائل بواسطة ال: DigiByte الخاص بك لإثبات امتلاكك لهم</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>تحقق من الرسائل للتأكد من أنَها وُقعت برسائل Bitcoin محدَدة</translation>
+        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
+        <translation>تحقق من الرسائل للتأكد من أنَها وُقعت برسائل DigiByte محدَدة</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -480,7 +480,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>&amp; تحميل PSBT من ملف ...</translation>
     </message>
     <message>
-        <source>Load Partially Signed Bitcoin Transaction</source>
+        <source>Load Partially Signed DigiByte Transaction</source>
         <translation>تحميل معاملة بتكوين الموقعة جزئيًا</translation>
     </message>
     <message>
@@ -488,7 +488,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>تحميل PSBT من الحافظة ...</translation>
     </message>
     <message>
-        <source>Load Partially Signed Bitcoin Transaction from clipboard</source>
+        <source>Load Partially Signed DigiByte Transaction from clipboard</source>
         <translation>تحميل معاملة بتكوين الموقعة جزئيًا من الحافظة</translation>
     </message>
     <message>
@@ -536,7 +536,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>إغلاق جميع المحافظ ...</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
+        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
         <translation>بين اشارة المساعدة %1 للحصول على قائمة من خيارات اوامر البت كوين المحتملة </translation>
     </message>
     <message>
@@ -913,7 +913,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>تعديل عنوان الارسال</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Bitcoin address.</source>
+        <source>The entered address "%1" is not a valid DigiByte address.</source>
         <translation>العنوان المدخل "%1" ليس عنوان بيت كوين صحيح.</translation>
     </message>
     <message>
@@ -1010,7 +1010,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>استخدام دليل بيانات مخصص:</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
+        <source>DigiByte</source>
         <translation>بتكوين</translation>
     </message>
     <message>
@@ -1026,7 +1026,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>سيتم تخزين %1 جيجابايت تقريباً من البيانات في هذا الدليل.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the Bitcoin block chain.</source>
+        <source>%1 will download and store a copy of the DigiByte block chain.</source>
         <translation>سيقوم %1 بتنزيل نسخة من سلسلة كتل بتكوين وتخزينها.</translation>
     </message>
     <message>
@@ -1238,7 +1238,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>السماح بالاتصالات الواردة.</translation>
     </message>
     <message>
-        <source>Connect to the Bitcoin network through a SOCKS5 proxy.</source>
+        <source>Connect to the DigiByte network through a SOCKS5 proxy.</source>
         <translation>الاتصال بشبكة البتكوين عبر وكيل SOCKS5.</translation>
     </message>
     <message>
@@ -1314,7 +1314,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>ما اذا أردت إظهار ميزات التحكم في العملة أم لا.</translation>
     </message>
     <message>
-        <source>Connect to the Bitcoin network through a separate SOCKS5 proxy for Tor onion services.</source>
+        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor onion services.</source>
         <translation>اتصل بشبكة بتكوين من خلال وكيل SOCKS5 منفصل لخدمات Tor onion.</translation>
     </message>
     <message>
@@ -1389,7 +1389,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>نمودج</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
         <translation>قد تكون المعلومات المعروضة قديمة. تتزامن محفظتك تلقائيًا مع شبكة البتكوين بعد إنشاء الاتصال، ولكن هذه العملية لم تكتمل بعد.</translation>
     </message>
     <message>
@@ -1567,7 +1567,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>عنوان الدفع غير صالح %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
         <translation>لا يمكن تحليل العنوان (URI)! يمكن أن يحدث هذا بسبب عنوان بتكوين غير صالح أو معلمات عنوان (URI) غير صحيحة.</translation>
     </message>
     <message>
@@ -1609,7 +1609,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>مبلغ</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. %1)</source>
+        <source>Enter a DigiByte address (e.g. %1)</source>
         <translation>ادخل عنوان محفطة البتكوين (مثال %1)</translation>
     </message>
     <message>
@@ -2002,7 +2002,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>&amp;رسالة:</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Bitcoin network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
         <translation>رسالة اختيارية لإرفاقها بطلب الدفع، والتي سيتم عرضها عند فتح الطلب. ملاحظة: لن يتم إرسال الرسالة مع الدفعة عبر شبكة البتكوين.</translation>
     </message>
     <message>
@@ -2387,7 +2387,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>انتهاء صلاحية طلب الدفع.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
+        <source>Warning: Invalid DigiByte address</source>
         <translation>تحذير: عنوان بتكوين غير صالح</translation>
     </message>
     <message>
@@ -2422,7 +2422,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>اختر عنوانا مستخدم سابقا</translation>
     </message>
     <message>
-        <source>The Bitcoin address to send the payment to</source>
+        <source>The DigiByte address to send the payment to</source>
         <translation>عنوان البت كوين المرسل اليه الدفع</translation>
     </message>
     <message>
@@ -2470,7 +2470,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>أدخل تسمية لهذا العنوان لإضافته إلى قائمة العناوين المستخدمة</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
+        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
         <translation>الرسالة التي تم إرفاقها مع البتكوين: العنوان الذي سيتم تخزينه مع المعاملة للرجوع إليه. ملاحظة: لن يتم إرسال هذه الرسالة عبر شبكة البتكوين.</translation>
     </message>
     <message>
@@ -2504,7 +2504,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>&amp;توقيع الرسالة</translation>
     </message>
     <message>
-        <source>The Bitcoin address to sign the message with</source>
+        <source>The DigiByte address to sign the message with</source>
         <translation>عنوان البتكوين لتوقيع الرسالة به</translation>
     </message>
     <message>
@@ -2536,7 +2536,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>نسخ التوقيع الحالي إلى حافظة النظام</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Bitcoin address</source>
+        <source>Sign the message to prove you own this DigiByte address</source>
         <translation>وقع الرسالة لتثبت انك تمتلك عنوان البت كوين هذا</translation>
     </message>
     <message>
@@ -2556,11 +2556,11 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>&amp;تحقق رسالة</translation>
     </message>
     <message>
-        <source>The Bitcoin address the message was signed with</source>
+        <source>The DigiByte address the message was signed with</source>
         <translation>عنوان البتكوين الذي تم توقيع الرسالة به</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Bitcoin address</source>
+        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
         <translation>تحقق من الرسالة للتأكد من توقيعها مع عنوان البتكوين المحدد</translation>
     </message>
     <message>

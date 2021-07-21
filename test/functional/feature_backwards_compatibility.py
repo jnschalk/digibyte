@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2018-2020 The Bitcoin Core developers
+# Copyright (c) 2018-2020 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Backwards compatibility functional test
@@ -22,7 +22,7 @@ import os
 import shutil
 
 from test_framework.blocktools import COINBASE_MATURITY
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import DigiByteTestFramework
 from test_framework.descriptors import descsum_create
 
 from test_framework.util import (
@@ -31,7 +31,7 @@ from test_framework.util import (
 )
 
 
-class BackwardsCompatibilityTest(BitcoinTestFramework):
+class BackwardsCompatibilityTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 6
@@ -319,14 +319,14 @@ class BackwardsCompatibilityTest(BitcoinTestFramework):
 
         # Instead, we stop node and try to launch it with the wallet:
         self.stop_node(4)
-        node_v17.assert_start_raises_init_error(["-wallet=w3_v18"], "Error: Error loading w3_v18: Wallet requires newer version of Bitcoin Core")
+        node_v17.assert_start_raises_init_error(["-wallet=w3_v18"], "Error: Error loading w3_v18: Wallet requires newer version of DigiByte Core")
         if self.options.descriptors:
             # Descriptor wallets appear to be corrupted wallets to old software
             node_v17.assert_start_raises_init_error(["-wallet=w1"], "Error: wallet.dat corrupt, salvage failed")
             node_v17.assert_start_raises_init_error(["-wallet=w2"], "Error: wallet.dat corrupt, salvage failed")
             node_v17.assert_start_raises_init_error(["-wallet=w3"], "Error: wallet.dat corrupt, salvage failed")
         else:
-            node_v17.assert_start_raises_init_error(["-wallet=w3"], "Error: Error loading w3: Wallet requires newer version of Bitcoin Core")
+            node_v17.assert_start_raises_init_error(["-wallet=w3"], "Error: Error loading w3: Wallet requires newer version of DigiByte Core")
         self.start_node(4)
 
         if not self.options.descriptors:
@@ -356,7 +356,7 @@ class BackwardsCompatibilityTest(BitcoinTestFramework):
 
         if self.is_bdb_compiled():
             # Old wallets are BDB and will only work if BDB is compiled
-            # Copy the 0.16 wallet to the last Bitcoin Core version and open it:
+            # Copy the 0.16 wallet to the last DigiByte Core version and open it:
             shutil.copyfile(
                 os.path.join(node_v16_wallets_dir, "wallets/u1_v16"),
                 os.path.join(node_master_wallets_dir, "u1_v16")
@@ -380,7 +380,7 @@ class BackwardsCompatibilityTest(BitcoinTestFramework):
             info = wallet.validateaddress(v16_addr)
             assert_equal(info, v16_info)
 
-            # Copy the 0.17 wallet to the last Bitcoin Core version and open it:
+            # Copy the 0.17 wallet to the last DigiByte Core version and open it:
             node_v17.unloadwallet("u1_v17")
             shutil.copytree(
                 os.path.join(node_v17_wallets_dir, "u1_v17"),
@@ -404,7 +404,7 @@ class BackwardsCompatibilityTest(BitcoinTestFramework):
             info = wallet.getaddressinfo(address)
             assert_equal(info, v17_info)
 
-            # Copy the 0.19 wallet to the last Bitcoin Core version and open it:
+            # Copy the 0.19 wallet to the last DigiByte Core version and open it:
             shutil.copytree(
                 os.path.join(node_v19_wallets_dir, "w1_v19"),
                 os.path.join(node_master_wallets_dir, "w1_v19")

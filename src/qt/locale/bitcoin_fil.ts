@@ -66,8 +66,8 @@
         <translation>Mga address na tatanggap</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Ito ang iyong mga Bitcoin address para sa pagpapadala ng bayad. Laging suriin ang halaga at ang address na tatanggap bago magpadala ng coins.</translation>
+        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Ito ang iyong mga DigiByte address para sa pagpapadala ng bayad. Laging suriin ang halaga at ang address na tatanggap bago magpadala ng coins.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -248,7 +248,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>DigiByteGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Pirmahan ang mensahe...</translation>
@@ -358,8 +358,8 @@
         <translation>Ang proxy ay &lt;b&gt;pinagana&lt;/b&gt;: %1</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
-        <translation>Magpadala ng coins sa Bitcoin address</translation>
+        <source>Send coins to a DigiByte address</source>
+        <translation>Magpadala ng coins sa DigiByte address</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -394,12 +394,12 @@
         <translation>I-encrypt ang private keys na kabilang sa iyong walet</translation>
     </message>
     <message>
-        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>Pumirma ng mga mensahe gamit ang iyong mga Bitcoin address upang mapatunayan na pagmamay-ari mo ang mga ito</translation>
+        <source>Sign messages with your DigiByte addresses to prove you own them</source>
+        <translation>Pumirma ng mga mensahe gamit ang iyong mga DigiByte address upang mapatunayan na pagmamay-ari mo ang mga ito</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>I-verify ang mga mensahe upang matiyak na sila ay napirmahan ng tinukoy na mga Bitcoin address.</translation>
+        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
+        <translation>I-verify ang mga mensahe upang matiyak na sila ay napirmahan ng tinukoy na mga DigiByte address.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -498,8 +498,8 @@
         <translation>Isara ang walet</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Ipakita sa %1 ang tulong na mensahe upang makuha ang talaan ng mga posibleng opsyon ng Bitcoin command-line</translation>
+        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
+        <translation>Ipakita sa %1 ang tulong na mensahe upang makuha ang talaan ng mga posibleng opsyon ng DigiByte command-line</translation>
     </message>
     <message>
         <source>default wallet</source>
@@ -826,8 +826,8 @@
         <translation>Baguhin ang address para sa pagpapadala</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Bitcoin address.</source>
-        <translation>Ang address na in-enter "%1" ay hindi isang wastong Bitcoin address.</translation>
+        <source>The entered address "%1" is not a valid DigiByte address.</source>
+        <translation>Ang address na in-enter "%1" ay hindi isang wastong DigiByte address.</translation>
     </message>
     <message>
         <source>Address "%1" already exists as a receiving address with label "%2" and so cannot be added as a sending address.</source>
@@ -919,8 +919,8 @@
         <translation>Gamitin ang pasadyang data directory:</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
     </message>
     <message>
         <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
@@ -931,8 +931,8 @@
         <translation>Humigit-kumulang na %1 GB na data ay maiimbak sa direktoryong ito.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the Bitcoin block chain.</source>
-        <translation>%1 ay mag-do-download at magiimbak ng kopya ng Bitcoin blockchain.</translation>
+        <source>%1 will download and store a copy of the DigiByte block chain.</source>
+        <translation>%1 ay mag-do-download at magiimbak ng kopya ng DigiByte blockchain.</translation>
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1143,8 +1143,8 @@
         <translation>Gastusin ang sukli na hindi pa nakumpirma</translation>
     </message>
     <message>
-        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Kusang buksan ang Bitcoin client port sa router. Gumagana lamang ito kapag ang iyong router ay sumusuporta ng UPnP at ito ay pinagana.</translation>
+        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Kusang buksan ang DigiByte client port sa router. Gumagana lamang ito kapag ang iyong router ay sumusuporta ng UPnP at ito ay pinagana.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1159,8 +1159,8 @@
         <translation>Ipahintulot ang mga papasok na koneksyon</translation>
     </message>
     <message>
-        <source>Connect to the Bitcoin network through a SOCKS5 proxy.</source>
-        <translation>Kumunekta sa Bitcoin network sa pamamagitan ng SOCKS5 proxy.</translation>
+        <source>Connect to the DigiByte network through a SOCKS5 proxy.</source>
+        <translation>Kumunekta sa DigiByte network sa pamamagitan ng SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1302,8 +1302,8 @@
         <translation>Anyo</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Ang ipinapakitang impormasyon ay maaaring luma na. Kusang mag-sy-synchronize ang iyong walet sa Bitcoin network pagkatapos maitatag ang koneksyon, ngunit hindi pa nakukumpleto ang prosesong ito.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
+        <translation>Ang ipinapakitang impormasyon ay maaaring luma na. Kusang mag-sy-synchronize ang iyong walet sa DigiByte network pagkatapos maitatag ang koneksyon, ngunit hindi pa nakukumpleto ang prosesong ito.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1404,8 +1404,8 @@
         <translation>Hindi wasto and address ng bayad %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
-        <translation>Hindi ma-parse ang URI! Marahil ito ay dahil sa hindi wastong Bitcoin address o maling URI parameters</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <translation>Hindi ma-parse ang URI! Marahil ito ay dahil sa hindi wastong DigiByte address o maling URI parameters</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1446,8 +1446,8 @@
         <translation>Halaga</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. %1)</source>
-        <translation>I-enter ang Bitcoin address (e.g. %1)</translation>
+        <source>Enter a DigiByte address (e.g. %1)</source>
+        <translation>I-enter ang DigiByte address (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1896,8 +1896,8 @@
         <translation>Mensahe:</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Bitcoin network.</source>
-        <translation>Opsyonal na mensahe na ilakip sa hiling ng bayad, na ipapakita pagbukas ng hiling. Tandaan: Ang mensahe ay hindi ipapadala kasama ng bayad sa Bitcoin network.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
+        <translation>Opsyonal na mensahe na ilakip sa hiling ng bayad, na ipapakita pagbukas ng hiling. Tandaan: Ang mensahe ay hindi ipapadala kasama ng bayad sa DigiByte network.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2329,8 +2329,8 @@ Tandaan: Dahil ang bayad  ay kinakalkula sa bawat-byte na batayan, ang bayad ng 
         <translation><numerusform>Tinatayang magsimula ng kumpirmasyon sa loob ng %n na mga block.</numerusform><numerusform>Tinatayang magsimula ng kumpirmasyon sa loob ng %n na mga block.</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
-        <translation>Babala: Hindi wastong Bitcoin address</translation>
+        <source>Warning: Invalid DigiByte address</source>
+        <translation>Babala: Hindi wastong DigiByte address</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2368,8 +2368,8 @@ Tandaan: Dahil ang bayad  ay kinakalkula sa bawat-byte na batayan, ang bayad ng 
         <translation>Piliin ang dating ginamit na address</translation>
     </message>
     <message>
-        <source>The Bitcoin address to send the payment to</source>
-        <translation>Ang Bitcoin address kung saan ipapadala and bayad</translation>
+        <source>The DigiByte address to send the payment to</source>
+        <translation>Ang DigiByte address kung saan ipapadala and bayad</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2416,8 +2416,8 @@ Tandaan: Dahil ang bayad  ay kinakalkula sa bawat-byte na batayan, ang bayad ng 
         <translation>Mag-enter ng label para sa address na ito upang idagdag ito sa listahan ng mga gamit na address.</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
-        <translation>Mensahe na nakalakip sa bitcoin: URI na kung saan maiimbak kasama ang transaksyon para sa iyong sanggunian. Tandaan: Ang mensaheng ito ay hindi ipapadala sa network ng Bitcoin.</translation>
+        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
+        <translation>Mensahe na nakalakip sa bitcoin: URI na kung saan maiimbak kasama ang transaksyon para sa iyong sanggunian. Tandaan: Ang mensaheng ito ay hindi ipapadala sa network ng DigiByte.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2454,8 +2454,8 @@ Tandaan: Dahil ang bayad  ay kinakalkula sa bawat-byte na batayan, ang bayad ng 
         <translation>Maaari kang pumirma ng mga mensahe/kasunduan sa iyong mga address upang mapatunayan na maaari kang makatanggap ng mga bitcoin na ipinadala sa kanila. Mag-ingat na huwag pumirma ng anumang bagay na hindi malinaw o random, dahil ang mga phishing attack ay maaaring subukan na linlangin ka sa pagpirma ng iyong pagkakakilanlan sa kanila. Pumirma lamang ng kumpletong mga pahayag na sumasang-ayon ka.</translation>
     </message>
     <message>
-        <source>The Bitcoin address to sign the message with</source>
-        <translation>Ang Bitcoin address kung anong ipipirma sa mensahe</translation>
+        <source>The DigiByte address to sign the message with</source>
+        <translation>Ang DigiByte address kung anong ipipirma sa mensahe</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2486,8 +2486,8 @@ Tandaan: Dahil ang bayad  ay kinakalkula sa bawat-byte na batayan, ang bayad ng 
         <translation>Kopyahin ang kasalukuyang address sa system clipboard</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Bitcoin address</source>
-        <translation>Pirmahan ang mensahe upang mapatunayan na pagmamay-ari mo ang Bitcoin address na ito</translation>
+        <source>Sign the message to prove you own this DigiByte address</source>
+        <translation>Pirmahan ang mensahe upang mapatunayan na pagmamay-ari mo ang DigiByte address na ito</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2510,12 +2510,12 @@ Tandaan: Dahil ang bayad  ay kinakalkula sa bawat-byte na batayan, ang bayad ng 
         <translation>Ipasok ang address ng tatanggap, mensahe (tiyakin na kopyahin mo ang mga break ng linya, puwang, mga tab, atbp.) at pirma sa ibaba upang i-verify ang mensahe. Mag-ingat na huwag magbasa ng higit pa sa pirma kaysa sa kung ano ang nasa nakapirmang mensahe mismo, upang maiwasan na maloko ng man-in-the-middle attack. Tandaan na pinapatunayan lamang nito na nakakatanggap sa address na ito ang partido na pumirma, hindi nito napapatunayan ang pagpapadala ng anumang transaksyon!</translation>
     </message>
     <message>
-        <source>The Bitcoin address the message was signed with</source>
-        <translation>Ang Bitcoin address na pumirma sa mensahe</translation>
+        <source>The DigiByte address the message was signed with</source>
+        <translation>Ang DigiByte address na pumirma sa mensahe</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Bitcoin address</source>
-        <translation>Tiyakin ang katotohanan ng mensahe upang siguruhin na ito'y napirmahan ng tinukoy na Bitcoin address</translation>
+        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
+        <translation>Tiyakin ang katotohanan ng mensahe upang siguruhin na ito'y napirmahan ng tinukoy na DigiByte address</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>

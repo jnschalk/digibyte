@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2017-2020 The Bitcoin Core developers
+# Copyright (c) 2017-2020 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Class for bitcoind node under test"""
@@ -549,8 +549,8 @@ class TestNode():
             # in comparison to the upside of making tests less fragile and unexpected intermittent errors less likely.
             p2p_conn.sync_with_ping()
 
-            # Consistency check that the Bitcoin Core has received our user agent string. This checks the
-            # node's newest peer. It could be racy if another Bitcoin Core node has connected since we opened
+            # Consistency check that the DigiByte Core has received our user agent string. This checks the
+            # node's newest peer. It could be racy if another DigiByte Core node has connected since we opened
             # our connection, but we don't expect that to happen.
             assert_equal(self.getpeerinfo()[-1]['subver'], P2P_SUBVERSION)
 

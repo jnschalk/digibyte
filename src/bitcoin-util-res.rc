@@ -16,8 +16,8 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Bitcoin"
-            VALUE "FileDescription",    "bitcoin-util (CLI Bitcoin utility)"
+            VALUE "CompanyName",        "DigiByte"
+            VALUE "FileDescription",    "bitcoin-util (CLI DigiByte utility)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "bitcoin-util"
             VALUE "LegalCopyright",     COPYRIGHT_STR

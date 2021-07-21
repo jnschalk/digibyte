@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2016-2019 The Bitcoin Core developers
+# Copyright (c) 2016-2019 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -58,7 +58,7 @@ def set_common_properties(toolset):
         wfile.write(s)
 
 def main():
-    parser = argparse.ArgumentParser(description='Bitcoin-core msbuild configuration initialiser.')
+    parser = argparse.ArgumentParser(description='DigiByte-core msbuild configuration initialiser.')
     parser.add_argument('-toolset', nargs='?',help='Optionally sets the msbuild platform toolset, e.g. v142 for Visual Studio 2019.'
          ' default is %s.'%DEFAULT_PLATFORM_TOOLSET)
     args = parser.parse_args()

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019-2020 The Bitcoin Core developers
+# Copyright (c) 2019-2020 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test bitcoind aborts if can't disconnect a block.
@@ -10,12 +10,12 @@
 - Verify that bitcoind AbortNode's.
 """
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import get_datadir_path
 import os
 
 
-class AbortNodeTest(BitcoinTestFramework):
+class AbortNodeTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

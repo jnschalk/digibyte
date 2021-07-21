@@ -66,8 +66,8 @@
         <translation>Adresy ôdbiyraniŏ</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Tukej sōm adresy Bitcoin na kere posyłŏsz płaty. Dycki wybaduj wielość i adresã ôdbiyrŏcza przed posłaniym mōnet.</translation>
+        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Tukej sōm adresy DigiByte na kere posyłŏsz płaty. Dycki wybaduj wielość i adresã ôdbiyrŏcza przed posłaniym mōnet.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -220,7 +220,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>DigiByteGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Szkryftnij &amp;wiadōmość</translation>
@@ -322,8 +322,8 @@
         <translation>Proxy je &lt;b&gt;zapuszczone&lt;/b&gt;: %1</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
-        <translation>Poślij mōnety na adresã Bitcoin</translation>
+        <source>Send coins to a DigiByte address</source>
+        <translation>Poślij mōnety na adresã DigiByte</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -358,12 +358,12 @@
         <translation>Szyfruj klucze prywatne, kere sōm we twojim portmanyju</translation>
     </message>
     <message>
-        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
+        <source>Sign messages with your DigiByte addresses to prove you own them</source>
         <translation>Podpisz wiadōmości swojōm adresōm coby dowiyść jejich posiadanie</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>Zweryfikuj wiadōmość, coby wejzdrzeć sie, iże ôstała podpisanŏ podanōm adresōm Bitcoin.</translation>
+        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
+        <translation>Zweryfikuj wiadōmość, coby wejzdrzeć sie, iże ôstała podpisanŏ podanōm adresōm DigiByte.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -398,8 +398,8 @@
         <translation>Ôp&amp;cyje piski nakŏzań</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Bitcoin network</source>
-        <translation><numerusform>%n aktywne połōnczynie do necu Bitcoin</numerusform><numerusform>%n aktywnych połōnczyń do necu Bitcoin</numerusform><numerusform>%n aktywnych skuplowań do necu Bitcoin</numerusform></translation>
+        <source>%n active connection(s) to DigiByte network</source>
+        <translation><numerusform>%n aktywne połōnczynie do necu DigiByte</numerusform><numerusform>%n aktywnych połōnczyń do necu DigiByte</numerusform><numerusform>%n aktywnych skuplowań do necu DigiByte</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -446,7 +446,7 @@
         <translation>&amp;Adresy posyłaniŏ</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
+        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
         <translation>Pokŏż pōmoc %1 coby zobŏczyć wykŏz wszyjskich ôpcyji piski nakŏzań.</translation>
     </message>
     <message>
@@ -722,8 +722,8 @@
         <translation>Edytuj adresã posyłaniŏ</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Bitcoin address.</source>
-        <translation>Wkludzōnŏ adresa "%1" niyma nŏleżnōm adresōm Bitcoin.</translation>
+        <source>The entered address "%1" is not a valid DigiByte address.</source>
+        <translation>Wkludzōnŏ adresa "%1" niyma nŏleżnōm adresōm DigiByte.</translation>
     </message>
     <message>
         <source>Address "%1" already exists as a receiving address with label "%2" and so cannot be added as a sending address.</source>
@@ -811,8 +811,8 @@
         <translation>Użyj ôbranego folderu datōw</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
     </message>
     <message>
         <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
@@ -823,8 +823,8 @@
         <translation>Kole %1 GB datōw ôstanie spamiyntane w tym katalogu.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the Bitcoin block chain.</source>
-        <translation>%1 sebiere i spamiyntŏ kopijõ kety blokōw Bitcoin.</translation>
+        <source>%1 will download and store a copy of the DigiByte block chain.</source>
+        <translation>%1 sebiere i spamiyntŏ kopijõ kety blokōw DigiByte.</translation>
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1003,8 +1003,8 @@
         <translation>&amp;Wydej niyprzituplowanõ wydŏwkã</translation>
     </message>
     <message>
-        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Autōmatycznie ôdewrzij port klijynta Bitcoin na routerze. Ta ôpcyjŏ funguje ino jeźli twōj router podpiyrŏ UPnP i je ôno zapuszczone.</translation>
+        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Autōmatycznie ôdewrzij port klijynta DigiByte na routerze. Ta ôpcyjŏ funguje ino jeźli twōj router podpiyrŏ UPnP i je ôno zapuszczone.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1019,8 +1019,8 @@
         <translation>Zwōl na skuplowania przichodzōnce</translation>
     </message>
     <message>
-        <source>Connect to the Bitcoin network through a SOCKS5 proxy.</source>
-        <translation>Skupluj sie z necym Bitcoin bez SOCKS5 proxy.</translation>
+        <source>Connect to the DigiByte network through a SOCKS5 proxy.</source>
+        <translation>Skupluj sie z necym DigiByte bez SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1094,7 +1094,7 @@
         <translation>Formular</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
         <translation>Wyświytlanŏ informacyjŏ może być niyterŏźnŏ. Twōj portmanyj synchrōnizuje sie autōmatycznie z necym bitcoin zarŏz po tym, jak zrychtowane je skuplowanie, ale proces tyn niy ôstoł jeszcze skōńczōny.</translation>
     </message>
     <message>
@@ -1162,8 +1162,8 @@
         <translation>Kwota</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. %1)</source>
-        <translation>Wkludź adresã Bitcoin (bp. %1)</translation>
+        <source>Enter a DigiByte address (e.g. %1)</source>
+        <translation>Wkludź adresã DigiByte (bp. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1363,8 +1363,8 @@
         <translation>&amp;Etyketa:</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Bitcoin network.</source>
-        <translation>Ôpcyjōnalnŏ wiadōmość do prziwstōniŏ do żōndaniŏ płatu, kerŏ bydzie wyświytlanŏ, kej żōndanie ôstanie ôdewrzōne. Napōmniynie: wiadōmość ta niy ôstanie wysłanŏ z płatym w nec Bitcoin.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
+        <translation>Ôpcyjōnalnŏ wiadōmość do prziwstōniŏ do żōndaniŏ płatu, kerŏ bydzie wyświytlanŏ, kej żōndanie ôstanie ôdewrzōne. Napōmniynie: wiadōmość ta niy ôstanie wysłanŏ z płatym w nec DigiByte.</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -1556,8 +1556,8 @@
         <translation>Utworzynie transakcyje niy podarziło sie!</translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
-        <translation>Pozōr: niynŏleżnŏ adresa Bitcoin</translation>
+        <source>Warning: Invalid DigiByte address</source>
+        <translation>Pozōr: niynŏleżnŏ adresa DigiByte</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -1575,8 +1575,8 @@
         <translation>&amp;Etyketa:</translation>
     </message>
     <message>
-        <source>The Bitcoin address to send the payment to</source>
-        <translation>Adresa Bitcoin, na kerõ chcesz posłać płat</translation>
+        <source>The DigiByte address to send the payment to</source>
+        <translation>Adresa DigiByte, na kerõ chcesz posłać płat</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1595,8 +1595,8 @@
         <translation>Wiadōmość:</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
-        <translation>Wiadōmość, kerŏ ôstała prziwstōnŏ do URI bitcoin:, kerŏ bydzie przechowowanŏ z transakcyjōm w cylach informacyjnych. Napōmniynie: Ta wiadōmość niy bydzie rozszyrzowanŏ w necu Bitcoin.</translation>
+        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
+        <translation>Wiadōmość, kerŏ ôstała prziwstōnŏ do URI bitcoin:, kerŏ bydzie przechowowanŏ z transakcyjōm w cylach informacyjnych. Napōmniynie: Ta wiadōmość niy bydzie rozszyrzowanŏ w necu DigiByte.</translation>
     </message>
     </context>
 <context>
