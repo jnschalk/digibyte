@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/digibyte-config.h>
 #endif
 
 #include <qt/sendcoinsentry.h>
@@ -38,9 +38,9 @@ SendCoinsEntry::SendCoinsEntry(const PlatformStyle *_platformStyle, QWidget *par
     if (platformStyle->getUseExtraSpacing())
         ui->payToLayout->setSpacing(4);
 
-    // normal bitcoin address field
+    // normal digibyte address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
-    // just a label for displaying bitcoin address(es)
+    // just a label for displaying digibyte address(es)
     ui->payTo_is->setFont(GUIUtil::fixedPitchFont());
 
     // Connect signals

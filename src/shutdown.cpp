@@ -10,7 +10,7 @@
 #include <util/tokenpipe.h>
 #include <warnings.h>
 
-#include <config/bitcoin-config.h>
+#include <config/digibyte-config.h>
 
 #include <assert.h>
 #include <atomic>

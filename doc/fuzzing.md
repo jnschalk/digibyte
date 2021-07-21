@@ -5,12 +5,12 @@
 To quickly get started fuzzing DigiByte Core using [libFuzzer](https://llvm.org/docs/LibFuzzer.html):
 
 ```sh
-$ git clone https://github.com/bitcoin/bitcoin
-$ cd bitcoin/
+$ git clone https://github.com/digibyte/digibyte
+$ cd digibyte/
 $ ./autogen.sh
 $ CC=clang CXX=clang++ ./configure --enable-fuzz --with-sanitizers=address,fuzzer,undefined
 # macOS users: If you have problem with this step then make sure to read "macOS hints for
-# libFuzzer" on https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md#macos-hints-for-libfuzzer
+# libFuzzer" on https://github.com/digibyte/digibyte/blob/master/doc/fuzzing.md#macos-hints-for-libfuzzer
 $ make
 $ FUZZ=process_message src/test/fuzz/fuzz
 # abort fuzzing using ctrl-c
@@ -18,7 +18,7 @@ $ FUZZ=process_message src/test/fuzz/fuzz
 
 ## Fuzzing harnesses and output
 
-[`process_message`](https://github.com/bitcoin/bitcoin/blob/master/src/test/fuzz/process_message.cpp) is a fuzzing harness for the [`ProcessMessage(...)` function (`net_processing`)](https://github.com/bitcoin/bitcoin/blob/master/src/net_processing.cpp). The available fuzzing harnesses are found in [`src/test/fuzz/`](https://github.com/bitcoin/bitcoin/tree/master/src/test/fuzz).
+[`process_message`](https://github.com/digibyte/digibyte/blob/master/src/test/fuzz/process_message.cpp) is a fuzzing harness for the [`ProcessMessage(...)` function (`net_processing`)](https://github.com/digibyte/digibyte/blob/master/src/net_processing.cpp). The available fuzzing harnesses are found in [`src/test/fuzz/`](https://github.com/digibyte/digibyte/tree/master/src/test/fuzz).
 
 The fuzzer will output `NEW` every time it has created a test input that covers new areas of the code under test. For more information on how to interpret the fuzzer output, see the [libFuzzer documentation](https://llvm.org/docs/LibFuzzer.html).
 
@@ -66,12 +66,12 @@ In this case the fuzzer managed to create a `block` message which when passed to
 
 ## Fuzzing corpora
 
-The project's collection of seed corpora is found in the [`bitcoin-core/qa-assets`](https://github.com/bitcoin-core/qa-assets) repo.
+The project's collection of seed corpora is found in the [`digibyte-core/qa-assets`](https://github.com/digibyte-core/qa-assets) repo.
 
-To fuzz `process_message` using the [`bitcoin-core/qa-assets`](https://github.com/bitcoin-core/qa-assets) seed corpus:
+To fuzz `process_message` using the [`digibyte-core/qa-assets`](https://github.com/digibyte-core/qa-assets) seed corpus:
 
 ```sh
-$ git clone https://github.com/bitcoin-core/qa-assets
+$ git clone https://github.com/digibyte-core/qa-assets
 $ FUZZ=process_message src/test/fuzz/fuzz qa-assets/fuzz_seed_corpus/process_message/
 INFO: Seed: 1346407872
 INFO: Loaded 1 modules   (424174 inline 8-bit counters): 424174 [0x55d8a9004ab8, 0x55d8a906c3a6),
@@ -97,9 +97,9 @@ INFO: seed corpus: files: 991 min: 1b max: 1858b total: 288291b rss: 150Mb
 
 ## Submit improved coverage
 
-If you find coverage increasing inputs when fuzzing you are highly encouraged to submit them for inclusion in the [`bitcoin-core/qa-assets`](https://github.com/bitcoin-core/qa-assets) repo.
+If you find coverage increasing inputs when fuzzing you are highly encouraged to submit them for inclusion in the [`digibyte-core/qa-assets`](https://github.com/digibyte-core/qa-assets) repo.
 
-Every single pull request submitted against the DigiByte Core repo is automatically tested against all inputs in the [`bitcoin-core/qa-assets`](https://github.com/bitcoin-core/qa-assets) repo. Contributing new coverage increasing inputs is an easy way to help make DigiByte Core more robust.
+Every single pull request submitted against the DigiByte Core repo is automatically tested against all inputs in the [`digibyte-core/qa-assets`](https://github.com/digibyte-core/qa-assets) repo. Contributing new coverage increasing inputs is an easy way to help make DigiByte Core more robust.
 
 ## macOS hints for libFuzzer
 
@@ -109,7 +109,7 @@ example using `brew install llvm`.
 
 Should you run into problems with the address sanitizer, it is possible you
 may need to run `./configure` with `--disable-asm` to avoid errors
-with certain assembly code from DigiByte Core's code. See [developer notes on sanitizers](https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md#sanitizers)
+with certain assembly code from DigiByte Core's code. See [developer notes on sanitizers](https://github.com/digibyte/digibyte/blob/master/doc/developer-notes.md#sanitizers)
 for more information.
 
 You may also need to take care of giving the correct path for `clang` and
@@ -131,8 +131,8 @@ Read the [libFuzzer documentation](https://llvm.org/docs/LibFuzzer.html) for mor
 To quickly get started fuzzing DigiByte Core using [afl++](https://github.com/AFLplusplus/AFLplusplus):
 
 ```sh
-$ git clone https://github.com/bitcoin/bitcoin
-$ cd bitcoin/
+$ git clone https://github.com/digibyte/digibyte
+$ cd digibyte/
 $ git clone https://github.com/AFLplusplus/AFLplusplus
 $ make -C AFLplusplus/ source-only
 $ ./autogen.sh
@@ -158,8 +158,8 @@ Read the [afl++ documentation](https://github.com/AFLplusplus/AFLplusplus) for m
 To quickly get started fuzzing DigiByte Core using [Honggfuzz](https://github.com/google/honggfuzz):
 
 ```sh
-$ git clone https://github.com/bitcoin/bitcoin
-$ cd bitcoin/
+$ git clone https://github.com/digibyte/digibyte
+$ cd digibyte/
 $ ./autogen.sh
 $ git clone https://github.com/google/honggfuzz
 $ cd honggfuzz/
@@ -176,7 +176,7 @@ Read the [Honggfuzz documentation](https://github.com/google/honggfuzz/blob/mast
 ## Fuzzing the DigiByte Core P2P layer using Honggfuzz NetDriver
 
 Honggfuzz NetDriver allows for very easy fuzzing of TCP servers such as DigiByte
-Core without having to write any custom fuzzing harness. The `bitcoind` server
+Core without having to write any custom fuzzing harness. The `digibyted` server
 process is largely fuzzed without modification.
 
 This makes the fuzzing highly realistic: a bug reachable by the fuzzer is likely
@@ -185,10 +185,10 @@ also remotely triggerable by an untrusted peer.
 To quickly get started fuzzing the P2P layer using Honggfuzz NetDriver:
 
 ```sh
-$ mkdir bitcoin-honggfuzz-p2p/
-$ cd bitcoin-honggfuzz-p2p/
-$ git clone https://github.com/bitcoin/bitcoin
-$ cd bitcoin/
+$ mkdir digibyte-honggfuzz-p2p/
+$ cd digibyte-honggfuzz-p2p/
+$ git clone https://github.com/digibyte/digibyte
+$ cd digibyte/
 $ ./autogen.sh
 $ git clone https://github.com/google/honggfuzz
 $ cd honggfuzz/
@@ -199,10 +199,10 @@ $ CC=$(pwd)/honggfuzz/hfuzz_cc/hfuzz-clang \
       ./configure --disable-wallet --with-gui=no \
                   --with-sanitizers=address,undefined
 $ git apply << "EOF"
-diff --git a/src/bitcoind.cpp b/src/bitcoind.cpp
+diff --git a/src/digibyted.cpp b/src/digibyted.cpp
 index 455a82e39..2faa3f80f 100644
---- a/src/bitcoind.cpp
-+++ b/src/bitcoind.cpp
+--- a/src/digibyted.cpp
++++ b/src/digibyted.cpp
 @@ -158,7 +158,11 @@ static bool AppInit(int argc, char* argv[])
      return fRet;
  }
@@ -238,19 +238,19 @@ index cf987b699..636a4176a 100644
                   SanitizeString(msg->m_command), msg->m_message_size,
                   HexStr(Span<uint8_t>(hash.begin(), hash.begin() + CMessageHeader::CHECKSUM_SIZE)),
 EOF
-$ make -C src/ bitcoind
+$ make -C src/ digibyted
 $ mkdir -p inputs/
 $ honggfuzz/honggfuzz --exit_upon_crash --quiet --timeout 4 -n 1 -Q \
       -E HFND_TCP_PORT=18444 -f inputs/ -- \
-          src/bitcoind -regtest -discover=0 -dns=0 -dnsseed=0 -listenonion=0 \
+          src/digibyted -regtest -discover=0 -dns=0 -dnsseed=0 -listenonion=0 \
                        -nodebuglogfile -bind=127.0.0.1:18444 -logthreadnames \
                        -debug
 ```
 
 # OSS-Fuzz
 
-DigiByte Core participates in Google's [OSS-Fuzz](https://github.com/google/oss-fuzz/tree/master/projects/bitcoin-core)
-program, which includes a dashboard of [publicly disclosed vulnerabilities](https://bugs.chromium.org/p/oss-fuzz/issues/list?q=bitcoin-core).
+DigiByte Core participates in Google's [OSS-Fuzz](https://github.com/google/oss-fuzz/tree/master/projects/digibyte-core)
+program, which includes a dashboard of [publicly disclosed vulnerabilities](https://bugs.chromium.org/p/oss-fuzz/issues/list?q=digibyte-core).
 Generally, we try to disclose vulnerabilities as soon as possible after they
 are fixed to give users the knowledge they need to be protected. However,
 because DigiByte is a live P2P network, and not just standalone local software,
@@ -259,4 +259,4 @@ we might not fully disclose every issue within Google's standard
 if a partial or delayed disclosure is important to protect users or the
 function of the network.
 
-OSS-Fuzz also produces [a fuzzing coverage report](https://oss-fuzz.com/coverage-report/job/libfuzzer_asan_bitcoin-core/latest).
+OSS-Fuzz also produces [a fuzzing coverage report](https://oss-fuzz.com/coverage-report/job/libfuzzer_asan_digibyte-core/latest).

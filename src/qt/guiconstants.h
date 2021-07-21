@@ -43,7 +43,7 @@ static const int TOOLTIP_WRAP_THRESHOLD = 80;
 #define SPINNER_FRAMES 36
 
 #define QAPP_ORG_NAME "DigiByte"
-#define QAPP_ORG_DOMAIN "bitcoin.org"
+#define QAPP_ORG_DOMAIN "digibyte.org"
 #define QAPP_APP_NAME_DEFAULT "DigiByte-Qt"
 #define QAPP_APP_NAME_TESTNET "DigiByte-Qt-testnet"
 #define QAPP_APP_NAME_SIGNET "DigiByte-Qt-signet"

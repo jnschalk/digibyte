@@ -7,7 +7,7 @@
 #define BITCOIN_ADDRMAN_H
 
 #include <clientversion.h>
-#include <config/bitcoin-config.h>
+#include <config/digibyte-config.h>
 #include <fs.h>
 #include <hash.h>
 #include <netaddress.h>

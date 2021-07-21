@@ -20,7 +20,7 @@ public:
     State validate(QString &input, int &pos) const override;
 };
 
-/** DigiByte address widget validator, checks for a valid bitcoin address.
+/** DigiByte address widget validator, checks for a valid digibyte address.
  */
 class DigiByteAddressCheckValidator : public QValidator
 {

@@ -914,6 +914,6 @@ Cüzdan kilidini aç.</translation>
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>digibyte-core</name>
     </context>
 </TS>

@@ -11,7 +11,7 @@
 class ArgsManager;
 
 /**
- * CBaseChainParams defines the base parameters (shared between bitcoin-cli and bitcoind)
+ * CBaseChainParams defines the base parameters (shared between digibyte-cli and digibyted)
  * of a given instance of the DigiByte system.
  */
 class CBaseChainParams

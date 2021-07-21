@@ -1,10 +1,10 @@
 DigiByte Core integration/staging tree
 =====================================
 
-https://bitcoincore.org
+https://digibytecore.org
 
 For an immediately usable, binary version of the DigiByte Core software, see
-https://bitcoincore.org/en/download/.
+https://digibytecore.org/en/download/.
 
 Further information about DigiByte Core is available in the [doc folder](/doc).
 
@@ -29,10 +29,10 @@ Development Process
 -------------------
 
 The `master` branch is regularly built (see `doc/build-*.md` for instructions) and tested, but it is not guaranteed to be
-completely stable. [Tags](https://github.com/bitcoin/bitcoin/tags) are created
+completely stable. [Tags](https://github.com/digibyte/digibyte/tags) are created
 regularly from release branches to indicate new official, stable release versions of DigiByte Core.
 
-The https://github.com/bitcoin-core/gui repository is used exclusively for the
+The https://github.com/digibyte-core/gui repository is used exclusively for the
 development of the GUI. Its master branch is identical in all monotree
 repositories. Release branches and tags do not exist, so please do not fork
 that repository unless it is for development reasons.
@@ -73,7 +73,7 @@ Translations
 ------------
 
 Changes to translations as well as new translations can be submitted to
-[DigiByte Core's Transifex page](https://www.transifex.com/bitcoin/bitcoin/).
+[DigiByte Core's Transifex page](https://www.transifex.com/digibyte/digibyte/).
 
 Translations are periodically pulled from Transifex and merged into the git repository. See the
 [translation process](doc/translation_process.md) for details on how this works.

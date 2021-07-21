@@ -340,7 +340,7 @@
         <translation>Barra de pestañas</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and digibyte: URIs)</source>
         <translation>Solicitar pagos (genera codigo QR y URL's de DigiByte)</translation>
     </message>
     <message>
@@ -870,8 +870,8 @@
         <translation>Error en petición de pago</translation>
     </message>
     <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
-        <translation>No se pudo iniciar bitcoin: manejador de pago-al-clic</translation>
+        <source>Cannot start digibyte: click-to-pay handler</source>
+        <translation>No se pudo iniciar digibyte: manejador de pago-al-clic</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -1870,7 +1870,7 @@
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>digibyte-core</name>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
         <translation>Esta es una versión de pre-prueba - utilícela bajo su propio riesgo. No la utilice para usos comerciales o de minería.</translation>

@@ -36,7 +36,7 @@ public:
     explicit DigiByteUnits(QObject *parent);
 
     /** DigiByte units.
-      @note Source: https://en.bitcoin.it/wiki/Units . Please add only sensible ones
+      @note Source: https://en.digibyte.it/wiki/Units . Please add only sensible ones
      */
     enum Unit
     {

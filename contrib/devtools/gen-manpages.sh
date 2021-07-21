@@ -10,12 +10,12 @@ BUILDDIR=${BUILDDIR:-$TOPDIR}
 BINDIR=${BINDIR:-$BUILDDIR/src}
 MANDIR=${MANDIR:-$TOPDIR/doc/man}
 
-BITCOIND=${BITCOIND:-$BINDIR/bitcoind}
-BITCOINCLI=${BITCOINCLI:-$BINDIR/bitcoin-cli}
-BITCOINTX=${BITCOINTX:-$BINDIR/bitcoin-tx}
-WALLET_TOOL=${WALLET_TOOL:-$BINDIR/bitcoin-wallet}
-BITCOINUTIL=${BITCOINQT:-$BINDIR/bitcoin-util}
-BITCOINQT=${BITCOINQT:-$BINDIR/qt/bitcoin-qt}
+BITCOIND=${BITCOIND:-$BINDIR/digibyted}
+BITCOINCLI=${BITCOINCLI:-$BINDIR/digibyte-cli}
+BITCOINTX=${BITCOINTX:-$BINDIR/digibyte-tx}
+WALLET_TOOL=${WALLET_TOOL:-$BINDIR/digibyte-wallet}
+BITCOINUTIL=${BITCOINQT:-$BINDIR/digibyte-util}
+BITCOINQT=${BITCOINQT:-$BINDIR/qt/digibyte-qt}
 
 [ ! -x $BITCOIND ] && echo "$BITCOIND not found or not executable." && exit 1
 
@@ -39,8 +39,8 @@ fi
 read -r -a DGBVER <<< "$($BITCOINCLI --version | head -n1 | awk -F'[ -]' '{ print $6, $7 }')"
 
 # Create a footer file with copyright content.
-# This gets autodetected fine for bitcoind if --version-string is not set,
-# but has different outcomes for bitcoin-qt and bitcoin-cli.
+# This gets autodetected fine for digibyted if --version-string is not set,
+# but has different outcomes for digibyte-qt and digibyte-cli.
 echo "[COPYRIGHT]" > footer.h2m
 $BITCOIND --version | sed -n '1!p' >> footer.h2m
 
