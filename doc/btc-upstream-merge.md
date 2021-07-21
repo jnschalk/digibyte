@@ -29,7 +29,7 @@ Part 1: Pre-Merge Setup (Managed from Source Tree GUI to save time)
 
         make clean
 
-3.  Rename any text or code string containing: "BTC", "btc," "Bitcoin," "BITCOIN," "bitcoin" w "DGB," "dgb," "DigiByte," "DIGIBYTE," "digibyte" throughout entire codebase with case sensitivity. This is easily done with find & replace inside visual studio code. Should be about 20,0000 changes or more. Save each separately and then commit while making sure case sensitivity is on.
+3.  Rename any text or code string containing: "BTC", "btc," "Bitcoin," "BITCOIN," "bitcoin" w "DGB," "dgb," "DigiByte," "DIGIBYTE," "digibyte" throughout entire codebase with case sensitivity. This is easily done with find & replace inside visual studio code. Should be about 20,000 changes or more. Save each separately and then commit while making sure case sensitivity is on.
 
 4. Commit each separate name swap as its own commit. The idea is to break down the sheer # of name changes in a documented, easy-to-follow process. Not following a consistent naming convention throughout the code easily breaks things and can cause hours of compiler errors later on.
 
@@ -47,6 +47,8 @@ Part 2: The Merge & Merge Conflicts Resolution (The Fun Part)
 1.  Select Current DigiByte version as default branch, merge the renamed bitcoin branch you just worked on into DGB core. There will be 1000's of merge conflicts to go through. This is where it is of utmost importance to take your time and go line by line and know what you are changing. Very easy to make a mistake here. Here will be the trouble areas to watch out for. It is important the entire merge with all merge conflicts is committed in 1 commit first so anyone can reflect back on it before any merge conflicts are resolved. The idea is to break down merge resolutions into specific commits in a detailed methodical manner.
 
 2.  Document & note every merge conflict of importance for future reference to look back on what has changed. Useful to learn updates, refactoring, and important changes that can be used to identify bugs when compiling or later on. There will be thousands of trivial name, date, documentation, and other non-essential merge conflicts. Go after these first.
+
+2.5 Commit Title recommendations. Label commits starting with the 3 phases "PRE-MERGE:" "MERGE:" & and "COMPILER-FIX:" then include the names of files, the entire folder (if done folder by folder) or the type of functionality changing "Consensus, MultiAlgo, Subsidy, etc."
 
 3. Save all questionable merge conflicts till the end of this process, so everyone has a chance to review together. Typically this has only been a few hundred critical merge conflicts in past mass merges.
 
