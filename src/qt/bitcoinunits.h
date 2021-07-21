@@ -40,9 +40,9 @@ public:
      */
     enum Unit
     {
-        BTC,
-        mBTC,
-        uBTC,
+        DGB,
+        mDGB,
+        uDGB,
         SAT
     };
 
