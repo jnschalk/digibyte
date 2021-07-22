@@ -3,15 +3,10 @@ Reduce Traffic
 
 Some node operators need to deal with bandwidth caps imposed by their ISPs.
 
-<<<<<<< HEAD
-By default, DigiByte Core allows up to 125 connections to different peers, 8 of
-which are outbound. You can therefore, have at most 117 inbound connections.
-=======
 By default, DigiByte Core allows up to 125 connections to different peers, 10 of
 which are outbound. You can therefore, have at most 115 inbound connections.
 Of the 10 outbound peers, there can be 8 full-relay connections and 2
 block-relay-only ones.
->>>>>>> bitcoin/8.22.0
 
 The default settings can result in relatively significant traffic consumption.
 

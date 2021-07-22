@@ -1,25 +1,16 @@
-<<<<<<< HEAD
-Fuzz-testing DigiByte Core
-==========================
-
-A special test harness `test_digibyte_fuzzy` is provided to provide an easy
-entry point for fuzzers and the like. In this document we'll describe how to
-use it with AFL.
-=======
 # Fuzzing DigiByte Core using libFuzzer
 
 ## Quickstart guide
->>>>>>> bitcoin/8.22.0
 
 To quickly get started fuzzing DigiByte Core using [libFuzzer](https://llvm.org/docs/LibFuzzer.html):
 
 ```sh
-$ git clone https://github.com/digibyte/digibyte
+$ git clone https://github.com/digibyte-core/digibyte
 $ cd digibyte/
 $ ./autogen.sh
 $ CC=clang CXX=clang++ ./configure --enable-fuzz --with-sanitizers=address,fuzzer,undefined
 # macOS users: If you have problem with this step then make sure to read "macOS hints for
-# libFuzzer" on https://github.com/digibyte/digibyte/blob/master/doc/fuzzing.md#macos-hints-for-libfuzzer
+# libFuzzer" on https://github.com/digibyte-core/digibyte/blob/master/doc/fuzzing.md#macos-hints-for-libfuzzer
 $ make
 $ FUZZ=process_message src/test/fuzz/fuzz
 # abort fuzzing using ctrl-c
@@ -27,21 +18,12 @@ $ FUZZ=process_message src/test/fuzz/fuzz
 
 ## Fuzzing harnesses and output
 
-[`process_message`](https://github.com/digibyte/digibyte/blob/master/src/test/fuzz/process_message.cpp) is a fuzzing harness for the [`ProcessMessage(...)` function (`net_processing`)](https://github.com/digibyte/digibyte/blob/master/src/net_processing.cpp). The available fuzzing harnesses are found in [`src/test/fuzz/`](https://github.com/digibyte/digibyte/tree/master/src/test/fuzz).
+[`process_message`](https://github.com/digibyte-core/digibyte/blob/master/src/test/fuzz/process_message.cpp) is a fuzzing harness for the [`ProcessMessage(...)` function (`net_processing`)](https://github.com/digibyte-core/digibyte/blob/master/src/net_processing.cpp). The available fuzzing harnesses are found in [`src/test/fuzz/`](https://github.com/digibyte-core/digibyte/tree/master/src/test/fuzz).
 
 The fuzzer will output `NEW` every time it has created a test input that covers new areas of the code under test. For more information on how to interpret the fuzzer output, see the [libFuzzer documentation](https://llvm.org/docs/LibFuzzer.html).
 
 If you specify a corpus directory then any new coverage increasing inputs will be saved there:
 
-<<<<<<< HEAD
-To build DigiByte Core using AFL instrumentation (this assumes that the
-`AFLPATH` was set as above):
-```
-./configure --disable-ccache --disable-shared --enable-tests CC=${AFLPATH}/afl-gcc CXX=${AFLPATH}/afl-g++
-export AFL_HARDEN=1
-cd src/
-make test/test_digibyte_fuzzy
-=======
 ```sh
 $ mkdir -p process_message-seeded-from-thin-air/
 $ FUZZ=process_message src/test/fuzz/fuzz process_message-seeded-from-thin-air/
@@ -99,17 +81,8 @@ INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4
 INFO: seed corpus: files: 991 min: 1b max: 1858b total: 288291b rss: 150Mb
 #993    INITED cov: 7063 ft: 8236 corp: 25/3821b exec/s: 0 rss: 181Mb
 …
->>>>>>> bitcoin/8.22.0
 ```
 
-<<<<<<< HEAD
-The fuzzing can be sped up significantly (~200x) by using `afl-clang-fast` and
-`afl-clang-fast++` in place of `afl-gcc` and `afl-g++` when compiling. When
-compiling using `afl-clang-fast`/`afl-clang-fast++` the resulting
-`test_digibyte_fuzzy` binary will be instrumented in such a way that the AFL
-features "persistent mode" and "deferred forkserver" can be used. See
-https://github.com/mcarpenter/afl/tree/master/llvm_mode for details.
-=======
 ## Reproduce a fuzzer crash reported by the CI
 
 - `cd` into the `qa-assets` directory and update it with `git pull qa-assets`
@@ -136,9 +109,8 @@ example using `brew install llvm`.
 
 Should you run into problems with the address sanitizer, it is possible you
 may need to run `./configure` with `--disable-asm` to avoid errors
-with certain assembly code from DigiByte Core's code. See [developer notes on sanitizers](https://github.com/digibyte/digibyte/blob/master/doc/developer-notes.md#sanitizers)
+with certain assembly code from DigiByte Core's code. See [developer notes on sanitizers](https://github.com/digibyte-core/digibyte/blob/master/doc/developer-notes.md#sanitizers)
 for more information.
->>>>>>> bitcoin/8.22.0
 
 You may also need to take care of giving the correct path for `clang` and
 `clang++`, like `CC=/path/to/clang CXX=/path/to/clang++` if the non-systems
@@ -159,7 +131,7 @@ Read the [libFuzzer documentation](https://llvm.org/docs/LibFuzzer.html) for mor
 To quickly get started fuzzing DigiByte Core using [afl++](https://github.com/AFLplusplus/AFLplusplus):
 
 ```sh
-$ git clone https://github.com/digibyte/digibyte
+$ git clone https://github.com/digibyte-core/digibyte
 $ cd digibyte/
 $ git clone https://github.com/AFLplusplus/AFLplusplus
 $ make -C AFLplusplus/ source-only
@@ -179,19 +151,14 @@ $ FUZZ=bech32 AFLplusplus/afl-fuzz -i inputs/ -o outputs/ -- src/test/fuzz/fuzz
 
 Read the [afl++ documentation](https://github.com/AFLplusplus/AFLplusplus) for more information.
 
-<<<<<<< HEAD
-- https://download.visucore.com/digibyte/digibyte_fuzzy_in.tar.xz
-- http://strateman.ninja/fuzzing.tar.xz
-=======
 # Fuzzing DigiByte Core using Honggfuzz
->>>>>>> bitcoin/8.22.0
 
 ## Quickstart guide
 
 To quickly get started fuzzing DigiByte Core using [Honggfuzz](https://github.com/google/honggfuzz):
 
 ```sh
-$ git clone https://github.com/digibyte/digibyte
+$ git clone https://github.com/digibyte-core/digibyte
 $ cd digibyte/
 $ ./autogen.sh
 $ git clone https://github.com/google/honggfuzz
@@ -203,9 +170,6 @@ $ make
 $ mkdir -p inputs/
 $ FUZZ=process_message honggfuzz/honggfuzz -i inputs/ -- src/test/fuzz/fuzz
 ```
-<<<<<<< HEAD
-$AFLPATH/afl-fuzz -i ${AFLIN} -o ${AFLOUT} -m52 -- test/test_digibyte_fuzzy
-=======
 
 Read the [Honggfuzz documentation](https://github.com/google/honggfuzz/blob/master/docs/USAGE.md) for more information.
 
@@ -223,7 +187,7 @@ To quickly get started fuzzing the P2P layer using Honggfuzz NetDriver:
 ```sh
 $ mkdir digibyte-honggfuzz-p2p/
 $ cd digibyte-honggfuzz-p2p/
-$ git clone https://github.com/digibyte/digibyte
+$ git clone https://github.com/digibyte-core/digibyte
 $ cd digibyte/
 $ ./autogen.sh
 $ git clone https://github.com/google/honggfuzz
@@ -281,7 +245,6 @@ $ honggfuzz/honggfuzz --exit_upon_crash --quiet --timeout 4 -n 1 -Q \
           src/digibyted -regtest -discover=0 -dns=0 -dnsseed=0 -listenonion=0 \
                        -nodebuglogfile -bind=127.0.0.1:18444 -logthreadnames \
                        -debug
->>>>>>> bitcoin/8.22.0
 ```
 
 # OSS-Fuzz

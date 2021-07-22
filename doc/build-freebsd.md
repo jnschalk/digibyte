@@ -1,10 +1,6 @@
 # FreeBSD Build Guide
 
-<<<<<<< HEAD
-This guide describes how to build digibyted and command-line utilities on FreeBSD.
-=======
 **Updated for FreeBSD [12.2](https://www.freebsd.org/releases/12.2R/announce.html)**
->>>>>>> bitcoin/8.22.0
 
 This guide describes how to build digibyted, command-line utilities, and GUI on FreeBSD.
 
@@ -50,13 +46,13 @@ pkg install autoconf automake boost-libs git gmake libevent libtool pkgconf
 ### 2. Clone DigiByte Repo
 Now that `git` and all the required dependencies are installed, let's clone the DigiByte Core repository to a directory. All build scripts and commands will run from this directory.
 ``` bash
-git clone https://github.com/digibyte/digibyte.git
+git clone https://github.com/digibyte-core/digibyte.git
 ```
 
 ### 3. Install Optional Dependencies
 
 #### Wallet Dependencies
-It is not necessary to build wallet functionality to run digibyted or the GUI. To enable legacy wallets, you must install `db5`. To enable [descriptor wallets](https://github.com/digibyte/digibyte/blob/master/doc/descriptors.md), `sqlite3` is required. Skip `db5` if you intend to *exclusively* use descriptor wallets
+It is not necessary to build wallet functionality to run digibyted or the GUI. To enable legacy wallets, you must install `db5`. To enable [descriptor wallets](https://github.com/digibyte-core/digibyte/blob/master/doc/descriptors.md), `sqlite3` is required. Skip `db5` if you intend to *exclusively* use descriptor wallets
 
 ###### Legacy Wallet Support
 `db5` is required to enable support for legacy wallets. Skip if you don't intend to use legacy wallets
@@ -71,9 +67,6 @@ pkg install db5
 ``` bash
 pkg install sqlite3
 ```
-<<<<<<< HEAD
-git clone https://github.com/digibyte/digibyte
-=======
 ---
 
 #### GUI Dependencies
@@ -82,19 +75,14 @@ git clone https://github.com/digibyte/digibyte
 DigiByte Core includes a GUI built with the cross-platform Qt Framework. To compile the GUI, we need to install `qt5`. Skip if you don't intend to use the GUI.
 ```bash
 pkg install qt5
->>>>>>> bitcoin/8.22.0
 ```
 ###### libqrencode
 
-<<<<<<< HEAD
-## Building DigiByte Core
-=======
 The GUI can encode addresses in a QR Code. To build in QR support for the GUI, install `libqrencode`. Skip if not using the GUI or don't want QR code functionality.
 ```bash
 pkg install libqrencode
 ```
 ---
->>>>>>> bitcoin/8.22.0
 
 #### Test Suite Dependencies
 There is an included test suite that is useful for testing code changes when developing.

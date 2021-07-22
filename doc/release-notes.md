@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-DigiByte Core version 0.17.1 is now available from:
-
-  <https://digibytecore.org/bin/digibyte-core-0.17.1/>
-=======
 # Release notes now being edited on https://github.com/digibyte-core/digibyte-devwiki/wiki/22.0-Release-Notes-draft
 
 *After branching off for a major version release of DigiByte Core, use this
@@ -11,7 +6,6 @@ template to create the initial release notes draft.*
 *The release notes draft is a temporary file that can be added to by anyone. See
 [/doc/developer-notes.md#release-notes](/doc/developer-notes.md#release-notes)
 for the process.*
->>>>>>> bitcoin/8.22.0
 
 *Create the draft, named* "*version* Release Notes Draft"
 *(e.g. "0.20.0 Release Notes Draft"), as a collaborative wiki in:*
@@ -32,7 +26,7 @@ improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/digibyte/digibyte/issues>
+  <https://github.com/digibyte-core/digibyte/issues>
 
 To receive security and update notifications, please subscribe to:
 
@@ -108,7 +102,7 @@ ZMQ On Windows
 
 Previously the ZeroMQ notification system was unavailable on Windows
 due to various issues with ZMQ. These have been fixed upstream and
-now ZMQ can be used on Windows. Please see [this document](https://github.com/digibyte/digibyte/blob/master/doc/zmq.md) for
+now ZMQ can be used on Windows. Please see [this document](https://github.com/digibyte-core/digibyte/blob/master/doc/zmq.md) for
 help with using ZMQ in general.
 
 Nested RPC Commands in Debug Console
@@ -254,7 +248,7 @@ Low-level RPC changes
 
  - A new RPC command `getmemoryinfo` has been added which will return information
    about the memory usage of DigiByte Core. This was added in conjunction with
-   optimizations to memory management. See [Pull #8753](https://github.com/digibyte/digibyte/pull/8753)
+   optimizations to memory management. See [Pull #8753](https://github.com/digibyte-core/digibyte/pull/8753)
    for more information.
 
  - A new RPC command `bumpfee` has been added which allows replacing an
@@ -281,22 +275,6 @@ Since the changes in 0.12 to automatically limit the size of the mempool and imp
 The `-minrelaytxfee` option continues to exist but is recommended to be left unset.
 =======
 If you are running an older version, shut it down. Wait until it has completely
-<<<<<<< HEAD
-shut down (which might take a few minutes for older versions), then run the
-installer (on Windows) or just copy over `/Applications/DigiByte-Qt` (on Mac)
-or `digibyted`/`digibyte-qt` (on Linux).
-
-If your node has a txindex, the txindex db will be migrated the first time you run 0.17.0 or newer, which may take up to a few hours. Your node will not be functional until this migration completes.
-
-The first time you run version 0.15.0 or newer, your chainstate database will be converted to a
-new format, which will take anywhere from a few minutes to half an hour,
-depending on the speed of your machine.
-
-Note that the block database format also changed in version 0.8.0 and there is no
-automatic upgrade code from before version 0.8 to version 0.15.0 or higher. Upgrading
-directly from 0.7.x and earlier without re-downloading the blockchain is not supported.
-However, as usual, old wallet versions are still supported.
-=======
 shut down (which might take a few minutes in some cases), then run the
 installer (on Windows) or just copy over `/Applications/DigiByte-Qt` (on Mac)
 or `digibyted`/`digibyte-qt` (on Linux).
@@ -307,7 +285,6 @@ wallet versions of DigiByte Core are generally supported.
 
 Compatibility
 ==============
->>>>>>> bitcoin/8.22.0
 
 DigiByte Core is supported and extensively tested on operating systems
 using the Linux kernel, macOS 10.14+, and Windows 7 and newer.  DigiByte
@@ -315,16 +292,6 @@ Core should also work on most other Unix-like systems but is not as
 frequently tested on them.  It is not recommended to use DigiByte Core on
 unsupported systems.
 
-<<<<<<< HEAD
-Wallets created in 0.16 and later are not compatible with versions prior to 0.16
-and will not work if you try to use newly created wallets in older versions. Existing
-wallets that were created with older versions are not affected by this.
-
-Compatibility
-==============
-DigiByte Core is extensively tested on multiple operating systems using
-the Linux kernel, macOS 10.8+, and Windows Vista and later. Windows XP is not supported.
-=======
 DigiByte Core is extensively tested on multiple operating systems using
 =======
 DigiByte Core is extensively tested on multiple operating systems using
@@ -441,15 +408,14 @@ P2P and network changes
 
 Updated RPCs
 ------------
->>>>>>> bitcoin/8.22.0
 
-- Due to [BIP 350](https://github.com/digibyte/bips/blob/master/bip-0350.mediawiki)
+- Due to [BIP 350](https://github.com/digibyte-core/bips/blob/master/bip-0350.mediawiki)
   being implemented, behavior for all RPCs that accept addresses is changed when
   a native witness version 1 (or higher) is passed. These now require a Bech32m
   encoding instead of a Bech32 one, and Bech32m encoding will be used for such
   addresses in RPC output as well. No version 1 addresses should be created
   for mainnet until consensus rules are adopted that give them meaning
-  (e.g. through [BIP 341](https://github.com/digibyte/bips/blob/master/bip-0341.mediawiki)).
+  (e.g. through [BIP 341](https://github.com/digibyte-core/bips/blob/master/bip-0341.mediawiki)).
   Once that happens, Bech32m is expected to be used for them, so this shouldn't
   affect any production systems, but may be observed on other networks where such
   addresses already have meaning (like signet). (#20861)
@@ -519,8 +485,6 @@ New settings
   If both UPnP and NAT-PMP are enabled, a successful allocation from UPnP
   prevails over one from NAT-PMP. (#18077)
 
-<<<<<<< HEAD
-=======
 Updated settings
 ----------------
 
@@ -558,7 +522,6 @@ Wallet
 
 - We now support up to 20 keys in `multi()` and `sortedmulti()` descriptors
   under `wsh()`. (#20867)
->>>>>>> bitcoin/8.22.0
 
 GUI changes
 -----------
@@ -582,14 +545,6 @@ RPC
   - `verifymessage` now returns RPC_TYPE_ERROR (-3) if the passed signature
     is malformed. Previously returned RPC_INVALID_ADDRESS_OR_KEY (-5).
 
-<<<<<<< HEAD
-Example item for a notable change.
-
-0.16.x change log
-------------------
-
-(to be filled in at release time)
-=======
 RPC changes
 ------------
 
@@ -748,7 +703,6 @@ confusion.
 ### Documentation
 - #14161 `5f51fd6` doc/descriptors.md tweaks (ryanofsky)
 - #14276 `85aacc4` Add autogen.sh in ARM Cross-compilation (walterwhite81)
->>>>>>> 0.17
 =======
 Tests
 -----
@@ -759,11 +713,7 @@ Credits
 
 Thanks to everyone who directly contributed to this release:
 
-<<<<<<< HEAD
-(todo)
-=======
 (to be filled in at release time)
->>>>>>> ea2e39fd2004e83375c1703543e32a10e3b9d981
 =======
 - Andrew Chow
 - Chun Kuan Lee

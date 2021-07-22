@@ -7,19 +7,11 @@ The purpose of this library is to make the verification functionality that is cr
 
 ### API
 
-<<<<<<< HEAD
-The interface is defined in the C header `digibyteconsensus.h` located in  `src/script/digibyteconsensus.h`.
-
-#### Version
-
-`digibyteconsensus_version` returns an `unsigned int` with the API version *(currently at an experimental `0`)*.
-=======
 The interface is defined in the C header `digibyteconsensus.h` located in `src/script/digibyteconsensus.h`.
 
 #### Version
 
 `digibyteconsensus_version` returns an `unsigned int` with the API version *(currently `1`)*.
->>>>>>> bitcoin/8.22.0
 
 #### Script Validation
 
@@ -36,12 +28,12 @@ The interface is defined in the C header `digibyteconsensus.h` located in `src/s
 
 ##### Script Flags
 - `digibyteconsensus_SCRIPT_FLAGS_VERIFY_NONE`
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_P2SH` - Evaluate P2SH ([BIP16](https://github.com/digibyte/bips/blob/master/bip-0016.mediawiki)) subscripts
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_DERSIG` - Enforce strict DER ([BIP66](https://github.com/digibyte/bips/blob/master/bip-0066.mediawiki)) compliance
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY` - Enforce NULLDUMMY ([BIP147](https://github.com/digibyte/bips/blob/master/bip-0147.mediawiki))
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY` - Enable CHECKLOCKTIMEVERIFY ([BIP65](https://github.com/digibyte/bips/blob/master/bip-0065.mediawiki))
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY` - Enable CHECKSEQUENCEVERIFY ([BIP112](https://github.com/digibyte/bips/blob/master/bip-0112.mediawiki))
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_WITNESS` - Enable WITNESS ([BIP141](https://github.com/digibyte/bips/blob/master/bip-0141.mediawiki))
+- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_P2SH` - Evaluate P2SH ([BIP16](https://github.com/digibyte-core/bips/blob/master/bip-0016.mediawiki)) subscripts
+- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_DERSIG` - Enforce strict DER ([BIP66](https://github.com/digibyte-core/bips/blob/master/bip-0066.mediawiki)) compliance
+- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY` - Enforce NULLDUMMY ([BIP147](https://github.com/digibyte-core/bips/blob/master/bip-0147.mediawiki))
+- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY` - Enable CHECKLOCKTIMEVERIFY ([BIP65](https://github.com/digibyte-core/bips/blob/master/bip-0065.mediawiki))
+- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY` - Enable CHECKSEQUENCEVERIFY ([BIP112](https://github.com/digibyte-core/bips/blob/master/bip-0112.mediawiki))
+- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_WITNESS` - Enable WITNESS ([BIP141](https://github.com/digibyte-core/bips/blob/master/bip-0141.mediawiki))
 
 ##### Errors
 - `digibyteconsensus_ERR_OK` - No errors with input parameters *(see the return value of `digibyteconsensus_verify_script` for the verification status)*
@@ -49,16 +41,10 @@ The interface is defined in the C header `digibyteconsensus.h` located in `src/s
 - `digibyteconsensus_ERR_TX_SIZE_MISMATCH` - `txToLen` did not match with the size of `txTo`
 - `digibyteconsensus_ERR_DESERIALIZE` - An error deserializing `txTo`
 - `digibyteconsensus_ERR_AMOUNT_REQUIRED` - Input amount is required if WITNESS is used
-<<<<<<< HEAD
-
-### Example Implementations
-- [NDigiByte](https://github.com/NicolasDorier/NDigiByte/blob/master/NDigiByte/Script.cs#L814) (.NET Bindings)
-=======
 - `digibyteconsensus_ERR_INVALID_FLAGS` - Script verification `flags` are invalid (i.e. not part of the libconsensus interface)
 
 ### Example Implementations
 - [NDigiByte](https://github.com/MetacoSA/NDigiByte/blob/5e1055cd7c4186dee4227c344af8892aea54faec/NDigiByte/Script.cs#L979-#L1031) (.NET Bindings)
->>>>>>> bitcoin/8.22.0
 - [node-libdigibyteconsensus](https://github.com/bitpay/node-libdigibyteconsensus) (Node.js Bindings)
 - [java-libdigibyteconsensus](https://github.com/dexX7/java-libdigibyteconsensus) (Java Bindings)
 - [digibyteconsensus-php](https://github.com/Bit-Wasp/digibyteconsensus-php) (PHP Bindings)

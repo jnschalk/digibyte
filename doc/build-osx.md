@@ -71,19 +71,6 @@ While several package managers are available for macOS, this guide will focus on
 Since the examples in this guide which walk through the installation of a package will use Homebrew, it is recommended that you install it to follow along.
 Otherwise, you can adapt the commands to your package manager of choice.
 
-<<<<<<< HEAD
-Build DigiByte Core
-------------------------
-
-1. Clone the DigiByte Core source code and cd into `digibyte`
-
-        git clone https://github.com/digibyte/digibyte
-        cd digibyte
-
-2.  Build DigiByte Core:
-
-    Configure and build the headless DigiByte Core binaries as well as the GUI (if Qt is found).
-=======
 To install the Homebrew package manager, see: https://brew.sh
 
 Note: If you run into issues while installing Homebrew or pulling packages, refer to [Homebrew's troubleshooting page](https://docs.brew.sh/Troubleshooting).
@@ -97,7 +84,6 @@ To install, run the following from your terminal:
 ``` bash
 brew install automake libtool boost pkg-config libevent
 ```
->>>>>>> bitcoin/8.22.0
 
 ### 4. Clone DigiByte repository
 
@@ -106,7 +92,7 @@ Now that all the required dependencies are installed, let's clone the DigiByte C
 All build scripts and commands will run from this directory.
 
 ``` bash
-git clone https://github.com/digibyte/digibyte.git
+git clone https://github.com/digibyte-core/digibyte.git
 ```
 
 ### 5. Install Optional Dependencies
@@ -115,29 +101,18 @@ git clone https://github.com/digibyte/digibyte.git
 
 It is not necessary to build wallet functionality to run `digibyted` or  `digibyte-qt`.
 To enable legacy wallets, you must install `berkeley-db@4`.
-To enable [descriptor wallets](https://github.com/digibyte/digibyte/blob/master/doc/descriptors.md), `sqlite` is required.
+To enable [descriptor wallets](https://github.com/digibyte-core/digibyte/blob/master/doc/descriptors.md), `sqlite` is required.
 Skip `berkeley-db@4` if you intend to *exclusively* use descriptor wallets.
 
 ###### Legacy Wallet Support
 
-<<<<<<< HEAD
-DigiByte Core is now available at `./src/digibyted`
-=======
 `berkeley-db@4` is required to enable support for legacy wallets.
 Skip if you don't intend to use legacy wallets.
->>>>>>> bitcoin/8.22.0
 
 ``` bash
 brew install berkeley-db@4
 ```
 
-<<<<<<< HEAD
-    echo -e "rpcuser=digibyterpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/DigiByte/digibyte.conf"
-
-    chmod 600 "/Users/${USER}/Library/Application Support/DigiByte/digibyte.conf"
-
-The first time you run digibyted, it will start downloading the blockchain. This process could take several hours.
-=======
 ###### Descriptor Wallet Support
 
 Note: Apple has included a useable `sqlite` package since macOS 10.14.
@@ -145,7 +120,6 @@ You may not need to install this package.
 
 `sqlite` is required to enable support for descriptor wallets.
 Skip if you don't intend to use descriptor wallets.
->>>>>>> bitcoin/8.22.0
 
 ``` bash
 brew install sqlite
@@ -173,7 +147,7 @@ brew uninstall qt
 ```
 
 Note: Building with Qt binaries downloaded from the Qt website is not officially supported.
-See the notes in [#7714](https://github.com/digibyte/digibyte/issues/7714).
+See the notes in [#7714](https://github.com/digibyte-core/digibyte/issues/7714).
 
 ###### qrencode
 
@@ -231,9 +205,6 @@ For more information on ZMQ, see: [zmq.md](zmq.md)
 There is an included test suite that is useful for testing code changes when developing.
 To run the test suite (recommended), you will need to have Python 3 installed:
 
-<<<<<<< HEAD
-    tail -f $HOME/Library/Application\ Support/DigiByte/debug.log
-=======
 ``` bash
 brew install python
 ```
@@ -262,25 +233,18 @@ pip3 install ds_store mac_alias
 There are many ways to configure DigiByte Core, here are a few common examples:
 
 ##### Wallet (BDB + SQlite) Support, No GUI:
->>>>>>> bitcoin/8.22.0
 
 If `berkeley-db@4` is installed, then legacy wallet support will be built.
 If `berkeley-db@4` is not installed, then this will throw an error.
 If `sqlite` is installed, then descriptor wallet support will also be built.
 Additionally, this explicitly disables the GUI.
 
-<<<<<<< HEAD
-    ./src/digibyted -daemon # Starts the digibyte daemon.
-    ./src/digibyte-cli --help # Outputs a list of command-line options.
-    ./src/digibyte-cli help # Outputs a list of RPC commands when the daemon is running.
-=======
 ``` bash
 ./autogen.sh
 ./configure --with-gui=no
 ```
 
 ##### Wallet (only SQlite) and GUI Support:
->>>>>>> bitcoin/8.22.0
 
 This explicitly enables the GUI and disables legacy wallet support.
 If `qt` is not installed, this will throw an error.
@@ -301,9 +265,6 @@ If `sqlite` is not installed, then wallet functionality will be disabled.
 
 ##### Further Configuration
 
-<<<<<<< HEAD
-* Building with downloaded Qt binaries is not officially supported. See the notes in [#7714](https://github.com/digibyte/digibyte/issues/7714)
-=======
 You may want to dig deeper into the configuration options to achieve your desired behavior.
 Examine the output of the following command for a full list of configuration options:
 
@@ -367,4 +328,3 @@ tail -f $HOME/Library/Application\ Support/DigiByte/debug.log
 ./src/digibyte-cli help      # Outputs a list of RPC commands when the daemon is running.
 ./src/qt/digibyte-qt -server # Starts the digibyte-qt server mode, allows digibyte-cli control
 ```
->>>>>>> bitcoin/8.22.0

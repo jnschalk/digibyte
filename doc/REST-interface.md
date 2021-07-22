@@ -79,7 +79,7 @@ Only supports JSON as output format.
 
 The getutxo command allows querying of the UTXO set given a set of outpoints.
 See BIP64 for input and output serialisation:
-https://github.com/digibyte/bips/blob/master/bip-0064.mediawiki
+https://github.com/digibyte-core/bips/blob/master/bip-0064.mediawiki
 
 Example:
 ```
@@ -108,15 +108,7 @@ $ curl localhost:18332/rest/getutxos/checkmempool/b2cdfd7b89def827ff8af7cd9bff76
 
 Returns various information about the TX mempool.
 Only supports JSON as output format.
-<<<<<<< HEAD
-* size : (numeric) the number of transactions in the TX mempool
-* bytes : (numeric) size of the TX mempool in bytes
-* usage : (numeric) total TX mempool memory usage
-* maxmempool : (numeric) maximum memory usage for the mempool in bytes
-* mempoolminfee : (numeric) minimum feerate (DGB per KB) for tx to be accepted
-=======
 Refer to the `getmempoolinfo` RPC for documentation of the fields.
->>>>>>> bitcoin/8.22.0
 
 `GET /rest/mempool/contents.json`
 

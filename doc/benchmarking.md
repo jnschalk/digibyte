@@ -2,14 +2,6 @@ Benchmarking
 ============
 
 DigiByte Core has an internal benchmarking framework, with benchmarks
-<<<<<<< HEAD
-for cryptographic algorithms (e.g. SHA1, SHA256, SHA512, RIPEMD160), as well as the rolling bloom filter.
-
-Running
----------------------
-After compiling digibyte-core, the benchmarks can be run with:
-
-=======
 for cryptographic algorithms (e.g. SHA1, SHA256, SHA512, RIPEMD160, Poly1305, ChaCha20), rolling bloom filter, coins selection,
 thread queue, wallet balance.
 
@@ -25,7 +17,6 @@ and lock analysis.
 
 After compiling digibyte-core, the benchmarks can be run with:
 
->>>>>>> bitcoin/8.22.0
     src/bench/bench_digibyte
 
 The output will look similar to:
@@ -49,12 +40,9 @@ Help
 ---------------------
 
     src/bench/bench_digibyte -?
-<<<<<<< HEAD
-=======
 
 To print the various options, like listing the benchmarks without running them
 or using a regex filter to only run certain benchmarks.
->>>>>>> bitcoin/8.22.0
 
 Notes
 ---------------------
