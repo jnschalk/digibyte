@@ -1,9 +1,6 @@
 ---
 name: "digibyte-dmg-signer"
-<<<<<<< HEAD
-=======
 distro: "ubuntu"
->>>>>>> bitcoin/8.22.0
 suites:
 - "focal"
 architectures:
@@ -38,9 +35,6 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-<<<<<<< HEAD
-  UNSIGNED=digibyte-osx-unsigned.tar.gz
-=======
   # Install signapple
   cd signapple
   python3 -m pip install -U pip setuptools
@@ -50,7 +44,6 @@ script: |
 
   UNSIGNED_TARBALL=digibyte-osx-unsigned.tar.gz
   UNSIGNED_APP=dist/DigiByte-Qt.app
->>>>>>> bitcoin/8.22.0
   SIGNED=digibyte-osx-signed.dmg
 
   tar -xf ${UNSIGNED_TARBALL}

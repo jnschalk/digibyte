@@ -1,9 +1,6 @@
 ---
 name: "digibyte-win-signer"
-<<<<<<< HEAD
-=======
 distro: "ubuntu"
->>>>>>> bitcoin/8.22.0
 suites:
 - "focal"
 architectures:

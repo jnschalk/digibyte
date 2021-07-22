@@ -63,11 +63,7 @@ IGNORE_EXPORTS = {
 }
 
 # Allowed NEEDED libraries
-<<<<<<< HEAD
-ALLOWED_LIBRARIES = {
-=======
 ELF_ALLOWED_LIBRARIES = {
->>>>>>> bitcoin/8.22.0
 # digibyted and digibyte-qt
 'libgcc_s.so.1', # GCC base support
 'libc.so.6', # C library
@@ -77,18 +73,12 @@ ELF_ALLOWED_LIBRARIES = {
 'libatomic.so.1',
 'ld-linux-x86-64.so.2', # 64-bit dynamic linker
 'ld-linux.so.2', # 32-bit dynamic linker
-<<<<<<< HEAD
-# digibyte-qt only
-'libX11-xcb.so.1', # part of X11
-'libX11.so.6', # part of X11
-=======
 'ld-linux-aarch64.so.1', # 64-bit ARM dynamic linker
 'ld-linux-armhf.so.3', # 32-bit ARM dynamic linker
 'ld64.so.1', # POWER64 ABIv1 dynamic linker
 'ld64.so.2', # POWER64 ABIv2 dynamic linker
 'ld-linux-riscv64-lp64d.so.1', # 64-bit RISC-V dynamic linker
 # digibyte-qt only
->>>>>>> bitcoin/8.22.0
 'libxcb.so.1', # part of X11
 'libxkbcommon.so.0', # keyboard keymapping
 'libxkbcommon-x11.so.0', # keyboard keymapping

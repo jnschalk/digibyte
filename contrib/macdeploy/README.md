@@ -10,11 +10,7 @@ When complete, it will have produced `DigiByte-Core.dmg`.
 
 ## SDK Extraction
 
-<<<<<<< HEAD
-When finished, it will produce `DigiByte-Core.dmg`.
-=======
 ### Step 1: Obtaining `Xcode.app`
->>>>>>> bitcoin/8.22.0
 
 Our current macOS SDK
 (`Xcode-12.1-12A7403-extracted-SDK-with-libcxx-headers.tar.gz`) can be

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-#!/bin/bash
-=======
 #!/usr/bin/env bash
->>>>>>> bitcoin/8.22.0
 #
 #  digibyted The digibyte core server.
 #
@@ -43,11 +39,7 @@ start() {
 
 stop() {
     echo -n $"Stopping $prog: "
-<<<<<<< HEAD
-    killproc $prog
-=======
     killproc $prog -t600
->>>>>>> bitcoin/8.22.0
     RETVAL=$?
     echo
     [ $RETVAL -eq 0 ] && rm -f $lockfile

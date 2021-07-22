@@ -29,13 +29,8 @@ All other packaging related files can be found in the [digibyte-core/packaging](
 ### [Gitian-descriptors](/contrib/gitian-descriptors) ###
 Files used during the gitian build process. For more information about gitian, see the [the DigiByte Core documentation repository](https://github.com/digibyte-core/docs).
 
-<<<<<<< HEAD
-### [Gitian-keys](/contrib/gitian-keys)
-PGP keys used for signing DigiByte Core [Gitian release](/doc/release-process.md) results.
-=======
 ### [Builder keys](/contrib/builder-keys)
 PGP keys used for signing DigiByte Core [release](/doc/release-process.md) results.
->>>>>>> bitcoin/8.22.0
 
 ### [MacDeploy](/contrib/macdeploy) ###
 Scripts and notes for Mac builds.
@@ -43,14 +38,7 @@ Scripts and notes for Mac builds.
 ### [Gitian-build](/contrib/gitian-build.py) ###
 Script for running full Gitian builds.
 
-<<<<<<< HEAD
-### [init](/contrib/init) ###
-Sample configuration files for SystemD, Upstart, OpenRC, CentOS, and OS X.
-
-Test and Verify Tools 
-=======
 Test and Verify Tools
->>>>>>> bitcoin/8.22.0
 ---------------------
 
 ### [TestGen](/contrib/testgen) ###

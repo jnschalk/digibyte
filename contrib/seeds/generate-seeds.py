@@ -164,11 +164,7 @@ def main():
         process_nodes(g, f, 'chainparams_seed_main')
     g.write('\n')
     with open(os.path.join(indir,'nodes_test.txt'), 'r', encoding="utf8") as f:
-<<<<<<< HEAD
-        process_nodes(g, f, 'pnSeed6_test', 18333)
-=======
         process_nodes(g, f, 'chainparams_seed_test')
->>>>>>> bitcoin/8.22.0
     g.write('#endif // DIGIBYTE_CHAINPARAMSSEEDS_H\n')
 
 if __name__ == '__main__':
