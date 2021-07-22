@@ -68,13 +68,6 @@
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Acestea sunt adresele tale DigiByte pentru efectuarea platilor. Intotdeauna verifica atent suma de plata si adresa beneficiarului inainte de a trimite monede.</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_ro_RO.ts
-    </message>
-    <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Acestea sunt adresele tale DigiByte pentru receptionarea platilor. Este recomandat sa folosesti mereu o adresa noua pentru primirea platilor.</translation>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ro.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -183,10 +176,6 @@
         <translation>Portofel criptat</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ro_RO.ts
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>%1 se va închide acum pentru a termina procesul de criptare. Ţineţi minte că criptarea portofelului nu vă poate proteja în totalitate de furtul monedelor de către programe malware care vă infectează calculatorul.</translation>
-=======
         <source>Wallet to be encrypted</source>
         <translation>Portofel de criptat</translation>
     </message>
@@ -197,7 +186,6 @@
     <message>
         <source>Your wallet is now encrypted. </source>
         <translation>Protofelul tău este criptat.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ro.ts
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -382,17 +370,6 @@
         <translation>&amp;Verifică mesaj...</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ro_RO.ts
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Portofel</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ro.ts
         <source>&amp;Send</source>
         <translation>Trimite</translation>
     </message>
@@ -449,13 +426,6 @@
         <translation>Arată lista de adrese pentru primire şi etichetele</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ro_RO.ts
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>Deschidere digibyte: o adresa URI sau o cerere de plată</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ro.ts
         <source>&amp;Command-line options</source>
         <translation>Opţiuni linie de &amp;comandă</translation>
     </message>
@@ -504,10 +474,6 @@
         <translation>Actualizat</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ro_RO.ts
-        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
-        <translation>Arată mesajul de ajutor %1 pentru a obţine o listă cu opţiunile posibile de linii de comandă DigiByte</translation>
-=======
         <source>Node window</source>
         <translation>Fereastra nodului</translation>
     </message>
@@ -566,7 +532,6 @@
     <message>
         <source>Main Window</source>
         <translation>Fereastra principală</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ro.ts
     </message>
     <message>
         <source>%1 client</source>
@@ -652,15 +617,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Portofelul este &lt;b&gt;criptat&lt;/b&gt; iar în momentul de faţă este &lt;b&gt;blocat&lt;/b&gt;</translation>
     </message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ro_RO.ts
-    <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-        <translation>A survenit o eroare fatală. DigiByte nu mai poate continua în siguranţă şi se va opri.</translation>
-    </message>
-</context>
-=======
     </context>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ro.ts
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -1242,13 +1199,6 @@
         <translation>Tor</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ro_RO.ts
-        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Conectare la reteaua DigiByte printr-un proxy SOCKS5 separat pentru serviciile TOR ascunse.</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ro.ts
         <source>&amp;Window</source>
         <translation>&amp;Fereastră</translation>
     </message>
@@ -2150,17 +2100,6 @@ Nota: Cum taxa este calculata per byte, o taxa de "100 satoshi per kB" pentru o 
         <translation>Ascunde</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ro_RO.ts
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
-        <translation>Plata unei taxe minime de tranzactie este in regula atata timp cat exista mai mult spatiu in blocuri dacat sunt tranzactii. Insa trebuie sa fiti constienti ca acest lucru poate conduce la tranzactii care nu vor fi niciodata confirmate in cazul in care exista cerere de tranzactii mai mare decat poate procesa reteaua.</translation>
-    </message>
-    <message>
-        <source>(read the tooltip)</source>
-        <translation>(citeste tooltip)</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ro.ts
         <source>Recommended:</source>
         <translation>Recomandat:</translation>
     </message>
@@ -2364,13 +2303,6 @@ Nota: Cum taxa este calculata per byte, o taxa de "100 satoshi per kB" pentru o 
         <translation>Alegeţi adrese folosite anterior</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ro_RO.ts
-        <source>This is a normal payment.</source>
-        <translation>Aceasta este o tranzacţie normală.</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ro.ts
         <source>The DigiByte address to send the payment to</source>
         <translation>Adresa digibyte către care se face plata</translation>
     </message>
@@ -3170,13 +3102,6 @@ Nota: Cum taxa este calculata per byte, o taxa de "100 satoshi per kB" pentru o 
         <translation>Imposibil de pornit serverul HTTP. Pentru detalii vezi logul de depanare.</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ro_RO.ts
-        <source>DigiByte Core</source>
-        <translation>Nucleul DigiByte</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ro.ts
         <source>The %s developers</source>
         <translation>Dezvoltatorii %s</translation>
     </message>

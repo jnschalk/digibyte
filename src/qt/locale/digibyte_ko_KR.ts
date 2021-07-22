@@ -67,15 +67,7 @@
     </message>
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>비트코인을 보내는 계좌 주소입니다. 코인을 보내기 전에 잔고와 받는 주소를 항상 확인하세요.</translation>
-    </message>
-    <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>비트코인을 받을 수 있는 계좌 주소입니다. 매 거래마다 새로운 주소 사용을 권장합니다. </translation>
-=======
         <translation>비트코인을 보내는 계좌 주소입니다. 코인을 보내기 전에 금액과 받는 주소를 항상 확인하세요.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -184,10 +176,6 @@
         <translation>지갑 암호화 완료</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>암호화 처리 과정을 끝내기 위해 %1을 종료합니다. 지갑 암호화는 컴퓨터로의 멀웨어 감염으로 인한 비트코인 도난을 완전히 방지할 수 없음을 기억하세요.</translation>
-=======
         <source>Enter the new passphrase for the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>새로운 지갑 비밀번호를 입력하세요. 암호는 10개 이상의 문자 또는 8개 이상의 단어로 입력하세요.</translation>
     </message>
@@ -210,7 +198,6 @@
     <message>
         <source>Your wallet is now encrypted. </source>
         <translation>지갑이 암호화 되었습니다.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -372,11 +359,7 @@
     </message>
     <message>
         <source>Send coins to a DigiByte address</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>비트코인 주소로 코인 전송</translation>
-=======
         <translation>비트코인 주소로 코인을 전송합니다</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -388,19 +371,7 @@
     </message>
     <message>
         <source>&amp;Verify message...</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>메시지 확인(&amp;V)...</translation>
-    </message>
-    <message>
-        <source>DigiByte</source>
-        <translation>비트코인</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>지갑</translation>
-=======
         <translation>메시지 검증(&amp;V)...</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>&amp;Send</source>
@@ -424,19 +395,11 @@
     </message>
     <message>
         <source>Sign messages with your DigiByte addresses to prove you own them</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>지갑 주소가 본인 소유인지 증명하기 위해 비트코인 주소에 서명할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>비트코인 주소의 전자 서명 확인을 위해 첨부된 메시지가 있을 경우 이를 검증할 수 있습니다.</translation>
-=======
         <translation>지갑 주소가 본인 소유인지 증명하기 위해 메시지를 서명합니다</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
         <translation>해당 비트코인 주소로 서명되었는지 확인하기 위해 메시지를 검증합니다</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>&amp;File</source>
@@ -456,11 +419,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and digibyte: URIs)</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>지불 요청하기 (QR코드와 비트코인이 생성됩니다: URIs)</translation>
-=======
         <translation>지불 요청하기 (QR코드와 digibyte: URI를 생성합니다)</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -468,15 +427,7 @@
     </message>
     <message>
         <source>Show the list of used receiving addresses and labels</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>한번 이상 사용된 받는 주소와 주소 제목의 목록을 보여줍니다.</translation>
-    </message>
-    <message>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>digibyte: URI 또는 지불요청 열기</translation>
-=======
         <translation>한번 이상 사용된 받는 주소와 라벨의 목록을 보여줍니다</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -484,11 +435,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to DigiByte network</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation><numerusform>비트코인 네트워크에 %n개의 연결이 활성화되어 있습니다.</numerusform></translation>
-=======
         <translation><numerusform>비트코인 네트워크에 %n개의 연결 활성화됨</numerusform></translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -555,10 +502,6 @@
         <translation>지갑 열기</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
-        <translation>사용할 수 있는 비트코인 명령줄 옵션 목록을 가져오기 위해 %1 도움말 메시지를 표시합니다.</translation>
-=======
         <source>Open a wallet</source>
         <translation>지갑 하나 열기</translation>
     </message>
@@ -597,7 +540,6 @@
     <message>
         <source>Main Window</source>
         <translation>메인창</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>%1 client</source>
@@ -683,15 +625,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>지갑이 &lt;b&gt;암호화&lt;/b&gt; 되었고 현재 &lt;b&gt;잠겨져&lt;/b&gt; 있습니다</translation>
     </message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-    <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-        <translation>치명적인 오류가 발생했습니다. 비트코인을 더이상 안전하게 진행할 수 없어 곧 종료합니다.</translation>
-    </message>
-</context>
-=======
     </context>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -1030,11 +964,7 @@
     </message>
     <message>
         <source>%1 will download and store a copy of the DigiByte block chain.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>%1은 DigiByte 블록 체인의 사본을 다운로드하여 저장합니다.</translation>
-=======
         <translation>%1은 비트코인 블록체인의 사본을 다운로드하여 저장합니다.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1262,11 +1192,7 @@
     </message>
     <message>
         <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>라우터에서 DigiByte 클라이언트 포트를 자동적으로 엽니다. 라우터에서 UPnP를 지원하고 활성화 했을 경우에만 동작합니다.</translation>
-=======
         <translation>라우터에서 비트코인 클라이언트 포트를 자동적으로 엽니다. 라우터에서 UPnP를 지원하고 활성화 했을 경우에만 동작합니다.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1282,11 +1208,7 @@
     </message>
     <message>
         <source>Connect to the DigiByte network through a SOCKS5 proxy.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>SOCKS5 프록시를 통해 비트코인 네트워크 연결</translation>
-=======
         <translation>SOCKS5 프록시를 통해 비트코인 네트워크에 연결합니다.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1321,13 +1243,6 @@
         <translation>Tor</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Tor 서비스를 경유하여 비트코인 네트워크에 연결하기 위해 분리된 SOCKS5 프록시를 사용.</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
         <source>&amp;Window</source>
         <translation>창(&amp;W)</translation>
     </message>
@@ -1522,11 +1437,7 @@
     </message>
     <message>
         <source>Cannot start digibyte: click-to-pay handler</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>비트코인을 시작할 수 없습니다: 지급제어기를 클릭하세요</translation>
-=======
         <translation>digibyte: 핸들러를 시작할 수 없음</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>URI handling</source>
@@ -1535,25 +1446,6 @@
     <message>
         <source>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</source>
         <translation>'digibyte://"은 잘못된 URI입니다. 'digibyte:'을 사용하십시오.</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-    </message>
-    <message>
-        <source>Payment request fetch URL is invalid: %1</source>
-        <translation>지불 요청의 URL이 올바르지 않습니다: %1</translation>
-    </message>
-    <message>
-        <source>Invalid payment address %1</source>
-        <translation>잘못된 지불 주소입니다 %1</translation>
-    </message>
-    <message>
-        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
-        <translation>URI의 파싱에 문제가 발생했습니다. 잘못된 비트코인 주소나 URI 파라미터 구성에 오류가 존재할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Payment request file handling</source>
-        <translation>지불이 파일 처리를 요청합니다</translation>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>Cannot process payment request because BIP70 is not supported.</source>
@@ -1615,11 +1507,7 @@
     </message>
     <message>
         <source>Enter a DigiByte address (e.g. %1)</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>비트코인 주소를 입력하기 (예. %1)</translation>
-=======
         <translation>비트코인 주소를 입력하세요 (예. %1)</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>%1 d</source>
@@ -2288,17 +2176,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>숨기기</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
-        <translation>블록의 용량보다 거래의 용량이 작은 경우에는 최소한의 수수료만으로도 충분합니다. 그러나 비트코인 네트워크의 처리량보다 더 많은 거래 요구는 영원히 검증이 안 될 수도 있습니다.</translation>
-    </message>
-    <message>
-        <source>(read the tooltip)</source>
-        <translation>(툴팁을 꼭 읽어보세요)</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
         <source>Recommended:</source>
         <translation>권장:</translation>
     </message>
@@ -2579,11 +2456,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>비트코인에 첨부된 메시지: 참고용으로 거래와 함께 저장될 URI. 메모: 이 메시지는 비트코인 네트워크로 전송되지 않습니다.</translation>
-=======
         <translation>digibyte: URI에 추가된 메시지는 참고를 위해 거래내역과 함께 저장될 것입니다. Note: 이 메시지는 비트코인 네트워크로 전송되지 않습니다.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>Pay To:</source>
@@ -2617,19 +2490,11 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive digibytes sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>여러분 자신을 증명하기 위해 주소를 첨가하고 서명할 수 있습니다. 피싱 공격으로 말미암아 여러분의 서명을 통해 속아 넘어가게 할 수 있으므로, 서명하지 않은 모든 모호한 요소를 주의하십시오. 조항들이 완전 무결한지 확인 후 동의하는 경우에만 서명하십시오.</translation>
-    </message>
-    <message>
-        <source>The DigiByte address to sign the message with</source>
-        <translation>메세지를 서명한 비트코인 주소</translation>
-=======
         <translation>당신이 해당 주소로 비트코인을 받을 수 있다는 것을 증명하기 위해 메시지/합의문을 그 주소로 서명할 수 있습니다. 피싱 공격이 당신을 속일 수 있으므로 임의의 내용이나 모호한 내용에 서명하지 않도록 주의하세요. 당신이 동의하는 명확한 조항들에만 서명하세요.</translation>
     </message>
     <message>
         <source>The DigiByte address to sign the message with</source>
         <translation>메세지를 서명할 비트코인 주소</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2661,11 +2526,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Sign the message to prove you own this DigiByte address</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>여러분의 비트코인 주소를 증명하려면 메시지 서명하십시오</translation>
-=======
         <translation>당신이 이 비트코인 주소를 소유한다는 증명을 위해 메시지를 서명합니다</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2693,11 +2554,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <translation>정확한 비트코인주소가 입력됬는지 메시지를 확인하시오</translation>
-=======
         <translation>입력된 비트코인 주소로 메시지가 서명되었는지 검증합니다</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -3365,13 +3222,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>HTTP 서버를 시작할 수 없습니다. 자세한 사항은 디버그 로그를 확인 하세요.</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-        <source>DigiByte Core</source>
-        <translation>비트코인 코어</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
         <source>The %s developers</source>
         <translation>%s 개발자</translation>
     </message>
@@ -3680,15 +3530,12 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>지정한 -walletdir "%s"은 디렉토리가 아닙니다</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ko_KR.ts
-=======
         <source>The specified config file %s does not exist
 </source>
         <translation>지정한 설정 파일 "%s"는 존재하지 않습니다
 </translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ko.ts
         <source>The transaction amount is too small to pay the fee</source>
         <translation>거래액이 수수료를 지불하기엔 너무 작습니다</translation>
     </message>

@@ -64,13 +64,6 @@
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Këto janë DigiByte adresat e juaja për të dërguar pagesa. Gjithmon kontrolloni shumën dhe adresën pranuese para se të dërgoni monedha.</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_sq.ts
-    </message>
-    <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Këto janë DigiByte adresat e juaja për të pranuar pagesa. Rekomandohet që gjithmon të përdorni një adresë të re për çdo transaksion.</translation>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_sq.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -257,17 +250,6 @@
         <translation>Ndrysho frazkalimin e përdorur per enkriptimin e portofolit</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_sq.ts
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Portofol</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_sq.ts
         <source>&amp;Send</source>
         <translation>&amp;Dergo</translation>
     </message>
@@ -808,18 +790,9 @@
         <source>&amp;Export</source>
         <translation>&amp;Eksporto</translation>
     </message>
-<<<<<<< HEAD:src/qt/locale/digibyte_sq.ts
-    </context>
-<context>
-    <name>digibyte-core</name>
-    <message>
-        <source>DigiByte Core</source>
-        <translation>Berthama DigiByte</translation>
-=======
     <message>
         <source>Export the data in the current tab to a file</source>
         <translation>Eksporto të dhënat e skedës korrente në një skedar</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_sq.ts
     </message>
     <message>
         <source>Error</source>

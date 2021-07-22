@@ -3,19 +3,11 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-<<<<<<< HEAD
-        <translation>Clique Esquerdo para editar o endereço ou etiqueta </translation>
-    </message>
-    <message>
-        <source>Create a new address</source>
-        <translation>Criar novo endereço</translation>
-=======
         <translation>Clique com o botão direito para editar o endereço ou etiqueta</translation>
     </message>
     <message>
         <source>Create a new address</source>
         <translation>Criar um novo endereço</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;New</source>
@@ -23,11 +15,7 @@
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
-<<<<<<< HEAD
-        <translation>Copiar o endereço selecionado para a clipboard do sistema</translation>
-=======
         <translation>Copiar o endereço selecionado para a área de transferência do sistema</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Copy</source>

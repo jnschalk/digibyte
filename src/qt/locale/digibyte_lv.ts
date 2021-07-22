@@ -48,8 +48,6 @@
     <message>
         <source>Choose the address to receive coins with</source>
         <translation>Izvēlies adresi ar kuru saņemt digibytes</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_lv_LV.ts
-=======
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -62,7 +60,6 @@
     <message>
         <source>Receiving addresses</source>
         <translation>Adrešu saņemšana</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_lv.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -249,17 +246,6 @@
         <translation>&amp;Pārbaudīt ziņojumu...</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_lv_LV.ts
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Maciņš</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_lv.ts
         <source>&amp;Send</source>
         <translation>&amp;Sūtīt</translation>
     </message>
@@ -306,13 +292,6 @@
     <message>
         <source>Request payments (generates QR codes and digibyte: URIs)</source>
         <translation>Pieprasīt maksājumus (izveido QR kodu un digibyte: URIs)</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_lv_LV.ts
-    </message>
-    <message>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>Atvērt digibyte URI vai maksājuma pieprasījumu</translation>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_lv.ts
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1219,18 +1198,9 @@
     </context>
 <context>
     <name>WalletView</name>
-<<<<<<< HEAD:src/qt/locale/digibyte_lv_LV.ts
-    </context>
-<context>
-    <name>digibyte-core</name>
-    <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
-=======
     <message>
         <source>&amp;Export</source>
         <translation>&amp;Eksportēt</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_lv.ts
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>

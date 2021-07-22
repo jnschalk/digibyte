@@ -68,13 +68,6 @@
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Hauek dira zuk dirua jaso dezaketen DigiByte helbideak. Egiaztatu beti diru-kopurua eta dirua jasoko duen helbidea zuzen egon daitezen, txanponak bidali baino lehen.</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_eu_ES.ts
-    </message>
-    <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Hauek dira zure dirua jasotzeko DigiByte helbideak. Gomendagarria da, operazio bakoitza helbide berri batekin egitea.</translation>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_eu.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -256,13 +249,10 @@
 </context>
 <context>
     <name>DigiByteGUI</name>
-<<<<<<< HEAD:src/qt/locale/digibyte_eu_ES.ts
-=======
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Mezua zinatu</translation>
     </message>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_eu.ts
     <message>
         <source>Synchronizing with network...</source>
         <translation>Sarearekin sinkronizatzen...</translation>
@@ -1261,13 +1251,10 @@
     </context>
 <context>
     <name>digibyte-core</name>
-<<<<<<< HEAD:src/qt/locale/digibyte_eu_ES.ts
-=======
     <message>
         <source>Loading wallet...</source>
         <translation>Diru-zorroa kargatzen</translation>
     </message>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_eu.ts
     <message>
         <source>Rescanning...</source>
         <translation>Birbilatzen...</translation>

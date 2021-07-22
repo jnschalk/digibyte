@@ -38,17 +38,6 @@
         <translation>Билдирүүнү &amp;текшерүү...</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_ky.ts
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Капчык</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_ky.ts
         <source>&amp;File</source>
         <translation>&amp;Файл</translation>
     </message>
@@ -341,20 +330,6 @@
     </context>
 <context>
     <name>WalletView</name>
-<<<<<<< HEAD:src/qt/locale/digibyte_ky.ts
-    </context>
-<context>
-    <name>digibyte-core</name>
-    <message>
-        <source>Information</source>
-        <translation>Маалымат</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Эскертүү</translation>
-    </message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_ky.ts
     <message>
         <source>Error</source>
         <translation>Ката</translation>

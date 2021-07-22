@@ -134,17 +134,6 @@
         <translation>&amp;Потврди порака...</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_mk_MK.ts
-        <source>DigiByte</source>
-        <translation>Биткоин</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Паричник</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_mk.ts
         <source>&amp;Send</source>
         <translation>&amp;Испрати</translation>
     </message>
@@ -599,18 +588,9 @@
     </context>
 <context>
     <name>WalletView</name>
-<<<<<<< HEAD:src/qt/locale/digibyte_mk_MK.ts
-    </context>
-<context>
-    <name>digibyte-core</name>
-    <message>
-        <source>DigiByte Core</source>
-        <translation>Биткоин Core</translation>
-=======
     <message>
         <source>&amp;Export</source>
         <translation>&amp;Експорт</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_mk.ts
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>

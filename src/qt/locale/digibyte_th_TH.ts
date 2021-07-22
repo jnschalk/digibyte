@@ -250,17 +250,6 @@
         <translation>&amp;เปลี่ยนรหัสผ่าน...</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-        <source>&amp;Sending addresses...</source>
-        <translation>&amp;ที่เก็บเงิน ที่จะส่ง digibyte</translation>
-    </message>
-    <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>&amp;ที่เก็บเงิน ที่จะรับ digibyte</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
         <source>Open &amp;URI...</source>
         <translation>เปิด &amp;URI</translation>
     </message>
@@ -289,17 +278,6 @@
         <translation>&amp;ยืนยันข้อความ...</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>กระเป๋าเงิน</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
         <source>&amp;Send</source>
         <translation>&amp;ส่ง</translation>
     </message>
@@ -354,13 +332,6 @@
     <message>
         <source>Show the list of used receiving addresses and labels</source>
         <translation>แสดงรายการ ที่เก็บเงินที่จะรับ digibyte เข้า และป้ายชื่อ ที่ใช้ไปแล้ว</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-    </message>
-    <message>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>เปิด digibyte: URI หรือ การเรียกเก็บเงิน (การเรียกให้ชำระเงิน)</translation>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -413,13 +384,10 @@
     <message>
         <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
         <translation>แสดง %1 ข้อความช่วยเหลือ เพื่อแสดงรายการ ตัวเลือกที่เป็นไปได้สำหรับ DigiByte command-line</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-=======
     </message>
     <message>
         <source>&amp;Window</source>
         <translation>&amp;วันโดว์</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
     </message>
     <message>
         <source>%1 client</source>
@@ -671,8 +639,6 @@
     <message>
         <source>DigiByte</source>
         <translation>DigiByte</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-=======
     </message>
     <message>
         <source>Approximately %1 GB of data will be stored in this directory.</source>
@@ -681,7 +647,6 @@
     <message>
         <source>The wallet will also be stored in this directory.</source>
         <translation>The wallet เก็บใว้ในไดเร็กทอรี่</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -836,13 +801,6 @@
         <translation>Tor</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>เชื่อมต่อกับ เครือข่าย DigiByte ผ่านทาง พร้อกซี่ SOCKS5 แยกต่างหาก สำหรับ Tor เซอร์วิส</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
         <source>&amp;Window</source>
         <translation>&amp;วันโดว์</translation>
     </message>
@@ -1074,12 +1032,6 @@
     </context>
 <context>
     <name>WalletView</name>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-    </context>
-<context>
-    <name>digibyte-core</name>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
     <message>
         <source>&amp;Export</source>
         <translation>ส่งออก</translation>

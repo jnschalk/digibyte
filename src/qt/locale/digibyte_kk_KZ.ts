@@ -70,17 +70,6 @@
         <translation>Құпия сөзді өзгерту</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_kk_KZ.ts
-        <source>DigiByte</source>
-        <translation>Биткоин</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Әмиян</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_kk.ts
         <source>&amp;Send</source>
         <translation>Жіберу</translation>
     </message>
@@ -341,12 +330,6 @@
     </context>
 <context>
     <name>WalletView</name>
-<<<<<<< HEAD:src/qt/locale/digibyte_kk_KZ.ts
-    </context>
-<context>
-    <name>digibyte-core</name>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_kk.ts
     <message>
         <source>&amp;Export</source>
         <translation>Экспорт</translation>

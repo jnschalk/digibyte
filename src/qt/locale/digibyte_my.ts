@@ -49,8 +49,6 @@
     </context>
 <context>
     <name>DigiByteGUI</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>Error</source>
         <translation>အမှား</translation>
@@ -63,21 +61,17 @@
         <source>Information</source>
         <translation>အချက်အလက်</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>CoinControlDialog</name>
     </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>CreateWalletActivity</name>
     </context>
 <context>
     <name>CreateWalletDialog</name>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>EditAddressDialog</name>
     </context>
 <context>
@@ -88,13 +82,10 @@
     </context>
 <context>
     <name>Intro</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>Error</source>
         <translation>အမှား</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>ModalOverlay</name>
@@ -103,9 +94,6 @@
     <name>OpenURIDialog</name>
     </context>
 <context>
-<<<<<<< HEAD
-    <name>OptionsDialog</name>
-=======
     <name>OpenWalletActivity</name>
     </context>
 <context>
@@ -114,18 +102,14 @@
         <source>Error</source>
         <translation>အမှား</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>OverviewPage</name>
     </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>PSBTOperationsDialog</name>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>PaymentServer</name>
     </context>
 <context>
@@ -135,12 +119,6 @@
     <name>QObject</name>
     </context>
 <context>
-<<<<<<< HEAD
-    <name>QObject::QObject</name>
-    </context>
-<context>
-=======
->>>>>>> bitcoin/8.22.0
     <name>QRImageWidget</name>
     </context>
 <context>
