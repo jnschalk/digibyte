@@ -48,11 +48,13 @@ Part 2: The Merge & Merge Conflicts Resolution (The Fun Part)
 
 2.  Document & note every merge conflict of importance for future reference to look back on what has changed. Useful to learn updates, refactoring, and important changes that can be used to identify bugs when compiling or later on. There will be thousands of trivial name, date, documentation, and other non-essential merge conflicts. Go after these first.
 
-2.5 Commit Title recommendations for organization. Idea is to leave a record easy for anyone to look back on later to see any potential merge issues that have been missed. Label commits starting with the 3 phases "PRE-MERGE:" "MERGE:" & and "COMPILER-FIX:" then include the names of files, the entire folder (if done folder by folder) or the type of functionality changing "Consensus, MultiAlgo, Subsidy, etc."
+3. Commit Title recommendations for organization. Idea is to leave a record easy for anyone to look back on later to see any potential merge issues that have been missed. Label commits starting with the 3 phases "PRE-MERGE:" "MERGE:" & and "COMPILER-FIX:" then include the names of files, the entire folder (if done folder by folder) or the type of functionality changing "Consensus, MultiAlgo, Subsidy, etc."
 
-3. Save all questionable merge conflicts till the end of this process, so everyone has a chance to review together. Typically this has only been a few hundred critical merge conflicts in past mass merges.
+4. The main merge should be titled something like "MAIN MERGE W/ ALL MERGE CONFLICTS" as it will have to be 1 giant commit in order to document all merge conflicts.
 
-4. It is recommended to resolve merge conflicts file by file. So developers can take on a specific file, fix merge conflicts, make the commit, and have others review it. It gets many more people involved and many more eyes on to prevent bugs. Think of it as taking one bite out of the elephant at a time. Take things file by file, commit by commit, merge conflict by merge conflict. The more it is broken down, the easier it is for others to help and to reflect back on later when issues arise.
+5. Save all questionable merge conflicts till the end of this process, so everyone has a chance to review together. Typically this has only been a few hundred critical merge conflicts in past mass merges.
+
+6. It is recommended to resolve merge conflicts file by file. So developers can take on a specific file, fix merge conflicts, make the commit, and have others review it. It gets many more people involved and many more eyes on to prevent bugs. Think of it as taking one bite out of the elephant at a time. Take things file by file, commit by commit, merge conflict by merge conflict. The more it is broken down, the easier it is for others to help and to reflect back on later when issues arise.
 
 Key Areas to look out for Merge Conflict / Compiler Bugs: 
 
@@ -68,12 +70,12 @@ Key Areas to look out for Merge Conflict / Compiler Bugs:
 	* Copyrights (Make sure Bitcoin devs still get all credit they deserve)
 	* Dandelion Related Code
 	
-5. Once all merge conflicts are resolved it's time to get the codebase compiling. If the merge has been done methodically and precisely you might get things to compile first try. However, this has never happened in the past and you will inevitably have many compiler errors to fix.
+7. Once all merge conflicts are resolved it's time to get the codebase compiling. If the merge has been done methodically and precisely you might get things to compile first try. However, this has never happened in the past and you will inevitably have many compiler errors to fix.
 
-6. Go error by error and fix each compiler bug and make a commit that clearly explains what was wrong and how it was fixed and how it was broken in the merge. This will help educate everyone else on what to look out for in the future and if there were any other major changes Bitcoin made that break other things in DGB.
+8. Go error by error and fix each compiler bug and make a commit that clearly explains what was wrong and how it was fixed and how it was broken in the merge. This will help educate everyone else on what to look out for in the future and if there were any other major changes Bitcoin made that break other things in DGB.
 
-7. Once the client is compiling from the command line, now try the GUI and test, test and test some more. Now it's time to get gitian building working.
+9. Once the client is compiling from the command line, now try the GUI and test, test and test some more. Now it's time to get gitian building working.
 
-8. Now that you have a compiling upgraded version of DGB core, pat everyone on the back and go enjoy an ice-cold beer and celebrate.
+10. Now that you have a compiling upgraded version of DGB core, pat everyone on the back and go enjoy an ice-cold beer and celebrate.
 	
 
