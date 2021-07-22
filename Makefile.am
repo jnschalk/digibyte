@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+# Copyright (c) 2013-2020 The Bitcoin Core developers
 # Copyright (c) 2013-2016 The DigiByte Core developers
-=======
-# Copyright (c) 2013-2020 The DigiByte Core developers
->>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,15 +26,11 @@ DIGIBYTED_BIN=$(top_builddir)/src/$(DIGIBYTE_DAEMON_NAME)$(EXEEXT)
 DIGIBYTE_QT_BIN=$(top_builddir)/src/qt/$(DIGIBYTE_GUI_NAME)$(EXEEXT)
 DIGIBYTE_CLI_BIN=$(top_builddir)/src/$(DIGIBYTE_CLI_NAME)$(EXEEXT)
 DIGIBYTE_TX_BIN=$(top_builddir)/src/$(DIGIBYTE_TX_NAME)$(EXEEXT)
-<<<<<<< HEAD
-DIGIBYTE_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
-=======
 DIGIBYTE_UTIL_BIN=$(top_builddir)/src/$(DIGIBYTE_UTIL_NAME)$(EXEEXT)
 DIGIBYTE_WALLET_BIN=$(top_builddir)/src/$(DIGIBYTE_WALLET_TOOL_NAME)$(EXEEXT)
 DIGIBYTE_NODE_BIN=$(top_builddir)/src/$(DIGIBYTE_MP_NODE_NAME)$(EXEEXT)
 DIGIBYTE_GUI_BIN=$(top_builddir)/src/$(DIGIBYTE_MP_GUI_NAME)$(EXEEXT)
 DIGIBYTE_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win64-setup$(EXEEXT)
->>>>>>> bitcoin/8.22.0
 
 empty :=
 space := $(empty) $(empty)
