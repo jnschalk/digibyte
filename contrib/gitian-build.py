@@ -33,11 +33,7 @@ def setup():
     if not os.path.isdir('gitian-builder'):
         subprocess.check_call(['git', 'clone', 'https://github.com/devrandom/gitian-builder.git'])
     if not os.path.isdir('digibyte'):
-<<<<<<< HEAD
         subprocess.check_call(['git', 'clone', 'https://github.com/digibyte-core/digibyte.git'])
-=======
-        subprocess.check_call(['git', 'clone', 'https://github.com/digibyte/digibyte.git'])
->>>>>>> bitcoin/8.22.0
     os.chdir('gitian-builder')
     make_image_prog = ['bin/make-base-vm', '--suite', 'focal', '--arch', 'amd64']
     if args.docker:
@@ -59,13 +55,8 @@ def build():
     os.chdir('gitian-builder')
     os.makedirs('inputs', exist_ok=True)
 
-<<<<<<< HEAD
-    subprocess.check_call(['wget', '-N', '-P', 'inputs', 'https://github.com/DigiByte-Core/osslsigncode-1.7.1.tar.gz-1/raw/master/osslsigncode-1.7.1.tar.gz'])
-    subprocess.check_call(['wget', '-N', '-P', 'inputs', 'https://raw.githubusercontent.com/DigiByte-Core/osslsigncode-1.7.1.tar.gz-1/master/osslsigncode-Backports-to-1.7.1.patch'])
-=======
     subprocess.check_call(['wget', '-O', 'inputs/osslsigncode-2.0.tar.gz', 'https://github.com/mtrojnar/osslsigncode/archive/2.0.tar.gz'])
     subprocess.check_call(["echo '5a60e0a4b3e0b4d655317b2f12a810211c50242138322b16e7e01c6fbb89d92f inputs/osslsigncode-2.0.tar.gz' | sha256sum -c"], shell=True)
->>>>>>> bitcoin/8.22.0
     subprocess.check_call(['make', '-C', '../digibyte/depends', 'download', 'SOURCES_PATH=' + os.getcwd() + '/cache/common'])
 
     if args.linux:
@@ -78,25 +69,15 @@ def build():
         print('\nCompiling ' + args.version + ' Windows')
         subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'digibyte='+args.commit, '--url', 'digibyte='+args.url, '../digibyte/contrib/gitian-descriptors/gitian-win.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-unsigned', '--destination', '../gitian.sigs/', '../digibyte/contrib/gitian-descriptors/gitian-win.yml'])
-<<<<<<< HEAD
-        subprocess.check_call('mv build/out/digibyte-*-win-unsigned.tar.gz inputs/digibyte-win-unsigned.tar.gz', shell=True)
-        subprocess.check_call('mv build/out/digibyte-*.zip build/out/digibyte-*.exe ../digibyte-binaries/'+args.version, shell=True)
-=======
         subprocess.check_call('mv build/out/digibyte-*-win-unsigned.tar.gz inputs/', shell=True)
         subprocess.check_call('mv build/out/digibyte-*.zip build/out/digibyte-*.exe build/out/src/digibyte-*.tar.gz ../digibyte-binaries/'+args.version, shell=True)
->>>>>>> bitcoin/8.22.0
 
     if args.macos:
         print('\nCompiling ' + args.version + ' MacOS')
         subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'digibyte='+args.commit, '--url', 'digibyte='+args.url, '../digibyte/contrib/gitian-descriptors/gitian-osx.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-unsigned', '--destination', '../gitian.sigs/', '../digibyte/contrib/gitian-descriptors/gitian-osx.yml'])
-<<<<<<< HEAD
-        subprocess.check_call('mv build/out/digibyte-*-osx-unsigned.tar.gz inputs/digibyte-osx-unsigned.tar.gz', shell=True)
-        subprocess.check_call('mv build/out/digibyte-*.tar.gz build/out/digibyte-*.dmg ../digibyte-binaries/'+args.version, shell=True)
-=======
         subprocess.check_call('mv build/out/digibyte-*-osx-unsigned.tar.gz inputs/', shell=True)
         subprocess.check_call('mv build/out/digibyte-*.tar.gz build/out/digibyte-*.dmg build/out/src/digibyte-*.tar.gz ../digibyte-binaries/'+args.version, shell=True)
->>>>>>> bitcoin/8.22.0
 
     os.chdir(workdir)
 
@@ -115,16 +96,6 @@ def sign():
 
     if args.windows:
         print('\nSigning ' + args.version + ' Windows')
-<<<<<<< HEAD
-        subprocess.check_call(['bin/gbuild', '-i', '--commit', 'signature='+args.commit, '../digibyte/contrib/gitian-descriptors/gitian-win-signer.yml'])
-        subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-signed', '--destination', '../gitian.sigs/', '../digibyte/contrib/gitian-descriptors/gitian-win-signer.yml'])
-        subprocess.check_call('mv build/out/digibyte-*win64-setup.exe ../digibyte-binaries/'+args.version, shell=True)
-        subprocess.check_call('mv build/out/digibyte-*win32-setup.exe ../digibyte-binaries/'+args.version, shell=True)
-
-    if args.macos:
-        print('\nSigning ' + args.version + ' MacOS')
-        subprocess.check_call(['bin/gbuild', '-i', '--commit', 'signature='+args.commit, '../digibyte/contrib/gitian-descriptors/gitian-osx-signer.yml'])
-=======
         subprocess.check_call('cp inputs/digibyte-' + args.version + '-win-unsigned.tar.gz inputs/digibyte-win-unsigned.tar.gz', shell=True)
         subprocess.check_call(['bin/gbuild', '--skip-image', '--upgrade', '--commit', 'signature='+args.commit, '../digibyte/contrib/gitian-descriptors/gitian-win-signer.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-signed', '--destination', '../gitian.sigs/', '../digibyte/contrib/gitian-descriptors/gitian-win-signer.yml'])
@@ -134,7 +105,6 @@ def sign():
         print('\nSigning ' + args.version + ' MacOS')
         subprocess.check_call('cp inputs/digibyte-' + args.version + '-osx-unsigned.tar.gz inputs/digibyte-osx-unsigned.tar.gz', shell=True)
         subprocess.check_call(['bin/gbuild', '--skip-image', '--upgrade', '--commit', 'signature='+args.commit, '../digibyte/contrib/gitian-descriptors/gitian-osx-signer.yml'])
->>>>>>> bitcoin/8.22.0
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-signed', '--destination', '../gitian.sigs/', '../digibyte/contrib/gitian-descriptors/gitian-osx-signer.yml'])
         subprocess.check_call('mv build/out/digibyte-osx-signed.dmg ../digibyte-binaries/'+args.version+'/digibyte-'+args.version+'-osx.dmg', shell=True)
 
@@ -154,17 +124,6 @@ def verify():
     os.chdir('gitian-builder')
 
     print('\nVerifying v'+args.version+' Linux\n')
-<<<<<<< HEAD
-    subprocess.check_call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-linux', '../digibyte/contrib/gitian-descriptors/gitian-linux.yml'])
-    print('\nVerifying v'+args.version+' Windows\n')
-    subprocess.check_call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-win-unsigned', '../digibyte/contrib/gitian-descriptors/gitian-win.yml'])
-    print('\nVerifying v'+args.version+' MacOS\n')
-    subprocess.check_call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-osx-unsigned', '../digibyte/contrib/gitian-descriptors/gitian-osx.yml'])
-    print('\nVerifying v'+args.version+' Signed Windows\n')
-    subprocess.check_call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-win-signed', '../digibyte/contrib/gitian-descriptors/gitian-win-signer.yml'])
-    print('\nVerifying v'+args.version+' Signed MacOS\n')
-    subprocess.check_call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-osx-signed', '../digibyte/contrib/gitian-descriptors/gitian-osx-signer.yml'])
-=======
     if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-linux', '../digibyte/contrib/gitian-descriptors/gitian-linux.yml']):
         print('Verifying v'+args.version+' Linux FAILED\n')
         rc = 1
@@ -188,7 +147,6 @@ def verify():
     if subprocess.call(['bin/gverify', '-v', '-d', '../gitian.sigs/', '-r', args.version+'-osx-signed', '../digibyte/contrib/gitian-descriptors/gitian-osx-signer.yml']):
         print('Verifying v'+args.version+' Signed MacOS FAILED\n')
         rc = 1
->>>>>>> bitcoin/8.22.0
 
     os.chdir(workdir)
     return rc
@@ -198,10 +156,7 @@ def main():
 
     parser = argparse.ArgumentParser(description='Script for running full Gitian builds.')
     parser.add_argument('-c', '--commit', action='store_true', dest='commit', help='Indicate that the version argument is for a commit or branch')
-<<<<<<< HEAD
-=======
     parser.add_argument('-p', '--pull', action='store_true', dest='pull', help='Indicate that the version argument is the number of a github repository pull request')
->>>>>>> bitcoin/8.22.0
     parser.add_argument('-u', '--url', dest='url', default='https://github.com/digibyte/digibyte', help='Specify the URL of the repository. Default is %(default)s')
     parser.add_argument('-v', '--verify', action='store_true', dest='verify', help='Verify the Gitian build')
     parser.add_argument('-b', '--build', action='store_true', dest='build', help='Do a Gitian build')
@@ -276,12 +231,6 @@ def main():
         raise Exception('Cannot have both commit and pull')
     args.commit = ('' if args.commit else 'v') + args.version
 
-<<<<<<< HEAD
-    if args.setup:
-        setup()
-
-    os.chdir('digibyte')
-=======
     os.chdir('digibyte')
     if args.pull:
         subprocess.check_call(['git', 'fetch', args.url, 'refs/pull/'+args.version+'/merge'])
@@ -290,7 +239,6 @@ def main():
         args.commit = subprocess.check_output(['git', 'show', '-s', '--format=%H', 'FETCH_HEAD'], universal_newlines=True, encoding='utf8').strip()
         args.version = 'pull-' + args.version
     print(args.commit)
->>>>>>> bitcoin/8.22.0
     subprocess.check_call(['git', 'fetch'])
     subprocess.check_call(['git', 'checkout', args.commit])
     os.chdir(workdir)

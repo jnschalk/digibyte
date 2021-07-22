@@ -23,9 +23,5 @@ of the primary keys into gpg:
 while read fingerprint keyholder_name; do gpg --keyserver hkp://subset.pool.sks-keyservers.net --recv-keys ${fingerprint}; done < ./keys.txt
 ```
 
-<<<<<<< HEAD:contrib/gitian-keys/README.md
 Add your key to the list if you provided Gitian signatures for two major or
-=======
-Add your key to the list if you provided Guix attestations for two major or
->>>>>>> bitcoin/8.22.0:contrib/builder-keys/README.md
 minor releases of DigiByte Core.

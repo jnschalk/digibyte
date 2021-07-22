@@ -243,10 +243,7 @@ make install
 echo
 echo "db4 build complete."
 echo
-<<<<<<< HEAD
-=======
 # shellcheck disable=SC2016
->>>>>>> bitcoin/8.22.0
 echo 'When compiling digibyted, run `./configure` in the following way:'
 echo
 echo "  export BDB_PREFIX='${BDB_PREFIX}'"
