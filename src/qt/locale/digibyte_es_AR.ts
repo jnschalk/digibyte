@@ -67,12 +67,7 @@
     </message>
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_AR.ts
-        <translation>Estas son tus direcciones DigiByte para enviar pagos. Chequea siempre el monto y la dirección destino antes de mandar monedas.
-</translation>
-=======
         <translation>Ovo su vaše DigiByte adrese za slanje novca. Uvijek provjerite iznos i adresu primaoca prije slanja novca.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_bs.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>

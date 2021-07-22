@@ -3,19 +3,11 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-<<<<<<< HEAD
-        <translation>Click derecho para editar la dirección o etiqueta</translation>
-    </message>
-    <message>
-        <source>Create a new address</source>
-        <translation>Crear una nueva dirección</translation>
-=======
         <translation>Clic derecho para editar la dirección o etiqueta</translation>
     </message>
     <message>
         <source>Create a new address</source>
         <translation>Crea una nueva dirección</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;New</source>
@@ -23,11 +15,7 @@
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
-<<<<<<< HEAD
-        <translation>Copiar la dirección actualmente seleccionada al sistema de portapapeles</translation>
-=======
         <translation>Copia la dirección seleccionada al portapapeles</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -39,14 +27,6 @@
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
-<<<<<<< HEAD
-        <translation>Borrar la dirección actualmente seleccionada de la lista</translation>
-    </message>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>
-Exportar los datos en la pestaña actual a un archivo</translation>
-=======
         <translation>Eliminar la dirección seleccionada de la lista</translation>
     </message>
     <message>
@@ -56,7 +36,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Export the data in the current tab to a file</source>
         <translation>Exportar los datos de la pestaña actual a un archivo</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Export</source>
@@ -68,53 +47,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-<<<<<<< HEAD
-        <translation>Elija la dirección para enviar las monedas </translation>
-    </message>
-    <message>
-        <source>Choose the address to receive coins with</source>
-        <translation>Elige la dirección para recibir las monedas </translation>
-    </message>
-    <message>
-        <source>C&amp;hoose</source>
-        <translation>Escoger</translation>
-    </message>
-    <message>
-        <source>Sending addresses</source>
-        <translation>Enviando dirección</translation>
-    </message>
-    <message>
-        <source>Receiving addresses</source>
-        <translation>Recibiendo dirección</translation>
-    </message>
-    <message>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Estas son sus direcciones de DigiByte para enviar pagos. Siempre verifique el monto y la dirección de recepción antes de enviar monedas.</translation>
-    </message>
-    <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Estas son sus direcciones de DigiByte para recibir pagos. Se recomienda utilizar una nueva dirección de recepción para cada transacción.</translation>
-    </message>
-    <message>
-        <source>&amp;Copy Address</source>
-        <translation>Copiar dirección</translation>
-    </message>
-    <message>
-        <source>Copy &amp;Label</source>
-        <translation>Copiar y etiquetar</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation>Editar</translation>
-    </message>
-    <message>
-        <source>Export Address List</source>
-        <translation>Exportar la lista de direcciones</translation>
-    </message>
-    <message>
-        <source>Comma separated file (*.csv)</source>
-        <translation>Archivo separado por comas (* .csv)</translation>
-=======
         <translation>Selecciones la dirección para enviar monedas a</translation>
     </message>
     <message>
@@ -156,21 +88,16 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Comma separated file (*.csv)</source>
         <translation>Archivos separados por coma (*.csv)</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Exporting Failed</source>
         <translation>Exportación fallida</translation>
     </message>
-<<<<<<< HEAD
-    </context>
-=======
     <message>
         <source>There was an error trying to save the address list to %1. Please try again.</source>
         <translation>Había un error intentando guardar la lista de direcciones en %1. Por favor inténtelo de nuevo.</translation>
     </message>
 </context>
->>>>>>> bitcoin/8.22.0
 <context>
     <name>AddressTableModel</name>
     <message>
@@ -183,30 +110,18 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>(no label)</source>
-<<<<<<< HEAD
-        <translation>(no etiqueta)</translation>
-=======
         <translation>(sin etiqueta)</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
-<<<<<<< HEAD
-        <translation>Diálogo de contraseña</translation>
-    </message>
-    <message>
-        <source>Enter passphrase</source>
-        <translation>Poner contraseña</translation>
-=======
         <translation>Dialogo de contraseña</translation>
     </message>
     <message>
         <source>Enter passphrase</source>
         <translation>Introduce contraseña actual</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>New passphrase</source>
@@ -214,97 +129,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Repeat new passphrase</source>
-<<<<<<< HEAD
-        <translation>Repetir nueva contraseña</translation>
-    </message>
-    <message>
-        <source>Show password</source>
-        <translation>Mostrar contraseña</translation>
-    </message>
-    <message>
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Ingrese la nueva frase de contraseña a la billetera.&lt;br/&gt; Por favor utilice una frase de contraseña&lt;b&gt;diez o más caracteres aleatorios &lt;/b&gt; o &lt;b&gt;ocho o más palabras&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Encrypt wallet</source>
-        <translation>Encriptar la billetera</translation>
-    </message>
-    <message>
-        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation>Esta operación necesita su contraseña de billetera para desbloquearla.</translation>
-    </message>
-    <message>
-        <source>Unlock wallet</source>
-        <translation>Desbloquear la billetera</translation>
-    </message>
-    <message>
-        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation>Esta operación necesita su contraseña de billetera para descifrarla.</translation>
-    </message>
-    <message>
-        <source>Decrypt wallet</source>
-        <translation>Descifrar la billetera</translation>
-    </message>
-    <message>
-        <source>Change passphrase</source>
-        <translation>Cambiar frase de contraseña</translation>
-    </message>
-    <message>
-        <source>Enter the old passphrase and new passphrase to the wallet.</source>
-        <translation>Ingrese la anterior y la nueva frase de contraseña en la billetera.</translation>
-    </message>
-    <message>
-        <source>Confirm wallet encryption</source>
-        <translation>Confirmar el cifrado de la billetera</translation>
-    </message>
-    <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
-        <translation>Advertencia: si encriptas tu billetera y pierdes tu contraseña &lt;b&gt; PIERDES TODOS TUS DIGIBYTES &lt;/b&gt; !</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation>¿Estás seguro de que deseas encriptar tu billetera?</translation>
-    </message>
-    <message>
-        <source>Wallet encrypted</source>
-        <translation>Billetera encriptada</translation>
-    </message>
-    <message>
-        <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation>IMPORTANTE: todas las copias de seguridad anteriores que haya realizado de su archivo de billetera se deben reemplazar con el archivo de monedero cifrado recién generado. Por razones de seguridad, las copias de seguridad anteriores del archivo monedero sin encriptar serán inútiles tan pronto como comience a usar el nuevo monedero cifrado.</translation>
-    </message>
-    <message>
-        <source>Wallet encryption failed</source>
-        <translation>El cifrado de Wallet falló</translation>
-    </message>
-    <message>
-        <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
-        <translation>El cifrado de Wallet falló debido a un error interno. Su billetera no estaba encriptada.</translation>
-    </message>
-    <message>
-        <source>The supplied passphrases do not match.</source>
-        <translation>Las frases de contraseña suministradas no coinciden.</translation>
-    </message>
-    <message>
-        <source>Wallet unlock failed</source>
-        <translation>El desbloqueo de la billetera falló</translation>
-    </message>
-    <message>
-        <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation>La frase de contraseña ingresada para el descifrado de la billetera fue incorrecta.</translation>
-    </message>
-    <message>
-        <source>Wallet decryption failed</source>
-        <translation>El descifrado de la billetera falló</translation>
-    </message>
-    <message>
-        <source>Wallet passphrase was successfully changed.</source>
-        <translation>La frase de contraseña de la billetera se cambió con éxito.</translation>
-    </message>
-    <message>
-        <source>Warning: The Caps Lock key is on!</source>
-        <translation>Advertencia: ¡la tecla Bloq Mayús está activada!</translation>
-=======
         <translation>Repite nueva contraseña</translation>
     </message>
     <message>
@@ -382,37 +206,24 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
         <translation>Precaucion: Mayúsculas Activadas</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>BanTableModel</name>
     <message>
         <source>IP/Netmask</source>
-<<<<<<< HEAD
-        <translation>IP / Máscara de red</translation>
-    </message>
-    <message>
-        <source>Banned Until</source>
-        <translation>Prohibido hasta</translation>
-=======
         <translation>IP/Máscara</translation>
     </message>
     <message>
         <source>Banned Until</source>
         <translation>Suspendido hasta</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>DigiByteGUI</name>
     <message>
         <source>Sign &amp;message...</source>
-<<<<<<< HEAD
-        <translation>Firma y mensaje ...</translation>
-=======
         <translation>Firmar &amp;mensaje...</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -420,23 +231,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Overview</source>
-<<<<<<< HEAD
-        <translation>&amp;Visión de conjunto</translation>
-    </message>
-    <message>
-        <source>Node</source>
-        <translation>Nodo</translation>
-    </message>
-    <message>
-        <source>Show general overview of wallet</source>
-        <translation>Mostrar vista general de la billetera</translation>
-=======
         <translation>&amp;Vista general</translation>
     </message>
     <message>
         <source>Show general overview of wallet</source>
         <translation>Muestra una vista general de la billetera</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Transactions</source>
@@ -444,25 +243,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Browse transaction history</source>
-<<<<<<< HEAD
-        <translation>Examinar el historial de transacciones</translation>
-    </message>
-    <message>
-        <source>E&amp;xit</source>
-        <translation>S&amp;alir</translation>
-    </message>
-    <message>
-        <source>Quit application</source>
-        <translation>Salir de la aplicación</translation>
-    </message>
-    <message>
-        <source>About &amp;Qt</source>
-        <translation>Acerca de &amp;Qt</translation>
-    </message>
-    <message>
-        <source>Show information about Qt</source>
-        <translation>Mostrar información sobre Qt</translation>
-=======
         <translation>Explora el historial de transacciónes</translation>
     </message>
     <message>
@@ -488,85 +268,12 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Show information about Qt</source>
         <translation>Mostrar Información sobre Qt</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Options...</source>
         <translation>&amp;Opciones</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>&amp;Encrypt Wallet...</source>
-        <translation>&amp;Billetera Encriptada</translation>
-    </message>
-    <message>
-        <source>&amp;Backup Wallet...</source>
-        <translation>&amp;Billetera Copia de seguridad...</translation>
-    </message>
-    <message>
-        <source>&amp;Change Passphrase...</source>
-        <translation>&amp;Cambiar contraseña...</translation>
-    </message>
-    <message>
-        <source>&amp;Sending addresses...</source>
-        <translation>&amp;Enviando Direcciones...</translation>
-    </message>
-    <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>&amp;Recibiendo Direcciones...</translation>
-    </message>
-    <message>
-        <source>Open &amp;URI...</source>
-        <translation>Abrir &amp;URL...</translation>
-    </message>
-    <message>
-        <source>Click to disable network activity.</source>
-        <translation>Haga clic para deshabilitar la actividad de la red.</translation>
-    </message>
-    <message>
-        <source>Network activity disabled.</source>
-        <translation>Actividad de red deshabilitada.</translation>
-    </message>
-    <message>
-        <source>Click to enable network activity again.</source>
-        <translation>Haga clic para habilitar nuevamente la actividad de la red.</translation>
-    </message>
-    <message>
-        <source>Reindexing blocks on disk...</source>
-        <translation>Reindexando bloques en el disco ...</translation>
-    </message>
-    <message>
-        <source>Send coins to a DigiByte address</source>
-        <translation>Enviando monedas a una dirección de DigiByte</translation>
-    </message>
-    <message>
-        <source>Backup wallet to another location</source>
-        <translation>Monedero de respaldo a otra ubicación</translation>
-    </message>
-    <message>
-        <source>Change the passphrase used for wallet encryption</source>
-        <translation>Cambiar la contraseña usando la encriptación de la billetera</translation>
-    </message>
-    <message>
-        <source>&amp;Debug window</source>
-        <translation>&amp;Ventana desarrollador</translation>
-    </message>
-    <message>
-        <source>Open debugging and diagnostic console</source>
-        <translation>Abrir consola de diagnóstico y desarrollo</translation>
-    </message>
-    <message>
-        <source>&amp;Verify message...</source>
-        <translation>&amp;Verificar Mensaje...</translation>
-    </message>
-    <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Billetera</translation>
-=======
         <source>Modify configuration options for %1</source>
         <translation>Modificar las opciones de configuración para %1</translation>
     </message>
@@ -629,7 +336,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>&amp;Verify message...</source>
         <translation>Verificar mensaje....</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Send</source>
@@ -641,25 +347,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
-<<<<<<< HEAD
-        <translation>&amp;Mostrar / Ocultar</translation>
-    </message>
-    <message>
-        <source>Show or hide the main Window</source>
-        <translation>Mostrar u ocultar la Ventana Principal</translation>
-    </message>
-    <message>
-        <source>Encrypt the private keys that belong to your wallet</source>
-        <translation>Encripta las claves privadas que pertenecen a tu billetera</translation>
-    </message>
-    <message>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
-        <translation>Firme mensajes con sus direcciones de DigiByte para demostrar que los posee</translation>
-    </message>
-    <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>Verifique los mensajes para asegurarse de que fueron firmados con las direcciones de DigiByte especificadas</translation>
-=======
         <translation>&amp;Mostrar/Ocultar</translation>
     </message>
     <message>
@@ -677,7 +364,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
         <translation>Verificar mensajes comprobando que están firmados con direcciones DigiByte concretas</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;File</source>
@@ -685,11 +371,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-<<<<<<< HEAD
-        <translation>&amp;Configuraciones</translation>
-=======
         <translation>&amp;Configuración</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Help</source>
@@ -697,41 +379,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Tabs toolbar</source>
-<<<<<<< HEAD
-        <translation>Barra de herramientas de pestañas</translation>
-    </message>
-    <message>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
-        <translation>Solicitar pagos (genera códigos QR y digibyte: URIs)</translation>
-    </message>
-    <message>
-        <source>Show the list of used sending addresses and labels</source>
-        <translation>Mostrar la lista de direcciones y etiquetas de envío usadas</translation>
-    </message>
-    <message>
-        <source>Show the list of used receiving addresses and labels</source>
-        <translation>Mostrar la lista de direcciones y etiquetas de recepción usadas</translation>
-    </message>
-    <message>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>Abra un digibyte: URI o solicitud de pago</translation>
-    </message>
-    <message>
-        <source>&amp;Command-line options</source>
-        <translation>Y opciones de línea de comando</translation>
-    </message>
-    <message>
-        <source>Indexing blocks on disk...</source>
-        <translation>Bloques de indexación en el disco ...</translation>
-    </message>
-    <message>
-        <source>Processing blocks on disk...</source>
-        <translation>Procesamiento de bloques en el disco ...</translation>
-    </message>
-    <message>
-        <source>Transactions after this will not yet be visible.</source>
-        <translation>Las transacciones posteriores a esto aún no estarán visibles.</translation>
-=======
         <translation>Barra de pestañas</translation>
     </message>
     <message>
@@ -777,7 +424,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Transactions after this will not yet be visible.</source>
         <translation>Las transacciones posteriores aún no están visibles.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Error</source>
@@ -785,11 +431,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Warning</source>
-<<<<<<< HEAD
-        <translation>Advertencia</translation>
-=======
         <translation>Atención</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Information</source>
@@ -797,17 +439,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Up to date</source>
-<<<<<<< HEAD
-        <translation>A hoy</translation>
-    </message>
-    <message>
-        <source>Connecting to peers...</source>
-        <translation>Conectando con sus pares ...</translation>
-    </message>
-    <message>
-        <source>Catching up...</source>
-        <translation>Alcanzando...</translation>
-=======
         <translation>Actualizado</translation>
     </message>
     <message>
@@ -877,7 +508,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
 </source>
         <translation>Dirección %1
 </translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Sent transaction</source>
@@ -889,27 +519,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>HD key generation is &lt;b&gt;enabled&lt;/b&gt;</source>
-<<<<<<< HEAD
-        <translation>La generación de la clave HD está &lt;b&gt; activada &lt;/ b&gt;</translation>
-    </message>
-    <message>
-        <source>HD key generation is &lt;b&gt;disabled&lt;/b&gt;</source>
-        <translation>La generación de la clave HD está &lt;b&gt; desactivada &lt;/ b&gt;</translation>
-    </message>
-    <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation>La billetera está &lt;b&gt; encriptada &lt;/ b&gt; y actualmente &lt;b&gt; desbloqueada &lt;/ b&gt;</translation>
-    </message>
-    <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation>La billetera está &lt;b&gt; encriptada &lt;/ b&gt; y actualmente está &lt;b&gt; bloqueada &lt;/ b&gt;</translation>
-    </message>
-    <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-        <translation>Se produjo un error fatal. DigiByte ya no puede continuar de manera segura y no continuará</translation>
-    </message>
-</context>
-=======
         <translation>La generación de clave HD está &lt;b&gt;habilitada&lt;/b&gt;</translation>
     </message>
     <message>
@@ -929,16 +538,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>La billetera esta &lt;b&gt;codificada&lt;/b&gt; y actualmente &lt;b&gt;bloqueda&lt;/b&gt;</translation>
     </message>
     </context>
->>>>>>> bitcoin/8.22.0
 <context>
     <name>CoinControlDialog</name>
     <message>
         <source>Coin Selection</source>
-<<<<<<< HEAD
-        <translation>Selección de monedas</translation>
-=======
         <translation>Selección de moneda</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Quantity:</source>
@@ -954,12 +558,8 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Fee:</source>
-<<<<<<< HEAD
-        <translation>Comisión:</translation>
-=======
         <translation>comisión:
 </translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Dust:</source>
@@ -967,11 +567,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>After Fee:</source>
-<<<<<<< HEAD
-        <translation>Después de comisión:</translation>
-=======
         <translation>Después de aplicar la comisión:</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Change:</source>
@@ -979,11 +575,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>(un)select all</source>
-<<<<<<< HEAD
-        <translation>(de)seleccionar todo</translation>
-=======
         <translation>(des)marcar todos</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Tree mode</source>
@@ -1027,33 +619,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Copy amount</source>
-<<<<<<< HEAD
-        <translation>Copiar cantidad</translation>
-    </message>
-    <message>
-        <source>Copy transaction ID</source>
-        <translation>Copiar ID de la transacción</translation>
-    </message>
-    <message>
-        <source>Lock unspent</source>
-        <translation>Bloquear no utilizado</translation>
-    </message>
-    <message>
-        <source>Unlock unspent</source>
-        <translation>Desbloquear no utilizado</translation>
-    </message>
-    <message>
-        <source>Copy quantity</source>
-        <translation>Cantidad de copia</translation>
-    </message>
-    <message>
-        <source>Copy fee</source>
-        <translation>Tarifa de copia</translation>
-    </message>
-    <message>
-        <source>Copy after fee</source>
-        <translation>Copiar después de la tarifa</translation>
-=======
         <translation>Copiar Cantidad</translation>
     </message>
     <message>
@@ -1079,7 +644,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Copy after fee</source>
         <translation>Copiar después de la comisión</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Copy bytes</source>
@@ -1094,13 +658,10 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Copiar cambio</translation>
     </message>
     <message>
-<<<<<<< HEAD
-=======
         <source>(%1 locked)</source>
         <translation>(%1 bloqueado)</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>yes</source>
         <translation>si</translation>
     </message>
@@ -1113,10 +674,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Está etiqueta se vuelve roja si algún receptor recibe una cantidad inferior al límite actual establecido para el polvo.</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>(no label)</source>
-        <translation>(no etiqueta)</translation>
-=======
         <source>Can vary +/- %1 satoshi(s) per input.</source>
         <translation>Puede variar +/- %1 satoshi(s) por entrada.</translation>
     </message>
@@ -1127,7 +684,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>change from %1 (%2)</source>
         <translation>cambia desde %1 (%2)</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>(change)</source>
@@ -1135,8 +691,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>CreateWalletActivity</name>
     </context>
 <context>
@@ -1147,7 +701,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>EditAddressDialog</name>
     <message>
         <source>Edit Address</source>
@@ -1155,25 +708,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Label</source>
-<<<<<<< HEAD
-        <translation>Y etiqueta</translation>
-    </message>
-    <message>
-        <source>The label associated with this address list entry</source>
-        <translation>La etiqueta asociada a esta entrada está en la lista de direcciones</translation>
-    </message>
-    <message>
-        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
-        <translation>La dirección asociada con esta entrada está en la lista de direcciones. Esto solo se puede modificar para enviar direcciones.</translation>
-    </message>
-    <message>
-        <source>&amp;Address</source>
-        <translation>Y dirección</translation>
-    </message>
-    <message>
-        <source>New sending address</source>
-        <translation>Nueva dirección de envío</translation>
-=======
         <translation>&amp;Etiqueta</translation>
     </message>
     <message>
@@ -1191,7 +725,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>New sending address</source>
         <translation>Nueva dirección para enviar</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Edit receiving address</source>
@@ -1199,15 +732,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Edit sending address</source>
-<<<<<<< HEAD
-        <translation>Editar dirección de envío</translation>
-=======
         <translation>Editar dirección de envio</translation>
     </message>
     <message>
         <source>The entered address "%1" is not a valid DigiByte address.</source>
         <translation>La dirección introducida "%1" no es una dirección DigiByte valida.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -1215,32 +744,13 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>New key generation failed.</source>
-<<<<<<< HEAD
-        <translation>Nueva generación de claves fallida.</translation>
-=======
         <translation>La generación de nueva clave falló.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>FreespaceChecker</name>
     <message>
         <source>A new data directory will be created.</source>
-<<<<<<< HEAD
-        <translation>Se creará un nuevo directorio de datos.</translation>
-    </message>
-    <message>
-        <source>name</source>
-        <translation>nombre</translation>
-    </message>
-    <message>
-        <source>Path already exists, and is not a directory.</source>
-        <translation>La ruta ya existe, y no es un directorio ...</translation>
-    </message>
-    <message>
-        <source>Cannot create data directory here.</source>
-        <translation>No se puede crear el directorio de datos aquí.</translation>
-=======
         <translation>Un nuevo directorio de datos será creado.</translation>
     </message>
     <message>
@@ -1258,7 +768,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Cannot create data directory here.</source>
         <translation>Es imposible crear la carpeta de datos aquí.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
@@ -1268,25 +777,12 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>versión</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>(%1-bit)</source>
-        <translation>(%1-bit)</translation>
-    </message>
-    <message>
-        <source>About %1</source>
-        <translation>Alrededor de %1</translation>
-    </message>
-    <message>
-        <source>Command-line options</source>
-        <translation>Opciones de línea de comando</translation>
-=======
         <source>About %1</source>
         <translation>Sobre %1</translation>
     </message>
     <message>
         <source>Command-line options</source>
         <translation>opciones de linea de comando</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
@@ -1297,21 +793,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Welcome to %1.</source>
-<<<<<<< HEAD
-        <translation>Bienvenido al %1</translation>
-    </message>
-    <message>
-        <source>If you have chosen to limit block chain storage (pruning), the historical data must still be downloaded and processed, but will be deleted afterward to keep your disk usage low.</source>
-        <translation>Si ha elegido limitar el almacenamiento de la cadena de bloques (pruning), los datos históricos todavía se deben descargar y procesar, pero se eliminarán posteriormente para mantener el uso del disco bajo.</translation>
-    </message>
-    <message>
-        <source>Use the default data directory</source>
-        <translation>Use el directorio de datos predeterminado</translation>
-    </message>
-    <message>
-        <source>Use a custom data directory:</source>
-        <translation>Use un directorio de datos personalizado:</translation>
-=======
         <translation>Bienvenido a %1.</translation>
     </message>
     <message>
@@ -1341,17 +822,12 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Use a custom data directory:</source>
         <translation>usar un directorio de datos personalizado:</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>DigiByte</source>
         <translation>DigiByte</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>The wallet will also be stored in this directory.</source>
-        <translation>La billetera también se almacenará en este directorio.</translation>
-=======
         <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
         <translation>Al menos %1 GB de información será almacenado en este directorio, y seguirá creciendo a través del tiempo.</translation>
     </message>
@@ -1370,14 +846,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
         <translation>Error: El directorio de datos especificado "%1" no pudo ser creado.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Error</source>
         <translation>Error</translation>
     </message>
-<<<<<<< HEAD
-=======
     <message numerus="yes">
         <source>%n GB of free space available</source>
         <translation><numerusform>%n GB de espacio libre disponible</numerusform><numerusform>%n GB de espacio libre disponible</numerusform></translation>
@@ -1386,27 +859,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <source>(of %n GB needed)</source>
         <translation><numerusform>(de %n GB requerido)</numerusform><numerusform>(de %n GB requeridos)</numerusform></translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>ModalOverlay</name>
     <message>
         <source>Form</source>
-<<<<<<< HEAD
-        <translation>Formar</translation>
-    </message>
-    <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the digibyte network, as detailed below.</source>
-        <translation>Es posible que las transacciones recientes aún no estén visibles y, por lo tanto, el saldo de su billetera podría ser incorrecto. Esta información será correcta una vez que su billetera haya terminado de sincronizarse con la red digibyte, como se detalla a continuación.</translation>
-    </message>
-    <message>
-        <source>Attempting to spend digibytes that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>La red no aceptará intentar gastar digibytes que se vean afectados por transacciones aún no mostradas</translation>
-    </message>
-    <message>
-        <source>Number of blocks left</source>
-        <translation>Cantidad de bloques restantes</translation>
-=======
         <translation>Formulario</translation>
     </message>
     <message>
@@ -1420,7 +877,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Number of blocks left</source>
         <translation>Número de bloques restantes</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Unknown...</source>
@@ -1436,11 +892,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Progress increase per hour</source>
-<<<<<<< HEAD
-        <translation>Aumento de progreso por hora</translation>
-=======
         <translation>Avance del progreso por hora</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>calculating...</source>
@@ -1448,25 +900,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Estimated time left until synced</source>
-<<<<<<< HEAD
-        <translation>Tiempo estimado restante hasta sincronización</translation>
-    </message>
-    <message>
-        <source>Hide</source>
-        <translation>Esconder</translation>
-    </message>
-    </context>
-<context>
-    <name>OpenURIDialog</name>
-    <message>
-        <source>Open URI</source>
-        <translation>URI abierto</translation>
-    </message>
-    <message>
-        <source>Open payment request from URI or file</source>
-        <translation>Abrir solicitud de pago de URI o archivo</translation>
-    </message>
-=======
         <translation>Tiempo estimado restante hasta la sincronización</translation>
     </message>
     <message>
@@ -1480,29 +913,15 @@ Exportar los datos en la pestaña actual a un archivo</translation>
 </context>
 <context>
     <name>OpenURIDialog</name>
->>>>>>> bitcoin/8.22.0
     <message>
         <source>URI:</source>
         <translation>URI:</translation>
     </message>
-<<<<<<< HEAD
-    <message>
-        <source>Select payment request file</source>
-        <translation>Seleccionar archivo de solicitud de pago</translation>
-    </message>
-    <message>
-        <source>Select payment request file to open</source>
-        <translation>Seleccione el archivo de solicitud de pago para abrir</translation>
-    </message>
-</context>
-<context>
-=======
 </context>
 <context>
     <name>OpenWalletActivity</name>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>OptionsDialog</name>
     <message>
         <source>Options</source>
@@ -1513,30 +932,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>&amp;Principal</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Size of &amp;database cache</source>
-        <translation>Tamaño de la memoria caché de la base de datos</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation>MB</translation>
-    </message>
-    <message>
-        <source>Number of script &amp;verification threads</source>
-        <translation>Cantidad de secuencias de comandos y verificación</translation>
-    </message>
-    <message>
-        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
-        <translation>Dirección IP del proxy (por ejemplo, IPv4: 127.0.0.1 / IPv6: :: 1)</translation>
-    </message>
-    <message>
-        <source>Shows if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
-        <translation>Muestra si el proxy SOCKS5 suministrado se utiliza para llegar a los pares a través de este tipo de red.</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS&amp;5 proxy to reach peers via Tor hidden services:</source>
-        <translation>Use SOCKS&amp;5 y proxy por separado para llegar a sus compañeros a través de los servicios ocultos de Tor:</translation>
-=======
         <source>Automatically start %1 after logging in to the system.</source>
         <translation>Iniciar automáticamente %1 al inicial el sistema.</translation>
     </message>
@@ -1559,7 +954,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Shows if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
         <translation>Muestra si el proxy SOCKS5 por defecto se utiliza para conectarse a pares a través de este tipo de red.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Hide the icon from the system tray.</source>
@@ -1571,13 +965,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Exit in the menu.</source>
-<<<<<<< HEAD
-        <translation>Minimice en lugar de salir de la aplicación cuando la ventana esté cerrada. Cuando esta opción está habilitada, la aplicación se cerrará solo después de seleccionar Salir en el menú.</translation>
-    </message>
-    <message>
-        <source>Active command-line options that override above options:</source>
-        <translation>Opciones de línea de comando activas que anulan las opciones anteriores:</translation>
-=======
         <translation>Minimizar en vez de salir de la aplicación cuando la ventana está cerrada. Cuando se activa esta opción, la aplicación sólo se cerrará después de seleccionar Salir en el menú.</translation>
     </message>
     <message>
@@ -1587,7 +974,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Open the %1 configuration file from the working directory.</source>
         <translation>Abrir el archivo de configuración %1 en el directorio de trabajo.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Open Configuration File</source>
@@ -1595,19 +981,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Reset all client options to default.</source>
-<<<<<<< HEAD
-        <translation>Restablecer todas las opciones del cliente a los valores predeterminados.</translation>
-    </message>
-    <message>
-        <source>&amp;Reset Options</source>
-        <translation>Y Restablecer opciones</translation>
-=======
         <translation>Reestablece todas las opciones.</translation>
     </message>
     <message>
         <source>&amp;Reset Options</source>
         <translation>&amp;Restablecer opciones</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Network</source>
@@ -1615,21 +993,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
-<<<<<<< HEAD
-        <translation>(0 = auto, &lt;0 = deja muchos núcleos gratis)</translation>
-    </message>
-    <message>
-        <source>W&amp;allet</source>
-        <translation>Billetera</translation>
-    </message>
-    <message>
-        <source>Expert</source>
-        <translation>Experto</translation>
-    </message>
-    <message>
-        <source>Enable coin &amp;control features</source>
-        <translation>Habilite las funciones de moneda y control</translation>
-=======
         <translation>(0 = auto, &lt;0 = deja esta cantidad de núcleos libres)</translation>
     </message>
     <message>
@@ -1643,7 +1006,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Enable coin &amp;control features</source>
         <translation>Habilitar opciones de &amp;control de monedero</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
@@ -1651,21 +1013,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
-<<<<<<< HEAD
-        <translation>&amp; Gastar cambio no confirmado</translation>
-    </message>
-    <message>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abra automáticamente el puerto cliente de DigiByte en el enrutador. Esto solo funciona cuando su enrutador admite UPnP y está habilitado.</translation>
-    </message>
-    <message>
-        <source>Map port using &amp;UPnP</source>
-        <translation>Puerto de mapa usando &amp; UPnP</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside.</source>
-        <translation>Acepta conexiones desde afuera.</translation>
-=======
         <translation>Gastar cambio sin confirmar</translation>
     </message>
     <message>
@@ -1679,7 +1026,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Accept connections from outside.</source>
         <translation>Aceptar conexiones externas.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Allow incomin&amp;g connections</source>
@@ -1687,11 +1033,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Connect to the DigiByte network through a SOCKS5 proxy.</source>
-<<<<<<< HEAD
-        <translation>Conéctese a la red de DigiByte a través de un proxy SOCKS5.</translation>
-=======
         <translation>Conectar a la red de DigiByte a través de un proxy SOCKS5</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1699,21 +1041,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
-<<<<<<< HEAD
-        <translation>Proxy &amp;IP:</translation>
-    </message>
-    <message>
-        <source>&amp;Port:</source>
-        <translation>Puerto:</translation>
-    </message>
-    <message>
-        <source>Port of the proxy (e.g. 9050)</source>
-        <translation>Puerto del proxy (por ejemplo, 9050)</translation>
-    </message>
-    <message>
-        <source>Used for reaching peers via:</source>
-        <translation>Utilizado para llegar a los compañeros a través de:</translation>
-=======
         <translation>&amp;IP Proxy:</translation>
     </message>
     <message>
@@ -1727,7 +1054,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Used for reaching peers via:</source>
         <translation>Usado para alcanzar compañeros vía:</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>IPv4</source>
@@ -1742,46 +1068,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Tor</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Conéctese a la red de DigiByte a través de un proxy SOCKS5 separado para los servicios Tor ocultos.</translation>
-    </message>
-    <message>
-        <source>&amp;Window</source>
-        <translation>Ventana</translation>
-    </message>
-    <message>
-        <source>Show only a tray icon after minimizing the window.</source>
-        <translation>Mostrar solo un icono de bandeja después de minimizar la ventana.</translation>
-    </message>
-    <message>
-        <source>&amp;Minimize to the tray instead of the taskbar</source>
-        <translation>Minimice la bandeja en lugar de la barra de tareas</translation>
-    </message>
-    <message>
-        <source>M&amp;inimize on close</source>
-        <translation>Minimice al cerrar</translation>
-    </message>
-    <message>
-        <source>&amp;Display</source>
-        <translation>Monitor</translation>
-    </message>
-    <message>
-        <source>User Interface &amp;language:</source>
-        <translation>Interfaz de usuario e idioma:</translation>
-    </message>
-    <message>
-        <source>&amp;Unit to show amounts in:</source>
-        <translation> Unidad para mostrar montos en:</translation>
-    </message>
-    <message>
-        <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Elija la unidad de subdivisión predeterminada para mostrar en la interfaz y al enviar monedas.</translation>
-    </message>
-    <message>
-        <source>Whether to show coin control features or not.</source>
-        <translation>Ya sea para mostrar las funciones de control de monedas o no.</translation>
-=======
         <source>&amp;Window</source>
         <translation>y windows
 </translation>
@@ -1821,7 +1107,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Whether to show coin control features or not.</source>
         <translation>Mostrar o no funcionalidad de Coin Control</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Third party transaction URLs</source>
@@ -1833,29 +1118,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-<<<<<<< HEAD
-        <translation>Cancelar</translation>
-    </message>
-    <message>
-        <source>default</source>
-        <translation>defecto</translation>
-    </message>
-    <message>
-        <source>none</source>
-        <translation>ninguno </translation>
-    </message>
-    <message>
-        <source>Confirm options reset</source>
-        <translation>Confirmar restablecimiento de opciones</translation>
-    </message>
-    <message>
-        <source>Client restart required to activate changes.</source>
-        <translation>Se requiere el reinicio del cliente para activar los cambios.</translation>
-    </message>
-    <message>
-        <source>Client will be shut down. Do you want to proceed?</source>
-        <translation>El cliente será cluasurado. Quieres proceder?</translation>
-=======
         <translation>&amp;Cancela</translation>
     </message>
     <message>
@@ -1877,7 +1139,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Client will be shut down. Do you want to proceed?</source>
         <translation>El cliente se cerrará. Desea proceder?</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Configuration options</source>
@@ -1885,11 +1146,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>The configuration file is used to specify advanced user options which override GUI settings. Additionally, any command-line options will override this configuration file.</source>
-<<<<<<< HEAD
-        <translation>El archivo de configuración se utiliza para especificar opciones de usuario avanzadas que anulan la configuración de la GUI. Además, cualquier opción de línea de comandos anulará este archivo de configuración.</translation>
-=======
         <translation>El archivo de configuración es utilizado para especificar opciones avanzadas del usuario, que invalidan los ajustes predeterminados. Adicionalmente, cualquier opción ingresada por la línea de comandos invalidará este archivo de configuración.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Error</source>
@@ -1897,17 +1154,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>The configuration file could not be opened.</source>
-<<<<<<< HEAD
-        <translation>El archivo de configuración no se pudo abrir.</translation>
-    </message>
-    <message>
-        <source>This change would require a client restart.</source>
-        <translation>Este cambio requeriría un reinicio del cliente.</translation>
-    </message>
-    <message>
-        <source>The supplied proxy address is invalid.</source>
-        <translation>La dirección proxy suministrada no es válida.</translation>
-=======
         <translation>El archivo de configuración no pudo ser abierto.</translation>
     </message>
     <message>
@@ -1917,32 +1163,12 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>The supplied proxy address is invalid.</source>
         <translation>El proxy ingresado es inválido.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>OverviewPage</name>
     <message>
         <source>Form</source>
-<<<<<<< HEAD
-        <translation>Configurar</translation>
-    </message>
-    <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
-        <translation>La información mostrada puede estar desactualizada. Su billetera se sincroniza automáticamente con la red de DigiByte después de establecer una conexión, pero este proceso aún no se ha completado.</translation>
-    </message>
-    <message>
-        <source>Watch-only:</source>
-        <translation>Ver-solo:</translation>
-    </message>
-    <message>
-        <source>Available:</source>
-        <translation>Disponible</translation>
-    </message>
-    <message>
-        <source>Your current spendable balance</source>
-        <translation>Su saldo disponible actual</translation>
-=======
         <translation>Formulario</translation>
     </message>
     <message>
@@ -1960,7 +1186,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Your current spendable balance</source>
         <translation>Tu saldo disponible para gastar</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Pending:</source>
@@ -1968,11 +1193,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
-<<<<<<< HEAD
-        <translation>Total de transacciones que aún no se han confirmado y aún no cuentan para el saldo disponible</translation>
-=======
         <translation>Total de transacciones que aún no se han sido confirmadas, y que no son contabilizadas dentro del saldo disponible para gastar</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Immature:</source>
@@ -1980,19 +1201,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Mined balance that has not yet matured</source>
-<<<<<<< HEAD
-        <translation>Balance minero que aún no ha madurado</translation>
-    </message>
-    <message>
-        <source>Balances</source>
-        <translation>Balances</translation>
-=======
         <translation>Saldo minado que no ha madurado</translation>
     </message>
     <message>
         <source>Balances</source>
         <translation>Saldos</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Total:</source>
@@ -2000,24 +1213,17 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Your current total balance</source>
-<<<<<<< HEAD
-        <translation>Su saldo total actual</translation>
-=======
         <translation>Saldo total actual</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Your current balance in watch-only addresses</source>
         <translation>Tu saldo actual en solo ver direcciones</translation>
     </message>
     <message>
-<<<<<<< HEAD
-=======
         <source>Spendable:</source>
         <translation>Utilizable:</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Recent transactions</source>
         <translation>Transacciones recientes</translation>
     </message>
@@ -2033,9 +1239,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <source>Current total balance in watch-only addresses</source>
         <translation>Saldo total actual en direcciones de solo reloj</translation>
     </message>
-<<<<<<< HEAD
-</context>
-=======
     </context>
 <context>
     <name>PSBTOperationsDialog</name>
@@ -2044,16 +1247,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>o</translation>
     </message>
     </context>
->>>>>>> bitcoin/8.22.0
 <context>
     <name>PaymentServer</name>
     <message>
         <source>Payment request error</source>
-<<<<<<< HEAD
-        <translation>Error de solicitud de pago</translation>
-=======
         <translation>Error en la solicitud de pago</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Cannot start digibyte: click-to-pay handler</source>
@@ -2064,84 +1262,22 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Manejo de URI</translation>
     </message>
     <message>
-<<<<<<< HEAD
-=======
         <source>Invalid payment address %1</source>
         <translation>Dirección de pago inválida %1</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
         <translation>¡URI no puede ser analizado! Esto puede deberse a una dirección de DigiByte no válida o a parámetros de URI mal formados.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
-<<<<<<< HEAD
-        <translation>Manejo de archivos de solicitud de pago</translation>
-    </message>
-    <message>
-        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation>¡El archivo de solicitud de pago no se puede leer! Esto puede deberse a un archivo de solicitud de pago no válido.</translation>
-    </message>
-    <message>
-        <source>Payment request rejected</source>
-        <translation>Solicitud de pago rechazada</translation>
-    </message>
-    <message>
-        <source>Payment request network doesn't match client network.</source>
-        <translation>La red de solicitud de pago no coincide con la red del cliente.</translation>
-    </message>
-    <message>
-        <source>Payment request expired.</source>
-        <translation>Solicitud de pago caducada.</translation>
-    </message>
-    <message>
-        <source>Payment request is not initialized.</source>
-        <translation>La solicitud de pago no está inicializada.</translation>
-    </message>
-    <message>
-        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation>Las solicitudes de pago no verificadas para los scripts de pago personalizados no son compatibles.</translation>
-    </message>
-    <message>
-        <source>Invalid payment request.</source>
-        <translation>Solicitud de pago inválida</translation>
-    </message>
-    <message>
-        <source>Payment request cannot be parsed!</source>
-        <translation>¡La solicitud de pago no se puede analizar!</translation>
-    </message>
-    <message>
-        <source>Network request error</source>
-        <translation>Error de solicitud de red</translation>
-    </message>
-    <message>
-        <source>Payment acknowledged</source>
-        <translation>Pago reconocido</translation>
-=======
         <translation>Manejo del archivo de solicitud de pago</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>PeerTableModel</name>
     <message>
         <source>User Agent</source>
-<<<<<<< HEAD
-        <translation>Agente de usuario</translation>
-    </message>
-    <message>
-        <source>Node/Service</source>
-        <translation>Nodo / Servicio</translation>
-    </message>
-    <message>
-        <source>NodeId</source>
-        <translation>NodeId</translation>
-    </message>
-    <message>
-        <source>Sent</source>
-        <translation>Expedido</translation>
-=======
         <translation>User Agent</translation>
     </message>
     <message>
@@ -2159,7 +1295,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Sent</source>
         <translation>Enviado</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Received</source>
@@ -2173,23 +1308,16 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Cantidad</translation>
     </message>
     <message>
-<<<<<<< HEAD
-=======
         <source>Enter a DigiByte address (e.g. %1)</source>
         <translation>Ingresa una dirección de DigiByte (Ejemplo: %1)</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>%1 d</source>
         <translation>%1 d</translation>
     </message>
     <message>
         <source>%1 h</source>
-<<<<<<< HEAD
-        <translation>%1 d</translation>
-=======
         <translation>%1 h</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>%1 m</source>
@@ -2201,19 +1329,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>None</source>
-<<<<<<< HEAD
-        <translation>Ninguno</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/D</translation>
-=======
         <translation>Nada</translation>
     </message>
     <message>
         <source>N/A</source>
         <translation>N/A</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>%1 ms</source>
@@ -2221,11 +1341,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message numerus="yes">
         <source>%n second(s)</source>
-<<<<<<< HEAD
-        <translation><numerusform>%n segundos</numerusform><numerusform>%n segundos</numerusform></translation>
-=======
         <translation><numerusform>%n segundo</numerusform><numerusform>%n segundos</numerusform></translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message numerus="yes">
         <source>%n minute(s)</source>
@@ -2268,24 +1384,13 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>%1 GB</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>unknown</source>
-        <translation>desconocido</translation>
-    </message>
-</context>
-<context>
-    <name>QObject::QObject</name>
-=======
         <source>Error: Specified data directory "%1" does not exist.</source>
         <translation>Error: El directorio de datos "%1" especificado no existe.</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     <message>
         <source>Error: %1</source>
         <translation>Error: %1</translation>
     </message>
-<<<<<<< HEAD
-=======
     <message>
         <source>%1 didn't yet exit safely...</source>
         <translation>%1 aun no se ha cerrado de forma segura...</translation>
@@ -2294,7 +1399,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <source>unknown</source>
         <translation>desconocido</translation>
     </message>
->>>>>>> bitcoin/8.22.0
 </context>
 <context>
     <name>QRImageWidget</name>
@@ -2304,15 +1408,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Copy Image</source>
-<<<<<<< HEAD
-        <translation>Copiar imagen</translation>
-=======
         <translation>&amp;Copiar imagen</translation>
     </message>
     <message>
         <source>Error encoding URI into QR Code.</source>
         <translation>Fallo al codificar URI en código QR.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Save QR Code</source>
@@ -2327,21 +1427,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <name>RPCConsole</name>
     <message>
         <source>N/A</source>
-<<<<<<< HEAD
-        <translation>N/D</translation>
-    </message>
-    <message>
-        <source>Client version</source>
-        <translation>Versión cliente</translation>
-    </message>
-    <message>
-        <source>&amp;Information</source>
-        <translation>Información</translation>
-    </message>
-    <message>
-        <source>Debug window</source>
-        <translation>Ventana de depuración</translation>
-=======
         <translation>N/A</translation>
     </message>
     <message>
@@ -2351,7 +1436,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>&amp;Information</source>
         <translation>&amp;Información</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>General</source>
@@ -2359,11 +1443,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Using BerkeleyDB version</source>
-<<<<<<< HEAD
-        <translation>Usando la versión BerkeleyDB</translation>
-=======
         <translation>Utilizando la versión de BerkeleyDB</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Datadir</source>
@@ -2383,33 +1463,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Number of connections</source>
-<<<<<<< HEAD
-        <translation>Número de conexiones </translation>
-    </message>
-    <message>
-        <source>Block chain</source>
-        <translation>Cadena de bloques</translation>
-    </message>
-    <message>
-        <source>Current number of blocks</source>
-        <translation>Número actual de bloques</translation>
-    </message>
-    <message>
-        <source>Memory Pool</source>
-        <translation>Grupo de memoria</translation>
-    </message>
-    <message>
-        <source>Current number of transactions</source>
-        <translation>Número actual de transacciones</translation>
-    </message>
-    <message>
-        <source>Memory usage</source>
-        <translation>Uso de memoria</translation>
-    </message>
-    <message>
-        <source>&amp;Reset</source>
-        <translation>Reiniciar</translation>
-=======
         <translation>Número de conexiones</translation>
     </message>
     <message>
@@ -2431,7 +1484,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>&amp;Reset</source>
         <translation>&amp;Reestablecer</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Received</source>
@@ -2439,25 +1491,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Sent</source>
-<<<<<<< HEAD
-        <translation>Expedido</translation>
-    </message>
-    <message>
-        <source>&amp;Peers</source>
-        <translation>Pares</translation>
-    </message>
-    <message>
-        <source>Banned peers</source>
-        <translation>Pares prohibidos</translation>
-    </message>
-    <message>
-        <source>Select a peer to view detailed information.</source>
-        <translation>Seleccione un par para ver información detallada.</translation>
-    </message>
-    <message>
-        <source>Whitelisted</source>
-        <translation>Incluido en la lista blanca</translation>
-=======
         <translation>Enviado</translation>
     </message>
     <message>
@@ -2471,7 +1504,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Select a peer to view detailed information.</source>
         <translation>Selecciona un peer para ver la información detallada.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Direction</source>
@@ -2479,12 +1511,8 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Version</source>
-<<<<<<< HEAD
-        <translation>Versión</translation>
-=======
         <translation>version
 </translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Starting Block</source>
@@ -2492,11 +1520,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Synced Headers</source>
-<<<<<<< HEAD
-        <translation>Encabezados sincronizados</translation>
-=======
         <translation>Cabeceras sincronizadas</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Synced Blocks</source>
@@ -2504,17 +1528,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>User Agent</source>
-<<<<<<< HEAD
-        <translation>Agente de usuario</translation>
-    </message>
-    <message>
-        <source>Decrease font size</source>
-        <translation>Disminuir tamaño de letra</translation>
-    </message>
-    <message>
-        <source>Increase font size</source>
-        <translation>Aumenta el tamaño de la fuente</translation>
-=======
         <translation>User Agent</translation>
     </message>
     <message>
@@ -2524,33 +1537,12 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Increase font size</source>
         <translation>Aumentar tamaño de fuente</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Services</source>
         <translation>Servicios</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Ban Score</source>
-        <translation>Puntuación Ban</translation>
-    </message>
-    <message>
-        <source>Connection Time</source>
-        <translation>Tiempo de conexión</translation>
-    </message>
-    <message>
-        <source>Last Send</source>
-        <translation>Último envío</translation>
-    </message>
-    <message>
-        <source>Last Receive</source>
-        <translation>Última recepción</translation>
-    </message>
-    <message>
-        <source>Ping Time</source>
-        <translation>Tiempo Ping</translation>
-=======
         <source>Connection Time</source>
         <translation>Duración de la conexión</translation>
     </message>
@@ -2565,7 +1557,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Ping Time</source>
         <translation>Tiempo de Ping</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>The duration of a currently outstanding ping.</source>
@@ -2573,19 +1564,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Ping Wait</source>
-<<<<<<< HEAD
-        <translation>Ping espera</translation>
-    </message>
-    <message>
-        <source>Min Ping</source>
-        <translation>Min Ping</translation>
-=======
         <translation>Espera de Ping</translation>
     </message>
     <message>
         <source>Min Ping</source>
         <translation>Ping minimo</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Time Offset</source>
@@ -2597,45 +1580,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Open</source>
-<<<<<<< HEAD
-        <translation>Abierto</translation>
-    </message>
-    <message>
-        <source>&amp;Console</source>
-        <translation>Consola</translation>
-    </message>
-    <message>
-        <source>&amp;Network Traffic</source>
-        <translation>Tráfico de red</translation>
-    </message>
-    <message>
-        <source>Totals</source>
-        <translation>Totales </translation>
-    </message>
-    <message>
-        <source>In:</source>
-        <translation>En:</translation>
-    </message>
-    <message>
-        <source>Out:</source>
-        <translation>Fuera:</translation>
-    </message>
-    <message>
-        <source>Debug log file</source>
-        <translation>Archivo de registro de depuración</translation>
-    </message>
-    <message>
-        <source>Clear console</source>
-        <translation>Consola limpia</translation>
-    </message>
-    <message>
-        <source>1 &amp;hour</source>
-        <translation>1 hora</translation>
-    </message>
-    <message>
-        <source>1 &amp;day</source>
-        <translation>1 día</translation>
-=======
         <translation>&amp;Abrir</translation>
     </message>
     <message>
@@ -2673,7 +1617,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>1 &amp;day</source>
         <translation>1 &amp;día</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>1 &amp;week</source>
@@ -2685,41 +1628,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Disconnect</source>
-<<<<<<< HEAD
-        <translation>Desconectar</translation>
-    </message>
-    <message>
-        <source>Ban for</source>
-        <translation>Prohibición de</translation>
-    </message>
-    <message>
-        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
-        <translation>ADVERTENCIA: los estafadores han estado activos, pidiendo a los usuarios que escriban comandos aquí, robando el contenido de su billetera. No use esta consola sin entender completamente las ramificaciones de un comando</translation>
-    </message>
-    <message>
-        <source>Network activity disabled</source>
-        <translation>Actividad de red deshabilitada</translation>
-    </message>
-    <message>
-        <source>never</source>
-        <translation>nunca </translation>
-    </message>
-    <message>
-        <source>Inbound</source>
-        <translation>Entrante</translation>
-    </message>
-    <message>
-        <source>Outbound</source>
-        <translation>Salida</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation>Si </translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation>No</translation>
-=======
         <translation>&amp;Desconectar</translation>
     </message>
     <message>
@@ -2773,7 +1681,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Outbound</source>
         <translation>Saliente</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Unknown</source>
@@ -2784,21 +1691,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <name>ReceiveCoinsDialog</name>
     <message>
         <source>&amp;Amount:</source>
-<<<<<<< HEAD
-        <translation>Cantidad</translation>
-    </message>
-    <message>
-        <source>&amp;Label:</source>
-        <translation>Etiqueta:</translation>
-    </message>
-    <message>
-        <source>&amp;Message:</source>
-        <translation>Mensaje:</translation>
-    </message>
-    <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
-        <translation>Un mensaje opcional para adjuntar a la solicitud de pago, que se mostrará cuando se abra la solicitud. Nota: El mensaje no se enviará con el pago a través de la red de DigiByte.</translation>
-=======
         <translation>Cantidad:</translation>
     </message>
     <message>
@@ -2812,7 +1704,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
         <translation>Mensaje opcional adjunto a la solicitud de pago, que será mostrado cuando la solicitud sea abierta. Nota: Este mensaje no será enviado con el pago a través de la red DigiByte.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2820,29 +1711,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
-<<<<<<< HEAD
-        <translation>Use este formulario para solicitar pagos. Todos los campos son &lt;b&gt; opcionales &lt;/ b&gt;.</translation>
-    </message>
-    <message>
-        <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
-        <translation>Un monto opcional para solicitar. Deje esto vacío o en cero para no solicitar una cantidad específica.</translation>
-    </message>
-    <message>
-        <source>Clear all fields of the form.</source>
-        <translation>Borre todos los campos del formulario.</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Aclarar</translation>
-    </message>
-    <message>
-        <source>Requested payments history</source>
-        <translation>Historial de pagos solicitado</translation>
-    </message>
-    <message>
-        <source>&amp;Request payment</source>
-        <translation>Solicitar pago</translation>
-=======
         <translation>Usa este formulario para solicitar un pago. Todos los campos son &lt;b&gt;opcionales&lt;/b&gt;.</translation>
     </message>
     <message>
@@ -2860,7 +1728,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Requested payments history</source>
         <translation>Historial de pagos solicitados</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Show the selected request (does the same as double clicking an entry)</source>
@@ -2872,11 +1739,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Remove the selected entries from the list</source>
-<<<<<<< HEAD
-        <translation>Eliminar las entradas seleccionadas de la lista</translation>
-=======
         <translation>Borrar de la lista las direcciones seleccionadas</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Remove</source>
@@ -2896,24 +1759,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Copy amount</source>
-<<<<<<< HEAD
-        <translation>Copiar cantidad</translation>
-    </message>
-</context>
-<context>
-    <name>ReceiveRequestDialog</name>
-    <message>
-        <source>QR Code</source>
-        <translation>Código QR</translation>
-    </message>
-    <message>
-        <source>Copy &amp;URI</source>
-        <translation>Copiar URI</translation>
-    </message>
-    <message>
-        <source>Copy &amp;Address</source>
-        <translation>Copiar dirección</translation>
-=======
         <translation>Copiar Cantidad</translation>
     </message>
     <message>
@@ -2942,31 +1787,12 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Copy &amp;Address</source>
         <translation>&amp;Copia dirección</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Save Image...</source>
         <translation>Guardar imagen...</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Address</source>
-        <translation>Dirección</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Cantidad</translation>
-    </message>
-    <message>
-        <source>Label</source>
-        <translation>Etiqueta</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Billetera</translation>
-    </message>
-    </context>
-=======
         <source>Request payment to %1</source>
         <translation>Solicitar pago a %1</translation>
     </message>
@@ -2975,7 +1801,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Información del pago</translation>
     </message>
 </context>
->>>>>>> bitcoin/8.22.0
 <context>
     <name>RecentRequestsTableModel</name>
     <message>
@@ -2987,15 +1812,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Etiqueta</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>(no label)</source>
-        <translation>(no etiqueta)</translation>
-    </message>
-    </context>
-<context>
-    <name>SendCoinsDialog</name>
-    <message>
-=======
         <source>Message</source>
         <translation>Mensaje</translation>
     </message>
@@ -3039,7 +1855,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Fondos insuficientes</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Quantity:</source>
         <translation>Cantidad:</translation>
     </message>
@@ -3053,34 +1868,18 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Fee:</source>
-<<<<<<< HEAD
-        <translation>Comisión:</translation>
-    </message>
-    <message>
-        <source>After Fee:</source>
-        <translation>Después de comisión:</translation>
-=======
         <translation>comisión:
 </translation>
     </message>
     <message>
         <source>After Fee:</source>
         <translation>Después de aplicar la comisión:</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Change:</source>
         <translation>Cambio:</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Hide</source>
-        <translation>Esconder</translation>
-    </message>
-    <message>
-        <source>Clear all fields of the form.</source>
-        <translation>Borre todos los campos del formulario.</translation>
-=======
         <source>Custom change address</source>
         <translation>Dirección de cambio personalizada</translation>
     </message>
@@ -3123,30 +1922,12 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Clear all fields of the form.</source>
         <translation>Limpiar todos los campos del formulario.</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Dust:</source>
         <translation>Polvo:</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Copy quantity</source>
-        <translation>Cantidad de copia</translation>
-    </message>
-    <message>
-        <source>Copy amount</source>
-        <translation>Copiar cantidad</translation>
-    </message>
-    <message>
-        <source>Copy fee</source>
-        <translation>
-Tarifa de copia</translation>
-    </message>
-    <message>
-        <source>Copy after fee</source>
-        <translation>Copiar después de la tarifa</translation>
-=======
         <source>Confirmation time target:</source>
         <translation>Objetivo de tiempo de confirmación</translation>
     </message>
@@ -3181,7 +1962,6 @@ Tarifa de copia</translation>
     <message>
         <source>Copy after fee</source>
         <translation>Copiar después de la comisión</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Copy bytes</source>
@@ -3196,14 +1976,6 @@ Tarifa de copia</translation>
         <translation>Copiar cambio</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Payment request expired.</source>
-        <translation>Solicitud de pago caducada.</translation>
-    </message>
-    <message>
-        <source>(no label)</source>
-        <translation>(no etiqueta)</translation>
-=======
         <source>%1 (%2 blocks)</source>
         <translation>%1 (%2 bloques)</translation>
     </message>
@@ -3274,23 +2046,11 @@ Tarifa de copia</translation>
     <message>
         <source>(no label)</source>
         <translation>(sin etiqueta)</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>SendCoinsEntry</name>
     <message>
-<<<<<<< HEAD
-        <source>&amp;Label:</source>
-        <translation>Etiqueta:</translation>
-    </message>
-    </context>
-<context>
-    <name>SendConfirmationDialog</name>
-    <message>
-        <source>Yes</source>
-        <translation>Si </translation>
-=======
         <source>A&amp;mount:</source>
         <translation>Cantidad:</translation>
     </message>
@@ -3353,153 +2113,10 @@ Tarifa de copia</translation>
     <message>
         <source>Memo:</source>
         <translation>Memo:</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>ShutdownWindow</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>SignVerifyMessageDialog</name>
-    </context>
-<context>
-    <name>SplashScreen</name>
-    </context>
-<context>
-    <name>TrafficGraphWidget</name>
-    </context>
-<context>
-    <name>TransactionDesc</name>
-    <message>
-        <source>Date</source>
-        <translation>Fecha</translation>
-    </message>
-    <message>
-        <source>unknown</source>
-        <translation>desconocido</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Cantidad</translation>
-    </message>
-    </context>
-<context>
-    <name>TransactionDescDialog</name>
-    </context>
-<context>
-    <name>TransactionTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Fecha</translation>
-    </message>
-    <message>
-        <source>Label</source>
-        <translation>Etiqueta</translation>
-    </message>
-    <message>
-        <source>(no label)</source>
-        <translation>(no etiqueta)</translation>
-    </message>
-    </context>
-<context>
-    <name>TransactionView</name>
-    <message>
-        <source>Copy address</source>
-        <translation>Copiar dirección</translation>
-    </message>
-    <message>
-        <source>Copy label</source>
-        <translation>Copiar etiqueta</translation>
-    </message>
-    <message>
-        <source>Copy amount</source>
-        <translation>Copiar cantidad</translation>
-    </message>
-    <message>
-        <source>Copy transaction ID</source>
-        <translation>Copiar ID de la transacción</translation>
-    </message>
-    <message>
-        <source>Comma separated file (*.csv)</source>
-        <translation>Archivo separado por comas (* .csv)</translation>
-    </message>
-    <message>
-        <source>Confirmed</source>
-        <translation>Confirmado</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Fecha</translation>
-    </message>
-    <message>
-        <source>Label</source>
-        <translation>Etiqueta</translation>
-    </message>
-    <message>
-        <source>Address</source>
-        <translation>Dirección</translation>
-    </message>
-    <message>
-        <source>Exporting Failed</source>
-        <translation>Exportación fallida</translation>
-    </message>
-    </context>
-<context>
-    <name>UnitDisplayStatusBarControl</name>
-    </context>
-<context>
-    <name>WalletFrame</name>
-    </context>
-<context>
-    <name>WalletModel</name>
-    </context>
-<context>
-    <name>WalletView</name>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>
-Exportar los datos en la pestaña actual a un archivo</translation>
-    </message>
-    </context>
-<context>
-    <name>digibyte-core</name>
-    <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
-    </message>
-    <message>
-        <source>This is the transaction fee you may discard if change is smaller than dust at this level</source>
-        <translation>Esta es la cuota de transacción que puede descartar si el cambio es más pequeño que el polvo a este nivel.</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Información</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Peligro.</translation>
-    </message>
-    <message>
-        <source>Insufficient funds</source>
-        <translation>Fondos Insuficientes</translation>
-    </message>
-    <message>
-        <source>Loading wallet...</source>
-        <translation>Cargando billetera...</translation>
-    </message>
-    <message>
-        <source>Rescanning...</source>
-        <translation>Reescaneando</translation>
-    </message>
-    <message>
-        <source>Done loading</source>
-        <translation>Listo Cargando</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Error</translation>
-=======
     <message>
         <source>%1 is shutting down...</source>
         <translation>%1 se esta cerrando...</translation>
@@ -4431,7 +3048,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>Done loading</source>
         <translation>Carga completa</translation>
->>>>>>> bitcoin/8.22.0
     </message>
 </context>
 </TS>

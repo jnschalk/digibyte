@@ -3,11 +3,7 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Haga clic en el botón derecho para editar la dirección o etiqueta</translation>
-=======
         <translation>Click derecho para editar la dirección o etiqueta</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Create a new address</source>
@@ -19,11 +15,7 @@
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Copie la dirección seleccionada al portapapeles del sistema</translation>
-=======
         <translation>Copiar la dirección actualmente seleccionada al sistema de portapapeles</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -35,11 +27,7 @@
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Elimine la dirección seleccionada de la lista</translation>
-=======
         <translation>Borrar la dirección actualmente seleccionada de la lista</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Enter address or label to search</source>
@@ -47,12 +35,8 @@
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Exporte los datos en la ficha actual a un archivo</translation>
-=======
         <translation>
 Exportar los datos en la pestaña actual a un archivo</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>&amp;Export</source>
@@ -60,11 +44,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Y Eliminar</translation>
-=======
         <translation>&amp;Borrar</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Choose the address to send coins to</source>
@@ -80,21 +60,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Sending addresses</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Direcciones para hacer pagos</translation>
-    </message>
-    <message>
-        <source>Receiving addresses</source>
-        <translation>Direcciones para recibir pagos</translation>
-    </message>
-    <message>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Estas son sus direcciones DigiByte para enviar pagos. Verifique siempre la cantidad y la dirección de recibimiento antes de enviar monedas.</translation>
-    </message>
-    <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Estas son sus direcciones DigiByte para recibir pagos. Se recomienda utilizar una nueva dirección de recibimiento para cada transacción</translation>
-=======
         <translation>Enviando dirección</translation>
     </message>
     <message>
@@ -104,7 +69,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Estas son sus direcciones de DigiByte para enviar pagos. Siempre verifique el monto y la dirección de recepción antes de enviar monedas.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -124,17 +88,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Archivo separado mediante coma (*.csv)</translation>
-    </message>
-    <message>
-        <source>Exporting Failed</source>
-        <translation>No se ha podido completar la exportación</translation>
-    </message>
-    <message>
-        <source>There was an error trying to save the address list to %1. Please try again.</source>
-        <translation>Se ha producido un error intentando guardar la lista de direcciones en %1. Por favor inténtelo de nuevo.</translation>
-=======
         <translation>Archivo separado por comas (* .csv)</translation>
     </message>
     <message>
@@ -144,7 +97,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>There was an error trying to save the address list to %1. Please try again.</source>
         <translation>Se produjo un error al intentar guardar la lista de direcciones en %1. Inténtalo de nuevo.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
 </context>
 <context>
@@ -170,11 +122,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Enter passphrase</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Introduzca frase de contraseña</translation>
-=======
         <translation>Poner contraseña</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>New passphrase</source>
@@ -214,11 +162,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Advertencia: Si encripta su monedero y pierde su frase clave &lt;b&gt;PERDERÁ TODOS SUS DIGIBYTES&lt;/b&gt;!</translation>
-=======
         <translation>Advertencia: si encriptas tu billetera y pierdes tu contraseña &lt;b&gt; PIERDES TODOS TUS DIGIBYTES &lt;/b&gt; !</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -229,13 +173,8 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Billetera encriptada</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>%1 se cerrará ahora para terminar el proceso de encriptación. Recuerde que encriptar su monedero no puede proteger completamente su monedero de ser robado por malware que infecte su ordenador.</translation>
-=======
         <source>Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
         <translation>Recuerda que codificando tu billetera no garantiza mantener a salvo tus digibytes en caso de tener virus en el computador.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -384,13 +323,8 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Reindexando bloques en el disco ...</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>Send coins to a DigiByte address</source>
-        <translation>Enviar digibytes a una dirección DigiByte</translation>
-=======
         <source>Proxy is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
         <translation>Proxy &lt;b&gt;habilitado&lt;/b&gt;: %1</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Send coins to a DigiByte address</source>
@@ -406,19 +340,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>&amp;Verificar mensaje...</translation>
-    </message>
-    <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Monedero</translation>
-=======
         <translation>&amp;Verificar Mensaje...</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>&amp;Send</source>
@@ -442,19 +364,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Sign messages with your DigiByte addresses to prove you own them</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Firmar mensajes con sus direcciones DigiByte para demostrar la propiedad</translation>
-    </message>
-    <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>Verificar mensajes comprobando que están firmados con direcciones DigiByte concretas</translation>
-=======
         <translation>Firme mensajes con sus direcciones de DigiByte para demostrar que los posee</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
         <translation>Verifique los mensajes para asegurarse de que fueron firmados con las direcciones de DigiByte especificadas</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>&amp;File</source>
@@ -474,11 +388,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and digibyte: URIs)</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Solicitar pagos (generando códigos QR e identificadores URI "digibyte:")</translation>
-=======
         <translation>Solicitar pagos (genera códigos QR y digibyte: URIs)</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -486,15 +396,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Show the list of used receiving addresses and labels</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Muestra la lista de direcciones de recepción y etiquetas</translation>
-    </message>
-    <message>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>Abrir un identificador URI "digibyte:" o una petición de pago</translation>
-=======
         <translation>Mostrar la lista de direcciones y etiquetas de recepción usadas</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -553,17 +455,12 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Ventana</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
-        <translation>Mostrar el mensaje de ayuda %1 para obtener una lista de los posibles comandos de linea de comandos de DigiByte</translation>
-=======
         <source>Minimize</source>
         <translation>Minimizar</translation>
     </message>
     <message>
         <source>Main Window</source>
         <translation>Ventana principal</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>%1 client</source>
@@ -642,13 +539,8 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>La billetera está &lt;b&gt; encriptada &lt;/ b&gt; y actualmente &lt;b&gt; desbloqueada &lt;/ b&gt;</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-        <translation>Ha ocurrido un error fatal. DigiByte no puede continuar de manera segura y se cerrará.</translation>
-=======
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>La billetera está &lt;b&gt; encriptada &lt;/ b&gt; y actualmente está &lt;b&gt; bloqueada &lt;/ b&gt;</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     </context>
 <context>
@@ -844,11 +736,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>The entered address "%1" is not a valid DigiByte address.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>La dirección introducida "%1" no es una dirección DigiByte válida.</translation>
-=======
         <translation>La dirección ingresada "%1" no es una dirección válida de DigiByte.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -940,10 +828,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Al menos %1 GB de información será almacenado en este directorio, y seguirá creciendo a través del tiempo.</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-=======
         <source>Approximately %1 GB of data will be stored in this directory.</source>
         <translation>Aproximadamente %1 GB de datos se almacenarán en este directorio.</translation>
     </message>
@@ -954,7 +838,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message>
         <source>The wallet will also be stored in this directory.</source>
         <translation>La billetera también se almacenará en este directorio.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -981,15 +864,11 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the digibyte network, as detailed below.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Las transacciones recientes podrían no ser visibles todavía, por lo que el balance de la cartera podría ser incorrecto. Esta información será correcta una vez su cartera se haya terminado de sincronizar con la red digibyte, como se detalla más abajo.</translation>
-=======
         <translation>Es posible que las transacciones recientes aún no estén visibles y, por lo tanto, el saldo de su billetera podría ser incorrecto. Esta información será correcta una vez que su billetera haya terminado de sincronizarse con la red digibyte, como se detalla a continuación.</translation>
     </message>
     <message>
         <source>Attempting to spend digibytes that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>La red no aceptará intentar gastar digibytes que se vean afectados por transacciones aún no mostradas</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1134,11 +1013,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Abrir automáticamente el puerto del cliente DigiByte en el router. Esta opción solo funciona si el router admite UPnP y está activado.</translation>
-=======
         <translation>Abra automáticamente el puerto cliente de DigiByte en el enrutador. Esto solo funciona cuando su enrutador admite UPnP y está habilitado.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1149,17 +1024,12 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Acepta conexiones desde afuera.</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>Connect to the DigiByte network through a SOCKS5 proxy.</source>
-        <translation>Conectarse a la red DigiByte a través de un proxy SOCKS5.</translation>
-=======
         <source>Allow incomin&amp;g connections</source>
         <translation>Permitir conexiones entrantes</translation>
     </message>
     <message>
         <source>Connect to the DigiByte network through a SOCKS5 proxy.</source>
         <translation>Conéctese a la red de DigiByte a través de un proxy SOCKS5.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1194,13 +1064,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Tor</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Conectar a la red DigiByte mediante un proxy SOCKS5 por separado para los servicios ocultos de Tor.</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
         <source>&amp;Window</source>
         <translation>Ventana</translation>
     </message>
@@ -1234,11 +1097,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Elegir la subdivisión predeterminada para mostrar cantidades en la interfaz y cuando se envían digibytes.</translation>
-=======
         <translation>Elija la unidad de subdivisión predeterminada para mostrar en la interfaz y al enviar monedas.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1309,11 +1168,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red DigiByte después de que se haya establecido una conexión, pero este proceso aún no se ha completado.</translation>
-=======
         <translation>La información mostrada puede estar desactualizada. Su billetera se sincroniza automáticamente con la red de DigiByte después de establecer una conexión, pero este proceso aún no se ha completado.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1399,11 +1254,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Cannot start digibyte: click-to-pay handler</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>No se puede iniciar digibyte: encargado click-para-pagar</translation>
-=======
         <translation>No se puede iniciar DigiByte: controlador de clic para pagar</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>URI handling</source>
@@ -1415,11 +1266,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>URI no puede ser analizado! Esto puede ser causado por una dirección DigiByte inválida o parametros URI mal formados.</translation>
-=======
         <translation>¡URI no puede ser analizado! Esto puede deberse a una dirección de DigiByte no válida o a parámetros de URI mal formados.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1461,11 +1308,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Enter a DigiByte address (e.g. %1)</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Introducir una dirección DigiByte (p. ej. %1)</translation>
-=======
         <translation>Ingrese una dirección de DigiByte (por ejemplo, %1)</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>%1 d</source>
@@ -1497,25 +1340,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message numerus="yes">
         <source>%n second(s)</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation><numerusform>%n segundo</numerusform><numerusform>%n segundos</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n minute(s)</source>
-        <translation><numerusform>%n minuto</numerusform><numerusform>%n minutos</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n hora</numerusform><numerusform>%n horas</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n día</numerusform><numerusform>%n días</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n semana</numerusform><numerusform>%n semanas</numerusform></translation>
-=======
         <translation><numerusform>%n segundos</numerusform><numerusform>%n segundos</numerusform></translation>
     </message>
     <message numerus="yes">
@@ -1533,7 +1357,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <message numerus="yes">
         <source>%n week(s)</source>
         <translation><numerusform>%n semanas</numerusform><numerusform>%n semanas</numerusform></translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>%1 and %2</source>
@@ -1878,11 +1701,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Un mensaje opcional para adjuntar a la solicitud de pago, que se muestra cuando se abre la solicitud. Nota: El mensaje no se enviará con el pago por la red DigiByte.</translation>
-=======
         <translation>Un mensaje opcional para adjuntar a la solicitud de pago, que se mostrará cuando se abra la solicitud. Nota: El mensaje no se enviará con el pago a través de la red de DigiByte.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2019,11 +1838,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Enviar digibytes</translation>
-=======
         <translation>Enviar monedas</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -2087,19 +1902,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     <message>
         <source>Hide</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Ocultar</translation>
-    </message>
-    <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
-        <translation>Pagando solamente la cuota mínima es correcto, siempre y cuando haya menos volumen de transacciones que el espacio en los bloques. Pero tenga en cuenta que esto puede terminar en una transacción nunca confirmada, una vez que haya más demanda para transacciones DigiByte que la red pueda procesar.</translation>
-    </message>
-    <message>
-        <source>(read the tooltip)</source>
-        <translation>(leer la sugerencia)</translation>
-=======
         <translation>Esconder</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Recommended:</source>
@@ -2231,17 +2034,8 @@ Tarifa de copia</translation>
         <translation><numerusform>%n bloque</numerusform><numerusform>%n bloques</numerusform></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>Pay only the required fee of %1</source>
-        <translation>Pagar únicamente la cuota solicitada de %1</translation>
-    </message>
-    <message>
-        <source>Warning: Invalid DigiByte address</source>
-        <translation>Alerta: dirección DigiByte inválida</translation>
-=======
         <source>Warning: Invalid DigiByte address</source>
         <translation>Peligro: Dirección de DigiByte inválida</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2279,17 +2073,8 @@ Tarifa de copia</translation>
         <translation>Seleccionar dirección usada anteriormente</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>This is a normal payment.</source>
-        <translation>Esto es un pago ordinario.</translation>
-    </message>
-    <message>
-        <source>The DigiByte address to send the payment to</source>
-        <translation>Dirección DigiByte a la que enviar el pago</translation>
-=======
         <source>The DigiByte address to send the payment to</source>
         <translation>Dirección DigiByte a enviar el pago</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Alt+A</source>
@@ -2305,15 +2090,7 @@ Tarifa de copia</translation>
     </message>
     <message>
         <source>Remove this entry</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Eliminar esta transacción</translation>
-    </message>
-    <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>La cuota será deducida de la cantidad que sea mandada. El destinatario recibirá menos digibytes de los que entres en el  </translation>
-=======
         <translation>Quitar esta entrada</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2336,13 +2113,6 @@ Tarifa de copia</translation>
         <translation>Introduce una etiqueta para esta dirección para añadirla a la lista de direcciones utilizadas</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
-        <translation>Un mensaje que se adjuntó a la digibyte: URL que será almacenada con la transacción para su referencia. Nota: Este mensaje no se envía a través de la red DigiByte.</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
         <source>Pay To:</source>
         <translation>Pagar a:</translation>
     </message>
@@ -2373,13 +2143,6 @@ Tarifa de copia</translation>
         <translation>&amp;Firmar Mensaje</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>You can sign messages/agreements with your addresses to prove you can receive digibytes sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Puede firmar los mensajes con sus direcciones para demostrar que las posee. Tenga cuidado de no firmar cualquier cosa de manera vaga o aleatoria, pues los ataques de phishing pueden tratar de engañarle firmando su identidad a través de ellos. Sólo firme declaraciones totalmente detalladas con las que usted esté de acuerdo.</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
         <source>The DigiByte address to sign the message with</source>
         <translation>Dirección DigiByte con la que firmar el mensaje</translation>
     </message>
@@ -2413,11 +2176,7 @@ Tarifa de copia</translation>
     </message>
     <message>
         <source>Sign the message to prove you own this DigiByte address</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Firmar el mensaje para demostrar que se posee esta dirección DigiByte</translation>
-=======
         <translation>Firmar un mensjage para probar que usted es dueño de esta dirección</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2441,11 +2200,7 @@ Tarifa de copia</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <translation>Verificar el mensaje para comprobar que fue firmado con la dirección DigiByte indicada</translation>
-=======
         <translation>Verifica el mensaje para asegurar que fue firmado con la dirección de DigiByte especificada.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2646,13 +2401,6 @@ Tarifa de copia</translation>
         <translation>Vendedor</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Los digibytes generados deben madurar %1 bloques antes de que puedan gastarse. Cuando generó este bloque, se transmitió a la red para que se añadiera a la cadena de bloques. Si no consigue entrar en la cadena, su estado cambiará a "no aceptado" y ya no se podrá gastar. Esto puede ocurrir ocasionalmente si otro nodo genera un bloque a pocos segundos del suyo.</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
         <source>Debug information</source>
         <translation>Información de depuración</translation>
     </message>
@@ -2991,11 +2739,7 @@ Tarifa de copia</translation>
     </message>
     </context>
 <context>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-    <name>digibyte-core</name>
-=======
     <name>WalletView</name>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     <message>
         <source>&amp;Export</source>
         <translation>&amp;Exportar</translation>
@@ -3022,13 +2766,8 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Ha fallado el respaldo</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_ES.ts
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
-=======
         <source>There was an error trying to save the wallet data to %1.</source>
         <translation>Ha habido un error al intentar guardar los datos del monedero a %1.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_es_CL.ts
     </message>
     <message>
         <source>Backup Successful</source>

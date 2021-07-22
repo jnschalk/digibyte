@@ -70,13 +70,6 @@
         <translation>Тут знаходзяцца Біткойн-адрасы для высылання плацяжоў. Заўсёды спраўджвайце колькасць і адрас прызначэння перад здзяйсненнем транзакцыі.</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_be_BY.ts
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Тут знаходзяцца Біткойн-адрасы для прымання плацяжоў. Пажадана выкарыстоўваць новы адрас для кожнай транзакцыі.</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_be.ts
         <source>&amp;Copy Address</source>
         <translation>Капіяваць адрас</translation>
     </message>
@@ -301,17 +294,6 @@
         <translation>Праверыць паведамленне...</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_be_BY.ts
-        <source>DigiByte</source>
-        <translation>Біткойн</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Гаманец</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_be.ts
         <source>&amp;Send</source>
         <translation>Даслаць</translation>
     </message>
@@ -364,13 +346,6 @@
         <translation>Паказаць спіс адрасоў і метак для прымання</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_be_BY.ts
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>Адкрыць біткойн: URI ці запыт плацяжу</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_be.ts
         <source>&amp;Command-line options</source>
         <translation>Опцыі каманднага радка</translation>
     </message>
@@ -1177,18 +1152,9 @@
         <source>Export the data in the current tab to a file</source>
         <translation>Экспартаваць гэтыя звесткі у файл</translation>
     </message>
-<<<<<<< HEAD:src/qt/locale/digibyte_be_BY.ts
-    </context>
-<context>
-    <name>digibyte-core</name>
-    <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
-=======
     <message>
         <source>Error</source>
         <translation>Памылка</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_be.ts
     </message>
     </context>
 <context>

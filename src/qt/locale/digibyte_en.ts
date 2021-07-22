@@ -89,12 +89,8 @@
     </message>
     <message>
         <location line="+5"/>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-=======
         <source>These are your DigiByte addresses for receiving payments. Use the &apos;Create new receiving address&apos; button in the receive tab to create new addresses.
 Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -222,13 +218,8 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
-=======
         <location line="-125"/>
         <source>Enter the new passphrase for the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -242,13 +233,8 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="-56"/>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-=======
         <location line="+4"/>
         <source>Wallet to be encrypted</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -323,19 +309,11 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
     </message>
 </context>
 <context>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-    <name>DigiByteGUI</name>
-    <message>
-        <location filename="../digibytegui.cpp" line="+307"/>
-        <source>Sign &amp;message...</source>
-        <translation>Sign &amp;message...</translation>
-=======
     <name>DigiByteApplication</name>
     <message>
         <location filename="../digibyte.cpp" line="+421"/>
         <source>Runaway exception</source>
         <translation type="unfinished"></translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
     </message>
     <message>
         <location line="+1"/>
@@ -477,15 +455,9 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="-880"/>
-        <source>Send coins to a DigiByte address</source>
-        <translation>Send coins to a DigiByte address</translation>
-=======
         <location line="+1"/>
         <source>Encrypt the private keys that belong to your wallet</source>
         <translation>Encrypt the private keys that belong to your wallet</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
     </message>
     <message>
         <location line="+2"/>
@@ -508,15 +480,9 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation>Sign messages with your DigiByte addresses to prove you own them</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+570"/>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-=======
         <location line="+1"/>
         <source>&amp;Verify message…</source>
         <translation type="unfinished"></translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
     </message>
     <message>
         <location line="+1"/>
@@ -545,20 +511,6 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
     </message>
     <message>
         <location line="+3"/>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <source>Encrypt the private keys that belong to your wallet</source>
-        <translation>Encrypt the private keys that belong to your wallet</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
-        <translation>Sign messages with your DigiByte addresses to prove you own them</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>Verify messages to ensure they were signed with specified DigiByte addresses</translation>
-=======
         <source>Create Wallet…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -566,7 +518,6 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <location line="+4"/>
         <source>Close All Wallets…</source>
         <translation type="unfinished"></translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
     </message>
     <message>
         <location line="+97"/>
@@ -589,13 +540,8 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation>Tabs toolbar</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="-158"/>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
-=======
         <location line="+437"/>
         <source>Syncing Headers (%1%)…</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -614,13 +560,8 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+3"/>
-        <source>Open a digibyte: URI or payment request</source>
-=======
         <location line="+4"/>
         <source>Reindexing blocks on disk…</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -628,20 +569,10 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <source>Connecting to peers…</source>
         <translation type="unfinished"></translation>
     </message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-    <message numerus="yes">
-        <location line="+410"/>
-        <source>%n active connection(s) to DigiByte network</source>
-        <translation>
-            <numerusform>%n active connection to DigiByte network</numerusform>
-            <numerusform>%n active connections to DigiByte network</numerusform>
-        </translation>
-=======
     <message>
         <location line="-781"/>
         <source>Request payments (generates QR codes and digibyte: URIs)</source>
         <translation type="unfinished"></translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
     </message>
     <message>
         <location line="+75"/>
@@ -707,13 +638,8 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation>Up to date</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="-494"/>
-        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
-=======
         <location line="-730"/>
         <source>Load Partially Signed DigiByte Transaction</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -931,13 +857,8 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location filename="../digibyte.cpp" line="+529"/>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-=======
         <location line="+120"/>
         <source>Original message:</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1290,11 +1211,7 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+75"/>
-=======
         <location line="+77"/>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1388,10 +1305,6 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+10"/>
-        <source>%1 will download and store a copy of the DigiByte block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-=======
         <location line="+32"/>
         <source>Limit block chain storage to</source>
         <translation type="unfinished"></translation>
@@ -1409,7 +1322,6 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
     <message>
         <location line="-32"/>
         <source>This initial synchronisation is very demanding, and may expose hardware problems with your computer that had previously gone unnoticed. Each time you run %1, it will continue downloading where it left off.</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1428,11 +1340,7 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation>Use a custom data directory:</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location filename="../intro.cpp" line="+20"/>
-=======
         <location filename="../intro.cpp" line="+32"/>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>DigiByte</source>
         <translation type="unfinished">DigiByte</translation>
     </message>
@@ -1471,11 +1379,7 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         </translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+8"/>
-=======
         <location line="+2"/>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>%1 will download and store a copy of the DigiByte block chain.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1744,9 +1648,6 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+30"/>
-=======
         <location line="+10"/>
         <source>External Signer (e.g. hardware wallet)</source>
         <translation type="unfinished"></translation>
@@ -1763,7 +1664,6 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
     </message>
     <message>
         <location line="+32"/>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
     </message>
@@ -1841,10 +1741,6 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+25"/>
-        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
-=======
         <location line="+130"/>
         <source>&amp;Window</source>
         <translation>&amp;Window</translation>
@@ -1852,7 +1748,6 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
     <message>
         <location line="+6"/>
         <source>Show the icon in the system tray.</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2022,11 +1917,7 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
     </message>
     <message>
         <location line="+62"/>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+386"/>
-=======
         <location line="+335"/>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
         <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</translation>
     </message>
@@ -2124,13 +2015,8 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="-398"/>
-        <source>Cannot start digibyte: click-to-pay handler</source>
-=======
         <location line="+72"/>
         <source>Sign Tx</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2139,13 +2025,8 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="-41"/>
-        <source>&apos;digibyte://&apos; is not a valid URI. Use &apos;digibyte:&apos; instead.</source>
-=======
         <location line="+20"/>
         <source>Copy to Clipboard</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2159,13 +2040,8 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+8"/>
-        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
-=======
         <location filename="../psbtoperationsdialog.cpp" line="+55"/>
         <source>Failed to load transaction: %1</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2279,23 +2155,9 @@ Signing is only possible with addresses of the type &apos;legacy&apos;.</source>
         <source>Transaction is fully signed and ready for broadcast.</source>
         <translation type="unfinished"></translation>
     </message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <location filename="../digibyteunits.cpp" line="+197"/>
-        <source>Amount</source>
-        <translation type="unfinished">Amount</translation>
-    </message>
-    <message>
-        <location filename="../guiutil.cpp" line="+115"/>
-        <source>Enter a DigiByte address (e.g. %1)</source>
-=======
     <message>
         <location line="+4"/>
         <source>Transaction status is unknown.</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2562,13 +2424,8 @@ If you are receiving this error you should request the merchant provide a BIP21 
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location filename="../digibyte.cpp" line="+192"/>
-        <source>%1 didn&apos;t yet exit safely...</source>
-=======
         <location filename="../digibyte.cpp" line="+112"/>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2577,13 +2434,8 @@ If you are receiving this error you should request the merchant provide a BIP21 
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location filename="../digibyte.cpp" line="-117"/>
-        <source>Error parsing command line arguments: %1.</source>
-=======
         <location line="+15"/>
         <source>Error: %1</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3209,10 +3061,6 @@ For more information on using this console, type %6.
     </message>
     <message>
         <location line="-3"/>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+46"/>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3523,14 +3371,8 @@ For more information on using this console, type %6.
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+80"/>
-        <location line="+13"/>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
-=======
         <location line="+112"/>
         <source>Recommended:</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3924,16 +3766,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee rate of &quot;100 
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="-46"/>
-        <source>This is a normal payment.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+39"/>
-=======
         <location line="-7"/>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>The DigiByte address to send the payment to</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3960,16 +3793,12 @@ Note:  Since the fee is calculated on a per-byte basis, a fee rate of &quot;100 
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="-1028"/>
-=======
         <location line="-1035"/>
         <source>The amount to send in the selected unit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4005,11 +3834,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee rate of &quot;100 
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+54"/>
-=======
         <location line="+58"/>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4136,9 +3961,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee rate of &quot;100 
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="+37"/>
-=======
         <location line="+29"/>
         <location line="+3"/>
         <source>The signed message to verify</source>
@@ -4152,7 +3974,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee rate of &quot;100 
     </message>
     <message>
         <location line="+9"/>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
         <translation>Verify the message to ensure it was signed with the specified DigiByte address</translation>
     </message>
@@ -4836,11 +4657,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee rate of &quot;100 
 <context>
     <name>UnitDisplayStatusBarControl</name>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location filename="../digibytegui.cpp" line="+159"/>
-=======
         <location filename="../digibytegui.cpp" line="+41"/>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <source>Unit to show amounts in. Click to select another unit.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5058,13 +4875,8 @@ Go to File &gt; Open Wallet to load a wallet.
 <context>
     <name>digibyte-core</name>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location filename="../digibytestrings.cpp" line="+29"/>
-        <source>Distributed under the MIT software license, see the accompanying file %s or %s</source>
-=======
         <location filename="../digibytestrings.cpp" line="+12"/>
         <source>The %s developers</source>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5098,15 +4910,9 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_en.ts
-        <location line="-184"/>
-        <source>DigiByte Core</source>
-        <translation type="unfinished">DigiByte Core</translation>
-=======
         <location line="+4"/>
         <source>Distributed under the MIT software license, see the accompanying file %s or %s</source>
         <translation type="unfinished"></translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_en.ts
     </message>
     <message>
         <location line="+3"/>

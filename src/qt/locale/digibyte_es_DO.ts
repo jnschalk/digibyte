@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-<TS language="es_VE" version="2.1">
-=======
 <TS language="es_DO" version="2.1">
->>>>>>> bitcoin/8.22.0
 <context>
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-<<<<<<< HEAD
-        <translation>Haga clic con el botón derecho para editar una dirección o etiqueta</translation>
-=======
         <translation>Click derecho para editar la dirección o etiqueta</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Create a new address</source>
@@ -23,11 +15,7 @@
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
-<<<<<<< HEAD
-        <translation>Copiar la dirección seleccionada al portapapeles del sistema</translation>
-=======
         <translation>Copie las direcciones seleccionadas actualmente al portapapeles del sistema</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -35,19 +23,11 @@
     </message>
     <message>
         <source>C&amp;lose</source>
-<<<<<<< HEAD
-        <translation>&amp;Cerrar</translation>
-    </message>
-    <message>
-        <source>Delete the currently selected address from the list</source>
-        <translation>Borrar de la lista la dirección seleccionada</translation>
-=======
         <translation>C&amp;errar</translation>
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
         <translation>Borrar las direcciones seleccionadas recientemente de la lista</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Enter address or label to search</source>
@@ -55,11 +35,7 @@
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-<<<<<<< HEAD
-        <translation>Exportar a un archivo los datos de esta pestaña</translation>
-=======
         <translation>Exportar los datos en la pestaña actual a un archivo</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Export</source>
@@ -67,17 +43,6 @@
     </message>
     <message>
         <source>&amp;Delete</source>
-<<<<<<< HEAD
-        <translation>&amp;Eliminar</translation>
-    </message>
-    <message>
-        <source>Choose the address to send coins to</source>
-        <translation>Escoja la dirección a la que se enviarán monedas</translation>
-    </message>
-    <message>
-        <source>Choose the address to receive coins with</source>
-        <translation>Escoja la dirección donde quiere recibir monedas</translation>
-=======
         <translation>&amp;Borrar</translation>
     </message>
     <message>
@@ -87,7 +52,6 @@
     <message>
         <source>Choose the address to receive coins with</source>
         <translation>Elige la dirección para recibir monedas</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -95,11 +59,7 @@
     </message>
     <message>
         <source>Sending addresses</source>
-<<<<<<< HEAD
-        <translation>Direcciones de envío</translation>
-=======
         <translation>Envío de direcciones</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Receiving addresses</source>
