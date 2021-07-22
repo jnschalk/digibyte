@@ -30,7 +30,11 @@
 
   <key>CFBundleExecutable</key>
   <string>DigiByte-Qt</string>
+<<<<<<< HEAD
+  
+=======
 
+>>>>>>> bitcoin/8.22.0
   <key>CFBundleName</key>
   <string>DigiByte-Qt</string>
 
@@ -38,7 +42,11 @@
   <true/>
 
   <key>CFBundleIdentifier</key>
+<<<<<<< HEAD
+  <string>io.digibyte.DigiByte-Qt</string>
+=======
   <string>org.digibytefoundation.DigiByte-Qt</string>
+>>>>>>> bitcoin/8.22.0
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,10 +54,52 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
+<<<<<<< HEAD
+      <string>io.digibyte.DigiBytePayment</string>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>digibyte</string>
+      </array>
+    </dict>
+  </array>
+
+  <key>UTExportedTypeDeclarations</key>
+  <array>
+    <dict>
+      <key>UTTypeIdentifier</key>
+      <string>io.digibyte.paymentrequest</string>
+      <key>UTTypeDescription</key>
+      <string>DigiByte payment request</string>
+      <key>UTTypeConformsTo</key>
+      <array>
+        <string>public.data</string>
+      </array>
+      <key>UTTypeTagSpecification</key>
+      <dict>
+        <key>public.mime-type</key>
+        <string>application/x-digibyte-payment-request</string>
+        <key>public.filename-extension</key>
+        <array>
+          <string>digibytepaymentrequest</string>
+        </array>
+      </dict>
+    </dict>
+  </array>
+
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeRole</key>
+      <string>Editor</string>
+      <key>LSItemContentTypes</key>
+      <array>
+        <string>io.digibyte.paymentrequest</string>
+=======
       <string>org.digibyte.DigiBytePayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>digibyte</string>
+>>>>>>> bitcoin/8.22.0
       </array>
     </dict>
   </array>
@@ -60,6 +110,15 @@
   <key>NSHighResolutionCapable</key>
     <string>True</string>
 
+<<<<<<< HEAD
+  <key>LSAppNapIsDisabled</key>
+    <string>True</string>
+
+  <key>NSRequiresAquaSystemAppearance</key>
+    <string>True</string>
+  
+=======
+>>>>>>> bitcoin/8.22.0
   <key>LSApplicationCategoryType</key>
     <string>public.app-category.finance</string>
 </dict>

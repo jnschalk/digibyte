@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test longpolling with getblocktemplate."""
@@ -8,10 +13,15 @@ from decimal import Decimal
 import random
 import threading
 
+<<<<<<< HEAD
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import get_rpc_proxy, random_transaction
+=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import get_rpc_proxy
 from test_framework.wallet import MiniWallet
+>>>>>>> bitcoin/8.22.0
 
 
 class LongpollThread(threading.Thread):
@@ -31,6 +41,9 @@ class GetBlockTemplateLPTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.supports_cli = False
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def run_test(self):
         self.log.info("Warning: this test will take about 70 seconds in the best case. Be patient.")

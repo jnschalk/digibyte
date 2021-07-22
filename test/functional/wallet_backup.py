@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the wallet backup features.
@@ -35,6 +40,11 @@ import os
 from random import randint
 import shutil
 
+<<<<<<< HEAD
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, assert_raises_rpc_error, connect_nodes, sync_blocks, sync_mempools
+
+=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
@@ -43,11 +53,15 @@ from test_framework.util import (
 )
 
 
+>>>>>>> bitcoin/8.22.0
 class WalletBackupTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
         self.setup_clean_chain = True
         # nodes 1, 2,3 are spenders, let's give them a keypool=100
+<<<<<<< HEAD
+        self.extra_args = [["-keypool=100"], ["-keypool=100"], ["-keypool=100"], []]
+=======
         # whitelist all peers to speed up tx relay / mempool sync
         self.extra_args = [
             ["-whitelist=noban@127.0.0.1", "-keypool=100"],
@@ -56,11 +70,16 @@ class WalletBackupTest(DigiByteTestFramework):
             ["-whitelist=noban@127.0.0.1"],
         ]
         self.rpc_timeout = 120
+>>>>>>> bitcoin/8.22.0
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
 
+<<<<<<< HEAD
+    def setup_network(self, split=False):
+=======
     def setup_network(self):
+>>>>>>> bitcoin/8.22.0
         self.setup_nodes()
         self.connect_nodes(0, 3)
         self.connect_nodes(1, 3)

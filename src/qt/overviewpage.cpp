@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -94,7 +99,11 @@ public:
             foreground = option.palette.color(QPalette::Text);
         }
         painter->setPen(foreground);
+<<<<<<< HEAD
+        QString amountText = DigiByteUnits::formatWithUnit(unit, amount, true, DigiByteUnits::separatorAlways);
+=======
         QString amountText = DigiByteUnits::formatWithUnit(unit, amount, true, DigiByteUnits::SeparatorStyle::ALWAYS);
+>>>>>>> bitcoin/8.22.0
         if(!confirmed)
         {
             amountText = QString("[") + amountText + QString("]");
@@ -147,11 +156,18 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     txdelegate(new TxViewDelegate(platformStyle, this))
 {
     ui->setupUi(this);
+    QString theme = GUIUtil::getThemeName();
+    
 
     m_balances.balance = -1;
 
     // use a SingleColorIcon for the "out of sync warning" icon
+<<<<<<< HEAD
+    QIcon icon = platformStyle->SingleColorIcon(":/icons/" + theme + "/warning");
+    icon.addPixmap(icon.pixmap(QSize(64,64), QIcon::Normal), QIcon::Disabled); // also set the disabled icon because we are using a disabled QPushButton to work around missing HiDPI support of QLabel (https://bugreports.qt.io/browse/QTBUG-42503)
+=======
     QIcon icon = m_platform_style->SingleColorIcon(QStringLiteral(":/icons/warning"));
+>>>>>>> bitcoin/8.22.0
     ui->labelTransactionsStatus->setIcon(icon);
     ui->labelWalletStatus->setIcon(icon);
 
@@ -199,6 +215,17 @@ void OverviewPage::setBalance(const interfaces::WalletBalances& balances)
 {
     int unit = walletModel->getOptionsModel()->getDisplayUnit();
     m_balances = balances;
+<<<<<<< HEAD
+    ui->labelBalance->setText(DigiByteUnits::formatWithUnit(unit, balances.balance, false, DigiByteUnits::separatorAlways));
+    ui->labelUnconfirmed->setText(DigiByteUnits::formatWithUnit(unit, balances.unconfirmed_balance, false, DigiByteUnits::separatorAlways));
+    ui->labelImmature->setText(DigiByteUnits::formatWithUnit(unit, balances.immature_balance, false, DigiByteUnits::separatorAlways));
+    ui->labelTotal->setText(DigiByteUnits::formatWithUnit(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, false, DigiByteUnits::separatorAlways));
+    ui->labelWatchAvailable->setText(DigiByteUnits::formatWithUnit(unit, balances.watch_only_balance, false, DigiByteUnits::separatorAlways));
+    ui->labelWatchPending->setText(DigiByteUnits::formatWithUnit(unit, balances.unconfirmed_watch_only_balance, false, DigiByteUnits::separatorAlways));
+    ui->labelWatchImmature->setText(DigiByteUnits::formatWithUnit(unit, balances.immature_watch_only_balance, false, DigiByteUnits::separatorAlways));
+    ui->labelWatchTotal->setText(DigiByteUnits::formatWithUnit(unit, balances.watch_only_balance + balances.unconfirmed_watch_only_balance + balances.immature_watch_only_balance, false, DigiByteUnits::separatorAlways));
+
+=======
     if (walletModel->wallet().isLegacy()) {
         if (walletModel->wallet().privateKeysDisabled()) {
             ui->labelBalance->setText(DigiByteUnits::formatWithPrivacy(unit, balances.watch_only_balance, DigiByteUnits::SeparatorStyle::ALWAYS, m_privacy));
@@ -221,6 +248,7 @@ void OverviewPage::setBalance(const interfaces::WalletBalances& balances)
         ui->labelImmature->setText(DigiByteUnits::formatWithPrivacy(unit, balances.immature_balance, DigiByteUnits::SeparatorStyle::ALWAYS, m_privacy));
         ui->labelTotal->setText(DigiByteUnits::formatWithPrivacy(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, DigiByteUnits::SeparatorStyle::ALWAYS, m_privacy));
     }
+>>>>>>> bitcoin/8.22.0
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
     bool showImmature = balances.immature_balance != 0;

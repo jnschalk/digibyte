@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+// Copyright (c) 2018 The DigiByte Core developers
+=======
 // Copyright (c) 2018-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,10 +14,14 @@
 #include <miner.h>
 #include <pow.h>
 #include <random.h>
+<<<<<<< HEAD
+#include <test/test_digibyte.h>
+=======
 #include <script/standard.h>
 #include <test/util/script.h>
 #include <test/util/setup_common.h>
 #include <util/time.h>
+>>>>>>> bitcoin/8.22.0
 #include <validation.h>
 #include <validationinterface.h>
 
@@ -63,7 +71,14 @@ std::shared_ptr<CBlock> MinerTestingSetup::Block(const uint256& prev_hash)
     static int i = 0;
     static uint64_t time = Params().GenesisBlock().nTime;
 
+<<<<<<< HEAD
+    CScript pubKey;
+    pubKey << i++ << OP_TRUE;
+
+    auto ptemplate = BlockAssembler(Params()).CreateNewBlock(pubKey, ALGO_SCRYPT, false);
+=======
     auto ptemplate = BlockAssembler(m_node.chainman->ActiveChainstate(), *m_node.mempool, Params()).CreateNewBlock(CScript{} << i++ << OP_TRUE);
+>>>>>>> bitcoin/8.22.0
     auto pblock = std::make_shared<CBlock>(ptemplate->block);
     pblock->hashPrevBlock = prev_hash;
     pblock->nTime = ++time;
@@ -89,7 +104,7 @@ std::shared_ptr<CBlock> MinerTestingSetup::FinalizeBlock(std::shared_ptr<CBlock>
 
     pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
 
-    while (!CheckProofOfWork(pblock->GetHash(), pblock->nBits, Params().GetConsensus())) {
+    while (!CheckProofOfWork(GetPoWAlgoHash(pblock->GetBlockHeader()), pblock->nBits, Params().GetConsensus())) {
         ++(pblock->nNonce);
     }
 

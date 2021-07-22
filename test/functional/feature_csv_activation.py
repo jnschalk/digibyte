@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2015-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test CSV soft fork activation.
@@ -86,6 +91,62 @@ def relative_locktime(sdf, srhb, stf, srlb):
 def all_rlt_txs(txs):
     return [tx['tx'] for tx in txs]
 
+<<<<<<< HEAD
+def sign_transaction(node, unsignedtx):
+    rawtx = ToHex(unsignedtx)
+    signresult = node.signrawtransactionwithwallet(rawtx)
+    tx = CTransaction()
+    f = BytesIO(hex_str_to_bytes(signresult['hex']))
+    tx.deserialize(f)
+    return tx
+
+def create_bip112special(node, input, txversion, address):
+    tx = create_transaction(node, input, address, amount=Decimal("49.98"))
+    tx.nVersion = txversion
+    signtx = sign_transaction(node, tx)
+    signtx.vin[0].scriptSig = CScript([-1, OP_CHECKSEQUENCEVERIFY, OP_DROP] + list(CScript(signtx.vin[0].scriptSig)))
+    return signtx
+
+def send_generic_input_tx(node, coinbases, address):
+    return node.sendrawtransaction(ToHex(sign_transaction(node, create_transaction(node, node.getblock(coinbases.pop())['tx'][0], address, amount=Decimal("49.99")))))
+
+def create_bip68txs(node, bip68inputs, txversion, address, locktime_delta=0):
+    """Returns a list of bip68 transactions with different bits set."""
+    txs = []
+    assert(len(bip68inputs) >= 16)
+    for i, (sdf, srhb, stf, srlb) in enumerate(product(*[[True, False]] * 4)):
+        locktime = relative_locktime(sdf, srhb, stf, srlb)
+        tx = create_transaction(node, bip68inputs[i], address, amount=Decimal("49.98"))
+        tx.nVersion = txversion
+        tx.vin[0].nSequence = locktime + locktime_delta
+        tx = sign_transaction(node, tx)
+        tx.rehash()
+        txs.append({'tx': tx, 'sdf': sdf, 'stf': stf})
+
+    return txs
+
+def create_bip112txs(node, bip112inputs, varyOP_CSV, txversion, address, locktime_delta=0):
+    """Returns a list of bip68 transactions with different bits set."""
+    txs = []
+    assert(len(bip112inputs) >= 16)
+    for i, (sdf, srhb, stf, srlb) in enumerate(product(*[[True, False]] * 4)):
+        locktime = relative_locktime(sdf, srhb, stf, srlb)
+        tx = create_transaction(node, bip112inputs[i], address, amount=Decimal("49.98"))
+        if (varyOP_CSV):  # if varying OP_CSV, nSequence is fixed
+            tx.vin[0].nSequence = BASE_RELATIVE_LOCKTIME + locktime_delta
+        else:  # vary nSequence instead, OP_CSV is fixed
+            tx.vin[0].nSequence = locktime + locktime_delta
+        tx.nVersion = txversion
+        signtx = sign_transaction(node, tx)
+        if (varyOP_CSV):
+            signtx.vin[0].scriptSig = CScript([locktime, OP_CHECKSEQUENCEVERIFY, OP_DROP] + list(CScript(signtx.vin[0].scriptSig)))
+        else:
+            signtx.vin[0].scriptSig = CScript([BASE_RELATIVE_LOCKTIME, OP_CHECKSEQUENCEVERIFY, OP_DROP] + list(CScript(signtx.vin[0].scriptSig)))
+        tx.rehash()
+        txs.append({'tx': signtx, 'sdf': sdf, 'stf': stf})
+    return txs
+=======
+>>>>>>> bitcoin/8.22.0
 
 class BIP68_112_113Test(DigiByteTestFramework):
     def set_test_params(self):
@@ -109,6 +170,16 @@ class BIP68_112_113Test(DigiByteTestFramework):
         tx.vin[0].scriptSig = CScript([-1, OP_CHECKSEQUENCEVERIFY, OP_DROP] + list(CScript(tx.vin[0].scriptSig)))
         return tx
 
+<<<<<<< HEAD
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
+
+    def generate_blocks(self, number, version, test_blocks=None):
+        if test_blocks is None:
+            test_blocks = []
+        for i in range(number):
+            block = self.create_test_block([], version)
+=======
     def create_bip112emptystack(self, input, txversion):
         tx = self.create_self_transfer_from_utxo(input)
         tx.nVersion = txversion
@@ -161,6 +232,7 @@ class BIP68_112_113Test(DigiByteTestFramework):
         test_blocks = []
         for _ in range(number):
             block = self.create_test_block([])
+>>>>>>> bitcoin/8.22.0
             test_blocks.append(block)
             self.last_block_time += 600
             self.tip = block.sha256

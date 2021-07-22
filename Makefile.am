@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+# Copyright (c) 2013-2016 The DigiByte Core developers
+=======
 # Copyright (c) 2013-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,11 +29,15 @@ DIGIBYTED_BIN=$(top_builddir)/src/$(DIGIBYTE_DAEMON_NAME)$(EXEEXT)
 DIGIBYTE_QT_BIN=$(top_builddir)/src/qt/$(DIGIBYTE_GUI_NAME)$(EXEEXT)
 DIGIBYTE_CLI_BIN=$(top_builddir)/src/$(DIGIBYTE_CLI_NAME)$(EXEEXT)
 DIGIBYTE_TX_BIN=$(top_builddir)/src/$(DIGIBYTE_TX_NAME)$(EXEEXT)
+<<<<<<< HEAD
+DIGIBYTE_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
+=======
 DIGIBYTE_UTIL_BIN=$(top_builddir)/src/$(DIGIBYTE_UTIL_NAME)$(EXEEXT)
 DIGIBYTE_WALLET_BIN=$(top_builddir)/src/$(DIGIBYTE_WALLET_TOOL_NAME)$(EXEEXT)
 DIGIBYTE_NODE_BIN=$(top_builddir)/src/$(DIGIBYTE_MP_NODE_NAME)$(EXEEXT)
 DIGIBYTE_GUI_BIN=$(top_builddir)/src/$(DIGIBYTE_MP_GUI_NAME)$(EXEEXT)
 DIGIBYTE_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win64-setup$(EXEEXT)
+>>>>>>> bitcoin/8.22.0
 
 empty :=
 space := $(empty) $(empty)
@@ -42,6 +50,19 @@ OSX_BACKGROUND_SVG=background.svg
 OSX_BACKGROUND_IMAGE=background.tiff
 OSX_BACKGROUND_IMAGE_DPIS=36 72
 OSX_DEPLOY_SCRIPT=$(top_srcdir)/contrib/macdeploy/macdeployqtplus
+<<<<<<< HEAD
+OSX_FANCY_PLIST=$(top_srcdir)/contrib/macdeploy/fancy.plist
+OSX_INSTALLER_ICONS=$(top_srcdir)/src/qt/res/icons/digibyte.icns
+OSX_PLIST=$(top_builddir)/share/qt/Info.plist #not installed
+OSX_QT_TRANSLATIONS = da,de,es,hu,ru,uk,zh_CN,zh_TW
+
+DIST_DOCS = $(wildcard doc/*.md) $(wildcard doc/release-notes/*.md)
+DIST_CONTRIB = $(top_srcdir)/contrib/digibyte-cli.bash-completion \
+	       $(top_srcdir)/contrib/digibyte-tx.bash-completion \
+	       $(top_srcdir)/contrib/digibyted.bash-completion \
+	       $(top_srcdir)/contrib/init \
+	       $(top_srcdir)/contrib/install_db4.sh
+=======
 OSX_INSTALLER_ICONS=$(top_srcdir)/src/qt/res/icons/digibyte.icns
 OSX_PLIST=$(top_builddir)/share/qt/Info.plist #not installed
 
@@ -52,6 +73,7 @@ DIST_CONTRIB = \
 	       $(top_srcdir)/contrib/linearize/linearize-data.py \
 	       $(top_srcdir)/contrib/linearize/linearize-hashes.py
 
+>>>>>>> bitcoin/8.22.0
 DIST_SHARE = \
   $(top_srcdir)/share/genbuild.sh \
   $(top_srcdir)/share/rpcauth
@@ -71,24 +93,38 @@ OSX_PACKAGING = $(OSX_DEPLOY_SCRIPT) $(OSX_INSTALLER_ICONS) \
   $(top_srcdir)/contrib/macdeploy/detached-sig-apply.sh \
   $(top_srcdir)/contrib/macdeploy/detached-sig-create.sh
 
+<<<<<<< HEAD
+COVERAGE_INFO = baseline.info \
+  test_digibyte_filtered.info total_coverage.info \
+  baseline_filtered.info functional_test.info functional_test_filtered.info \
+  test_digibyte_coverage.info test_digibyte.info
+=======
 COVERAGE_INFO = $(COV_TOOL_WRAPPER) baseline.info \
   test_digibyte_filtered.info total_coverage.info \
   baseline_filtered.info functional_test.info functional_test_filtered.info \
   test_digibyte_coverage.info test_digibyte.info fuzz.info fuzz_filtered.info fuzz_coverage.info
+>>>>>>> bitcoin/8.22.0
 
 dist-hook:
 	-$(GIT) archive --format=tar HEAD -- src/clientversion.cpp | $(AMTAR) -C $(top_distdir) -xf -
 
+<<<<<<< HEAD
+=======
 if TARGET_WINDOWS
+>>>>>>> bitcoin/8.22.0
 $(DIGIBYTE_WIN_INSTALLER): all-recursive
 	$(MKDIR_P) $(top_builddir)/release
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(DIGIBYTED_BIN) $(top_builddir)/release
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(DIGIBYTE_QT_BIN) $(top_builddir)/release
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(DIGIBYTE_CLI_BIN) $(top_builddir)/release
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(DIGIBYTE_TX_BIN) $(top_builddir)/release
+<<<<<<< HEAD
+	@test -f $(MAKENSIS) && $(MAKENSIS) -V2 $(top_builddir)/share/setup.nsi || \
+=======
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(DIGIBYTE_WALLET_BIN) $(top_builddir)/release
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(DIGIBYTE_UTIL_BIN) $(top_builddir)/release
 	@test -f $(MAKENSIS) && echo 'OutFile "$@"' | cat $(top_builddir)/share/setup.nsi - | $(MAKENSIS) -V2 - || \
+>>>>>>> bitcoin/8.22.0
 	  echo error: could not build $@
 	@echo built $@
 
@@ -137,7 +173,7 @@ $(OSX_BACKGROUND_IMAGE)@2x.png: contrib/macdeploy/$(OSX_BACKGROUND_SVG)
 	sed 's/PACKAGE_NAME/$(PACKAGE_NAME)/' < "$<" | $(RSVG_CONVERT) -f png -d 72 -p 72 -o $@
 $(OSX_BACKGROUND_IMAGE): $(OSX_BACKGROUND_IMAGE).png $(OSX_BACKGROUND_IMAGE)@2x.png
 	tiffutil -cathidpicheck $^ -out $@
-
+ 
 deploydir: $(OSX_DMG)
 else !BUILD_DARWIN
 APP_DIST_DIR=$(top_builddir)/dist
@@ -162,8 +198,16 @@ $(APP_DIST_DIR)/.background/$(OSX_BACKGROUND_IMAGE): $(OSX_BACKGROUND_IMAGE_DPIF
 	$(MKDIR_P) $(@D)
 	$(TIFFCP) -c none $(OSX_BACKGROUND_IMAGE_DPIFILES) $@
 
+<<<<<<< HEAD
+$(APP_DIST_DIR)/.DS_Store: $(OSX_DSSTORE_GEN)
+	$(PYTHON) $< "$@" "$(OSX_VOLNAME)"
+
+$(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/DigiByte-Qt: $(OSX_APP_BUILT) $(OSX_PACKAGING)
+	INSTALLNAMETOOL=$(INSTALLNAMETOOL)  OTOOL=$(OTOOL) STRIP=$(STRIP) $(PYTHON) $(OSX_DEPLOY_SCRIPT) $(OSX_APP) -translations-dir=$(QT_TRANSLATION_DIR) -add-qt-tr $(OSX_QT_TRANSLATIONS) -verbose 2
+=======
 $(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/DigiByte-Qt: $(OSX_APP_BUILT) $(OSX_PACKAGING)
 	INSTALLNAMETOOL=$(INSTALLNAMETOOL) OTOOL=$(OTOOL) STRIP=$(STRIP) $(PYTHON) $(OSX_DEPLOY_SCRIPT) $(OSX_APP) $(OSX_VOLNAME) -translations-dir=$(QT_TRANSLATION_DIR)
+>>>>>>> bitcoin/8.22.0
 
 deploydir: $(APP_DIST_EXTRAS)
 endif !BUILD_DARWIN
@@ -171,14 +215,29 @@ endif !BUILD_DARWIN
 appbundle: $(OSX_APP_BUILT)
 deploy: $(OSX_DMG)
 endif
+<<<<<<< HEAD
+if TARGET_WINDOWS
+deploy: $(DIGIBYTE_WIN_INSTALLER)
+endif
+=======
+>>>>>>> bitcoin/8.22.0
 
 $(DIGIBYTE_QT_BIN): FORCE
 	$(MAKE) -C src qt/$(@F)
 
 $(DIGIBYTED_BIN): FORCE
+<<<<<<< HEAD
 	$(MAKE) -C src $(@F)
 
 $(DIGIBYTE_CLI_BIN): FORCE
+	$(MAKE) -C src $(@F)
+
+$(DIGIBYTE_TX_BIN): FORCE
+=======
+	$(MAKE) -C src $(@F)
+
+$(DIGIBYTE_CLI_BIN): FORCE
+>>>>>>> bitcoin/8.22.0
 	$(MAKE) -C src $(@F)
 
 $(DIGIBYTE_TX_BIN): FORCE
@@ -223,6 +282,8 @@ baseline_filtered.info: baseline.info
 	$(abs_builddir)/contrib/filter-lcov.py $(LCOV_FILTER_PATTERN) $< $@
 	$(LCOV) -a $@ $(LCOV_OPTS) -o $@
 
+<<<<<<< HEAD
+=======
 fuzz.info: baseline_filtered.info
 	@TIMEOUT=15 test/fuzz/test_runner.py $(DIR_FUZZ_SEED_CORPUS) -l DEBUG
 	$(LCOV) -c $(LCOV_OPTS) -d $(abs_builddir)/src --t fuzz-tests -o $@
@@ -232,6 +293,7 @@ fuzz_filtered.info: fuzz.info
 	$(abs_builddir)/contrib/filter-lcov.py $(LCOV_FILTER_PATTERN) $< $@
 	$(LCOV) -a $@ $(LCOV_OPTS) -o $@
 
+>>>>>>> bitcoin/8.22.0
 test_digibyte.info: baseline_filtered.info
 	$(MAKE) -C src/ check
 	$(LCOV) -c $(LCOV_OPTS) -d $(abs_builddir)/src -t test_digibyte -o $@
@@ -242,7 +304,11 @@ test_digibyte_filtered.info: test_digibyte.info
 	$(LCOV) -a $@ $(LCOV_OPTS) -o $@
 
 functional_test.info: test_digibyte_filtered.info
+<<<<<<< HEAD
+	-@TIMEOUT=15 test/functional/test_runner.py $(EXTENDED_FUNCTIONAL_TESTS)
+=======
 	@TIMEOUT=15 test/functional/test_runner.py $(EXTENDED_FUNCTIONAL_TESTS)
+>>>>>>> bitcoin/8.22.0
 	$(LCOV) -c $(LCOV_OPTS) -d $(abs_builddir)/src --t functional-tests -o $@
 	$(LCOV) -z $(LCOV_OPTS) -d $(abs_builddir)/src
 
@@ -250,6 +316,13 @@ functional_test_filtered.info: functional_test.info
 	$(abs_builddir)/contrib/filter-lcov.py $(LCOV_FILTER_PATTERN) $< $@
 	$(LCOV) -a $@ $(LCOV_OPTS) -o $@
 
+<<<<<<< HEAD
+test_digibyte_coverage.info: baseline_filtered.info test_digibyte_filtered.info
+	$(LCOV) -a $(LCOV_OPTS) baseline_filtered.info -a test_digibyte_filtered.info -o $@
+
+total_coverage.info: test_digibyte_filtered.info functional_test_filtered.info
+	$(LCOV) -a $(LCOV_OPTS) baseline_filtered.info -a test_digibyte_filtered.info -a functional_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
+=======
 fuzz_coverage.info: fuzz_filtered.info
 	$(LCOV) -a $(LCOV_OPTS) baseline_filtered.info -a fuzz_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
 
@@ -262,6 +335,7 @@ total_coverage.info: test_digibyte_filtered.info functional_test_filtered.info
 fuzz.coverage/.dirstamp: fuzz_coverage.info
 	$(GENHTML) -s $(LCOV_OPTS) $< -o $(@D)
 	@touch $@
+>>>>>>> bitcoin/8.22.0
 
 test_digibyte.coverage/.dirstamp:  test_digibyte_coverage.info
 	$(GENHTML) -s $(LCOV_OPTS) $< -o $(@D)
@@ -271,8 +345,11 @@ total.coverage/.dirstamp: total_coverage.info
 	$(GENHTML) -s $(LCOV_OPTS) $< -o $(@D)
 	@touch $@
 
+<<<<<<< HEAD
+=======
 cov_fuzz: fuzz.coverage/.dirstamp
 
+>>>>>>> bitcoin/8.22.0
 cov: test_digibyte.coverage/.dirstamp total.coverage/.dirstamp
 
 endif
@@ -282,10 +359,13 @@ dist_noinst_SCRIPTS = autogen.sh
 EXTRA_DIST = $(DIST_SHARE) $(DIST_CONTRIB) $(WINDOWS_PACKAGING) $(OSX_PACKAGING) $(BIN_CHECKS)
 
 EXTRA_DIST += \
+<<<<<<< HEAD
+=======
     test/functional \
     test/fuzz
 
 EXTRA_DIST += \
+>>>>>>> bitcoin/8.22.0
     test/util/digibyte-util-test.py \
     test/util/data/digibyte-util-test.json \
     test/util/data/blanktxv1.hex \
@@ -342,6 +422,11 @@ EXTRA_DIST += \
     test/util/rpcauth-test.py
 
 CLEANFILES = $(OSX_DMG) $(DIGIBYTE_WIN_INSTALLER)
+<<<<<<< HEAD
+
+.INTERMEDIATE: $(COVERAGE_INFO)
+=======
+>>>>>>> bitcoin/8.22.0
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-man
 
@@ -361,9 +446,14 @@ clean-docs:
 	rm -rf doc/doxygen
 
 clean-local: clean-docs
+<<<<<<< HEAD
+	rm -rf coverage_percent.txt test_digibyte.coverage/ total.coverage/ test/tmp/ cache/ $(OSX_APP)
+	rm -rf test/functional/__pycache__ test/functional/test_framework/__pycache__ test/cache
+=======
 	rm -rf coverage_percent.txt test_digibyte.coverage/ total.coverage/ fuzz.coverage/ test/tmp/ cache/ $(OSX_APP)
 	rm -rf test/functional/__pycache__ test/functional/test_framework/__pycache__ test/cache share/rpcauth/__pycache__
 	rm -rf osx_volname dist/ dpi36.background.tiff dpi72.background.tiff
+>>>>>>> bitcoin/8.22.0
 
 test-security-check:
 if TARGET_DARWIN

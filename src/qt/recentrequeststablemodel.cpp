@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -89,7 +94,11 @@ QVariant RecentRequestsTableModel::data(const QModelIndex &index, int role) cons
             if (rec->recipient.amount == 0 && role == Qt::DisplayRole)
                 return tr("(no amount requested)");
             else if (role == Qt::EditRole)
+<<<<<<< HEAD
+                return DigiByteUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), rec->recipient.amount, false, DigiByteUnits::separatorNever);
+=======
                 return DigiByteUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), rec->recipient.amount, false, DigiByteUnits::SeparatorStyle::NEVER);
+>>>>>>> bitcoin/8.22.0
             else
                 return DigiByteUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), rec->recipient.amount);
         }
@@ -129,11 +138,15 @@ void RecentRequestsTableModel::updateAmountColumnTitle()
 /** Gets title for amount column including current display unit if optionsModel reference available. */
 QString RecentRequestsTableModel::getAmountTitle()
 {
+<<<<<<< HEAD
+    return (this->walletModel->getOptionsModel() != nullptr) ? tr("Requested") + " ("+DigiByteUnits::shortName(this->walletModel->getOptionsModel()->getDisplayUnit()) + ")" : "";
+=======
     if (!walletModel->getOptionsModel()) return {};
     return tr("Requested") +
            QLatin1String(" (") +
            DigiByteUnits::shortName(this->walletModel->getOptionsModel()->getDisplayUnit()) +
            QLatin1Char(')');
+>>>>>>> bitcoin/8.22.0
 }
 
 QModelIndex RecentRequestsTableModel::index(int row, int column, const QModelIndex &parent) const

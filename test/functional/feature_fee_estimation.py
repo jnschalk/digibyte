@@ -1,11 +1,20 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test fee estimation code."""
 from decimal import Decimal
 import random
 
+<<<<<<< HEAD
+from test_framework.messages import CTransaction, CTxIn, CTxOut, COutPoint, ToHex, COIN
+from test_framework.script import CScript, OP_1, OP_DROP, OP_2, OP_HASH160, OP_EQUAL, hash160, OP_TRUE
+=======
 from test_framework.messages import (
     COIN,
     COutPoint,
@@ -23,6 +32,7 @@ from test_framework.script import (
 from test_framework.script_util import (
     script_to_p2sh_script,
 )
+>>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_equal,
@@ -150,10 +160,13 @@ def check_smart_estimates(node, fees_seen):
         else:
             assert_greater_than_or_equal(i + 1, e["blocks"])
 
+<<<<<<< HEAD
+=======
 def check_estimates(node, fees_seen):
     check_raw_estimates(node, fees_seen)
     check_smart_estimates(node, fees_seen)
 
+>>>>>>> bitcoin/8.22.0
 class EstimateFeeTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
@@ -164,6 +177,9 @@ class EstimateFeeTest(DigiByteTestFramework):
             ["-acceptnonstdtxn", "-whitelist=noban@127.0.0.1", "-blockmaxweight=68000"],
             ["-acceptnonstdtxn", "-whitelist=noban@127.0.0.1", "-blockmaxweight=32000"],
         ]
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
@@ -210,6 +226,11 @@ class EstimateFeeTest(DigiByteTestFramework):
                 else:
                     newmem.append(utx)
             self.memutxo = newmem
+
+    def import_deterministic_coinbase_privkeys(self):
+        self.start_nodes()
+        super().import_deterministic_coinbase_privkeys()
+        self.stop_nodes()
 
     def run_test(self):
         self.log.info("This test is time consuming, please be patient")

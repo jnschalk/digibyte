@@ -70,10 +70,15 @@
         <translation>Estes são os seus endereços para enviar pagamentos. Sempre cheque a quantia e o endereço do destinatário antes de enviar moedas.</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Estes são os seus endereços para receber pagamentos. É recomendado usar um novo para cada transação.</translation>
+=======
         <source>These are your DigiByte addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.
 Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Estes são seus endereços DigiByte para receber pagamentos. Use o botão 'Criar novos endereços de recebimento' na barra receber para criar novos endereços.
 Somente é possível assinar com endereços do tipo 'legado'.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -171,7 +176,11 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <translation>Aviso: Se você criptografar sua carteira e perder sua senha, você vai &lt;b&gt;PERDER TODOS OS SEUS DIGIBYTES&lt;/b&gt;!</translation>
+=======
         <translation>Aviso: Se você criptografar sua carteira e perder sua frase de segurança, você vai &lt;b&gt;PERDER TODOS OS SEUS DIGIBYTES&lt;/b&gt;!</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -380,6 +389,17 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
         <translation>&amp;Verificar mensagem...</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Carteira</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
         <source>&amp;Send</source>
         <translation>&amp;Enviar</translation>
     </message>
@@ -436,6 +456,13 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
         <translation>Mostrar a lista de endereços de recebimento usados ​​e rótulos</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>Open a digibyte: URI or payment request</source>
+        <translation>Abrir um digibyte: URI ou cobrança</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
         <source>&amp;Command-line options</source>
         <translation>Opções de linha de &amp;comando</translation>
     </message>
@@ -484,6 +511,10 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
         <translation>Atualizado</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
+        <translation>Mostrar a mensagem de ajuda do %1 para obter uma lista com possíveis opções de linha de comando DigiByte</translation>
+=======
         <source>&amp;Load PSBT from file...</source>
         <translation>&amp;Carregar 'PSBT' do arquivo...</translation>
     </message>
@@ -578,6 +609,7 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
     <message>
         <source>Main Window</source>
         <translation>Janela Principal</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
     </message>
     <message>
         <source>%1 client</source>
@@ -664,12 +696,17 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
         <translation>Carteira está &lt;b&gt;criptografada&lt;/b&gt; e atualmente &lt;b&gt;bloqueada&lt;/b&gt;</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <translation>Um erro fatal ocorreu. DigiByte não pode continuar em segurança e irá fechar.</translation>
+=======
         <source>Original message:</source>
         <translation>Mensagem original:</translation>
     </message>
     <message>
         <source>A fatal error occurred. %1 can no longer continue safely and will quit.</source>
         <translation>Aconteceu um erro fatal. %1 não pode continuar com segurança e será fechado.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
     </message>
 </context>
 <context>
@@ -1019,10 +1056,13 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
     <message>
         <source>DigiByte</source>
         <translation>DigiByte</translation>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+=======
     </message>
     <message>
         <source>Discard blocks after verification, except most recent %1 GB (prune)</source>
         <translation>Descartar os blocos após verificação, exceto os mais recentes %1 GB (prune)</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
     </message>
     <message>
         <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
@@ -1266,7 +1306,11 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
     </message>
     <message>
         <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <translation>Abrir as portas do cliente DigiByte automaticamente no roteador. Isto só funcionará se seu roteador suportar UPnP e esta função estiver habilitada.</translation>
+=======
         <translation>Abrir automaticamente no roteador as portas do cliente DigiByte. Isto só funcionará se seu roteador suportar UPnP e esta função estiver habilitada.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1317,6 +1361,13 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
         <translation>Tor</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Conecte-se à rede DigiByte através de um proxy SOCKS5 separado para utilizar serviços ocultos Tor.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
         <source>&amp;Window</source>
         <translation>&amp;Janela</translation>
     </message>
@@ -1511,16 +1562,26 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
         <translation>Diálogo</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>Cannot start digibyte: click-to-pay handler</source>
+        <translation>Não foi possível iniciar digibyte: manipulador click-to-pay</translation>
+=======
         <source>Sign Tx</source>
         <translation>Assinar Tx</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
     </message>
     <message>
         <source>Broadcast Tx</source>
         <translation>Transmitir Tx</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</source>
+        <translation>'digibyte://' não é um URI válido. Use 'digibyte:'.</translation>
+=======
         <source>Copy to Clipboard</source>
         <translation>Copiar para Área de Transferência</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
     </message>
     <message>
         <source>Save...</source>
@@ -1531,8 +1592,13 @@ Somente é possível assinar com endereços do tipo 'legado'.</translation>
         <translation>Fechar</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <translation>A URI não pode ser analisada! Isto pode ser causado por um endereço inválido ou um parâmetro URI malformado.</translation>
+=======
         <source>Failed to load transaction: %1</source>
         <translation>Falhou ao carregar transação: %1</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
     </message>
     <message>
         <source>Failed to sign transaction: %1</source>
@@ -2418,6 +2484,17 @@ Nota:  Como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por 
         <translation>Ocultar</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
+        <translation>Pagando apenas a taxa mínima é bom, desde que haja pouco volume de transações. Mas esteja ciente de que isso pode acabar em uma transação nunca confirmanda uma vez que há mais demanda por transações do que a rede pode processar.</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(Leia o popup)</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
         <source>Recommended:</source>
         <translation>Recomendado:</translation>
     </message>
@@ -2685,6 +2762,13 @@ Nota:  Como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por 
         <translation>Escolher endereço usado anteriormente</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>This is a normal payment.</source>
+        <translation>Este é um pagamento normal.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
         <source>The DigiByte address to send the payment to</source>
         <translation>O endereço DigiByte para enviar o pagamento</translation>
     </message>
@@ -2705,10 +2789,13 @@ Nota:  Como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por 
         <translation>Remover esta entrada</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+=======
         <source>The amount to send in the selected unit</source>
         <translation>A quantia a ser enviada na unidade selecionada</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
         <source>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>A taxa será deduzida da quantia que está sendo enviada. O destinatário receberá menos digibytes do que você colocou no campo de quantidade. Se vários destinatários estão selecionados, a taxa é dividida igualmente.</translation>
     </message>
@@ -2833,6 +2920,8 @@ Nota:  Como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por 
     <message>
         <source>The DigiByte address the message was signed with</source>
         <translation>O endereço DigiByte que foi usado para assinar a mensagem</translation>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+=======
     </message>
     <message>
         <source>The signed message to verify</source>
@@ -2841,6 +2930,7 @@ Nota:  Como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por 
     <message>
         <source>The signature given when the message was signed</source>
         <translation>A assinatura fornecida quando a mensagem foi assinada</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
@@ -3554,6 +3644,13 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Não foi possível iniciar o servidor HTTP. Veja o log de depuração para detaihes.</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+        <source>DigiByte Core</source>
+        <translation>DigiByte Core</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
         <source>The %s developers</source>
         <translation>Desenvolvedores do %s</translation>
     </message>
@@ -3730,6 +3827,8 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Quantidade inválida para -fallbackfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+=======
         <source>SQLiteDatabase: Failed to execute statement to verify database: %s</source>
         <translation>SQLiteDatabase: Falhou em executar a confirmação para verificar a base de dados: %s</translation>
     </message>
@@ -3754,11 +3853,14 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>SQLiteDatabase: Id da aplicação inesperada. Esperada %u, got %u</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
         <source>Specified blocks directory "%s" does not exist.</source>
         <translation>
 Diretório de blocos especificados "%s" não existe.</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+=======
         <source>Unknown address type '%s'</source>
         <translation>Tipo de endereço desconhecido '%s'</translation>
     </message>
@@ -3767,6 +3869,7 @@ Diretório de blocos especificados "%s" não existe.</translation>
         <translation>Tipo de troco desconhecido '%s'</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
         <source>Upgrading txindex database</source>
         <translation>Atualizando banco de dados txindex</translation>
     </message>
@@ -3955,12 +4058,15 @@ Diretório de blocos especificados "%s" não existe.</translation>
         <translation>O -walletdir "%s" especificado não é um diretório</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_BR.ts
+=======
         <source>The specified config file %s does not exist
 </source>
         <translation>O Arquivo de configuração especificado %s não existe
 </translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pt_BR.ts
         <source>The transaction amount is too small to pay the fee</source>
         <translation>A quantidade da transação é pequena demais para  pagar a taxa</translation>
     </message>
@@ -4042,7 +4148,7 @@ Diretório de blocos especificados "%s" não existe.</translation>
     </message>
     <message>
         <source>Transaction has too long of a mempool chain</source>
-        <translation>A transação demorou muito na memória</translation>
+        <translation>A transação demorou muito para ser confirmada na mempool chain</translation>
     </message>
     <message>
         <source>Transaction must have at least one recipient</source>

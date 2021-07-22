@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/qt/digibyteamountfield.cpp
+// Copyright (c) 2011-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.cpp
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,7 +28,13 @@ class AmountSpinBox: public QAbstractSpinBox
 
 public:
     explicit AmountSpinBox(QWidget *parent):
+<<<<<<< HEAD:src/qt/digibyteamountfield.cpp
+        QAbstractSpinBox(parent),
+        currentUnit(DigiByteUnits::DGB),
+        singleStep(100000) // satoshis
+=======
         QAbstractSpinBox(parent)
+>>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.cpp
     {
         setAlignment(Qt::AlignRight);
 
@@ -43,6 +53,13 @@ public:
 
     void fixup(QString &input) const override
     {
+<<<<<<< HEAD:src/qt/digibyteamountfield.cpp
+        bool valid = false;
+        CAmount val = parse(input, &valid);
+        if(valid)
+        {
+            input = DigiByteUnits::format(currentUnit, val, false, DigiByteUnits::separatorAlways);
+=======
         bool valid;
         CAmount val;
 
@@ -57,6 +74,7 @@ public:
         if (valid) {
             val = qBound(m_min_amount, val, m_max_amount);
             input = DigiByteUnits::format(currentUnit, val, false, DigiByteUnits::SeparatorStyle::ALWAYS);
+>>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.cpp
             lineEdit()->setText(input);
         }
     }
@@ -68,7 +86,11 @@ public:
 
     void setValue(const CAmount& value)
     {
+<<<<<<< HEAD:src/qt/digibyteamountfield.cpp
+        lineEdit()->setText(DigiByteUnits::format(currentUnit, value, false, DigiByteUnits::separatorAlways));
+=======
         lineEdit()->setText(DigiByteUnits::format(currentUnit, value, false, DigiByteUnits::SeparatorStyle::ALWAYS));
+>>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.cpp
         Q_EMIT valueChanged();
     }
 
@@ -92,7 +114,11 @@ public:
         bool valid = false;
         CAmount val = value(&valid);
         val = val + steps * singleStep;
+<<<<<<< HEAD:src/qt/digibyteamountfield.cpp
+        val = qMin(qMax(val, CAmount(0)), DigiByteUnits::maxMoney());
+=======
         val = qBound(m_min_amount, val, m_max_amount);
+>>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.cpp
         setValue(val);
     }
 
@@ -122,7 +148,11 @@ public:
 
             const QFontMetrics fm(fontMetrics());
             int h = lineEdit()->minimumSizeHint().height();
+<<<<<<< HEAD:src/qt/digibyteamountfield.cpp
+            int w = fm.width(DigiByteUnits::format(DigiByteUnits::DGB, DigiByteUnits::maxMoney(), false, DigiByteUnits::separatorAlways));
+=======
             int w = GUIUtil::TextWidth(fm, DigiByteUnits::format(DigiByteUnits::DGB, DigiByteUnits::maxMoney(), false, DigiByteUnits::SeparatorStyle::ALWAYS));
+>>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.cpp
             w += 2; // cursor blinking space
 
             QStyleOptionSpinBox opt;
@@ -203,7 +233,11 @@ protected:
         if (valid) {
             if (val > m_min_amount)
                 rv |= StepDownEnabled;
+<<<<<<< HEAD:src/qt/digibyteamountfield.cpp
+            if(val < DigiByteUnits::maxMoney())
+=======
             if (val < m_max_amount)
+>>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.cpp
                 rv |= StepUpEnabled;
         }
         return rv;
@@ -300,6 +334,8 @@ void DigiByteAmountField::setValue(const CAmount& value)
     amount->setValue(value);
 }
 
+<<<<<<< HEAD:src/qt/digibyteamountfield.cpp
+=======
 void DigiByteAmountField::SetAllowEmpty(bool allow)
 {
     amount->SetAllowEmpty(allow);
@@ -315,6 +351,7 @@ void DigiByteAmountField::SetMaxValue(const CAmount& value)
     amount->SetMaxValue(value);
 }
 
+>>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.cpp
 void DigiByteAmountField::setReadOnly(bool fReadOnly)
 {
     amount->setReadOnly(fReadOnly);

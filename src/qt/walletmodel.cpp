@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -167,6 +172,32 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
     {
         if (rcp.fSubtractFeeFromAmount)
             fSubtractFeeFromAmount = true;
+<<<<<<< HEAD
+
+        if (rcp.paymentRequest.IsInitialized())
+        {   // PaymentRequest...
+            CAmount subtotal = 0;
+            const payments::PaymentDetails& details = rcp.paymentRequest.getDetails();
+            for (int i = 0; i < details.outputs_size(); i++)
+            {
+                const payments::Output& out = details.outputs(i);
+                if (out.amount() <= 0) continue;
+                subtotal += out.amount();
+                const unsigned char* scriptStr = (const unsigned char*)out.script().data();
+                CScript scriptPubKey(scriptStr, scriptStr+out.script().size());
+                CAmount nAmount = out.amount();
+                CRecipient recipient = {scriptPubKey, nAmount, rcp.fSubtractFeeFromAmount};
+                vecSend.push_back(recipient);
+            }
+            if (subtotal <= 0)
+            {
+                return InvalidAmount;
+            }
+            total += subtotal;
+        }
+        else
+=======
+>>>>>>> bitcoin/8.22.0
         {   // User-entered digibyte address / amount:
             if(!validateAddress(rcp.address))
             {
@@ -239,7 +270,23 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(WalletModelTransaction &tran
         std::vector<std::pair<std::string, std::string>> vOrderForm;
         for (const SendCoinsRecipient &rcp : transaction.getRecipients())
         {
+<<<<<<< HEAD
+            if (rcp.paymentRequest.IsInitialized())
+            {
+                // Make sure any payment requests involved are still valid.
+                if (PaymentServer::verifyExpired(rcp.paymentRequest.getDetails())) {
+                    return PaymentRequestExpired;
+                }
+
+                // Store PaymentRequests in wtx.vOrderForm in wallet.
+                std::string value;
+                rcp.paymentRequest.SerializeToString(&value);
+                vOrderForm.emplace_back("PaymentRequest", std::move(value));
+            }
+            else if (!rcp.message.isEmpty()) // Message from normal digibyte:URI (digibyte:123...?message=example)
+=======
             if (!rcp.message.isEmpty()) // Message from normal digibyte:URI (digibyte:123...?message=example)
+>>>>>>> bitcoin/8.22.0
                 vOrderForm.emplace_back("Message", rcp.message.toStdString());
         }
 

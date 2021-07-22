@@ -22,11 +22,19 @@ libtool
 pkg-config
 python37
 
+<<<<<<< HEAD
+Download the source code:
+```
+git clone https://github.com/digibyte/digibyte
+=======
 git clone https://github.com/digibyte/digibyte.git
+>>>>>>> bitcoin/8.22.0
 ```
 
 See [dependencies.md](dependencies.md) for a complete overview.
 
+<<<<<<< HEAD
+=======
 ### Building BerkeleyDB
 
 BerkeleyDB is only necessary for the wallet functionality. To skip this, pass
@@ -47,6 +55,7 @@ from the root of the repository. Then set `BDB_PREFIX` for the next section:
 export BDB_PREFIX="$PWD/db4"
 ```
 
+>>>>>>> bitcoin/8.22.0
 ### Building DigiByte Core
 
 **Important**: Use `gmake` (the non-GNU `make` will exit with an error).

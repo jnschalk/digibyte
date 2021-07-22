@@ -1,14 +1,23 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <crypto/aes.h>
 #include <crypto/chacha20.h>
+<<<<<<< HEAD
+#include <crypto/odocrypt.h>
+=======
 #include <crypto/chacha_poly_aead.h>
 #include <crypto/hkdf_sha256_32.h>
 #include <crypto/hmac_sha256.h>
 #include <crypto/hmac_sha512.h>
 #include <crypto/poly1305.h>
+>>>>>>> bitcoin/8.22.0
 #include <crypto/ripemd160.h>
 #include <crypto/sha1.h>
 #include <crypto/sha256.h>
@@ -16,12 +25,16 @@
 #include <crypto/sha512.h>
 #include <crypto/muhash.h>
 #include <random.h>
+<<<<<<< HEAD
+#include <utilstrencodings.h>
+#include <test/test_digibyte.h>
+=======
 #include <streams.h>
 #include <test/util/setup_common.h>
 #include <util/strencodings.h>
 
+>>>>>>> bitcoin/8.22.0
 #include <vector>
-
 #include <boost/test/unit_test.hpp>
 
 BOOST_FIXTURE_TEST_SUITE(crypto_tests, BasicTestingSetup)
@@ -162,6 +175,18 @@ static void TestChaCha20(const std::string &hex_message, const std::string &hexk
     }
 }
 
+<<<<<<< HEAD
+static void TestOdo(uint32_t key, const std::string &in, const std::string &hexout)
+{
+    assert(in.length() == OdoCrypt::DIGEST_SIZE);
+    std::vector<unsigned char> out = ParseHex(hexout);
+    std::vector<unsigned char> outres(OdoCrypt::DIGEST_SIZE);
+    OdoCrypt(key).Encrypt(reinterpret_cast<char*>(outres.data()), in.c_str());
+    BOOST_CHECK(out == outres);
+}
+
+static std::string LongTestString(void) {
+=======
 static void TestPoly1305(const std::string &hexmessage, const std::string &hexkey, const std::string& hextag)
 {
     std::vector<unsigned char> key = ParseHex(hexkey);
@@ -191,6 +216,7 @@ static void TestHKDF_SHA256_32(const std::string &ikm_hex, const std::string &sa
 
 static std::string LongTestString()
 {
+>>>>>>> bitcoin/8.22.0
     std::string ret;
     for (int i = 0; i < 200000; i++) {
         ret += (char)(i);
@@ -500,6 +526,28 @@ BOOST_AUTO_TEST_CASE(chacha20_testvector)
                  "fab78c9");
 }
 
+<<<<<<< HEAD
+BOOST_AUTO_TEST_CASE(odo_testvector)
+{
+    TestOdo(0, "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "9724ebfef40d7808bc21b212d8645a1df4d7fc4a0d91ee8e7f747ca1383eaeb1bb264b3a3b1b1f19"
+            "a8d458616e9a19572e3ceb2f58773076e829a288c8fdb61ab619ffaa84a4ee752fea52dbb359620e");
+    TestOdo(1, "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "c659c70bd9335a0bec67e526cdf99569543ca7e258fad19d439fb8ada1bc68efa5553d270d236cf0"
+            "3b1c179c684cfc93ae15b3c239c11e384303785cc0d828114c28e08091f42ec707aba712fe999c68");
+    TestOdo(0x80808080u, "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopqopqrpqrsqrstrstustuvtuvw",
+            "dc5d9757b16bfa425f527817ee88a070595a662474d06bb96b439e25bc3097fc7068ab9d934fcd19"
+            "c9587478dd9ab8f79f2c85175c51e49306135e561561725b0aa7a44366a1135ff93194da22d1e9ba");
+    TestOdo(0x12345678, "As DigiByte relies on 80 byte header hashes, we want to have an example for that",
+            "13dddebb0d65daa0f3e4a5bd9a1b74af7ca5a7b32ef118fb1684b200e377ce504346adcd2354e818"
+            "bf530dd870386104f706f4fecde1cec5cee804aae2569821aa5b2db3ac048607be36714e2bce48c6");
+    TestOdo(1729, test1.substr(0x4ffb0, OdoCrypt::DIGEST_SIZE),
+            "de79362f40cf0c755b21cf30798fa828b21cba61222ebeccc5a1ee385183ff2a981926403529080f"
+            "6c5a650bb299770222e7dbc0bdd559f479fac21d08044d306513067f2bf6accdb8b55942a5430e1c");
+    TestOdo(0xD59, "Mora labelled me Unknown Sample, which the overseer translated as Odo'ital......",
+            "a7dd19a7fcdf3b7c0a8da1765553d903ff42687fe2f36c3930b82d7a68e426a90f49f1fc4b06263d"
+            "cf95d70a1b436337586955ef61c976f97785da2d2c8144b6767f824d53dd518c2cfdce1e9bd74fe1");
+=======
 BOOST_AUTO_TEST_CASE(poly1305_testvector)
 {
     // RFC 7539, section 2.5.2.
@@ -713,6 +761,7 @@ BOOST_AUTO_TEST_CASE(chacha20_poly1305_aead_testvector)
         "c640c1711e3ee904ac35c57ab9791c8a1c408603a90b77a83b54f6c844cb4b06d94e7fc6c800e165acd66147e80ec45a567f6ce66d05ec0cae679dceeb890017",
         "3940c1e92da4582ff6f92a776aeb14d014d384eeb30f660dacf70a14a23fd31e91212701334e2ce1acf5199dc84f4d61ddbe6571bca5af874b4c9226c26e650995d157644e1848b96ed6c2102d5489a050e71d29a5a66ece11de5fb5c9558d54da28fe45b0bc4db4e5b88030bfc4a352b4b7068eccf656bae7ad6a35615315fc7c49d4200388d5eca67c2e822e069336c69b40db67e0f3c81209c50f3216a4b89fb3ae1b984b7851a2ec6f68ab12b101ab120e1ea7313bb93b5a0f71185c7fea017ddb92769861c29dba4fbc432280d5dff21b36d1c4c790128b22699950bb18bf74c448cdfe547d8ed4f657d8005fdc0cd7a050c2d46050a44c4376355858981fbe8b184288276e7a93eabc899c4a",
         "f039c6689eaeef0456685200feaab9d54bbd9acde4410a3b6f4321296f4a8ca2604b49727d8892c57e005d799b2a38e85e809f20146e08eec75169691c8d4f54a0d51a1e1c7b381e0474eb02f994be9415ef3ffcbd2343f0601e1f3b172a1d494f838824e4df570f8e3b0c04e27966e36c82abd352d07054ef7bd36b84c63f9369afe7ed79b94f953873006b920c3fa251a771de1b63da927058ade119aa898b8c97e42a606b2f6df1e2d957c22f7593c1e2002f4252f4c9ae4bf773499e5cfcfe14dfc1ede26508953f88553bf4a76a802f6a0068d59295b01503fd9a600067624203e880fdf53933b96e1f4d9eb3f4e363dd8165a278ff667a41ee42b9892b077cefff92b93441f7be74cf10e6cd");
+>>>>>>> bitcoin/8.22.0
 }
 
 BOOST_AUTO_TEST_CASE(countbits_tests)
@@ -753,6 +802,19 @@ BOOST_AUTO_TEST_CASE(sha256d64)
     }
 }
 
+<<<<<<< HEAD
+BOOST_AUTO_TEST_CASE(odo_permutation)
+{
+    char buf[OdoCrypt::DIGEST_SIZE];
+    for (int i = 0; i < OdoCrypt::DIGEST_SIZE; i++)
+        buf[i] = i;
+    for (int i = 0; i < 20; i++)
+        OdoCrypt(i).Encrypt(buf, buf);
+    for (int i = 19; i >= 0; i--)
+        OdoCrypt(i).Decrypt(buf, buf);
+    for (int i = 0; i < OdoCrypt::DIGEST_SIZE; i++)
+        BOOST_CHECK(buf[i] == i);
+=======
 static void TestSHA3_256(const std::string& input, const std::string& output)
 {
     const auto in_bytes = ParseHex(input);
@@ -945,6 +1007,7 @@ BOOST_AUTO_TEST_CASE(muhash_tests)
     uint256 out4;
     overflowchk.Finalize(out4);
     BOOST_CHECK_EQUAL(HexStr(out4), "3a31e6903aff0de9f62f9a9f7f8b861de76ce2cda09822b90014319ae5dc2271");
+>>>>>>> bitcoin/8.22.0
 }
 
 BOOST_AUTO_TEST_SUITE_END()

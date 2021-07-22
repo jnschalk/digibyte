@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -47,7 +52,11 @@ std::vector<CTxDestination> GetAllDestinationsForKey(const CPubKey& key);
  */
 CTxDestination AddAndGetDestinationForScript(FillableSigningProvider& keystore, const CScript& script, OutputType);
 
+<<<<<<< HEAD
+#endif // DIGIBYTE_OUTPUTTYPE_H
+=======
 /** Get the OutputType for a CTxDestination */
 std::optional<OutputType> OutputTypeFromDestination(const CTxDestination& dest);
+>>>>>>> bitcoin/8.22.0
 
 #endif // DIGIBYTE_OUTPUTTYPE_H

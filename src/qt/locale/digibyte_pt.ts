@@ -3,11 +3,19 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
+<<<<<<< HEAD
+        <translation>Clique Esquerdo para editar o endereço ou etiqueta </translation>
+    </message>
+    <message>
+        <source>Create a new address</source>
+        <translation>Criar novo endereço</translation>
+=======
         <translation>Clique com o botão direito para editar o endereço ou etiqueta</translation>
     </message>
     <message>
         <source>Create a new address</source>
         <translation>Criar um novo endereço</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;New</source>
@@ -15,7 +23,11 @@
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
+<<<<<<< HEAD
+        <translation>Copiar o endereço selecionado para a clipboard do sistema</translation>
+=======
         <translation>Copiar o endereço selecionado para a área de transferência do sistema</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -27,6 +39,45 @@
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
+<<<<<<< HEAD
+        <translation>Deletar o endereço selecionado da lista</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Exportar as informações da aba para um arquivo</translation>
+    </message>
+    <message>
+        <source>Sending addresses</source>
+        <translation>Enviando informações</translation>
+    </message>
+    <message>
+        <source>Receiving addresses</source>
+        <translation>Recebendo informações</translation>
+    </message>
+    <message>
+        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Estas são suas informações para o envio de pagamentos por DigiBytes. Sempre cheque a quantia enviada e as informações do destinatário, antes de enviar os DigiBytes.</translation>
+    </message>
+    <message>
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Estas são suas informações para o recebimento de pagamentos por DigiBytes. É recomendado que seja feito o uso de um novo conjunto de informações para cada transação.</translation>
+    </message>
+    <message>
+        <source>Export Address List</source>
+        <translation>Exportar lista de endereços</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Ficheiro separado por vírgula (*.csv)</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Falha na Exportação</translation>
+    </message>
+    <message>
+        <source>There was an error trying to save the address list to %1. Please try again.</source>
+        <translation>Ocorreu um erro ao tentar guardar a lista em %1. Por favor, tente novamente.</translation>
+=======
         <translation>Eliminar o endereço selecionado da lista</translation>
     </message>
     <message>
@@ -67,7 +118,15 @@
     </message>
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <translation>Estes são os seus endereços DigiByte para enviar pagamentos. Verifique sempre o valor e o endereço de envio antes de enviar moedas.</translation>
+    </message>
+    <message>
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Estes são os seus endereços DigiByte para receber pagamentos. É recomendado que utilize um endereço novo para cada transacção.</translation>
+=======
         <translation>Estes são os seus endereços DigiByte para enviar pagamentos. Verifique sempre o valor e o endereço de receção antes de enviar moedas.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -96,6 +155,7 @@
     <message>
         <source>There was an error trying to save the address list to %1. Please try again.</source>
         <translation>Ocorreu um erro ao tentar guardar a lista de endereços para %1. Por favor, tente novamente.</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
@@ -117,6 +177,232 @@
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
+<<<<<<< HEAD
+        <translation>Diálogo senha</translation>
+    </message>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>Insira a senha</translation>
+    </message>
+    <message>
+        <source>New passphrase</source>
+        <translation>Nova senha</translation>
+    </message>
+    <message>
+        <source>Repeat new passphrase</source>
+        <translation>Digite a nova senha novamente</translation>
+    </message>
+    <message>
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation>Insira a nova senha para a carteira.
+Por favor, utilize uma senha com dez ou mais caracteres, ou com oito ou mais palavras.</translation>
+    </message>
+    <message>
+        <source>Encrypt wallet</source>
+        <translation>Criptografar wallet</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation>Para esta operação se faz necessário o uso da sua senha da wallet para desbloquear a mesma.</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Desbloquear a wallet</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>Para esta operação se faz necessário o uso de sua senha wallet para descriptografar a mesma</translation>
+    </message>
+    <message>
+        <source>Decrypt wallet</source>
+        <translation>Descriptografar wallet</translation>
+    </message>
+    <message>
+        <source>Change passphrase</source>
+        <translation>Trocar senha</translation>
+    </message>
+    <message>
+        <source>Enter the old passphrase and new passphrase to the wallet.</source>
+        <translation>Insira a antiga e nova senha na wallet, respectivamente.</translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to encrypt your wallet?</source>
+        <translation>Você tem certeza que deseja criptografar a sua wallet?</translation>
+    </message>
+    <message>
+        <source>Wallet encryption failed</source>
+        <translation>Falha ao criptografar a wallet</translation>
+    </message>
+    </context>
+<context>
+    <name>BanTableModel</name>
+    </context>
+<context>
+    <name>DigiByteGUI</name>
+    </context>
+<context>
+    <name>CoinControlDialog</name>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Copiar o ID de transação</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(sem etiqueta)</translation>
+    </message>
+    </context>
+<context>
+    <name>EditAddressDialog</name>
+    </context>
+<context>
+    <name>FreespaceChecker</name>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    </context>
+<context>
+    <name>Intro</name>
+    </context>
+<context>
+    <name>ModalOverlay</name>
+    </context>
+<context>
+    <name>OpenURIDialog</name>
+    </context>
+<context>
+    <name>OptionsDialog</name>
+    </context>
+<context>
+    <name>OverviewPage</name>
+    </context>
+<context>
+    <name>PaymentServer</name>
+    </context>
+<context>
+    <name>PeerTableModel</name>
+    </context>
+<context>
+    <name>QObject</name>
+    </context>
+<context>
+    <name>QObject::QObject</name>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    </context>
+<context>
+    <name>RPCConsole</name>
+    </context>
+<context>
+    <name>ReceiveCoinsDialog</name>
+    </context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    <message>
+        <source>Address</source>
+        <translation>Endereço</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etiqueta</translation>
+    </message>
+    </context>
+<context>
+    <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Label</source>
+        <translation>Etiqueta</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(sem etiqueta)</translation>
+    </message>
+    </context>
+<context>
+    <name>SendCoinsDialog</name>
+    <message>
+        <source>(no label)</source>
+        <translation>(sem etiqueta)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    </context>
+<context>
+    <name>SendConfirmationDialog</name>
+    </context>
+<context>
+    <name>ShutdownWindow</name>
+    </context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    </context>
+<context>
+    <name>SplashScreen</name>
+    </context>
+<context>
+    <name>TrafficGraphWidget</name>
+    </context>
+<context>
+    <name>TransactionDesc</name>
+    </context>
+<context>
+    <name>TransactionDescDialog</name>
+    </context>
+<context>
+    <name>TransactionTableModel</name>
+    <message>
+        <source>Label</source>
+        <translation>Etiqueta</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(sem etiqueta)</translation>
+    </message>
+    </context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Copiar o ID de transação</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Ficheiro separado por vírgula (*.csv)</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etiqueta</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Endereço</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Falha na Exportação</translation>
+    </message>
+    </context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletFrame</name>
+    </context>
+<context>
+    <name>WalletModel</name>
+    </context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Exportar as informações da aba para um arquivo</translation>
+    </message>
+    </context>
+<context>
+    <name>digibyte-core</name>
+    </context>
+=======
         <translation>Janela da Frase de Segurança</translation>
     </message>
     <message>
@@ -176,6 +462,10 @@
         <translation>Carteira encriptada</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
+        <translation>%1 irá agora ser fechado para terminar o processo de encriptação. Recorde que a encriptação da sua carteira não protegerá totalmente os seus digibytes de serem roubados por programas maliciosos que infectem o seu computador.</translation>
+=======
         <source>Enter the new passphrase for the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Insira nova password para a carteira.&lt;br/&gt;Por favor use uma password de &lt;b&gt;dez ou mais caracteres&lt;/b&gt;, ou &lt;b&gt;oito ou mais palavras&lt;/b&gt;.</translation>
     </message>
@@ -198,6 +488,7 @@
     <message>
         <source>Your wallet is now encrypted. </source>
         <translation>A sua carteira está agora encriptada</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -374,6 +665,17 @@
         <translation>&amp;Verificar mensagem...</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Carteira</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
         <source>&amp;Send</source>
         <translation>&amp;Enviar</translation>
     </message>
@@ -427,7 +729,15 @@
     </message>
     <message>
         <source>Show the list of used receiving addresses and labels</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <translation>Mostrar a lista de rótulos e endereços de receção usados</translation>
+    </message>
+    <message>
+        <source>Open a digibyte: URI or payment request</source>
+        <translation>Abrir URI digibyte: ou pedido de pagamento</translation>
+=======
         <translation>Mostrar a lista de etiquetas e endereços de receção usados</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -478,6 +788,8 @@
         <translation>Atualizado</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+=======
         <source>Load Partially Signed DigiByte Transaction</source>
         <translation>Carregar transação de DigiByte parcialmente assinada</translation>
     </message>
@@ -534,6 +846,7 @@
         <translation>Fechar todas carteiras.</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
         <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
         <translation>Mostrar a mensagem de ajuda %1 para obter uma lista com possíveis opções a usar na linha de comandos.</translation>
     </message>
@@ -646,8 +959,13 @@
         <translation>A carteira está &lt;b&gt;encriptada&lt;/b&gt; e atualmente &lt;b&gt;bloqueada&lt;/b&gt;</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <translation>Ocorreu um erro fatal. O DigiByte não pode continuar com segurança e irá fechar.</translation>
+=======
         <source>Original message:</source>
         <translation>Mensagem original:</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     </context>
 <context>
@@ -892,6 +1210,8 @@
     <message>
         <source>The entered address "%1" is not a valid DigiByte address.</source>
         <translation>O endereço introduzido "%1" não é um endereço digibyte válido.</translation>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+=======
     </message>
     <message>
         <source>Address "%1" already exists as a receiving address with label "%2" and so cannot be added as a sending address.</source>
@@ -900,6 +1220,7 @@
     <message>
         <source>The entered address "%1" is already in the address book with label "%2".</source>
         <translation>O endereço inserido "%1" já está no livro de endereços com a etiqueta "%2".</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -989,10 +1310,13 @@
     <message>
         <source>DigiByte</source>
         <translation>DigiByte</translation>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+=======
     </message>
     <message>
         <source>Discard blocks after verification, except most recent %1 GB (prune)</source>
         <translation>Descartar blocos após a verificação, excepto os mais recentes %1 GB (apagar)</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     <message>
         <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
@@ -1288,6 +1612,13 @@
         <translation>Tor</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Ligar à rede DigiByte através de um proxy SOCKS5 separado para utilizar os serviços ocultos do Tor.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
         <source>&amp;Window</source>
         <translation>&amp;Janela</translation>
     </message>
@@ -1470,16 +1801,26 @@
         <translation>Diálogo</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>Cannot start digibyte: click-to-pay handler</source>
+        <translation>Impossível iniciar o controlador de digibyte: click-to-pay</translation>
+=======
         <source>Sign Tx</source>
         <translation>Assinar transação</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     <message>
         <source>Broadcast Tx</source>
         <translation>Transmitir transação</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</source>
+        <translation>'digibyte://' não é um URI válido. Utilize 'digibyte:'.</translation>
+=======
         <source>Copy to Clipboard</source>
         <translation>Copiar para área de transferência</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     <message>
         <source>Save...</source>
@@ -1490,8 +1831,13 @@
         <translation>Fechar</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <translation>URI não foi lido correctamente! Isto pode ser causado por um endereço DigiByte inválido ou por parâmetros URI malformados.</translation>
+=======
         <source>Failed to load transaction: %1</source>
         <translation>Falha ao carregar transação: %1</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     <message>
         <source>Failed to sign transaction: %1</source>
@@ -1665,7 +2011,11 @@ ID transação: %1</translation>
     </message>
     <message>
         <source>Enter a DigiByte address (e.g. %1)</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <translation>Entre um endereço DigiByte (ex. %1)</translation>
+=======
         <translation>Introduza um endereço DigiByte (ex. %1)</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     <message>
         <source>%1 d</source>
@@ -2374,6 +2724,17 @@ Nota: como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por u
         <translation>Esconder</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
+        <translation>Pode pagar somente a taxa minima desde que haja um volume de transações inferior ao espaço nos blocos. No entanto tenha em atenção que esta opção poderá acabar em uma transação nunca confirmada assim que os pedidos de transações excedam a capacidade de processamento da rede.</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(leia a dica)</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
         <source>Recommended:</source>
         <translation>Recomendado:</translation>
     </message>
@@ -2598,8 +2959,21 @@ Nota: como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por u
         <translation>Pedido de pagamento expirado.</translation>
     </message>
     <message numerus="yes">
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>%n block(s)</source>
+        <translation><numerusform>%n bloco</numerusform><numerusform>%n blocos</numerusform></translation>
+    </message>
+    <message>
+        <source>Pay only the required fee of %1</source>
+        <translation>Pague apenas a taxa obrigatória de %1</translation>
+=======
         <source>Estimated to begin confirmation within %n block(s).</source>
         <translation><numerusform>Estimado para iniciar a confirmação dentro de %n bloco.</numerusform><numerusform>Estimado para iniciar a confirmação dentro de %n blocos.</numerusform></translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
+    </message>
+    <message numerus="yes">
+        <source>Estimated to begin confirmation within %n block(s).</source>
+        <translation><numerusform>Estimativa para iniciar a confirmação dentro de %n bloco.</numerusform><numerusform>Estimativa para iniciar a confirmação dentro de %n blocos.</numerusform></translation>
     </message>
     <message>
         <source>Warning: Invalid DigiByte address</source>
@@ -2641,6 +3015,13 @@ Nota: como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por u
         <translation>Escolha o endereço utilizado anteriormente</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>This is a normal payment.</source>
+        <translation>Este é um pagamento normal.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
         <source>The DigiByte address to send the payment to</source>
         <translation>O endereço DigiByte para enviar o pagamento</translation>
     </message>
@@ -2661,10 +3042,13 @@ Nota: como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por u
         <translation>Remover esta entrada</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+=======
         <source>The amount to send in the selected unit</source>
         <translation>A quantidade para enviar na unidade selecionada</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
         <source>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>A taxa será deduzida ao valor que está a ser enviado. O destinatário irá receber menos digibytes do que as que inseridas no campo do valor. Se estiverem selecionados múltiplos destinatários, a taxa será repartida equitativamente.</translation>
     </message>
@@ -2791,6 +3175,12 @@ Nota: como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por u
         <translation>O endereço DigiByte com que a mensagem foi designada</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>The DigiByte address the message was signed with</source>
+        <translation>O endereço DigiByte com que a mensagem foi designada</translation>
+    </message>
+    <message>
+=======
         <source>The signed message to verify</source>
         <translation>A mensagem assinada para verificar</translation>
     </message>
@@ -2799,6 +3189,7 @@ Nota: como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por u
         <translation>A assinatura dada quando a mensagem foi assinada</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
         <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
         <translation>Verifique a mensagem para assegurar que foi assinada com o endereço DigiByte especificado</translation>
     </message>
@@ -2878,7 +3269,11 @@ Nota: como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por u
     <name>TransactionDesc</name>
     <message numerus="yes">
         <source>Open for %n more block(s)</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <translation><numerusform>Abrir para %n ou mais bloco</numerusform><numerusform>Abrir para %n ou mais blocos</numerusform></translation>
+=======
         <translation><numerusform>Aberto para mais %n bloco</numerusform><numerusform>Aberto para mais %n blocos</numerusform></translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
     </message>
     <message>
         <source>Open until %1</source>
@@ -3512,6 +3907,13 @@ Ir para o arquivo &gt; Abrir carteira para carregar a carteira
         <translation>Não é possível iniciar o servidor HTTP. Verifique o debug.log para detalhes.</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pt_PT.ts
+        <source>DigiByte Core</source>
+        <translation>DigiByte Core</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_pt.ts
         <source>The %s developers</source>
         <translation>Os programadores de %s</translation>
     </message>
@@ -4003,4 +4405,5 @@ A pasta de blocos especificados "%s" não existe.</translation>
         <translation>Carregamento concluído</translation>
     </message>
 </context>
+>>>>>>> bitcoin/8.22.0
 </TS>

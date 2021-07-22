@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+// Copyright (c) 2011-2017 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,6 +12,10 @@
 #include <QFrame>
 #include <QMap>
 
+<<<<<<< HEAD
+class DigiByteGUI;
+=======
+>>>>>>> bitcoin/8.22.0
 class ClientModel;
 class PlatformStyle;
 class SendCoinsRecipient;
@@ -30,7 +38,11 @@ class WalletFrame : public QFrame
     Q_OBJECT
 
 public:
+<<<<<<< HEAD
+    explicit WalletFrame(const PlatformStyle *platformStyle, DigiByteGUI *_gui = 0);
+=======
     explicit WalletFrame(const PlatformStyle* platformStyle, QWidget* parent);
+>>>>>>> bitcoin/8.22.0
     ~WalletFrame();
 
     void setClientModel(ClientModel *clientModel);
@@ -51,6 +63,10 @@ Q_SIGNALS:
 
 private:
     QStackedWidget *walletStack;
+<<<<<<< HEAD
+    DigiByteGUI *gui;
+=======
+>>>>>>> bitcoin/8.22.0
     ClientModel *clientModel;
     QMap<WalletModel*, WalletView*> mapWalletViews;
 

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2019 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -287,7 +292,11 @@ QString TransactionDesc::toHTML(interfaces::Node& node, interfaces::Wallet& wall
     strHTML += "<b>" + tr("Output index") + ":</b> " + QString::number(rec->getOutputIndex()) + "<br>";
 
     // Message from normal digibyte:URI (digibyte:123...?message=example)
+<<<<<<< HEAD
+    for (const std::pair<std::string, std::string>& r : orderForm)
+=======
     for (const std::pair<std::string, std::string>& r : orderForm) {
+>>>>>>> bitcoin/8.22.0
         if (r.first == "Message")
             strHTML += "<br><b>" + tr("Message") + ":</b><br>" + GUIUtil::HtmlEscape(r.second, true) + "<br>";
 
@@ -310,7 +319,7 @@ QString TransactionDesc::toHTML(interfaces::Node& node, interfaces::Wallet& wall
 
     if (wtx.is_coinbase)
     {
-        quint32 numBlocksToMaturity = COINBASE_MATURITY +  1;
+        quint32 numBlocksToMaturity = COINBASE_MATURITY_2 +  1;
         strHTML += "<br>" + tr("Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to \"not accepted\" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.").arg(QString::number(numBlocksToMaturity)) + "<br>";
     }
 

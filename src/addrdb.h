@@ -1,5 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -102,6 +106,8 @@ public:
     bool Read(banmap_t& banSet, bool& dirty);
 };
 
+<<<<<<< HEAD
+=======
 /**
  * Dump the anchor IP address database (anchors.dat)
  *
@@ -118,4 +124,5 @@ void DumpAnchors(const fs::path& anchors_db_path, const std::vector<CAddress>& a
  */
 std::vector<CAddress> ReadAnchors(const fs::path& anchors_db_path);
 
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_ADDRDB_H

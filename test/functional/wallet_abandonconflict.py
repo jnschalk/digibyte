@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the abandontransaction RPC.
@@ -12,6 +17,11 @@
 """
 from decimal import Decimal
 
+<<<<<<< HEAD
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, assert_raises_rpc_error, connect_nodes, disconnect_nodes, sync_blocks, sync_mempools
+
+=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
@@ -20,6 +30,7 @@ from test_framework.util import (
 )
 
 
+>>>>>>> bitcoin/8.22.0
 class AbandonConflictTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
@@ -52,6 +63,16 @@ class AbandonConflictTest(DigiByteTestFramework):
         self.disconnect_nodes(0, 1)
 
         # Identify the 10dgb outputs
+<<<<<<< HEAD
+        nA = next(i for i, vout in enumerate(self.nodes[0].getrawtransaction(txA, 1)["vout"]) if vout["value"] == Decimal("10"))
+        nB = next(i for i, vout in enumerate(self.nodes[0].getrawtransaction(txB, 1)["vout"]) if vout["value"] == Decimal("10"))
+        nC = next(i for i, vout in enumerate(self.nodes[0].getrawtransaction(txC, 1)["vout"]) if vout["value"] == Decimal("10"))
+
+        inputs =[]
+        # spend 10dgb outputs from txA and txB
+        inputs.append({"txid":txA, "vout":nA})
+        inputs.append({"txid":txB, "vout":nB})
+=======
         nA = next(tx_out["vout"] for tx_out in self.nodes[0].gettransaction(txA)["details"] if tx_out["amount"] == Decimal("10"))
         nB = next(tx_out["vout"] for tx_out in self.nodes[0].gettransaction(txB)["details"] if tx_out["amount"] == Decimal("10"))
         nC = next(tx_out["vout"] for tx_out in self.nodes[0].gettransaction(txC)["details"] if tx_out["amount"] == Decimal("10"))
@@ -60,6 +81,7 @@ class AbandonConflictTest(DigiByteTestFramework):
         # spend 10dgb outputs from txA and txB
         inputs.append({"txid": txA, "vout": nA})
         inputs.append({"txid": txB, "vout": nB})
+>>>>>>> bitcoin/8.22.0
         outputs = {}
 
         outputs[self.nodes[0].getnewaddress()] = Decimal("14.99998")
@@ -68,7 +90,11 @@ class AbandonConflictTest(DigiByteTestFramework):
         txAB1 = self.nodes[0].sendrawtransaction(signed["hex"])
 
         # Identify the 14.99998dgb output
+<<<<<<< HEAD
+        nAB = next(i for i, vout in enumerate(self.nodes[0].getrawtransaction(txAB1, 1)["vout"]) if vout["value"] == Decimal("14.99998"))
+=======
         nAB = next(tx_out["vout"] for tx_out in self.nodes[0].gettransaction(txAB1)["details"] if tx_out["amount"] == Decimal("14.99998"))
+>>>>>>> bitcoin/8.22.0
 
         #Create a child tx spending AB1 and C
         inputs = []

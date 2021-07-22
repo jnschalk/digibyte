@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the wallet accounts properly when there are cloned transactions with malleated scriptsigs."""
@@ -18,6 +23,9 @@ class TxnMallTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
         self.supports_cli = False
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
@@ -73,9 +81,21 @@ class TxnMallTest(DigiByteTestFramework):
         clone_raw = self.nodes[0].createrawtransaction(clone_inputs, clone_outputs, clone_locktime)
 
         # createrawtransaction randomizes the order of its outputs, so swap them if necessary.
+<<<<<<< HEAD
+        # output 0 is at version+#inputs+input+sigstub+sequence+#outputs
+        # 40 DGB serialized is 00286bee00000000
+        pos0 = 2 * (4 + 1 + 36 + 1 + 4 + 1)
+        hex40 = "00286bee00000000"
+        output_len = 16 + 2 + 2 * int("0x" + clone_raw[pos0 + 16:pos0 + 16 + 2], 0)
+        if (rawtx1["vout"][0]["value"] == 40 and clone_raw[pos0:pos0 + 16] != hex40 or rawtx1["vout"][0]["value"] != 40 and clone_raw[pos0:pos0 + 16] == hex40):
+            output0 = clone_raw[pos0:pos0 + output_len]
+            output1 = clone_raw[pos0 + output_len:pos0 + 2 * output_len]
+            clone_raw = clone_raw[:pos0] + output1 + output0 + clone_raw[pos0 + 2 * output_len:]
+=======
         clone_tx = tx_from_hex(clone_raw)
         if (rawtx1["vout"][0]["value"] == 40 and clone_tx.vout[0].nValue != 40*COIN or rawtx1["vout"][0]["value"] != 40 and clone_tx.vout[0].nValue == 40*COIN):
             (clone_tx.vout[0], clone_tx.vout[1]) = (clone_tx.vout[1], clone_tx.vout[0])
+>>>>>>> bitcoin/8.22.0
 
         # Use a different signature hash type to sign.  This creates an equivalent but malleated clone.
         # Don't send the clone anywhere yet

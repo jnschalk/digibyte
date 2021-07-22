@@ -30,11 +30,16 @@ noinst_HEADERS += src/field_5x52.h
 noinst_HEADERS += src/field_5x52_impl.h
 noinst_HEADERS += src/field_5x52_int128_impl.h
 noinst_HEADERS += src/field_5x52_asm_impl.h
+<<<<<<< HEAD
+noinst_HEADERS += src/java/org_digibyte_NativeSecp256k1.h
+noinst_HEADERS += src/java/org_digibyte_Secp256k1Context.h
+=======
 noinst_HEADERS += src/modinv32.h
 noinst_HEADERS += src/modinv32_impl.h
 noinst_HEADERS += src/modinv64.h
 noinst_HEADERS += src/modinv64_impl.h
 noinst_HEADERS += src/assumptions.h
+>>>>>>> bitcoin/8.22.0
 noinst_HEADERS += src/util.h
 noinst_HEADERS += src/scratch.h
 noinst_HEADERS += src/scratch_impl.h
@@ -71,9 +76,14 @@ libsecp256k1_la_SOURCES = src/secp256k1.c
 libsecp256k1_la_CPPFLAGS = -DSECP256K1_BUILD -I$(top_srcdir)/include -I$(top_srcdir)/src $(SECP_INCLUDES)
 libsecp256k1_la_LIBADD = $(SECP_LIBS) $(COMMON_LIB)
 
+<<<<<<< HEAD
+libsecp256k1_jni_la_SOURCES  = src/java/org_digibyte_NativeSecp256k1.c src/java/org_digibyte_Secp256k1Context.c
+libsecp256k1_jni_la_CPPFLAGS = -DSECP256K1_BUILD $(JNI_INCLUDES)
+=======
 if VALGRIND_ENABLED
 libsecp256k1_la_CPPFLAGS += -DVALGRIND
 endif
+>>>>>>> bitcoin/8.22.0
 
 noinst_PROGRAMS =
 if USE_BENCHMARK
@@ -123,6 +133,39 @@ exhaustive_tests_LDFLAGS = -static
 TESTS += exhaustive_tests
 endif
 
+<<<<<<< HEAD
+JAVAROOT=src/java
+JAVAORG=org/digibyte
+JAVA_GUAVA=$(srcdir)/$(JAVAROOT)/guava/guava-18.0.jar
+CLASSPATH_ENV=CLASSPATH=$(JAVA_GUAVA)
+JAVA_FILES= \
+  $(JAVAROOT)/$(JAVAORG)/NativeSecp256k1.java \
+  $(JAVAROOT)/$(JAVAORG)/NativeSecp256k1Test.java \
+  $(JAVAROOT)/$(JAVAORG)/NativeSecp256k1Util.java \
+  $(JAVAROOT)/$(JAVAORG)/Secp256k1Context.java
+
+if USE_JNI
+
+$(JAVA_GUAVA):
+	@echo Guava is missing. Fetch it via: \
+	wget https://search.maven.org/remotecontent?filepath=com/google/guava/guava/18.0/guava-18.0.jar -O $(@)
+	@false
+
+.stamp-java: $(JAVA_FILES)
+	@echo   Compiling $^
+	$(AM_V_at)$(CLASSPATH_ENV) javac $^
+	@touch $@
+
+if USE_TESTS
+
+check-java: libsecp256k1.la $(JAVA_GUAVA) .stamp-java
+	$(AM_V_at)java -Djava.library.path="./:./src:./src/.libs:.libs/" -cp "$(JAVA_GUAVA):$(JAVAROOT)" $(JAVAORG)/NativeSecp256k1Test
+
+endif
+endif
+
+=======
+>>>>>>> bitcoin/8.22.0
 if USE_ECMULT_STATIC_PRECOMPUTATION
 CPPFLAGS_FOR_BUILD +=-I$(top_srcdir) -I$(builddir)/src
 

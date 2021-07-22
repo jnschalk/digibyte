@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,6 +15,14 @@
 
 #include <qt/forms/ui_helpmessagedialog.h>
 
+<<<<<<< HEAD
+#include <qt/digibytegui.h>
+#include <qt/clientmodel.h>
+#include <qt/guiconstants.h>
+#include <qt/intro.h>
+#include <qt/paymentrequestplus.h>
+=======
+>>>>>>> bitcoin/8.22.0
 #include <qt/guiutil.h>
 
 #include <clientversion.h>
@@ -149,7 +162,11 @@ ShutdownWindow::ShutdownWindow(QWidget *parent, Qt::WindowFlags f):
     GUIUtil::handleCloseWindowShortcut(this);
 }
 
+<<<<<<< HEAD
+QWidget *ShutdownWindow::showShutdownWindow(DigiByteGUI *window)
+=======
 QWidget* ShutdownWindow::showShutdownWindow(QMainWindow* window)
+>>>>>>> bitcoin/8.22.0
 {
     assert(window != nullptr);
 

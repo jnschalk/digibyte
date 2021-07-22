@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test that the wallet can send and receive using all combinations of address types.
@@ -53,12 +58,16 @@ Test that the nodes generate the correct change address type:
 from decimal import Decimal
 import itertools
 
+<<<<<<< HEAD
+from test_framework.test_framework import DigiByteTestFramework
+=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.descriptors import (
     descsum_create,
     descsum_check,
 )
+>>>>>>> bitcoin/8.22.0
 from test_framework.util import (
     assert_equal,
     assert_greater_than,
@@ -80,6 +89,9 @@ class AddressTypeTest(DigiByteTestFramework):
         for args in self.extra_args:
             args.append("-whitelist=noban@127.0.0.1")
         self.supports_cli = False
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()

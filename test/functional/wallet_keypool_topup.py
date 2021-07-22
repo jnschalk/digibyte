@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test HD Wallet keypool restore function.
@@ -13,7 +18,10 @@ Two nodes. Node1 is under test. Node0 is providing transactions and generating b
 import os
 import shutil
 
+<<<<<<< HEAD
+=======
 from test_framework.blocktools import COINBASE_MATURITY
+>>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_equal,
@@ -25,6 +33,9 @@ class KeypoolRestoreTest(DigiByteTestFramework):
         self.setup_clean_chain = True
         self.num_nodes = 4
         self.extra_args = [[], ['-keypool=100'], ['-keypool=100'], ['-keypool=100']]
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()

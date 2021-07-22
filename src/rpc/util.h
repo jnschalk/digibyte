@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2017-2021 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -98,6 +103,8 @@ CTxDestination AddAndGetMultisigDestination(const int required, const std::vecto
 
 UniValue DescribeAddress(const CTxDestination& dest);
 
+<<<<<<< HEAD
+=======
 //! Parse a confirm target option and raise an RPC error if it is invalid.
 unsigned int ParseConfirmTarget(const UniValue& value, unsigned int max_target);
 
@@ -367,4 +374,5 @@ private:
     const RPCExamples m_examples;
 };
 
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_RPC_UTIL_H

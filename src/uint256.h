@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,8 +21,16 @@
 template<unsigned int BITS>
 class base_blob
 {
-protected:
+public:
     static constexpr int WIDTH = BITS / 8;
+<<<<<<< HEAD
+    uint8_t data[WIDTH];
+
+    base_blob()
+    {
+        memset(data, 0, sizeof(data));
+    }
+=======
     uint8_t m_data[WIDTH];
 public:
     /* construct 0 value by default */
@@ -25,6 +38,7 @@ public:
 
     /* constructor for constants between 1 and 255 */
     constexpr explicit base_blob(uint8_t v) : m_data{v} {}
+>>>>>>> bitcoin/8.22.0
 
     explicit base_blob(const std::vector<unsigned char>& vch);
 
@@ -128,6 +142,26 @@ public:
     explicit uint256(const std::vector<unsigned char>& vch) : base_blob<256>(vch) {}
     static const uint256 ZERO;
     static const uint256 ONE;
+};
+
+/** 512-bit opaque blob.
+ * @note This type is called uint512 for historical reasons only. It is an opaque
+ * blob of 512 bits and has no integer operations.
+ */
+class uint512 : public base_blob<512> {
+public:
+    uint512() {}
+    uint512(const base_blob<512>& b) : base_blob<512>(b) {}
+    explicit uint512(const std::vector<unsigned char>& vch) : base_blob<512>(vch) {}
+    uint256 trim256() const
+    {
+        uint256 ret;
+        for (unsigned int i = 0; i < uint256::WIDTH; i++){
+            ret.data[i] = data[i];
+        }
+        return ret;
+    }	
+    
 };
 
 /* uint256 from const char *.

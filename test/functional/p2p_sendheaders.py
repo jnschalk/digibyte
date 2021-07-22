@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test behavior of headers messages to announce blocks.
@@ -185,9 +190,14 @@ class BaseNode(P2PInterface):
         inv should be a list of block hashes."""
 
         test_function = lambda: self.block_announced
+<<<<<<< HEAD
+        wait_until(test_function, timeout=60, lock=mininode_lock)
+        with mininode_lock:
+=======
         self.wait_until(test_function)
 
         with p2p_lock:
+>>>>>>> bitcoin/8.22.0
             compare_inv = []
             if "inv" in self.last_message:
                 compare_inv = [x.hash for x in self.last_message["inv"].inv]
@@ -199,6 +209,9 @@ class SendHeadersTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def mine_blocks(self, count):
         """Mine count blocks and return the new tip."""

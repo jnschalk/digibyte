@@ -1,13 +1,26 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD:src/utilmoneystr.h
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0:src/util/moneystr.h
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 /**
  * Money parsing/formatting utilities.
  */
+<<<<<<< HEAD:src/utilmoneystr.h
+#ifndef DIGIBYTE_UTILMONEYSTR_H
+#define DIGIBYTE_UTILMONEYSTR_H
+
+#include <stdint.h>
+#include <string>
+=======
 #ifndef DIGIBYTE_UTIL_MONEYSTR_H
 #define DIGIBYTE_UTIL_MONEYSTR_H
+>>>>>>> bitcoin/8.22.0:src/util/moneystr.h
 
 #include <amount.h>
 #include <attributes.h>
@@ -21,4 +34,8 @@ std::string FormatMoney(const CAmount n);
 /** Parse an amount denoted in full coins. E.g. "0.0034" supplied on the command line. **/
 [[nodiscard]] bool ParseMoney(const std::string& str, CAmount& nRet);
 
+<<<<<<< HEAD:src/utilmoneystr.h
+#endif // DIGIBYTE_UTILMONEYSTR_H
+=======
 #endif // DIGIBYTE_UTIL_MONEYSTR_H
+>>>>>>> bitcoin/8.22.0:src/util/moneystr.h

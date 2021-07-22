@@ -1,5 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -57,6 +61,15 @@
 #include <string>
 
 #include <boost/algorithm/string/replace.hpp>
+<<<<<<< HEAD
+#include <boost/thread.hpp>
+#include <boost/bind.hpp>
+
+#if defined(NDEBUG)
+# error "DigiByte cannot be compiled without assertions."
+#endif
+=======
+>>>>>>> bitcoin/8.22.0
 
 #define MICRO 0.000001
 #define MILLI 0.001
@@ -128,6 +141,20 @@ uint256 hashAssumeValid;
 arith_uint256 nMinimumChainWork;
 
 CFeeRate minRelayTxFee = CFeeRate(DEFAULT_MIN_RELAY_TX_FEE);
+<<<<<<< HEAD
+CAmount maxTxFee = DEFAULT_TRANSACTION_MAXFEE;
+
+CBlockPolicyEstimator feeEstimator;
+CTxMemPool mempool(&feeEstimator);
+std::atomic_bool g_is_mempool_loaded{false};
+CTxMemPool stempool(&feeEstimator);
+
+/** Constant stuff for coinbase transactions we create: */
+CScript COINBASE_FLAGS;
+
+const std::string strMessageMagic = "DigiByte Signed Message:\n";
+=======
+>>>>>>> bitcoin/8.22.0
 
 // Internal stuff
 namespace {
@@ -236,6 +263,14 @@ bool CheckSequenceLocks(CBlockIndex* tip,
                         LockPoints* lp,
                         bool useExistingLockPoints)
 {
+<<<<<<< HEAD
+    AssertLockHeld(cs_main);
+    // We could be calling this with only the stempool lock held, but mempool lock is required.
+    LOCK(mempool.cs);
+
+    CBlockIndex* tip = chainActive.Tip();
+=======
+>>>>>>> bitcoin/8.22.0
     assert(tip != nullptr);
 
     CBlockIndex index;
@@ -347,6 +382,19 @@ void CChainState::MaybeUpdateMempoolForReorg(
     auto it = disconnectpool.queuedTx.get<insertion_order>().rbegin();
     while (it != disconnectpool.queuedTx.get<insertion_order>().rend()) {
         // ignore validation errors in resurrected transactions
+<<<<<<< HEAD
+        CValidationState stateDummy;
+        bool ret = !AcceptToMemoryPool(mempool, stateDummy, *it, nullptr, nullptr, true, 0);
+        CValidationState dandelionStateDummy;
+        AcceptToMemoryPool(stempool, dandelionStateDummy, *it, nullptr, nullptr, true, 0);
+        if (!fAddToMempool || (*it)->IsCoinBase() || ret) {
+            // If the transaction doesn't make it in to the mempool, remove any
+            // transactions that depend on it (which would now be orphans).
+            mempool.removeRecursive(**it, MemPoolRemovalReason::REORG);
+            // Changes to mempool should also be made to Dandelion stempool
+            stempool.removeRecursive(**it, MemPoolRemovalReason::REORG);
+        } else if (mempool.exists((*it)->GetHash())) {
+=======
         if (!fAddToMempool || (*it)->IsCoinBase() ||
             AcceptToMemoryPool(
                 *this, *m_mempool, *it, true /* bypass_limits */).m_result_type !=
@@ -355,6 +403,7 @@ void CChainState::MaybeUpdateMempoolForReorg(
             // transactions that depend on it (which would now be orphans).
             m_mempool->removeRecursive(**it, MemPoolRemovalReason::REORG);
         } else if (m_mempool->exists((*it)->GetHash())) {
+>>>>>>> bitcoin/8.22.0
             vHashUpdate.push_back((*it)->GetHash());
         }
         ++it;
@@ -365,6 +414,20 @@ void CChainState::MaybeUpdateMempoolForReorg(
     // previously-confirmed transactions back to the mempool.
     // UpdateTransactionsFromBlock finds descendants of any transactions in
     // the disconnectpool that were added back and cleans up the mempool state.
+<<<<<<< HEAD
+    mempool.UpdateTransactionsFromBlock(vHashUpdate);
+    // Changes to mempool should also be made to Dandelion stempool
+    stempool.UpdateTransactionsFromBlock(vHashUpdate);
+
+    // We also need to remove any now-immature transactions
+    mempool.removeForReorg(pcoinsTip.get(), chainActive.Tip()->nHeight + 1, STANDARD_LOCKTIME_VERIFY_FLAGS);
+    // Changes to mempool should also be made to Dandelion stempool
+    stempool.removeForReorg(pcoinsTip.get(), chainActive.Tip()->nHeight + 1, STANDARD_LOCKTIME_VERIFY_FLAGS);
+    // Re-limit mempool size, in case we added any transactions
+    LimitMempoolSize(mempool, gArgs.GetArg("-maxmempool", DEFAULT_MAX_MEMPOOL_SIZE) * 1000000, gArgs.GetArg("-mempoolexpiry", DEFAULT_MEMPOOL_EXPIRY) * 60 * 60);
+    // Changes to mempool should also be made to Dandelion stempool
+    LimitMempoolSize(stempool, gArgs.GetArg("-maxmempool", DEFAULT_MAX_MEMPOOL_SIZE) * 1000000, gArgs.GetArg("-mempoolexpiry", DEFAULT_MEMPOOL_EXPIRY) * 60 * 60);
+=======
     m_mempool->UpdateTransactionsFromBlock(vHashUpdate);
 
     // We also need to remove any now-immature transactions
@@ -375,6 +438,7 @@ void CChainState::MaybeUpdateMempoolForReorg(
         this->CoinsTip(),
         gArgs.GetArg("-maxmempool", DEFAULT_MAX_MEMPOOL_SIZE) * 1000000,
         std::chrono::hours{gArgs.GetArg("-mempoolexpiry", DEFAULT_MEMPOOL_EXPIRY)});
+>>>>>>> bitcoin/8.22.0
 }
 
 /**
@@ -905,11 +969,21 @@ bool MemPoolAccept::PreChecks(ATMPArgs& args, Workspace& ws)
         CAmount nDeltaFees = nModifiedFees - nConflictingFees;
         if (nDeltaFees < ::incrementalRelayFee.GetFee(nSize))
         {
+<<<<<<< HEAD
+            LogPrint(BCLog::MEMPOOL, "replacing tx %s with %s for %s DGB additional fees, %d delta bytes\n",
+                    it->GetTx().GetHash().ToString(),
+                    hash.ToString(),
+                    FormatMoney(nModifiedFees - nConflictingFees),
+                    (int)nSize - (int)nConflictingSize);
+            if (plTxnReplaced)
+                plTxnReplaced->push_back(it->GetSharedTx());
+=======
             return state.Invalid(TxValidationResult::TX_MEMPOOL_POLICY, "insufficient fee",
                     strprintf("rejecting replacement %s, not enough additional fees to relay; %s < %s",
                         hash.ToString(),
                         FormatMoney(nDeltaFees),
                         FormatMoney(::incrementalRelayFee.GetFee(nSize))));
+>>>>>>> bitcoin/8.22.0
         }
     }
     return true;
@@ -1123,10 +1197,19 @@ static MempoolAcceptResult AcceptToMemoryPoolWithTime(const CChainParams& chainp
         for (const COutPoint& hashTx : coins_to_uncache)
             active_chainstate.CoinsTip().Uncache(hashTx);
     }
+<<<<<<< HEAD
+
+    // Check the header
+    if (!CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, consensusParams))
+        return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
+
+    return true;
+=======
     // After we've (potentially) uncached entries, ensure our coins cache is still within its size limits
     BlockValidationState state_dummy;
     active_chainstate.FlushStateToDisk(state_dummy, FlushStateMode::PERIODIC);
     return result;
+>>>>>>> bitcoin/8.22.0
 }
 
 MempoolAcceptResult AcceptToMemoryPool(CChainState& active_chainstate, CTxMemPool& pool, const CTransactionRef& tx,
@@ -1185,14 +1268,78 @@ CTransactionRef GetTransaction(const CBlockIndex* const block_index, const CTxMe
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
-    int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
-    // Force block reward to zero when right shift is undefined.
-    if (halvings >= 64)
-        return 0;
+    CAmount nSubsidy = COIN;
+    LogPrintf("block height for reward is %d\n", nHeight);
 
-    CAmount nSubsidy = 50 * COIN;
-    // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
-    nSubsidy >>= halvings;
+    if (nHeight < consensusParams.nDiffChangeTarget) { // < 67200
+        if (nHeight < 1440)
+        {
+            // (Period I)
+            nSubsidy = 72000 * COIN;
+        }
+        else if (nHeight < 5760)
+        {
+            // (Period II)
+            nSubsidy = 16000 * COIN;
+        }
+        else
+        {
+            // (Period III)
+            // This is pre-patch, reward is 8000.
+            nSubsidy = 8000 * COIN;
+        }
+    }
+    else if (nHeight < consensusParams.alwaysUpdateDiffChangeTarget) // < 400000
+    {
+        // (Period IV)
+        nSubsidy = 8000 * COIN;
+        int blocks = nHeight - consensusParams.nDiffChangeTarget;
+        int weeks = (blocks / consensusParams.patchBlockRewardDuration) + 1;
+
+        // Decrease reward by 0.5% every 10080 blocks
+        for (int i = 0; i < weeks; i++)
+        {
+            nSubsidy -= (nSubsidy / 200);
+        }
+    }
+    else if (nHeight < consensusParams.workComputationChangeTarget) // < 1430000
+    {
+        // (Period V)
+        nSubsidy = 2459 * COIN;
+        int blocks = nHeight - consensusParams.alwaysUpdateDiffChangeTarget;
+        int weeks = (blocks / consensusParams.patchBlockRewardDuration2) + 1;
+        // decrease reward by 1% every month
+        for(int i = 0; i < weeks; i++)
+        {
+            nSubsidy -= (nSubsidy / 100);
+        }
+    }
+    else // < ∞
+    {
+        // (Period VI)
+        // Hard Fork Point: 1.43M
+        // Subsidy at Hard Fork: 2157
+        // Monthly Decay Factor: 98884/100000
+        // Last Block Number: 41668798
+        // Expected years after Hard Fork: 19.1395
+        nSubsidy = 2157 * COIN / 2;
+        int64_t blocks = nHeight - consensusParams.workComputationChangeTarget;
+        int64_t months = blocks * BLOCK_TIME_SECONDS / SECONDS_PER_MONTH;
+
+        for (int64_t i = 0; i < months; i++)
+        {
+            nSubsidy *= 98884;
+            nSubsidy /= 100000;
+        }
+    }
+
+    // Make sure the reward is at least 1 DGB
+    // ToDo: Remove this statement in a future release, along
+    // with a fixed supply curve.
+    if (nSubsidy < COIN) {
+        nSubsidy = COIN;
+    }
+
     return nSubsidy;
 }
 
@@ -1597,6 +1744,28 @@ DisconnectResult CChainState::DisconnectBlock(const CBlock& block, const CBlockI
 
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
+<<<<<<< HEAD
+void ThreadScriptCheck() {
+    RenameThread("digibyte-scriptch");
+    scriptcheckqueue.Thread();
+}
+
+// Protected by cs_main
+VersionBitsCache versionbitscache;
+
+int32_t ComputeBlockVersion(const CBlockIndex* pindexPrev, const Consensus::Params& params, int algo)
+{
+    LOCK(cs_main);
+    int32_t nVersion = VERSIONBITS_TOP_BITS | BLOCK_VERSION_DEFAULT;
+    for (int i = 0; i < (int)Consensus::MAX_VERSION_BITS_DEPLOYMENTS; i++) {
+        ThresholdState state = VersionBitsState(pindexPrev, params, static_cast<Consensus::DeploymentPos>(i), versionbitscache);
+        if (state == ThresholdState::LOCKED_IN || state == ThresholdState::STARTED) {
+            nVersion |= VersionBitsMask(params, static_cast<Consensus::DeploymentPos>(i));
+        }
+    }
+    nVersion |= GetVersionForAlgo(algo);
+    return nVersion;
+=======
 void StartScriptCheckWorkerThreads(int threads_num)
 {
     scriptcheckqueue.StartWorkerThreads(threads_num);
@@ -1605,6 +1774,33 @@ void StartScriptCheckWorkerThreads(int threads_num)
 void StopScriptCheckWorkerThreads()
 {
     scriptcheckqueue.StopWorkerThreads();
+>>>>>>> bitcoin/8.22.0
+}
+
+bool IsAlgoActive(const CBlockIndex* pindexPrev, const Consensus::Params& consensus, int algo)
+{
+    if (!pindexPrev)
+        return algo == ALGO_SCRYPT;
+    const int nHeight = pindexPrev->nHeight;
+    if (nHeight < consensus.multiAlgoDiffChangeTarget)
+        return algo == ALGO_SCRYPT;
+    else if (nHeight < consensus.algoSwapChangeTarget ||
+             VersionBitsState(pindexPrev, consensus, Consensus::DEPLOYMENT_ODO, versionbitscache) != ThresholdState::ACTIVE)
+    {
+        return algo == ALGO_SHA256D
+            || algo == ALGO_SCRYPT
+            || algo == ALGO_GROESTL
+            || algo == ALGO_SKEIN
+            || algo == ALGO_QUBIT;
+    }
+    else
+    {
+        return algo == ALGO_SHA256D
+            || algo == ALGO_SCRYPT
+            || algo == ALGO_SKEIN
+            || algo == ALGO_QUBIT
+            || algo == ALGO_ODO;
+    }
 }
 
 /**
@@ -1625,10 +1821,17 @@ public:
 
     bool Condition(const CBlockIndex* pindex, const Consensus::Params& params) const override
     {
+<<<<<<< HEAD
+        int nAlgo = pindex->GetAlgo();
+        return ((pindex->nVersion & VERSIONBITS_TOP_MASK) == VERSIONBITS_TOP_BITS) &&
+               ((pindex->nVersion >> bit) & 1) != 0 &&
+               ((ComputeBlockVersion(pindex->pprev, params, nAlgo) >> bit) & 1) == 0;
+=======
         return pindex->nHeight >= params.MinBIP9WarningHeight &&
                ((pindex->nVersion & VERSIONBITS_TOP_MASK) == VERSIONBITS_TOP_BITS) &&
                ((pindex->nVersion >> bit) & 1) != 0 &&
                ((g_versionbitscache.ComputeBlockVersion(pindex->pprev, params) >> bit) & 1) == 0;
+>>>>>>> bitcoin/8.22.0
     }
 };
 
@@ -1769,7 +1972,11 @@ bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state,
                 //  artificially set the default assumed verified block further back.
                 // The test against nMinimumChainWork prevents the skipping when denied access to any chain at
                 //  least as good as the expected chain.
+<<<<<<< HEAD
+                 fScriptChecks = false;
+=======
                 fScriptChecks = (GetBlockProofEquivalentTime(*pindexBestHeader, *pindex, *pindexBestHeader, m_params.GetConsensus()) <= 60 * 60 * 24 * 7 * 2);
+>>>>>>> bitcoin/8.22.0
             }
         }
     }
@@ -1789,8 +1996,7 @@ bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state,
     // Now that the whole chain is irreversibly beyond that time it is applied to all blocks except the
     // two in the chain that violate it. This prevents exploiting the issue against nodes during their
     // initial block download.
-    bool fEnforceBIP30 = !((pindex->nHeight==91842 && pindex->GetBlockHash() == uint256S("0x00000000000a4d0a398161ffc163c503763b1f4360639393e0e4c8e300e0caec")) ||
-                           (pindex->nHeight==91880 && pindex->GetBlockHash() == uint256S("0x00000000000743f190a18c5577a3c2d2a1f610ae9601ac046a38084ccb7cd721")));
+    bool fEnforceBIP30 = true;
 
     // Once BIP34 activated it was not possible to create new duplicate coinbases and thus other than starting
     // with the 2 existing duplicate coinbase pairs, not possible to create overwriting txs.  But by the
@@ -1851,7 +2057,11 @@ bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state,
     assert(pindex->pprev);
     CBlockIndex* pindexBIP34height = pindex->pprev->GetAncestor(m_params.GetConsensus().BIP34Height);
     //Only continue to enforce if we're below BIP34 activation height or the block hash at that height doesn't correspond.
+<<<<<<< HEAD
+    //fEnforceBIP30 = fEnforceBIP30 && (!pindexBIP34height || !(pindexBIP34height->GetBlockHash() == chainparams.GetConsensus().BIP34Hash));
+=======
     fEnforceBIP30 = fEnforceBIP30 && (!pindexBIP34height || !(pindexBIP34height->GetBlockHash() == m_params.GetConsensus().BIP34Hash));
+>>>>>>> bitcoin/8.22.0
 
     // TODO: Remove BIP30 checking from block height 1,983,702 on, once we have a
     // consensus change that ensures coinbases at those heights can not
@@ -2206,18 +2416,33 @@ static void AppendWarning(bilingual_str& res, const bilingual_str& warn)
 void CChainState::UpdateTip(const CBlockIndex* pindexNew)
 {
     // New best block
+<<<<<<< HEAD
+    mempool.AddTransactionsUpdated(1);
+    // Changes to mempool should also be made to Dandelion stempool
+    stempool.AddTransactionsUpdated(1);
+    
+=======
     if (m_mempool) {
         m_mempool->AddTransactionsUpdated(1);
     }
 
+>>>>>>> bitcoin/8.22.0
     {
         LOCK(g_best_block_mutex);
         g_best_block = pindexNew->GetBlockHash();
         g_best_block_cv.notify_all();
     }
 
+<<<<<<< HEAD
+    std::string warningMessages;
+    if (!IsInitialBlockDownload())
+    {
+        int nUpgraded = 0;
+        bool fAllAsicBoost = true;
+=======
     bilingual_str warning_messages;
     if (!this->IsInitialBlockDownload()) {
+>>>>>>> bitcoin/8.22.0
         const CBlockIndex* pindex = pindexNew;
         for (int bit = 0; bit < VERSIONBITS_NUM_BITS; bit++) {
             WarningBitsConditionChecker checker(bit);
@@ -2231,13 +2456,52 @@ void CChainState::UpdateTip(const CBlockIndex* pindexNew)
                 }
             }
         }
+<<<<<<< HEAD
+        // Check the version of the last 100 blocks to see if we need to upgrade:
+        for (int i = 0; i < 100 && pindex != nullptr; i++)
+        {
+            int nAlgo = pindex->GetAlgo();
+            int32_t nExpectedVersion = ComputeBlockVersion(pindex->pprev, chainParams.GetConsensus(), nAlgo);
+            if (pindex->nVersion > VERSIONBITS_LAST_OLD_BLOCK_VERSION && (pindex->nVersion & ~nExpectedVersion) != 0)
+            {
+                ++nUpgraded;
+                // Sha256d blocks with weird versions could simply be the result
+                // of overt AsicBoost.  Don't print the first warning below unless
+                // at least one "upgraded" block is not sha256d.
+                if (nAlgo != ALGO_SHA256D)
+                    fAllAsicBoost = false;
+            }
+            pindex = pindex->pprev;
+        }
+        if (nUpgraded > 0 && !fAllAsicBoost)
+            AppendWarning(warningMessages, strprintf(_("%d of last 100 blocks have unexpected version"), nUpgraded));
+        if (nUpgraded > 100/2)
+        {
+            std::string strWarning = _("Warning: Unknown block versions being mined! It's possible unknown rules are in effect");
+            // notify GetWarnings(), called by Qt and the JSON-RPC code to warn the user:
+            DoWarning(strWarning);
+        }
+    }
+    LogPrintf("%s: new best=%s height=%d version=0x%08x algo=%d (%s) log2_work=%.8g tx=%lu date='%s' progress=%f cache=%.1fMiB(%utxo)", __func__, /* Continued */
+=======
     }
     LogPrintf("%s: new best=%s height=%d version=0x%08x log2_work=%f tx=%lu date='%s' progress=%f cache=%.1fMiB(%utxo)%s\n", __func__,
+>>>>>>> bitcoin/8.22.0
       pindexNew->GetBlockHash().ToString(), pindexNew->nHeight, pindexNew->nVersion,
+      pindexNew->GetAlgo(), GetAlgoName(pindexNew->GetAlgo()),
       log(pindexNew->nChainWork.getdouble())/log(2.0), (unsigned long)pindexNew->nChainTx,
       FormatISO8601DateTime(pindexNew->GetBlockTime()),
+<<<<<<< HEAD
+      GuessVerificationProgress(chainParams.TxData(), pindexNew), pcoinsTip->DynamicMemoryUsage() * (1.0 / (1<<20)), pcoinsTip->GetCacheSize());
+
+    if (!warningMessages.empty())
+        LogPrintf(" warning='%s'", warningMessages); /* Continued */
+    LogPrintf("\n");
+
+=======
       GuessVerificationProgress(m_params.TxData(), pindexNew), this->CoinsTip().DynamicMemoryUsage() * (1.0 / (1<<20)), this->CoinsTip().GetCacheSize(),
       !warning_messages.empty() ? strprintf(" warning='%s'", warning_messages.original) : "");
+>>>>>>> bitcoin/8.22.0
 }
 
 /** Disconnect m_chain's tip.
@@ -2287,7 +2551,13 @@ bool CChainState::DisconnectTip(BlockValidationState& state, DisconnectedBlockTr
         while (disconnectpool->DynamicMemoryUsage() > MAX_DISCONNECTED_TX_POOL_SIZE * 1000) {
             // Drop the earliest entry, and remove its children from the mempool.
             auto it = disconnectpool->queuedTx.get<insertion_order>().begin();
+<<<<<<< HEAD
+            mempool.removeRecursive(**it, MemPoolRemovalReason::REORG);
+            // Changes to mempool should also be made to Dandelion stempool
+            stempool.removeRecursive(**it, MemPoolRemovalReason::REORG);
+=======
             m_mempool->removeRecursive(**it, MemPoolRemovalReason::REORG);
+>>>>>>> bitcoin/8.22.0
             disconnectpool->removeEntry(it);
         }
     }
@@ -2400,6 +2670,15 @@ bool CChainState::ConnectTip(BlockValidationState& state, CBlockIndex* pindexNew
     int64_t nTime5 = GetTimeMicros(); nTimeChainState += nTime5 - nTime4;
     LogPrint(BCLog::BENCH, "  - Writing chainstate: %.2fms [%.2fs (%.2fms/blk)]\n", (nTime5 - nTime4) * MILLI, nTimeChainState * MICRO, nTimeChainState * MILLI / nBlocksTotal);
     // Remove conflicting transactions from the mempool.;
+<<<<<<< HEAD
+    mempool.removeForBlock(blockConnecting.vtx, pindexNew->nHeight);
+    // Changes to mempool should also be made to Dandelion stempool
+    stempool.removeForBlock(blockConnecting.vtx, pindexNew->nHeight);
+    disconnectpool.removeForBlock(blockConnecting.vtx);
+    // Update chainActive & related variables.
+    chainActive.SetTip(pindexNew);
+    UpdateTip(pindexNew, chainparams);
+=======
     if (m_mempool) {
         m_mempool->removeForBlock(blockConnecting.vtx, pindexNew->nHeight);
         disconnectpool.removeForBlock(blockConnecting.vtx);
@@ -2407,6 +2686,7 @@ bool CChainState::ConnectTip(BlockValidationState& state, CBlockIndex* pindexNew
     // Update m_chain & related variables.
     m_chain.SetTip(pindexNew);
     UpdateTip(pindexNew);
+>>>>>>> bitcoin/8.22.0
 
     int64_t nTime6 = GetTimeMicros(); nTimePostConnect += nTime6 - nTime5; nTimeTotal += nTime6 - nTime1;
     LogPrint(BCLog::BENCH, "  - Connect postprocess: %.2fms [%.2fs (%.2fms/blk)]\n", (nTime6 - nTime5) * MILLI, nTimePostConnect * MICRO, nTimePostConnect * MILLI / nBlocksTotal);
@@ -2571,7 +2851,13 @@ bool CChainState::ActivateBestChainStep(BlockValidationState& state, CBlockIndex
         // any disconnected transactions back to the mempool.
         MaybeUpdateMempoolForReorg(disconnectpool, true);
     }
+<<<<<<< HEAD
+    mempool.check(pcoinsTip.get());
+    // Changes to mempool should also be made to Dandelion stempool
+    stempool.check(pcoinsTip.get());
+=======
     if (m_mempool) m_mempool->check(*this);
+>>>>>>> bitcoin/8.22.0
 
     CheckForkWarningConditions();
 
@@ -3005,9 +3291,15 @@ void CChainState::ReceivedBlockTransactions(const CBlock& block, CBlockIndex* pi
 
 static bool CheckBlockHeader(const CBlockHeader& block, BlockValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW = true)
 {
+<<<<<<< HEAD
+    //Check proof of work matches claimed amount
+    if (fCheckPOW && !CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, consensusParams))
+        return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
+=======
     // Check proof of work matches claimed amount
     if (fCheckPOW && !CheckProofOfWork(block.GetHash(), block.nBits, consensusParams))
         return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, "high-hash", "proof of work failed");
+>>>>>>> bitcoin/8.22.0
 
     return true;
 }
@@ -3061,6 +3353,13 @@ bool CheckBlock(const CBlock& block, BlockValidationState& state, const Consensu
             return state.Invalid(BlockValidationResult::BLOCK_CONSENSUS, "bad-cb-multiple", "more than one coinbase");
 
     // Check transactions
+<<<<<<< HEAD
+    for (const auto& tx : block.vtx)
+        if (!CheckTransaction(*tx, state, true))
+            return state.Invalid(false, state.GetRejectCode(), state.GetRejectReason(),
+                                 strprintf("Transaction check failed (tx hash %s) %s", tx->GetHash().ToString(), state.GetDebugMessage()));
+
+=======
     // Must check for duplicate inputs (see CVE-2018-17144)
     for (const auto& tx : block.vtx) {
         TxValidationState tx_state;
@@ -3072,6 +3371,7 @@ bool CheckBlock(const CBlock& block, BlockValidationState& state, const Consensu
                                  strprintf("Transaction check failed (tx hash %s) %s", tx->GetHash().ToString(), tx_state.GetDebugMessage()));
         }
     }
+>>>>>>> bitcoin/8.22.0
     unsigned int nSigOps = 0;
     for (const auto& tx : block.vtx)
     {
@@ -3086,6 +3386,21 @@ bool CheckBlock(const CBlock& block, BlockValidationState& state, const Consensu
     return true;
 }
 
+<<<<<<< HEAD
+bool IsWitnessEnabled(const CBlockIndex* pindexPrev, const Consensus::Params& params)
+{
+    LOCK(cs_main);
+    return (VersionBitsState(pindexPrev, params, Consensus::DEPLOYMENT_SEGWIT, versionbitscache) == ThresholdState::ACTIVE);
+}
+
+bool IsNullDummyEnabled(const CBlockIndex* pindexPrev, const Consensus::Params& params)
+{
+    LOCK(cs_main);
+    return (VersionBitsState(pindexPrev, params, Consensus::DEPLOYMENT_SEGWIT, versionbitscache) == ThresholdState::ACTIVE);
+}
+
+=======
+>>>>>>> bitcoin/8.22.0
 void UpdateUncommittedBlockStructures(CBlock& block, const CBlockIndex* pindexPrev, const Consensus::Params& consensusParams)
 {
     int commitpos = GetWitnessCommitmentIndex(block);
@@ -3158,8 +3473,23 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, BlockValidatio
 
     // Check proof of work
     const Consensus::Params& consensusParams = params.GetConsensus();
+<<<<<<< HEAD
+    if (!IsAlgoActive(pindexPrev, consensusParams, block.GetAlgo()))
+        return state.Invalid(false, REJECT_INVALID, "algo-inactive", "PoW algorithm is not active");
+    if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams, block.GetAlgo()))
+        return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, "incorrect proof of work");
+=======
     if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
         return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, "bad-diffbits", "incorrect proof of work");
+>>>>>>> bitcoin/8.22.0
+
+    // Check for non-standard SCRYPT version.
+    if (VersionBitsState(pindexPrev, consensusParams, Consensus::DEPLOYMENT_RESERVEALGO, versionbitscache) == ThresholdState::ACTIVE &&
+        block.GetAlgo() == ALGO_SCRYPT &&
+        (block.nVersion & BLOCK_VERSION_ALGO) != BLOCK_VERSION_SCRYPT)
+    {
+        return state.Invalid(false, REJECT_INVALID, "invalid-algo", "invalid algo id");
+    }
 
     // Check against checkpoints
     if (fCheckpointsEnabled) {
@@ -3179,6 +3509,13 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, BlockValidatio
 
     // Check timestamp
     if (block.GetBlockTime() > nAdjustedTime + MAX_FUTURE_BLOCK_TIME)
+<<<<<<< HEAD
+        return state.Invalid(false, REJECT_INVALID, "time-too-new", "block timestamp too far in the future");
+
+    if(block.nVersion < VERSIONBITS_TOP_BITS && IsWitnessEnabled(pindexPrev, consensusParams))
+    {
+            return state.Invalid(false, REJECT_OBSOLETE, strprintf("bad-version(0x%08x)", block.nVersion),
+=======
         return state.Invalid(BlockValidationResult::BLOCK_TIME_FUTURE, "time-too-new", "block timestamp too far in the future");
 
     // Reject blocks with outdated version
@@ -3186,6 +3523,7 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, BlockValidatio
         (block.nVersion < 3 && DeploymentActiveAfter(pindexPrev, consensusParams, Consensus::DEPLOYMENT_DERSIG)) ||
         (block.nVersion < 4 && DeploymentActiveAfter(pindexPrev, consensusParams, Consensus::DEPLOYMENT_CLTV))) {
             return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, strprintf("bad-version(0x%08x)", block.nVersion),
+>>>>>>> bitcoin/8.22.0
                                  strprintf("rejected nVersion=0x%08x block", block.nVersion));
     }
 
@@ -3221,14 +3559,18 @@ static bool ContextualCheckBlock(const CBlock& block, BlockValidationState& stat
     }
 
     // Enforce rule that the coinbase starts with serialized block height
+<<<<<<< HEAD
+     if (VersionBitsState(pindexPrev, consensusParams, Consensus::DEPLOYMENT_NVERSIONBIPS, versionbitscache) == ThresholdState::ACTIVE)
+=======
     if (DeploymentActiveAfter(pindexPrev, consensusParams, Consensus::DEPLOYMENT_HEIGHTINCB))
+>>>>>>> bitcoin/8.22.0
     {
         CScript expect = CScript() << nHeight;
         if (block.vtx[0]->vin[0].scriptSig.size() < expect.size() ||
             !std::equal(expect.begin(), expect.end(), block.vtx[0]->vin[0].scriptSig.begin())) {
             return state.Invalid(BlockValidationResult::BLOCK_CONSENSUS, "bad-cb-height", "block height mismatch in coinbase");
         }
-    }
+    } 
 
     // Validation for witness commitments.
     // * We compute the witness hash (which is the hash including witnesses) of all the block's transactions, except the
@@ -4096,7 +4438,14 @@ void UnloadBlockIndex(CTxMemPool* mempool, ChainstateManager& chainman)
     chainman.Unload();
     pindexBestInvalid = nullptr;
     pindexBestHeader = nullptr;
+<<<<<<< HEAD
+    mempool.clear();
+    // Changes to mempool should also be made to Dandelion stempool
+    stempool.clear();
+    mapBlocksUnlinked.clear();
+=======
     if (mempool) mempool->clear();
+>>>>>>> bitcoin/8.22.0
     vinfoBlockFile.clear();
     nLastBlockFile = 0;
     setDirtyBlockIndex.clear();
@@ -4535,12 +4884,31 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
 
             CAmount amountdelta = nFeeDelta;
             if (amountdelta) {
+<<<<<<< HEAD
+                mempool.PrioritiseTransaction(tx->GetHash(), amountdelta);
+                // Changes to mempool should also be made to Dandelion stempool
+                stempool.PrioritiseTransaction(tx->GetHash(), amountdelta);
+=======
                 pool.PrioritiseTransaction(tx->GetHash(), amountdelta);
+>>>>>>> bitcoin/8.22.0
             }
             if (nTime > nNow - nExpiryTimeout) {
                 LOCK(cs_main);
+<<<<<<< HEAD
+                int64_t nTimeCopy = nTime; // time isn't const, need copy for Dandelion
+                AcceptToMemoryPoolWithTime(chainparams, mempool, state, tx, nullptr /* pfMissingInputs */, nTime,
+                                           nullptr /* plTxnReplaced */, false /* bypass_limits */, 0 /* nAbsurdFee */,
+                                           false /* test_accept */);
+                // Changes to mempool should also be made to Dandelion stempool
+                CValidationState dummyState;
+                AcceptToMemoryPoolWithTime(chainparams, stempool, dummyState, tx, nullptr /* pfMissingInputs */, nTimeCopy,
+                                           nullptr /* plTxnReplaced */, false /* bypass_limits */, 0 /* nAbsurdFee */,
+                                           false /* test_accept */);
+                if (state.IsValid()) {
+=======
                 if (AcceptToMemoryPoolWithTime(chainparams, pool, active_chainstate, tx, nTime, false /* bypass_limits */,
                                                false /* test_accept */).m_result_type == MempoolAcceptResult::ResultType::VALID) {
+>>>>>>> bitcoin/8.22.0
                     ++count;
                 } else {
                     // mempool may contain the transaction already, e.g. from
@@ -4563,6 +4931,11 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
         file >> mapDeltas;
 
         for (const auto& i : mapDeltas) {
+<<<<<<< HEAD
+            mempool.PrioritiseTransaction(i.first, i.second);
+            // Changes to mempool should also be made to Dandelion stempool
+            stempool.PrioritiseTransaction(i.first, i.second);
+=======
             pool.PrioritiseTransaction(i.first, i.second);
         }
 
@@ -4573,6 +4946,7 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
             // Ensure transactions were accepted to mempool then add to
             // unbroadcast set.
             if (pool.get(txid) != nullptr) pool.AddUnbroadcastTx(txid);
+>>>>>>> bitcoin/8.22.0
         }
     } catch (const std::exception& e) {
         LogPrintf("Failed to deserialize mempool data on disk: %s. Continuing anyway.\n", e.what());

@@ -8,7 +8,11 @@ Transifex is setup to monitor the GitHub repo for updates, and when code contain
 
 Multiple language support is critical in assisting DigiByte’s global adoption, and growth. One of DigiByte’s greatest strengths is cross-border money transfers, any help making that easier is greatly appreciated.
 
+<<<<<<< HEAD
+See the [Transifex DigiByte project](https://www.transifex.com/projects/p/digibyte/) to assist in translations. You should also join the translation mailing list for announcements - see details below.
+=======
 See the [Transifex DigiByte project](https://www.transifex.com/digibyte/digibyte/) to assist in translations. You should also join the translation mailing list for announcements - see details below.
+>>>>>>> bitcoin/8.22.0
 
 ### Writing code with translations
 We use automated scripts to help extract translations in both Qt, and non-Qt source files. It is rarely necessary to manually edit the files in `src/qt/locale/`. The translation source files must adhere to the following format:
@@ -22,6 +26,11 @@ cd src/
 make translate
 ```
 
+<<<<<<< HEAD
+`contrib/digibyte-qt.pro` takes care of generating `.qm` (binary compiled) files from `.ts` (source files) files. It’s mostly automated, and you shouldn’t need to worry about it.
+
+=======
+>>>>>>> bitcoin/8.22.0
 **Example Qt translation**
 ```cpp
 QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
@@ -41,7 +50,11 @@ git commit
 ### Creating a Transifex account
 Visit the [Transifex Signup](https://www.transifex.com/signup/) page to create an account. Take note of your username and password, as they will be required to configure the command-line tool.
 
+<<<<<<< HEAD
+You can find the DigiByte translation project at [https://www.transifex.com/projects/p/digibyte/](https://www.transifex.com/projects/p/digibyte/).
+=======
 You can find the DigiByte translation project at [https://www.transifex.com/digibyte/digibyte/](https://www.transifex.com/digibyte/digibyte/).
+>>>>>>> bitcoin/8.22.0
 
 ### Installing the Transifex client command-line tool
 The client is used to fetch updated translations. If you are having problems, or need more details, see [https://docs.transifex.com/client/installing-the-client](https://docs.transifex.com/client/installing-the-client)
@@ -64,12 +77,21 @@ The Transifex DigiByte project config file is included as part of the repo. It c
 
 ### Synchronising translations
 
+<<<<<<< HEAD
+1. `python contrib/devtools/update-translations.py`
+2. Update `src/qt/digibyte_locale.qrc` manually or via
+   `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(digibyte_\(.*\)\).ts/<file alias="\2">locale\/\1.qm<\/file>/'`
+3. Update `src/Makefile.qt.include` manually or via
+   `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(digibyte_\(.*\)\).ts/  qt\/locale\/\1.ts \\/'`
+4. `git add` new translations from `src/qt/locale/`
+=======
 To assist in updating translations, a helper script is available in the [maintainer-tools repo](https://github.com/digibyte-core/digibyte-maintainer-tools). To use it and commit the result, simply do:
 
 ```
 python3 ../digibyte-maintainer-tools/update-translations.py
 git commit -a
 ```
+>>>>>>> bitcoin/8.22.0
 
 **Do not directly download translations** one by one from the Transifex website, as we do a few post-processing steps before committing the translations.
 
@@ -97,5 +119,11 @@ To create a new language template, you will need to edit the languages manifest 
 **Note:** that the language translation file **must end in `.qm`** (the compiled extension), and not `.ts`.
 
 ### Questions and general assistance
+<<<<<<< HEAD
+The DigiByte-Core translation maintainers can be found on [Gitter](https://gitter.im/DigiByte-Core/protocol).
+
+If you are a translator, you should connect with contributors on [Gitter](https://gitter.im/DigiByte-Core/protocol). Announcements will be posted during application pre-releases to notify translators to check for updates.
+=======
 
 If you are a translator, you should also subscribe to the mailing list, https://groups.google.com/forum/#!forum/digibyte-translators. Announcements will be posted during application pre-releases to notify translators to check for updates.
+>>>>>>> bitcoin/8.22.0

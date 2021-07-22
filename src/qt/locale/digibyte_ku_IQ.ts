@@ -442,6 +442,20 @@
         <source>&amp;Export</source>
         <translation>&amp;هەناردن</translation>
     </message>
+<<<<<<< HEAD:src/qt/locale/digibyte_ku_IQ.ts
+    </context>
+<context>
+    <name>digibyte-core</name>
+    <message>
+        <source>Information</source>
+        <translation>زانیاری</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>ئاگاداری</translation>
+    </message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_ku_IQ.ts
     <message>
         <source>Error</source>
         <translation>هەڵە</translation>

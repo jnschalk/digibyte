@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+// Copyright (c) 2018 The DigiByte Core developers
+=======
 // Copyright (c) 2018-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -40,6 +44,8 @@ class Handler;
 class WalletClient;
 struct BlockTip;
 
+<<<<<<< HEAD
+=======
 //! Block and header tip information
 struct BlockAndHeaderTipInfo
 {
@@ -50,6 +56,7 @@ struct BlockAndHeaderTipInfo
     double verification_progress;
 };
 
+>>>>>>> bitcoin/8.22.0
 //! Top-level interface for a digibyte node (digibyted process).
 class Node
 {

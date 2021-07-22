@@ -11,12 +11,23 @@
 #if defined(BUILD_DIGIBYTE_INTERNAL) && defined(HAVE_CONFIG_H)
 #include <config/digibyte-config.h>
   #if defined(_WIN32)
+<<<<<<< HEAD
+    #if defined(DLL_EXPORT)
+      #if defined(HAVE_FUNC_ATTRIBUTE_DLLEXPORT)
+        #define EXPORT_SYMBOL __declspec(dllexport)
+      #else
+        #define EXPORT_SYMBOL
+      #endif
+    #endif
+  #elif defined(HAVE_FUNC_ATTRIBUTE_VISIBILITY)
+=======
     #if defined(HAVE_DLLEXPORT_ATTRIBUTE)
       #define EXPORT_SYMBOL __declspec(dllexport)
     #else
       #define EXPORT_SYMBOL
     #endif
   #elif defined(HAVE_DEFAULT_VISIBILITY_ATTRIBUTE)
+>>>>>>> bitcoin/8.22.0
     #define EXPORT_SYMBOL __attribute__ ((visibility ("default")))
   #endif
 #elif defined(MSC_VER) && !defined(STATIC_LIBDIGIBYTECONSENSUS)

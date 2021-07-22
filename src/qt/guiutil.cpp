@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,7 +11,10 @@
 
 #include <qt/digibyteaddressvalidator.h>
 #include <qt/digibyteunits.h>
+<<<<<<< HEAD
+=======
 #include <qt/platformstyle.h>
+>>>>>>> bitcoin/8.22.0
 #include <qt/qvalidatedlineedit.h>
 #include <qt/sendcoinsrecipient.h>
 
@@ -121,11 +129,14 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
         QString::fromStdString(DummyAddress(Params()))));
     widget->setValidator(new DigiByteAddressEntryValidator(parent));
     widget->setCheckValidator(new DigiByteAddressCheckValidator(parent));
+<<<<<<< HEAD
+=======
 }
 
 void AddButtonShortcut(QAbstractButton* button, const QKeySequence& shortcut)
 {
     QObject::connect(new QShortcut(shortcut, button), &QShortcut::activated, [button]() { button->animateClick(); });
+>>>>>>> bitcoin/8.22.0
 }
 
 bool parseDigiByteURI(const QUrl &uri, SendCoinsRecipient *out)
@@ -193,14 +204,22 @@ bool parseDigiByteURI(QString uri, SendCoinsRecipient *out)
 
 QString formatDigiByteURI(const SendCoinsRecipient &info)
 {
+<<<<<<< HEAD
+    QString ret = QString("digibyte:%1").arg(info.address);
+=======
     bool bech_32 = info.address.startsWith(QString::fromStdString(Params().Bech32HRP() + "1"));
 
     QString ret = QString("digibyte:%1").arg(bech_32 ? info.address.toUpper() : info.address);
+>>>>>>> bitcoin/8.22.0
     int paramCount = 0;
 
     if (info.amount)
     {
+<<<<<<< HEAD
+        ret += QString("?amount=%1").arg(DigiByteUnits::format(DigiByteUnits::DGB, info.amount, false, DigiByteUnits::separatorNever));
+=======
         ret += QString("?amount=%1").arg(DigiByteUnits::format(DigiByteUnits::DGB, info.amount, false, DigiByteUnits::SeparatorStyle::NEVER));
+>>>>>>> bitcoin/8.22.0
         paramCount++;
     }
 
@@ -415,7 +434,11 @@ void openDebugLogfile()
 
 bool openDigiByteConf()
 {
+<<<<<<< HEAD
+    boost::filesystem::path pathConfig = GetConfigFile(gArgs.GetArg("-conf", DIGIBYTE_CONF_FILENAME));
+=======
     fs::path pathConfig = GetConfigFile(gArgs.GetArg("-conf", DIGIBYTE_CONF_FILENAME));
+>>>>>>> bitcoin/8.22.0
 
     /* Create the file */
     fsbridge::ofstream configFile(pathConfig, std::ios_base::app);
@@ -426,6 +449,9 @@ bool openDigiByteConf()
     configFile.close();
 
     /* Open digibyte.conf with the associated application */
+<<<<<<< HEAD
+    return QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
+=======
     bool res = QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 #ifdef Q_OS_MAC
     // Workaround for macOS-specific behavior; see #15409.
@@ -435,6 +461,7 @@ bool openDigiByteConf()
 #endif
 
     return res;
+>>>>>>> bitcoin/8.22.0
 }
 
 ToolTipToRichTextFilter::ToolTipToRichTextFilter(int _size_threshold, QObject *parent) :
@@ -573,7 +600,11 @@ fs::path static GetAutostartFilePath()
     std::string chain = gArgs.GetChainName();
     if (chain == CBaseChainParams::MAIN)
         return GetAutostartDir() / "digibyte.desktop";
+<<<<<<< HEAD
+    return GetAutostartDir() / strprintf("digibyte-%s.lnk", chain);
+=======
     return GetAutostartDir() / strprintf("digibyte-%s.desktop", chain);
+>>>>>>> bitcoin/8.22.0
 }
 
 bool GetStartOnSystemStartup()
@@ -620,7 +651,11 @@ bool SetStartOnSystemStartup(bool fAutoStart)
             optionFile << "Name=DigiByte\n";
         else
             optionFile << strprintf("Name=DigiByte (%s)\n", chain);
+<<<<<<< HEAD
+        optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", gArgs.GetBoolArg("-testnet", false), gArgs.GetBoolArg("-regtest", false));
+=======
         optionFile << "Exec=" << pszExePath << strprintf(" -min -chain=%s\n", chain);
+>>>>>>> bitcoin/8.22.0
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
         optionFile.close();
@@ -628,6 +663,39 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     return true;
 }
 
+<<<<<<< HEAD
+
+#elif defined(Q_OS_MAC)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+// based on: https://github.com/Mozketo/LaunchAtLoginController/blob/master/LaunchAtLoginController.m
+
+#include <CoreFoundation/CoreFoundation.h>
+#include <CoreServices/CoreServices.h>
+
+LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
+LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
+{
+    CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, nullptr);
+    if (listSnapshot == nullptr) {
+        return nullptr;
+    }
+
+    // loop through the list of startup items and try to find the digibyte app
+    for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
+        LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
+        UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
+        CFURLRef currentItemURL = nullptr;
+
+#if defined(MAC_OS_X_VERSION_MAX_ALLOWED) && MAC_OS_X_VERSION_MAX_ALLOWED >= 10100
+        if(&LSSharedFileListItemCopyResolvedURL)
+            currentItemURL = LSSharedFileListItemCopyResolvedURL(item, resolutionFlags, nullptr);
+#if defined(MAC_OS_X_VERSION_MIN_REQUIRED) && MAC_OS_X_VERSION_MIN_REQUIRED < 10100
+        else
+            LSSharedFileListItemResolve(item, resolutionFlags, &currentItemURL, nullptr);
+#endif
+=======
+>>>>>>> bitcoin/8.22.0
 #else
 
 bool GetStartOnSystemStartup() { return false; }
@@ -637,19 +705,128 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 
 void setClipboard(const QString& str)
 {
+<<<<<<< HEAD
+    CFURLRef digibyteAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (digibyteAppUrl == nullptr) {
+        return false;
+    }
+
+    LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, digibyteAppUrl);
+
+    CFRelease(digibyteAppUrl);
+    return !!foundItem; // return boolified object
+=======
     QClipboard* clipboard = QApplication::clipboard();
     clipboard->setText(str, QClipboard::Clipboard);
     if (clipboard->supportsSelection()) {
         clipboard->setText(str, QClipboard::Selection);
     }
+>>>>>>> bitcoin/8.22.0
 }
 
 fs::path qstringToBoostPath(const QString &path)
 {
+<<<<<<< HEAD
+    CFURLRef digibyteAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (digibyteAppUrl == nullptr) {
+        return false;
+    }
+
+    LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, digibyteAppUrl);
+
+    if(fAutoStart && !foundItem) {
+        // add digibyte app to startup item list
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, digibyteAppUrl, nullptr, nullptr);
+    }
+    else if(!fAutoStart && foundItem) {
+        // remove item
+        LSSharedFileListItemRemove(loginItems, foundItem);
+    }
+
+    CFRelease(digibyteAppUrl);
+    return true;
+=======
     return fs::path(path.toStdString());
+>>>>>>> bitcoin/8.22.0
 }
 
+<<<<<<< HEAD
+void migrateQtSettings()
+{
+    // Migration (12.1)
+    QSettings settings;
+    if(!settings.value("fMigrationDone121", false).toBool()) {
+        settings.remove("theme");
+        settings.remove("nWindowPos");
+        settings.remove("nWindowSize");
+        settings.setValue("fMigrationDone121", true);
+    }
+}
+
+void saveWindowGeometry(const QString& strSetting, QWidget *parent)
+{
+    QSettings settings;
+    settings.setValue(strSetting + "Pos", parent->pos());
+    settings.setValue(strSetting + "Size", parent->size());
+}
+
+void restoreWindowGeometry(const QString& strSetting, const QSize& defaultSize, QWidget *parent)
+{
+    QSettings settings;
+    QPoint pos = settings.value(strSetting + "Pos").toPoint();
+    QSize size = settings.value(strSetting + "Size", defaultSize).toSize();
+
+    if (!pos.x() && !pos.y()) {
+        QRect screen = QApplication::desktop()->screenGeometry();
+        pos.setX((screen.width() - size.width()) / 2);
+        pos.setY((screen.height() - size.height()) / 2);
+    }
+
+    parent->resize(size);
+    parent->move(pos);
+}
+// Return name of current UI-theme or default theme if no theme was found
+QString getThemeName()
+{
+    QSettings settings;
+    QString theme = settings.value("theme", "").toString();
+
+    if(!theme.isEmpty()){
+        return theme;
+    }
+    return QString("blue");  
+}
+
+// Open CSS when configured
+QString loadStyleSheet()
+{
+    QString styleSheet;
+    QSettings settings;
+    QString cssName;
+    QString theme = settings.value("theme", "").toString();
+
+    if(!theme.isEmpty()){
+        cssName = QString(":/css/") + theme; 
+    }
+    else {
+        cssName = QString(":/css/blue");  
+        settings.setValue("theme", "blue");
+    }
+    
+    QFile qFile(cssName);      
+    if (qFile.open(QFile::ReadOnly)) {
+        styleSheet = QLatin1String(qFile.readAll());
+    }
+        
+    return styleSheet;
+}
+
+void setClipboard(const QString& str)
+=======
 QString boostPathToQString(const fs::path &path)
+>>>>>>> bitcoin/8.22.0
 {
     return QString::fromStdString(path.string());
 }

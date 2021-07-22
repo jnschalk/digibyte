@@ -1,12 +1,19 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef DIGIBYTE_THREADSAFETY_H
 #define DIGIBYTE_THREADSAFETY_H
+<<<<<<< HEAD
+=======
 
 #include <mutex>
+>>>>>>> bitcoin/8.22.0
 
 #ifdef __clang__
 // TL;DR Add GUARDED_BY(mutex) to member variables. The others are
@@ -52,6 +59,8 @@
 #define ASSERT_EXCLUSIVE_LOCK(...)
 #endif // __GNUC__
 
+<<<<<<< HEAD
+=======
 // StdMutex provides an annotated version of std::mutex for us,
 // and should only be used when sync.h Mutex/LOCK/etc are not usable.
 class LOCKABLE StdMutex : public std::mutex
@@ -74,4 +83,5 @@ public:
     ~StdLockGuard() UNLOCK_FUNCTION() {}
 };
 
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_THREADSAFETY_H

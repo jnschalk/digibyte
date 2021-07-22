@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +14,10 @@
 #include <qt/optionsmodel.h>
 
 #include <qt/digibyteunits.h>
+<<<<<<< HEAD
+=======
 #include <qt/guiconstants.h>
+>>>>>>> bitcoin/8.22.0
 #include <qt/guiutil.h>
 
 #include <interfaces/node.h>
@@ -82,6 +90,9 @@ void OptionsModel::Init(bool resetSettings)
     if (!settings.contains("fCoinControlFeatures"))
         settings.setValue("fCoinControlFeatures", false);
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
+
+    if (!settings.contains("theme"))
+    settings.setValue("theme", "");
 
     // These are shared with the core or have a command-line parameter
     // and we want command-line parameters to overwrite the GUI settings.
@@ -340,6 +351,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return nDisplayUnit;
         case ThirdPartyTxUrls:
             return strThirdPartyTxUrls;
+        case Theme:
+            return settings.value("theme");
         case Language:
             return settings.value("language");
         case UseEmbeddedMonospacedFont:
@@ -471,6 +484,12 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
                 setRestartRequired(true);
             }
             break;
+        case Theme:
+            if (settings.value("theme") != value) {
+                settings.setValue("theme", value);
+                setRestartRequired(true);
+            }
+            break; 
         case Language:
             if (settings.value("language") != value) {
                 settings.setValue("language", value);

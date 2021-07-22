@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2012-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,8 +19,14 @@
 #include <streams.h>
 #include <test/util/setup_common.h>
 #include <uint256.h>
+<<<<<<< HEAD
+#include <util.h>
+#include <utilstrencodings.h>
+#include <test/test_digibyte.h>
+=======
 #include <util/strencodings.h>
 #include <util/system.h>
+>>>>>>> bitcoin/8.22.0
 
 #include <vector>
 
@@ -471,8 +482,17 @@ BOOST_AUTO_TEST_CASE(rolling_bloom)
         if (rb1.contains(RandomData()))
             ++nHits;
     }
+<<<<<<< HEAD
+    // Run test_digibyte with --log_level=message to see BOOST_TEST_MESSAGEs:
+    BOOST_TEST_MESSAGE("RollingBloomFilter got " << nHits << " false positives (~100 expected)");
+
+    // Insanely unlikely to get a fp count outside this range:
+    BOOST_CHECK(nHits > 25);
+    BOOST_CHECK(nHits < 175);
+=======
     // Expect about 100 hits
     BOOST_CHECK_EQUAL(nHits, 75U);
+>>>>>>> bitcoin/8.22.0
 
     BOOST_CHECK(rb1.contains(data[DATASIZE-1]));
     rb1.reset();

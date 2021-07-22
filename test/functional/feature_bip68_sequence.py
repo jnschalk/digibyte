@@ -1,11 +1,23 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test BIP68 implementation."""
 
 import time
 
+<<<<<<< HEAD
+from test_framework.blocktools import create_block, create_coinbase, add_witness_commitment
+from test_framework.messages import COIN, COutPoint, CTransaction, CTxIn, CTxOut, FromHex, ToHex
+from test_framework.script import CScript
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, assert_greater_than, assert_raises_rpc_error, bytes_to_hex_str, get_bip9_status, satoshi_round, sync_blocks
+=======
 from test_framework.blocktools import (
     NORMAL_GBT_REQUEST_PARAMS,
     add_witness_commitment,
@@ -28,6 +40,7 @@ from test_framework.util import (
     softfork_active,
 )
 from test_framework.script_util import DUMMY_P2WPKH_SCRIPT
+>>>>>>> bitcoin/8.22.0
 
 SEQUENCE_LOCKTIME_DISABLE_FLAG = (1<<31)
 SEQUENCE_LOCKTIME_TYPE_FLAG = (1<<22) # this means use time (0 means height)
@@ -47,6 +60,9 @@ class BIP68Test(DigiByteTestFramework):
             ],
             ["-acceptnonstdtxn=0"],
         ]
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()

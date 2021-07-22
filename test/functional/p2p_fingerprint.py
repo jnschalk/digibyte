@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test various fingerprinting protections.
@@ -25,11 +30,17 @@ from test_framework.util import (
     assert_equal,
 )
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> bitcoin/8.22.0
 class P2PFingerprintTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     # Build a chain of blocks on top of given one
     def build_chain(self, nblocks, prev_hash, prev_height, prev_median_time):

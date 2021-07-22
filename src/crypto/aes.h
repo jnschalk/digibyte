@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2015-2019 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 //
@@ -64,4 +69,33 @@ private:
     unsigned char iv[AES_BLOCKSIZE];
 };
 
+<<<<<<< HEAD
+class AES128CBCEncrypt
+{
+public:
+    AES128CBCEncrypt(const unsigned char key[AES128_KEYSIZE], const unsigned char ivIn[AES_BLOCKSIZE], bool padIn);
+    ~AES128CBCEncrypt();
+    int Encrypt(const unsigned char* data, int size, unsigned char* out) const;
+
+private:
+    const AES128Encrypt enc;
+    const bool pad;
+    unsigned char iv[AES_BLOCKSIZE];
+};
+
+class AES128CBCDecrypt
+{
+public:
+    AES128CBCDecrypt(const unsigned char key[AES128_KEYSIZE], const unsigned char ivIn[AES_BLOCKSIZE], bool padIn);
+    ~AES128CBCDecrypt();
+    int Decrypt(const unsigned char* data, int size, unsigned char* out) const;
+
+private:
+    const AES128Decrypt dec;
+    const bool pad;
+    unsigned char iv[AES_BLOCKSIZE];
+};
+
+=======
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_CRYPTO_AES_H

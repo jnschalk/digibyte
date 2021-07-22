@@ -1,15 +1,27 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test deprecation of RPC calls."""
 from test_framework.test_framework import DigiByteTestFramework
+<<<<<<< HEAD
+from test_framework.util import assert_raises_rpc_error
+=======
+>>>>>>> bitcoin/8.22.0
 
 class DeprecatedRpcTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = True
         self.extra_args = [[], ['-deprecatedrpc=bumpfee']]
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def run_test(self):
         # This test should be used to verify correct behaviour of deprecated

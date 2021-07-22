@@ -1,7 +1,11 @@
 libsecp256k1
 ============
 
+<<<<<<< HEAD
+[![Build Status](https://travis-ci.org/digibyte-core/secp256k1.svg?branch=master)](https://travis-ci.org/digibyte-core/secp256k1)
+=======
 [![Build Status](https://api.cirrus-ci.com/github/digibyte-core/secp256k1.svg?branch=master)](https://cirrus-ci.com/github/digibyte-core/secp256k1)
+>>>>>>> bitcoin/8.22.0
 
 Optimized C library for ECDSA signatures and secret/public key operations on curve secp256k1.
 

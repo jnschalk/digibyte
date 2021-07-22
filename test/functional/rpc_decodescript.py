@@ -1,9 +1,19 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2015-2019 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test decoding scripts via decodescript RPC command."""
 
+<<<<<<< HEAD
+from test_framework.messages import CTransaction, sha256
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, bytes_to_hex_str, hex_str_to_bytes
+=======
 from test_framework.messages import (
     sha256,
     tx_from_hex,
@@ -13,6 +23,7 @@ from test_framework.util import (
     assert_equal,
     hex_str_to_bytes,
 )
+>>>>>>> bitcoin/8.22.0
 
 
 class DecodeScriptTest(DigiByteTestFramework):

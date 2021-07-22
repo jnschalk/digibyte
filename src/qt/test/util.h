@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+#ifndef DIGIBYTE_QT_TEST_UTIL_H
+#define DIGIBYTE_QT_TEST_UTIL_H
+=======
 // Copyright (c) 2018-2020 The DigiByte Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -6,6 +10,7 @@
 #define DIGIBYTE_QT_TEST_UTIL_H
 
 #include <QString>
+>>>>>>> bitcoin/8.22.0
 
 /**
  * Press "Ok" button in message box dialog.

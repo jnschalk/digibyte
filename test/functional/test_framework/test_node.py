@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Class for digibyted node under test"""
@@ -37,6 +42,12 @@ from .util import (
     EncodeDecimal,
 )
 
+<<<<<<< HEAD
+# For Python 3.4 compatibility
+JSONDecodeError = getattr(json, "JSONDecodeError", ValueError)
+
+=======
+>>>>>>> bitcoin/8.22.0
 DIGIBYTED_PROC_WAIT_TIMEOUT = 60
 
 
@@ -64,6 +75,9 @@ class TestNode():
     To make things easier for the test writer, any unrecognised messages will
     be dispatched to the RPC connection."""
 
+<<<<<<< HEAD
+    def __init__(self, i, datadir, *, rpchost, timewait, digibyted, digibyte_cli, mocktime, coverage_dir, extra_conf=None, extra_args=None, use_cli=False):
+=======
     def __init__(self, i, datadir, *, chain, rpchost, timewait, timeout_factor, digibyted, digibyte_cli, coverage_dir, cwd, extra_conf=None, extra_args=None, use_cli=False, start_perf=False, use_valgrind=False, version=None, descriptors=False):
         """
         Kwargs:
@@ -71,6 +85,7 @@ class TestNode():
                 the node starts.
         """
 
+>>>>>>> bitcoin/8.22.0
         self.index = i
         self.p2p_conn_index = 1
         self.datadir = datadir
@@ -103,6 +118,8 @@ class TestNode():
             "-debugexclude=leveldb",
             "-uacomment=testnode%d" % i,
         ]
+<<<<<<< HEAD
+=======
         if use_valgrind:
             default_suppressions_file = os.path.join(
                 os.path.dirname(os.path.realpath(__file__)),
@@ -117,6 +134,7 @@ class TestNode():
             self.args.append("-logthreadnames")
         if self.version_is_at_least(219900):
             self.args.append("-logsourcelocations")
+>>>>>>> bitcoin/8.22.0
 
         self.cli = TestNodeCLI(digibyte_cli, self.datadir)
         self.use_cli = use_cli
@@ -156,6 +174,22 @@ class TestNode():
         """Return a deterministic priv key in base58, that only depends on the node's index"""
         assert len(self.PRIV_KEYS) == MAX_NODES
         return self.PRIV_KEYS[self.index]
+
+    def get_deterministic_priv_key(self):
+        """Return a deterministic priv key in base58, that only depends on the node's index"""
+        PRIV_KEYS = [
+            # adress , privkey
+            ('mjTkW3DjgyZck4KbiRusZsqTgaYTxdSz6z', 'cVpF924EspNh8KjYsfhgY96mmxvT6DgdWiTYMtMjuM74hJaU5psW'),
+            ('msX6jQXvxiNhx3Q62PKeLPrhrqZQdSimTg', 'cUxsWyKyZ9MAQTaAhUQWJmBbSvHMwSmuv59KgxQV7oZQU3PXN3KE'),
+            ('mnonCMyH9TmAsSj3M59DsbH8H63U3RKoFP', 'cTrh7dkEAeJd6b3MRX9bZK8eRmNqVCMH3LSUkE3dSFDyzjU38QxK'),
+            ('mqJupas8Dt2uestQDvV2NH3RU8uZh2dqQR', 'cVuKKa7gbehEQvVq717hYcbE9Dqmq7KEBKqWgWrYBa2CKKrhtRim'),
+            ('msYac7Rvd5ywm6pEmkjyxhbCDKqWsVeYws', 'cQDCBuKcjanpXDpCqacNSjYfxeQj8G6CAtH1Dsk3cXyqLNC4RPuh'),
+            ('n2rnuUnwLgXqf9kk2kjvVm8R5BZK1yxQBi', 'cQakmfPSLSqKHyMFGwAqKHgWUiofJCagVGhiB4KCainaeCSxeyYq'),
+            ('myzuPxRwsf3vvGzEuzPfK9Nf2RfwauwYe6', 'cQMpDLJwA8DBe9NcQbdoSb1BhmFxVjWD5gRyrLZCtpuF9Zi3a9RK'),
+            ('mumwTaMtbxEPUswmLBBN3vM9oGRtGBrys8', 'cSXmRKXVcoouhNNVpcNKFfxsTsToY5pvB9DVsFksF1ENunTzRKsy'),
+            ('mpV7aGShMkJCZgbW7F6iZgrvuPHjZjH9qg', 'cSoXt6tm3pqy43UMabY6eUTmR3eSUYFtB2iNQDGgb3VUnRsQys2k'),
+        ]
+        return PRIV_KEYS[self.index]
 
     def _node_msg(self, msg: str) -> str:
         """Return a modified msg that identifies this node by its index as a debugging aid."""
@@ -211,9 +245,12 @@ class TestNode():
 
         self.running = True
         self.log.debug("digibyted started, waiting for RPC to come up")
+<<<<<<< HEAD
+=======
 
         if self.start_perf:
             self._start_perf()
+>>>>>>> bitcoin/8.22.0
 
     def wait_for_rpc_connection(self):
         """Sets up an RPC connection to the digibyted process. Returns False if unable to connect."""
@@ -265,6 +302,13 @@ class TestNode():
                 # -342 Service unavailable, RPC server started but is shutting down due to error
                 if e.error['code'] != -28 and e.error['code'] != -342:
                     raise  # unknown JSON RPC exception
+<<<<<<< HEAD
+            except ValueError as e:  # cookie file not found and no rpcuser or rpcassword. digibyted still starting
+                if "No RPC credentials" not in str(e):
+                    raise
+            time.sleep(1.0 / poll_per_s)
+        self._raise_assertion_error("Unable to connect to digibyted")
+=======
             except ConnectionResetError:
                 # This might happen when the RPC server is in warmup, but shut down before the call to getblockcount
                 # succeeds. Try again to properly raise the FailedToStartError
@@ -300,6 +344,7 @@ class TestNode():
     def generate(self, nblocks, maxtries=1000000):
         self.log.debug("TestNode.generate() dispatches `generate` call to `generatetoaddress`")
         return self.generatetoaddress(nblocks=nblocks, address=self.get_deterministic_priv_key().address, maxtries=maxtries)
+>>>>>>> bitcoin/8.22.0
 
     def get_wallet_rpc(self, wallet_name):
         if self.use_cli:
@@ -366,6 +411,9 @@ class TestNode():
         return True
 
     def wait_until_stopped(self, timeout=DIGIBYTED_PROC_WAIT_TIMEOUT):
+<<<<<<< HEAD
+        wait_until(self.is_node_stopped, timeout=timeout)
+=======
         wait_until_helper(self.is_node_stopped, timeout=timeout, timeout_factor=self.timeout_factor)
 
     @contextlib.contextmanager
@@ -476,6 +524,24 @@ class TestNode():
         else:
             report_cmd = "perf report -i {}".format(output_path)
             self.log.info("See perf output by running '{}'".format(report_cmd))
+>>>>>>> bitcoin/8.22.0
+
+    @contextlib.contextmanager
+    def assert_debug_log(self, expected_msgs):
+        debug_log = os.path.join(self.datadir, 'regtest', 'debug.log')
+        with open(debug_log, encoding='utf-8') as dl:
+            dl.seek(0, 2)
+            prev_size = dl.tell()
+        try:
+            yield
+        finally:
+            with open(debug_log, encoding='utf-8') as dl:
+                dl.seek(prev_size)
+                log = dl.read()
+            print_log = " - " + "\n - ".join(log.splitlines())
+            for expected_msg in expected_msgs:
+                if re.search(re.escape(expected_msg), log, flags=re.MULTILINE) is None:
+                    self._raise_assertion_error('Expected message "{}" does not partially match log:\n\n{}\n\n'.format(expected_msg, print_log))
 
     def assert_start_raises_init_error(self, extra_args=None, expected_msg=None, match=ErrorMatch.FULL_TEXT, *args, **kwargs):
         """Attempt to start the node and expect it to raise an error.
@@ -489,9 +555,17 @@ class TestNode():
              tempfile.NamedTemporaryFile(dir=self.stdout_dir, delete=False) as log_stdout:
             try:
                 self.start(extra_args, stdout=log_stdout, stderr=log_stderr, *args, **kwargs)
+<<<<<<< HEAD
+                self.wait_for_rpc_connection()
+                self.stop_node()
+                self.wait_until_stopped()
+            except FailedToStartError as e:
+                self.log.debug('digibyted failed to start: %s', e)
+=======
                 ret = self.process.wait(timeout=self.rpc_timeout)
                 self.log.debug(self._node_msg(f'digibyted exited with status {ret} during initialization'))
                 assert ret != 0  # Exit code must indicate failure
+>>>>>>> bitcoin/8.22.0
                 self.running = False
                 self.process = None
                 # Check stderr for expected message
@@ -516,11 +590,27 @@ class TestNode():
                 self.process = None
                 assert_msg = f'digibyted should have exited within {self.rpc_timeout}s '
                 if expected_msg is None:
+<<<<<<< HEAD
+                    assert_msg = "digibyted should have exited with an error"
+                else:
+                    assert_msg = "digibyted should have exited with expected error " + expected_msg
+                self._raise_assertion_error(assert_msg)
+
+    def node_encrypt_wallet(self, passphrase):
+        """"Encrypts the wallet.
+
+        This causes digibyted to shutdown, so this method takes
+        care of cleaning up resources."""
+        self.encryptwallet(passphrase)
+        self.wait_until_stopped()
+
+=======
                     assert_msg += "with an error"
                 else:
                     assert_msg += "with expected error " + expected_msg
                 self._raise_assertion_error(assert_msg)
 
+>>>>>>> bitcoin/8.22.0
     def add_p2p_connection(self, p2p_conn, *, wait_for_verack=True, **kwargs):
         """Add an inbound p2p connection to the node.
 
@@ -602,6 +692,11 @@ class TestNodeCLIAttr:
     def get_request(self, *args, **kwargs):
         return lambda: self(*args, **kwargs)
 
+<<<<<<< HEAD
+class TestNodeCLI():
+    """Interface to digibyte-cli for an individual node"""
+=======
+>>>>>>> bitcoin/8.22.0
 
 def arg_to_cli(arg):
     if isinstance(arg, bool):
@@ -644,8 +739,13 @@ class TestNodeCLI():
 
     def send_cli(self, command=None, *args, **kwargs):
         """Run digibyte-cli command. Deserializes returned string as python object."""
+<<<<<<< HEAD
+        pos_args = [str(arg).lower() if type(arg) is bool else str(arg) for arg in args]
+        named_args = [str(key) + "=" + str(value) for (key, value) in kwargs.items()]
+=======
         pos_args = [arg_to_cli(arg) for arg in args]
         named_args = [str(key) + "=" + arg_to_cli(value) for (key, value) in kwargs.items()]
+>>>>>>> bitcoin/8.22.0
         assert not (pos_args and named_args), "Cannot use positional arguments and named arguments in the same digibyte-cli call"
         p_args = [self.binary, "-datadir=" + self.datadir] + self.options
         if named_args:
@@ -653,7 +753,11 @@ class TestNodeCLI():
         if command is not None:
             p_args += [command]
         p_args += pos_args + named_args
+<<<<<<< HEAD
+        self.log.debug("Running digibyte-cli command: %s" % command)
+=======
         self.log.debug("Running digibyte-cli {}".format(p_args[2:]))
+>>>>>>> bitcoin/8.22.0
         process = subprocess.Popen(p_args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
         cli_stdout, cli_stderr = process.communicate(input=self.input)
         returncode = process.poll()

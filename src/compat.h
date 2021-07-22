@@ -1,5 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,6 +12,19 @@
 
 #if defined(HAVE_CONFIG_H)
 #include <config/digibyte-config.h>
+<<<<<<< HEAD
+#endif
+
+#include <type_traits>
+
+// GCC 4.8 is missing some C++11 type_traits,
+// https://www.gnu.org/software/gcc/gcc-5/changes.html
+#if defined(__GNUC__) && __GNUC__ < 5
+#define IS_TRIVIALLY_CONSTRUCTIBLE std::is_trivial
+#else
+#define IS_TRIVIALLY_CONSTRUCTIBLE std::is_trivially_constructible
+=======
+>>>>>>> bitcoin/8.22.0
 #endif
 
 #ifdef WIN32
@@ -105,6 +122,8 @@ bool static inline IsSelectableSocket(const SOCKET& s) {
 #endif
 }
 
+<<<<<<< HEAD
+=======
 // MSG_NOSIGNAL is not available on some platforms, if it doesn't exist define it as 0
 #if !defined(MSG_NOSIGNAL)
 #define MSG_NOSIGNAL 0
@@ -115,4 +134,5 @@ bool static inline IsSelectableSocket(const SOCKET& s) {
 #define MSG_DONTWAIT 0
 #endif
 
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_COMPAT_H

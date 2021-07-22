@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test recovery from a crash during chainstate writing.
@@ -30,6 +35,17 @@ import http.client
 import random
 import time
 
+<<<<<<< HEAD
+from test_framework.messages import COIN, COutPoint, CTransaction, CTxIn, CTxOut, ToHex
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, create_confirmed_utxos, hex_str_to_bytes
+
+HTTP_DISCONNECT_ERRORS = [http.client.CannotSendRequest]
+try:
+    HTTP_DISCONNECT_ERRORS.append(http.client.RemoteDisconnected)
+except AttributeError:
+    pass
+=======
 from test_framework.messages import (
     COIN,
     COutPoint,
@@ -44,6 +60,7 @@ from test_framework.util import (
     hex_str_to_bytes,
 )
 
+>>>>>>> bitcoin/8.22.0
 
 class ChainstateWriteCrashTest(DigiByteTestFramework):
     def set_test_params(self):

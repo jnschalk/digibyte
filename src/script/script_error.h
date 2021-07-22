@@ -1,12 +1,19 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef DIGIBYTE_SCRIPT_SCRIPT_ERROR_H
 #define DIGIBYTE_SCRIPT_SCRIPT_ERROR_H
+<<<<<<< HEAD
+=======
 
 #include <string>
+>>>>>>> bitcoin/8.22.0
 
 typedef enum ScriptError_t
 {

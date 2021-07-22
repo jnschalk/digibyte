@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,12 +17,19 @@
 #include <script/script_error.h>
 #include <script/sigcache.h>
 #include <script/sign.h>
+<<<<<<< HEAD
+#include <util.h>
+#include <utilstrencodings.h>
+#include <test/test_digibyte.h>
+#include <rpc/server.h>
+=======
 #include <script/signingprovider.h>
 #include <streams.h>
 #include <test/util/setup_common.h>
 #include <test/util/transaction_utils.h>
 #include <util/strencodings.h>
 #include <util/system.h>
+>>>>>>> bitcoin/8.22.0
 
 #if defined(HAVE_CONSENSUS_LIB)
 #include <script/digibyteconsensus.h>
@@ -152,12 +164,20 @@ void DoTest(const CScript& scriptPubKey, const CScript& scriptSig, const CScript
     stream << tx2;
     int libconsensus_flags = flags & digibyteconsensus_SCRIPT_FLAGS_VERIFY_ALL;
     if (libconsensus_flags == flags) {
+<<<<<<< HEAD
+        if (flags & digibyteconsensus_SCRIPT_FLAGS_VERIFY_WITNESS) {
+            BOOST_CHECK_MESSAGE(digibyteconsensus_verify_script_with_amount(scriptPubKey.data(), scriptPubKey.size(), txCredit.vout[0].nValue, (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, nullptr) == expect, message);
+        } else {
+            BOOST_CHECK_MESSAGE(digibyteconsensus_verify_script_with_amount(scriptPubKey.data(), scriptPubKey.size(), 0, (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, nullptr) == expect, message);
+            BOOST_CHECK_MESSAGE(digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, nullptr) == expect,message);
+=======
         int expectedSuccessCode = expect ? 1 : 0;
         if (flags & digibyteconsensus_SCRIPT_FLAGS_VERIFY_WITNESS) {
             BOOST_CHECK_MESSAGE(digibyteconsensus_verify_script_with_amount(scriptPubKey.data(), scriptPubKey.size(), txCredit.vout[0].nValue, stream.data(), stream.size(), 0, libconsensus_flags, nullptr) == expectedSuccessCode, message);
         } else {
             BOOST_CHECK_MESSAGE(digibyteconsensus_verify_script_with_amount(scriptPubKey.data(), scriptPubKey.size(), 0, stream.data(), stream.size(), 0, libconsensus_flags, nullptr) == expectedSuccessCode, message);
             BOOST_CHECK_MESSAGE(digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), stream.data(), stream.size(), 0, libconsensus_flags, nullptr) == expectedSuccessCode, message);
+>>>>>>> bitcoin/8.22.0
         }
     }
 #endif
@@ -1519,7 +1539,11 @@ BOOST_AUTO_TEST_CASE(digibyteconsensus_verify_script_returns_true)
     stream << spendTx;
 
     digibyteconsensus_error err;
+<<<<<<< HEAD
+    int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), nIn, libconsensus_flags, &err);
+=======
     int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), stream.data(), stream.size(), nIn, libconsensus_flags, &err);
+>>>>>>> bitcoin/8.22.0
     BOOST_CHECK_EQUAL(result, 1);
     BOOST_CHECK_EQUAL(err, digibyteconsensus_ERR_OK);
 }
@@ -1542,7 +1566,11 @@ BOOST_AUTO_TEST_CASE(digibyteconsensus_verify_script_tx_index_err)
     stream << spendTx;
 
     digibyteconsensus_error err;
+<<<<<<< HEAD
+    int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), nIn, libconsensus_flags, &err);
+=======
     int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), stream.data(), stream.size(), nIn, libconsensus_flags, &err);
+>>>>>>> bitcoin/8.22.0
     BOOST_CHECK_EQUAL(result, 0);
     BOOST_CHECK_EQUAL(err, digibyteconsensus_ERR_TX_INDEX);
 }
@@ -1565,7 +1593,11 @@ BOOST_AUTO_TEST_CASE(digibyteconsensus_verify_script_tx_size)
     stream << spendTx;
 
     digibyteconsensus_error err;
+<<<<<<< HEAD
+    int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size() * 2, nIn, libconsensus_flags, &err);
+=======
     int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), stream.data(), stream.size() * 2, nIn, libconsensus_flags, &err);
+>>>>>>> bitcoin/8.22.0
     BOOST_CHECK_EQUAL(result, 0);
     BOOST_CHECK_EQUAL(err, digibyteconsensus_ERR_TX_SIZE_MISMATCH);
 }
@@ -1588,7 +1620,11 @@ BOOST_AUTO_TEST_CASE(digibyteconsensus_verify_script_tx_serialization)
     stream << 0xffffffff;
 
     digibyteconsensus_error err;
+<<<<<<< HEAD
+    int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), nIn, libconsensus_flags, &err);
+=======
     int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), stream.data(), stream.size(), nIn, libconsensus_flags, &err);
+>>>>>>> bitcoin/8.22.0
     BOOST_CHECK_EQUAL(result, 0);
     BOOST_CHECK_EQUAL(err, digibyteconsensus_ERR_TX_DESERIALIZE);
 }
@@ -1611,7 +1647,11 @@ BOOST_AUTO_TEST_CASE(digibyteconsensus_verify_script_amount_required_err)
     stream << spendTx;
 
     digibyteconsensus_error err;
+<<<<<<< HEAD
+    int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), nIn, libconsensus_flags, &err);
+=======
     int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), stream.data(), stream.size(), nIn, libconsensus_flags, &err);
+>>>>>>> bitcoin/8.22.0
     BOOST_CHECK_EQUAL(result, 0);
     BOOST_CHECK_EQUAL(err, digibyteconsensus_ERR_AMOUNT_REQUIRED);
 }
@@ -1634,6 +1674,11 @@ BOOST_AUTO_TEST_CASE(digibyteconsensus_verify_script_invalid_flags)
     stream << spendTx;
 
     digibyteconsensus_error err;
+<<<<<<< HEAD
+    int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), nIn, libconsensus_flags, &err);
+    BOOST_CHECK_EQUAL(result, 0);
+    BOOST_CHECK_EQUAL(err, digibyteconsensus_ERR_INVALID_FLAGS);
+=======
     int result = digibyteconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), stream.data(), stream.size(), nIn, libconsensus_flags, &err);
     BOOST_CHECK_EQUAL(result, 0);
     BOOST_CHECK_EQUAL(err, digibyteconsensus_ERR_INVALID_FLAGS);
@@ -1741,6 +1786,7 @@ BOOST_AUTO_TEST_CASE(script_assets_test)
         AssetTest(tests[i]);
     }
     file.close();
+>>>>>>> bitcoin/8.22.0
 }
 
 BOOST_AUTO_TEST_SUITE_END()

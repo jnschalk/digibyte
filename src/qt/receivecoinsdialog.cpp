@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +13,11 @@
 #include <qt/forms/ui_receivecoinsdialog.h>
 
 #include <qt/addresstablemodel.h>
+<<<<<<< HEAD
+#include <qt/digibyteunits.h>
+=======
 #include <qt/guiutil.h>
+>>>>>>> bitcoin/8.22.0
 #include <qt/optionsmodel.h>
 #include <qt/platformstyle.h>
 #include <qt/receiverequestdialog.h>
@@ -29,6 +38,7 @@ ReceiveCoinsDialog::ReceiveCoinsDialog(const PlatformStyle *_platformStyle, QWid
     platformStyle(_platformStyle)
 {
     ui->setupUi(this);
+    QString theme = GUIUtil::getThemeName();
 
     if (!_platformStyle->getImagesOnButtons()) {
         ui->clearButton->setIcon(QIcon());
@@ -36,10 +46,10 @@ ReceiveCoinsDialog::ReceiveCoinsDialog(const PlatformStyle *_platformStyle, QWid
         ui->showRequestButton->setIcon(QIcon());
         ui->removeRequestButton->setIcon(QIcon());
     } else {
-        ui->clearButton->setIcon(_platformStyle->SingleColorIcon(":/icons/remove"));
-        ui->receiveButton->setIcon(_platformStyle->SingleColorIcon(":/icons/receiving_addresses"));
-        ui->showRequestButton->setIcon(_platformStyle->SingleColorIcon(":/icons/edit"));
-        ui->removeRequestButton->setIcon(_platformStyle->SingleColorIcon(":/icons/remove"));
+        ui->clearButton->setIcon(_platformStyle->SingleColorIcon(":/icons/" + theme + "/remove"));
+        ui->receiveButton->setIcon(_platformStyle->SingleColorIcon(":/icons/" + theme + "/receiving_addresses"));
+        ui->showRequestButton->setIcon(_platformStyle->SingleColorIcon(":/icons/" + theme + "/edit"));
+        ui->removeRequestButton->setIcon(_platformStyle->SingleColorIcon(":/icons/" + theme + "/remove"));
     }
 
     // context menu

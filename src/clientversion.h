@@ -1,18 +1,29 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef DIGIBYTE_CLIENTVERSION_H
 #define DIGIBYTE_CLIENTVERSION_H
+<<<<<<< HEAD
+=======
 
 #include <util/macros.h>
+>>>>>>> bitcoin/8.22.0
 
 #if defined(HAVE_CONFIG_H)
 #include <config/digibyte-config.h>
 #endif //HAVE_CONFIG_H
 
 // Check that required client information is defined
+<<<<<<< HEAD
+#if !defined(CLIENT_VERSION_MAJOR) || !defined(CLIENT_VERSION_MINOR) || !defined(CLIENT_VERSION_REVISION) || !defined(CLIENT_VERSION_BUILD) || !defined(CLIENT_VERSION_IS_RELEASE) || !defined(COPYRIGHT_YEAR)
+=======
 #if !defined(CLIENT_VERSION_MAJOR) || !defined(CLIENT_VERSION_MINOR) || !defined(CLIENT_VERSION_BUILD) || !defined(CLIENT_VERSION_IS_RELEASE) || !defined(COPYRIGHT_YEAR)
+>>>>>>> bitcoin/8.22.0
 #error Client version information missing: version is not defined by digibyte-config.h or in any other way
 #endif
 

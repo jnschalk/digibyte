@@ -1,5 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -53,10 +57,13 @@ bool AppInitSanityChecks();
  */
 bool AppInitLockDataDirectory();
 /**
+<<<<<<< HEAD
+=======
  * Initialize node and wallet interface pointers. Has no prerequisites or side effects besides allocating memory.
  */
 bool AppInitInterfaces(NodeContext& node);
 /**
+>>>>>>> bitcoin/8.22.0
  * DigiByte core main initialization.
  * @note This should only be done after daemonization. Call Shutdown() if this function fails.
  * @pre Parameters should be parsed and config file should be read, AppInitLockDataDirectory should have been called.

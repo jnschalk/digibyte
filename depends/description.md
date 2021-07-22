@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+This is a system of building and caching dependencies necessary for building DigiByte. 
+=======
 This is a system of building and caching dependencies necessary for building DigiByte.
+>>>>>>> bitcoin/8.22.0
 There are several features that make it different from most similar systems:
 
 ### It is designed to be builder and host agnostic

@@ -165,11 +165,15 @@
     <item row="2" column="1">
      <layout class="QHBoxLayout" name="horizontalLayoutAmount" stretch="0,1,0">
       <item>
+<<<<<<< HEAD
+       <widget class="DigiByteAmountField" name="payAmount"/>
+=======
        <widget class="DigiByteAmountField" name="payAmount">
          <property name="toolTip">
           <string>The amount to send in the selected unit</string>
          </property>
        </widget>
+>>>>>>> bitcoin/8.22.0
       </item>
       <item>
        <widget class="QCheckBox" name="checkboxSubtractFeeFromAmount">

@@ -1,15 +1,28 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <consensus/validation.h>
 #include <key.h>
 #include <script/sign.h>
+<<<<<<< HEAD
+#include <test/test_digibyte.h>
+#include <utiltime.h>
+#include <core_io.h>
+#include <keystore.h>
+#include <policy/policy.h>
+=======
 #include <script/signingprovider.h>
 #include <script/standard.h>
 #include <test/util/setup_common.h>
 #include <txmempool.h>
 #include <validation.h>
+>>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 
@@ -227,8 +240,14 @@ BOOST_FIXTURE_TEST_CASE(checkinputs_test, TestChain100Setup)
 
     block = CreateAndProcessBlock({spend_tx}, p2pk_scriptPubKey);
     LOCK(cs_main);
+<<<<<<< HEAD
+    BOOST_CHECK(chainActive.Tip()->GetBlockHash() == block.GetHash());
+    BOOST_CHECK(pcoinsTip->GetBestBlock() == block.GetHash());
+
+=======
     BOOST_CHECK(m_node.chainman->ActiveChain().Tip()->GetBlockHash() == block.GetHash());
     BOOST_CHECK(m_node.chainman->ActiveChainstate().CoinsTip().GetBestBlock() == block.GetHash());
+>>>>>>> bitcoin/8.22.0
 
     // Test P2SH: construct a transaction that is valid without P2SH, and
     // then test validity with P2SH.

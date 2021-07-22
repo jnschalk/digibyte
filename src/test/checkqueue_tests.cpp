@@ -1,7 +1,20 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+#include <util.h>
+#include <utiltime.h>
+#include <validation.h>
+
+#include <test/test_digibyte.h>
+=======
 // Copyright (c) 2012-2020 The DigiByte Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+>>>>>>> bitcoin/8.22.0
 #include <checkqueue.h>
 #include <sync.h>
 #include <test/util/setup_common.h>

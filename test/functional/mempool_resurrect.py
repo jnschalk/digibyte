@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test resurrection of mined transactions when the blockchain is re-organized."""
 
+<<<<<<< HEAD
+from test_framework.blocktools import create_raw_transaction
+=======
 from test_framework.blocktools import COINBASE_MATURITY
+>>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import assert_equal
 from test_framework.wallet import MiniWallet
@@ -14,6 +23,9 @@ class MempoolCoinbaseTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.setup_clean_chain = True
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def run_test(self):
         node = self.nodes[0]
@@ -47,10 +59,21 @@ class MempoolCoinbaseTest(DigiByteTestFramework):
         assert spends_ids < confirmed_txns
 
         # Use invalidateblock to re-org back
+<<<<<<< HEAD
+        for node in self.nodes:
+            node.invalidateblock(blocks[0])
+
+        # All txns should be back in mempool with 0 confirmations
+        assert_equal(set(self.nodes[0].getrawmempool()), set(spends1_id+spends2_id))
+        for txid in spends1_id+spends2_id:
+            tx = self.nodes[0].gettransaction(txid)
+            assert(tx["confirmations"] == 0)
+=======
         node.invalidateblock(blocks[0])
 
         # All txns should be back in mempool with 0 confirmations
         assert_equal(set(node.getrawmempool()), spends_ids)
+>>>>>>> bitcoin/8.22.0
 
         # Generate another block, they should all get mined
         blocks = node.generate(1)

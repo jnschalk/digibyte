@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,7 +15,10 @@
 #include <qt/forms/ui_optionsdialog.h>
 
 #include <qt/digibyteunits.h>
+<<<<<<< HEAD
+=======
 #include <qt/guiconstants.h>
+>>>>>>> bitcoin/8.22.0
 #include <qt/guiutil.h>
 #include <qt/optionsmodel.h>
 
@@ -98,12 +106,29 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     ui->externalSignerPath->setEnabled(false);
 #endif
     /* Display elements init */
+
+
+    /* Theme selector */
+
+    ui->theme->addItem(QString("DGB-Black"), QVariant("black"));
+    ui->theme->addItem(QString("DGB-Blue"), QVariant("blue"));
+    ui->theme->addItem(QString("DGB-White"), QVariant("white"));
+ 
+
+
     QDir translations(":translations");
 
+<<<<<<< HEAD
+    ui->digibyteAtStartup->setToolTip(ui->digibyteAtStartup->toolTip().arg(tr(PACKAGE_NAME)));
+    ui->digibyteAtStartup->setText(ui->digibyteAtStartup->text().arg(tr(PACKAGE_NAME)));
+
+    ui->openDigiByteConfButton->setToolTip(ui->openDigiByteConfButton->toolTip().arg(tr(PACKAGE_NAME)));
+=======
     ui->digibyteAtStartup->setToolTip(ui->digibyteAtStartup->toolTip().arg(PACKAGE_NAME));
     ui->digibyteAtStartup->setText(ui->digibyteAtStartup->text().arg(PACKAGE_NAME));
 
     ui->openDigiByteConfButton->setToolTip(ui->openDigiByteConfButton->toolTip().arg(PACKAGE_NAME));
+>>>>>>> bitcoin/8.22.0
 
     ui->lang->setToolTip(ui->lang->toolTip().arg(PACKAGE_NAME));
     ui->lang->addItem(QString("(") + tr("default") + QString(")"), QVariant(""));
@@ -123,6 +148,11 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
             ui->lang->addItem(locale.nativeLanguageName() + QString(" (") + langStr + QString(")"), QVariant(langStr));
         }
     }
+<<<<<<< HEAD
+    ui->thirdPartyTxUrls->setPlaceholderText("https://example.com/tx/%s");
+
+=======
+>>>>>>> bitcoin/8.22.0
     ui->unit->setModel(new DigiByteUnits(this));
 
     /* Widget-to-option mapper */
@@ -213,6 +243,11 @@ void OptionsDialog::setModel(OptionsModel *_model)
     connect(ui->connectSocks, &QCheckBox::clicked, this, &OptionsDialog::showRestartWarning);
     connect(ui->connectSocksTor, &QCheckBox::clicked, this, &OptionsDialog::showRestartWarning);
     /* Display */
+<<<<<<< HEAD
+    connect(ui->theme, SIGNAL(valueChanged()), this, SLOT(showRestartWarning()));
+    connect(ui->lang, SIGNAL(valueChanged()), this, SLOT(showRestartWarning()));
+    connect(ui->thirdPartyTxUrls, SIGNAL(textChanged(const QString &)), this, SLOT(showRestartWarning()));
+=======
     connect(ui->lang, qOverload<>(&QValueComboBox::valueChanged), [this]{ showRestartWarning(); });
     connect(ui->thirdPartyTxUrls, &QLineEdit::textChanged, [this]{ showRestartWarning(); });
 }
@@ -225,6 +260,7 @@ void OptionsDialog::setCurrentTab(OptionsDialog::Tab tab)
     if (tab_widget && ui->tabWidget->currentWidget() != tab_widget) {
         ui->tabWidget->setCurrentWidget(tab_widget);
     }
+>>>>>>> bitcoin/8.22.0
 }
 
 void OptionsDialog::setMapper()
@@ -264,6 +300,7 @@ void OptionsDialog::setMapper()
 #endif
 
     /* Display */
+    mapper->addMapping(ui->theme, OptionsModel::Theme);
     mapper->addMapping(ui->lang, OptionsModel::Language);
     mapper->addMapping(ui->unit, OptionsModel::DisplayUnit);
     mapper->addMapping(ui->thirdPartyTxUrls, OptionsModel::ThirdPartyTxUrls);

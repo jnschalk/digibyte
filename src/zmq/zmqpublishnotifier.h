@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2015-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,6 +57,8 @@ public:
     bool NotifyTransaction(const CTransaction &transaction) override;
 };
 
+<<<<<<< HEAD
+=======
 class CZMQPublishSequenceNotifier : public CZMQAbstractPublishNotifier
 {
 public:
@@ -61,4 +68,5 @@ public:
     bool NotifyTransactionRemoval(const CTransaction &transaction, uint64_t mempool_sequence) override;
 };
 
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_ZMQ_ZMQPUBLISHNOTIFIER_H

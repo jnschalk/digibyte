@@ -1,11 +1,18 @@
+<<<<<<< HEAD
+// Copyright (c) 2016 The DigiByte Core developers
+=======
 // Copyright (c) 2016-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef DIGIBYTE_INDIRECTMAP_H
 #define DIGIBYTE_INDIRECTMAP_H
+<<<<<<< HEAD
+=======
 
 #include <map>
+>>>>>>> bitcoin/8.22.0
 
 template <class T>
 struct DereferencingComparator { bool operator()(const T a, const T b) const { return *a < *b; } };

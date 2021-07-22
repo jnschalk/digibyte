@@ -1,14 +1,23 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2016-2019 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test RPC commands for signing and verifying messages."""
 
 from test_framework.test_framework import DigiByteTestFramework
+<<<<<<< HEAD
+from test_framework.util import assert_equal
+=======
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
 )
+>>>>>>> bitcoin/8.22.0
 
 class SignMessagesTest(DigiByteTestFramework):
     def set_test_params(self):

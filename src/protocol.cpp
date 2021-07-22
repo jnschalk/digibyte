@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -37,6 +42,9 @@ const char *SENDCMPCT="sendcmpct";
 const char *CMPCTBLOCK="cmpctblock";
 const char *GETBLOCKTXN="getblocktxn";
 const char *BLOCKTXN="blocktxn";
+<<<<<<< HEAD
+const char *DANDELIONTX="dandeliontx";
+=======
 const char *GETCFILTERS="getcfilters";
 const char *CFILTER="cfilter";
 const char *GETCFHEADERS="getcfheaders";
@@ -44,6 +52,7 @@ const char *CFHEADERS="cfheaders";
 const char *GETCFCHECKPT="getcfcheckpt";
 const char *CFCHECKPT="cfcheckpt";
 const char *WTXIDRELAY="wtxidrelay";
+>>>>>>> bitcoin/8.22.0
 } // namespace NetMsgType
 
 /** All known message types. Keep this in the same order as the list of
@@ -77,6 +86,9 @@ const static std::string allNetMessageTypes[] = {
     NetMsgType::CMPCTBLOCK,
     NetMsgType::GETBLOCKTXN,
     NetMsgType::BLOCKTXN,
+<<<<<<< HEAD
+    NetMsgType::DANDELIONTX,
+=======
     NetMsgType::GETCFILTERS,
     NetMsgType::CFILTER,
     NetMsgType::GETCFHEADERS,
@@ -84,6 +96,7 @@ const static std::string allNetMessageTypes[] = {
     NetMsgType::GETCFCHECKPT,
     NetMsgType::CFCHECKPT,
     NetMsgType::WTXIDRELAY,
+>>>>>>> bitcoin/8.22.0
 };
 const static std::vector<std::string> allNetMessageTypesVec(std::begin(allNetMessageTypes), std::end(allNetMessageTypes));
 
@@ -162,6 +175,7 @@ std::string CInv::GetCommand() const
     case MSG_BLOCK:          return cmd.append(NetMsgType::BLOCK);
     case MSG_FILTERED_BLOCK: return cmd.append(NetMsgType::MERKLEBLOCK);
     case MSG_CMPCT_BLOCK:    return cmd.append(NetMsgType::CMPCTBLOCK);
+    case MSG_DANDELION_TX:   return cmd.append(NetMsgType::DANDELIONTX);
     default:
         throw std::out_of_range(strprintf("CInv::GetCommand(): type=%d unknown type", type));
     }

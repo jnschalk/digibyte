@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2018 The DigiByte Core developers
+=======
 # Copyright (c) 2018-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the scantxoutset rpc call."""
 from test_framework.test_framework import DigiByteTestFramework
+<<<<<<< HEAD
+from test_framework.util import assert_equal
+=======
 from test_framework.util import assert_equal, assert_raises_rpc_error
+>>>>>>> bitcoin/8.22.0
 
 from decimal import Decimal
 import shutil
 import os
 
+<<<<<<< HEAD
+=======
 def descriptors(out):
     return sorted(u['desc'] for u in out['unspents'])
 
+>>>>>>> bitcoin/8.22.0
 class ScantxoutsetTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 1

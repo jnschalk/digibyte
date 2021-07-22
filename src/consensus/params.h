@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,8 +32,19 @@ constexpr bool ValidDeployment(BuriedDeployment dep) { return DEPLOYMENT_HEIGHTI
 
 enum DeploymentPos : uint16_t {
     DEPLOYMENT_TESTDUMMY,
+<<<<<<< HEAD
+    DEPLOYMENT_CSV, // Deployment of BIP68, BIP112, and BIP113.
+    DEPLOYMENT_SEGWIT, // Deployment of BIP141, BIP143, and BIP147.
+    DEPLOYMENT_NVERSIONBIPS, // Deployment of BIP34, BIP65, and BIP66.
+    DEPLOYMENT_RESERVEALGO,  // Reservation of version bits for future algos
+    DEPLOYMENT_ODO, // Odo hard fork
+    //DEPLOYMENT_EQUIHASH, // Equihash algo swap
+    //DEPLOYMENT_ETHASH, // Ethash algo swap
+    // NOTE: Also add new deployments to VersionBitsDeploymentInfo in versionbits.cpp
+=======
     DEPLOYMENT_TAPROOT, // Deployment of Schnorr/Taproot (BIPs 340-342)
     // NOTE: Also add new deployments to VersionBitsDeploymentInfo in deploymentinfo.cpp
+>>>>>>> bitcoin/8.22.0
     MAX_VERSION_BITS_DEPLOYMENTS
 };
 constexpr bool ValidDeployment(DeploymentPos dep) { return DEPLOYMENT_TESTDUMMY <= dep && dep <= DEPLOYMENT_TAPROOT; }
@@ -79,6 +95,9 @@ struct Params {
     int BIP65Height;
     /** Block height at which BIP66 becomes active */
     int BIP66Height;
+<<<<<<< HEAD
+    
+=======
     /** Block height at which CSV (BIP68, BIP112 and BIP113) becomes active */
     int CSVHeight;
     /** Block height at which Segwit (BIP141, BIP143 and BIP147) becomes active.
@@ -88,6 +107,7 @@ struct Params {
     /** Don't warn about unknown BIP 9 activations below this height.
      * This prevents us from warning about the CSV and segwit activations. */
     int MinBIP9WarningHeight;
+>>>>>>> bitcoin/8.22.0
     /**
      * Minimum blocks including miner confirmation of the total of 2016 blocks in a retargeting period,
      * (nPowTargetTimespan / nPowTargetSpacing) which is also used for BIP9 deployments.
@@ -98,15 +118,64 @@ struct Params {
     BIP9Deployment vDeployments[MAX_VERSION_BITS_DEPLOYMENTS];
     /** Proof of work parameters */
     uint256 powLimit;
+    std::map<int, uint256> initialTarget;
     bool fPowAllowMinDifficultyBlocks;
     bool fPowNoRetargeting;
+    bool fRbfEnabled;
     int64_t nPowTargetSpacing;
     int64_t nPowTargetTimespan;
     int64_t DifficultyAdjustmentInterval() const { return nPowTargetTimespan / nPowTargetSpacing; }
+<<<<<<< HEAD
+
+    int64_t nTargetTimespan;
+    int64_t nTargetSpacing;
+    int64_t nInterval;
+    int64_t nDiffChangeTarget;
+    int64_t nTargetTimespanRe;
+    int64_t nTargetSpacingRe;
+    int64_t nIntervalRe;
+    int64_t patchBlockRewardDuration;
+    int64_t patchBlockRewardDuration2;
+
+	int64_t nAveragingInterval;
+    int64_t multiAlgoTargetSpacing;
+	int64_t multiAlgoTargetSpacingV4;
+    int64_t nAveragingTargetTimespan;
+	int64_t nAveragingTargetTimespanV4;
+
+	int64_t nMaxAdjustDown;
+	int64_t nMaxAdjustUp;
+	int64_t nMaxAdjustDownV3;
+	int64_t nMaxAdjustUpV3;
+	int64_t nMaxAdjustDownV4;
+	int64_t nMaxAdjustUpV4;
+
+	int64_t nMinActualTimespan;
+	int64_t nMaxActualTimespan;
+	int64_t nMinActualTimespanV3;
+	int64_t nMaxActualTimespanV3;
+	int64_t nMinActualTimespanV4;
+	int64_t nMaxActualTimespanV4;
+
+	int64_t nLocalTargetAdjustment;
+	int64_t nLocalDifficultyAdjustment;
+
+	int64_t multiAlgoDiffChangeTarget;
+	int64_t alwaysUpdateDiffChangeTarget;
+	int64_t workComputationChangeTarget;
+	int64_t algoSwapChangeTarget;
+
+    uint32_t nOdoShapechangeInterval;
+
+=======
     /** The best chain should have at least this much work */
+>>>>>>> bitcoin/8.22.0
     uint256 nMinimumChainWork;
     /** By default assume that the signatures in ancestors of this block are valid */
     uint256 defaultAssumeValid;
+<<<<<<< HEAD
+    bool EnableRBF() const { return fRbfEnabled; }
+=======
 
     /**
      * If true, witness commitments contain a payload equal to a DigiByte Script solution
@@ -131,6 +200,7 @@ struct Params {
         } // no default case, so the compiler can warn about missing cases
         return std::numeric_limits<int>::max();
     }
+>>>>>>> bitcoin/8.22.0
 };
 
 } // namespace Consensus

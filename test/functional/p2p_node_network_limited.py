@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Tests NODE_NETWORK_LIMITED.
@@ -8,6 +13,12 @@ Tests that a node configured with -prune=550 signals NODE_NETWORK_LIMITED correc
 and that it responds to getdata requests for blocks correctly:
     - send a block within 288 + 2 of the tip
     - disconnect peers who request blocks older than that."""
+<<<<<<< HEAD
+from test_framework.messages import CInv, msg_getdata, msg_verack, NODE_BLOOM, NODE_NETWORK_LIMITED, NODE_WITNESS
+from test_framework.mininode import P2PInterface, mininode_lock
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, disconnect_nodes, connect_nodes_bi, sync_blocks, wait_until
+=======
 from test_framework.messages import CInv, MSG_BLOCK, msg_getdata, msg_verack, NODE_NETWORK_LIMITED, NODE_WITNESS
 from test_framework.p2p import P2PInterface
 from test_framework.test_framework import DigiByteTestFramework
@@ -15,6 +26,7 @@ from test_framework.util import (
     assert_equal,
 )
 
+>>>>>>> bitcoin/8.22.0
 
 class P2PIgnoreInv(P2PInterface):
     firstAddrnServices = 0
@@ -36,6 +48,9 @@ class NodeNetworkLimitedTest(DigiByteTestFramework):
         self.setup_clean_chain = True
         self.num_nodes = 3
         self.extra_args = [['-prune=550', '-addrmantest'], [], []]
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def disconnect_all(self):
         self.disconnect_nodes(0, 1)

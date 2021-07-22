@@ -266,9 +266,14 @@ to see it.
 
 ### Signet, testnet, and regtest modes
 
+<<<<<<< HEAD
+Run with the `-testnet` option to run with "play digibytes" on the test network, if you
+are testing multi-machine code that needs to operate across the internet.
+=======
 If you are testing multi-machine code that needs to operate across the internet,
 you can run with either the `-signet` or the `-testnet` config option to test
 with "play digibytes" on a test network.
+>>>>>>> bitcoin/8.22.0
 
 If you are testing something that can run on one machine, run with the
 `-regtest` option.  In regression test mode, blocks can be created on demand;
@@ -322,7 +327,10 @@ $ valgrind --suppressions=contrib/valgrind.supp src/test/test_digibyte
 $ valgrind --suppressions=contrib/valgrind.supp --leak-check=full \
       --show-leak-kinds=all src/test/test_digibyte --log_level=test_suite
 $ valgrind -v --leak-check=full src/digibyted -printtoconsole
+<<<<<<< HEAD
+=======
 $ ./test/functional/test_runner.py --valgrind
+>>>>>>> bitcoin/8.22.0
 ```
 
 ### Compiling for test coverage
@@ -339,6 +347,8 @@ make
 make cov
 
 # A coverage report will now be accessible at `./test_digibyte.coverage/index.html`.
+<<<<<<< HEAD
+=======
 ```
 
 ### Performance profiling with perf
@@ -372,10 +382,13 @@ invocation of `perf record` like this:
 $ perf record \
     -g --call-graph dwarf --per-thread -F 140 \
     -p `pgrep digibyted` -- sleep 60
+>>>>>>> bitcoin/8.22.0
 ```
 
 You could then analyze the results by running:
 
+<<<<<<< HEAD
+=======
 ```sh
 perf report --stdio | c++filt | less
 ```
@@ -387,6 +400,7 @@ See the functional test documentation for how to invoke perf within tests.
 
 ### Sanitizers
 
+>>>>>>> bitcoin/8.22.0
 DigiByte Core can be compiled with various "sanitizers" enabled, which add
 instrumentation for issues regarding things like memory safety, thread race
 conditions, or undefined behavior. This is controlled with the
@@ -742,8 +756,12 @@ Strings and formatting
 - Use `.c_str()` sparingly. Its only valid use is to pass C++ strings to C functions that take NULL-terminated
   strings.
 
+<<<<<<< HEAD
+  - *Rationale*: DigiByte Core uses tinyformat, which is type safe. Leave them out to avoid confusion
+=======
   - Do not use it when passing a sized array (so along with `.size()`). Use `.data()` instead to get a pointer
     to the raw data.
+>>>>>>> bitcoin/8.22.0
 
     - *Rationale*: Although this is guaranteed to be safe starting with C++11, `.data()` communicates the intent better.
 
@@ -960,12 +978,21 @@ Subtrees
 Several parts of the repository are subtrees of software maintained elsewhere.
 
 Some of these are maintained by active developers of DigiByte Core, in which case changes should probably go
+<<<<<<< HEAD
+directly upstream without being PRed directly against the project.  They will be merged back in the next
+subtree merge.
+
+Others are external projects without a tight relationship with our project.  Changes to these should also
+be sent upstream but bugfixes may also be prudent to PR against DigiByte Core so that they can be integrated
+quickly.  Cosmetic changes should be purely taken upstream.
+=======
 directly upstream without being PRed directly against the project. They will be merged back in the next
 subtree merge.
 
 Others are external projects without a tight relationship with our project. Changes to these should also
 be sent upstream, but bugfixes may also be prudent to PR against DigiByte Core so that they can be integrated
 quickly. Cosmetic changes should be purely taken upstream.
+>>>>>>> bitcoin/8.22.0
 
 There is a tool in `test/lint/git-subtree-check.sh` ([instructions](../test/lint#git-subtree-checksh)) to check a subtree directory for consistency with
 its upstream repository.
@@ -978,12 +1005,17 @@ Current subtrees include:
   - **Note**: Follow the instructions in [Upgrading LevelDB](#upgrading-leveldb) when
     merging upstream changes to the LevelDB subtree.
 
+<<<<<<< HEAD
+- src/libsecp256k1
+  - Upstream at https://github.com/digibyte-core/secp256k1/ ; actively maintaned by Core contributors.
+=======
 - src/crc32c
   - Used by leveldb for hardware acceleration of CRC32C checksums for data integrity.
   - Upstream at https://github.com/google/crc32c ; Maintained by Google.
 
 - src/secp256k1
   - Upstream at https://github.com/digibyte-core/secp256k1/ ; actively maintained by Core contributors.
+>>>>>>> bitcoin/8.22.0
 
 - src/crypto/ctaes
   - Upstream at https://github.com/digibyte-core/ctaes ; actively maintained by Core contributors.
@@ -1001,7 +1033,11 @@ you must be aware of.
 
 In most configurations, we use the default LevelDB value for `max_open_files`,
 which is 1000 at the time of this writing. If LevelDB actually uses this many
+<<<<<<< HEAD
+file descriptors it will cause problems with DigiByte's `select()` loop, because
+=======
 file descriptors, it will cause problems with DigiByte's `select()` loop, because
+>>>>>>> bitcoin/8.22.0
 it may cause new sockets to be created where the fd value is >= 1024. For this
 reason, on 64-bit Unix systems, we rely on an internal LevelDB optimization that
 uses `mmap()` + `close()` to open table files without actually retaining
@@ -1028,14 +1064,24 @@ details.
 
 It is possible for LevelDB changes to inadvertently change consensus
 compatibility between nodes. This happened in DigiByte 0.8 (when LevelDB was
+<<<<<<< HEAD
+first introduced). When upgrading LevelDB you should review the upstream changes
+=======
 first introduced). When upgrading LevelDB, you should review the upstream changes
+>>>>>>> bitcoin/8.22.0
 to check for issues affecting consensus compatibility.
 
 For example, if LevelDB had a bug that accidentally prevented a key from being
 returned in an edge case, and that bug was fixed upstream, the bug "fix" would
+<<<<<<< HEAD
+be an incompatible consensus change. In this situation the correct behavior
+would be to revert the upstream fix before applying the updates to DigiByte's
+copy of LevelDB. In general you should be wary of any upstream changes affecting
+=======
 be an incompatible consensus change. In this situation, the correct behavior
 would be to revert the upstream fix before applying the updates to DigiByte's
 copy of LevelDB. In general, you should be wary of any upstream changes affecting
+>>>>>>> bitcoin/8.22.0
 what data is returned from LevelDB queries.
 
 Scripted diffs
@@ -1074,9 +1120,15 @@ For efficient replacement scripts, reduce the selection to the files that potent
 example, instead of a blanket `git ls-files src | xargs sed -i s/apple/orange/`, use
 `git grep -l apple src | xargs sed -i s/apple/orange/`.
 
+<<<<<<< HEAD
+        [remote "upstream-pull"]
+                fetch = +refs/pull/*:refs/remotes/upstream-pull/*
+                url = git@github.com:digibyte/digibyte.git
+=======
 Also, it is good to keep the selection of files as specific as possible — for example, replace only in directories where
 you expect replacements — because it reduces the risk that a rebase of your commit by re-running the script will
 introduce accidental changes.
+>>>>>>> bitcoin/8.22.0
 
 Some good examples of scripted-diff:
 
@@ -1095,6 +1147,9 @@ To find all previous uses of scripted diffs in the repository, do:
 git log --grep="-BEGIN VERIFY SCRIPT-"
 ```
 
+<<<<<<< HEAD
+Commit [`bb81e173`](https://github.com/digibyte/digibyte/commit/bb81e173) is an example of a scripted-diff.
+=======
 Release notes
 -------------
 
@@ -1109,6 +1164,7 @@ Release notes should be added to a PR-specific release note file at
 `/doc/release-notes-<PR number>.md` to avoid conflicts between multiple PRs.
 All `release-notes*` files are merged into a single
 [/doc/release-notes.md](/doc/release-notes.md) file prior to the release.
+>>>>>>> bitcoin/8.22.0
 
 RPC interface guidelines
 --------------------------

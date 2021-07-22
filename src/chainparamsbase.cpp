@@ -1,5 +1,9 @@
 // Copyright (c) 2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,6 +46,16 @@ const CBaseChainParams& BaseParams()
  */
 std::unique_ptr<CBaseChainParams> CreateBaseChainParams(const std::string& chain)
 {
+<<<<<<< HEAD
+    if (chain == CBaseChainParams::MAIN)
+        return MakeUnique<CBaseChainParams>("", 14022);
+    else if (chain == CBaseChainParams::TESTNET)
+        return MakeUnique<CBaseChainParams>("testnet4", 14023);
+    else if (chain == CBaseChainParams::REGTEST)
+        return MakeUnique<CBaseChainParams>("regtest", 18443);
+    else
+        throw std::runtime_error(strprintf("%s: Unknown chain %s.", __func__, chain));
+=======
     if (chain == CBaseChainParams::MAIN) {
         return std::make_unique<CBaseChainParams>("", 8332, 8334);
     } else if (chain == CBaseChainParams::TESTNET) {
@@ -52,6 +66,7 @@ std::unique_ptr<CBaseChainParams> CreateBaseChainParams(const std::string& chain
         return std::make_unique<CBaseChainParams>("regtest", 18443, 18445);
     }
     throw std::runtime_error(strprintf("%s: Unknown chain %s.", __func__, chain));
+>>>>>>> bitcoin/8.22.0
 }
 
 void SelectBaseParams(const std::string& chain)

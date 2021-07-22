@@ -1,10 +1,15 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <txmempool.h>
-
+#include <chainparams.h>
 #include <consensus/consensus.h>
 #include <consensus/tx_verify.h>
 #include <consensus/validation.h>
@@ -525,13 +530,25 @@ void CTxMemPool::removeForReorg(CChainState& active_chainstate, int flags)
                 indexed_transaction_set::const_iterator it2 = mapTx.find(txin.prevout.hash);
                 if (it2 != mapTx.end())
                     continue;
+<<<<<<< HEAD
+                const Coin &coin = pcoins->AccessCoin(txin.prevout);
+                if (nCheckFrequency != 0) assert(!coin.IsSpent());
+                if (coin.nHeight < Params().GetConsensus().multiAlgoDiffChangeTarget) {                    
+=======
                 const Coin &coin = active_chainstate.CoinsTip().AccessCoin(txin.prevout);
                 if (m_check_ratio != 0) assert(!coin.IsSpent());
                 unsigned int nMemPoolHeight = active_chainstate.m_chain.Tip()->nHeight + 1;
+>>>>>>> bitcoin/8.22.0
                 if (coin.IsSpent() || (coin.IsCoinBase() && ((signed long)nMemPoolHeight) - coin.nHeight < COINBASE_MATURITY)) {
                     txToRemove.insert(it);
                     break;
                 }
+                } else {
+                    if (coin.IsSpent() || (coin.IsCoinBase() && ((signed long)nMemPoolHeight) - coin.nHeight < COINBASE_MATURITY_2)) {
+                    txToRemove.insert(it);
+                    break;
+                }  
+                }              
             }
         }
         if (!validLP) {

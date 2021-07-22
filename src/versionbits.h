@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2016-2019 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,13 +16,13 @@
 #include <map>
 
 /** What block version to use for new blocks (pre versionbits) */
-static const int32_t VERSIONBITS_LAST_OLD_BLOCK_VERSION = 4;
+static const int32_t VERSIONBITS_LAST_OLD_BLOCK_VERSION = 2;
 /** What bits to set in version for versionbits blocks */
 static const int32_t VERSIONBITS_TOP_BITS = 0x20000000UL;
 /** What bitmask determines whether versionbits is in use */
-static const int32_t VERSIONBITS_TOP_MASK = 0xE0000000UL;
+static const int32_t VERSIONBITS_TOP_MASK = 0xF0000000UL;
 /** Total bits available for versionbits */
-static const int32_t VERSIONBITS_NUM_BITS = 29;
+static const int32_t VERSIONBITS_NUM_BITS = 16;
 
 /** BIP 9 defines a finite-state-machine to deploy a softfork in multiple stages.
  *  State transitions happen during retarget period if conditions are met
@@ -100,4 +105,12 @@ public:
     void Clear();
 };
 
+<<<<<<< HEAD
+ThresholdState VersionBitsState(const CBlockIndex* pindexPrev, const Consensus::Params& params, Consensus::DeploymentPos pos, VersionBitsCache& cache);
+BIP9Stats VersionBitsStatistics(const CBlockIndex* pindexPrev, const Consensus::Params& params, Consensus::DeploymentPos pos);
+int VersionBitsStateSinceHeight(const CBlockIndex* pindexPrev, const Consensus::Params& params, Consensus::DeploymentPos pos, VersionBitsCache& cache);
+uint32_t VersionBitsMask(const Consensus::Params& params, Consensus::DeploymentPos pos);
+
+=======
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_VERSIONBITS_H

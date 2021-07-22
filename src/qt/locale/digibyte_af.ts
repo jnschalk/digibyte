@@ -3,6 +3,89 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
+<<<<<<< HEAD
+        <translation>Regsklik om adres of etiket te verander</translation>
+    </message>
+    <message>
+        <source>Create a new address</source>
+        <translation>Skep ’n nuwe adres</translation>
+    </message>
+    <message>
+        <source>&amp;New</source>
+        <translation>&amp;Nuwe</translation>
+    </message>
+    <message>
+        <source>Copy the currently selected address to the system clipboard</source>
+        <translation>Dupliseer die geselekteerde adres na die sisteem se geheuebord</translation>
+    </message>
+    <message>
+        <source>&amp;Copy</source>
+        <translation>&amp;Dupliseer</translation>
+    </message>
+    <message>
+        <source>C&amp;lose</source>
+        <translation>S&amp;luit</translation>
+    </message>
+    <message>
+        <source>Delete the currently selected address from the list</source>
+        <translation>Verwyder die adres wat u gekies het van die lys</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Voer die inligting op hierdie bladsy uit na 'n leer</translation>
+    </message>
+    <message>
+        <source>&amp;Export</source>
+        <translation>&amp;Voer uit</translation>
+    </message>
+    <message>
+        <source>&amp;Delete</source>
+        <translation>&amp;Vee uit</translation>
+    </message>
+    <message>
+        <source>Choose the address to send coins to</source>
+        <translation>Kies die adres waarheen u munte wil stuur</translation>
+    </message>
+    <message>
+        <source>Choose the address to receive coins with</source>
+        <translation>Kies die adres wat die munte moet ontvang</translation>
+    </message>
+    <message>
+        <source>C&amp;hoose</source>
+        <translation>K&amp;ies</translation>
+    </message>
+    <message>
+        <source>Sending addresses</source>
+        <translation>Stuurders adresse</translation>
+    </message>
+    <message>
+        <source>Receiving addresses</source>
+        <translation>Ontvanger adresse</translation>
+    </message>
+    <message>
+        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Hierdie is die adresse vanwaar u DigiByte betalings stuur. U moet altyd die bedrag en die adres van die ontvanger nagaan voordat u enige munte stuur.</translation>
+    </message>
+    <message>
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Hierdie is die adresse waar u DigiBytes sal ontvang. Ons beveel aan dat u 'n nuwe adres kies vir elke transaksie</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Address</source>
+        <translation>&amp;Dupliseer Adres</translation>
+    </message>
+    <message>
+        <source>Copy &amp;Label</source>
+        <translation>Kopieer &amp;Etiket</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation>&amp;Verander</translation>
+    </message>
+    <message>
+        <source>Export Address List</source>
+        <translation>Voer adreslys uit</translation>
+=======
         <translation>Right-click to edit address or label</translation>
     </message>
     <message>
@@ -68,6 +151,13 @@
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</translation>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+    </message>
+    <message>
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</translation>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -84,6 +174,7 @@
     <message>
         <source>Export Address List</source>
         <translation>Export Address List</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
@@ -91,17 +182,36 @@
     </message>
     <message>
         <source>Exporting Failed</source>
+<<<<<<< HEAD
+        <translation>Uitvoer was onsuksesvol</translation>
+    </message>
+    <message>
+        <source>There was an error trying to save the address list to %1. Please try again.</source>
+        <translation>Die adreslys kon nie in %1  gestoor word nie.  Probeer asseblief weer.</translation>
+=======
         <translation>Exporting Failed</translation>
     </message>
     <message>
         <source>There was an error trying to save the address list to %1. Please try again.</source>
         <translation>There was an error trying to save the address list to %1. Please try again.</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>AddressTableModel</name>
     <message>
         <source>Label</source>
+<<<<<<< HEAD
+        <translation>Merk</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(geen etiket)</translation>
+=======
         <translation>Label</translation>
     </message>
     <message>
@@ -111,12 +221,116 @@
     <message>
         <source>(no label)</source>
         <translation>(no label)</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
+<<<<<<< HEAD
+        <translation>Wagwoord Dialoog</translation>
+    </message>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>Tik u wagwoord in</translation>
+    </message>
+    <message>
+        <source>New passphrase</source>
+        <translation>Nuwe wagwoord</translation>
+    </message>
+    <message>
+        <source>Repeat new passphrase</source>
+        <translation>Herhaal nuwe wagwoord</translation>
+    </message>
+    <message>
+        <source>Show password</source>
+        <translation>Wys wagwoord</translation>
+    </message>
+    <message>
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation>Tik die nuwe wagwoord vir u beursie.&lt;br/&gt;Gerbuik asseblief 'n wagwoord met &lt;b&gt;tien of meer lukrake karakters&lt;/b&gt;, of &lt;b&gt;agt of meer woorde&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Encrypt wallet</source>
+        <translation>Kodifiseer beursie</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation>U het u beursie se wagwoord nodig om toegang tot u beursie te verkry.</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Sluit beursie oop</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>U het u beursie se wagwoord nodig om u beursie se kode te ontsyfer.</translation>
+    </message>
+    <message>
+        <source>Decrypt wallet</source>
+        <translation>Ontsleutel beursie</translation>
+    </message>
+    <message>
+        <source>Change passphrase</source>
+        <translation>Verander wagwoord</translation>
+    </message>
+    <message>
+        <source>Enter the old passphrase and new passphrase to the wallet.</source>
+        <translation>Tik die ou en die nuwe wagwoorde vir die beursie.</translation>
+    </message>
+    <message>
+        <source>Confirm wallet encryption</source>
+        <translation>Bevestig dat die beursie gekodifiseer is</translation>
+    </message>
+    <message>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
+        <translation>Waarskuwing: Indien u die beursie kodifiseer en u vergeet u wagwoord &lt;b&gt;VERLOOR U AL U DIGIBYTES&lt;/b&gt;!</translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to encrypt your wallet?</source>
+        <translation>Is u seker dat u die beursie wil kodifiseer?</translation>
+    </message>
+    <message>
+        <source>Wallet encrypted</source>
+        <translation>Beursie gekodifiseer</translation>
+    </message>
+    <message>
+        <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
+        <translation>BELANGRIK:  Alle vorige kopieë en rugsteun-weergawes wat u tevore van die gemaak het, moet vervang word met die jongste weergawe van u nuutste gekodifiseerde beursie.  Alle vorige weergawes en rugsteun-kopieë van u beursie sal nutteloos raak die oomblik wat u die nuut-gekodifiseerde beursie begin gebruik.</translation>
+    </message>
+    <message>
+        <source>Wallet encryption failed</source>
+        <translation>Kodifikasie was onsuksesvol</translation>
+    </message>
+    <message>
+        <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
+        <translation>Weens 'n interne fout het kodifikasie het nie geslaag nie.  U beursie is nie gekodifiseer nie</translation>
+    </message>
+    <message>
+        <source>The supplied passphrases do not match.</source>
+        <translation>Die wagwoorde stem nie ooreen nie.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock failed</source>
+        <translation>Die beursie is nie oopgesluit nie</translation>
+    </message>
+    <message>
+        <source>The passphrase entered for the wallet decryption was incorrect.</source>
+        <translation>U het die verkeerde wagwoord ingetik.</translation>
+    </message>
+    <message>
+        <source>Wallet decryption failed</source>
+        <translation>Beursie-dekripsie het misluk</translation>
+    </message>
+    <message>
+        <source>Wallet passphrase was successfully changed.</source>
+        <translation>Beursie wagwoordfrase is suksesvol verander.</translation>
+    </message>
+    <message>
+        <source>Warning: The Caps Lock key is on!</source>
+        <translation>WAARSKUWING:  Outomatiese Kapitalisering is aktief op u sleutelbord!</translation>
+=======
         <translation>Passphrase Dialog</translation>
     </message>
     <message>
@@ -176,6 +390,10 @@
         <translation>Wallet encrypted</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
+        <translation>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</translation>
+=======
         <source>Enter the new passphrase for the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Enter the new passphrase for the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</translation>
     </message>
@@ -198,6 +416,7 @@
     <message>
         <source>Your wallet is now encrypted. </source>
         <translation>Your wallet is now encrypted. </translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -234,23 +453,157 @@
     <message>
         <source>Warning: The Caps Lock key is on!</source>
         <translation>Warning: The Caps Lock key is on!</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>BanTableModel</name>
     <message>
         <source>IP/Netmask</source>
+<<<<<<< HEAD
+        <translation>IP/Netmasker</translation>
+    </message>
+    <message>
+        <source>Banned Until</source>
+        <translation>Verban tot</translation>
+=======
         <translation>IP/Netmask</translation>
     </message>
     <message>
         <source>Banned Until</source>
         <translation>Banned Until</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>DigiByteGUI</name>
     <message>
         <source>Sign &amp;message...</source>
+<<<<<<< HEAD
+        <translation>Teken &amp;boodskap...</translation>
+    </message>
+    <message>
+        <source>Synchronizing with network...</source>
+        <translation>Netwerk-sinkronisasie...</translation>
+    </message>
+    <message>
+        <source>&amp;Overview</source>
+        <translation>&amp;Oorsig</translation>
+    </message>
+    <message>
+        <source>Node</source>
+        <translation>Node</translation>
+    </message>
+    <message>
+        <source>Show general overview of wallet</source>
+        <translation>Vertoon 'n algemene oorsig van die beursie</translation>
+    </message>
+    <message>
+        <source>&amp;Transactions</source>
+        <translation>&amp;Transaksies</translation>
+    </message>
+    <message>
+        <source>Browse transaction history</source>
+        <translation>Blaai deur transaksiegeskiedenis</translation>
+    </message>
+    <message>
+        <source>E&amp;xit</source>
+        <translation>&amp;Sluit</translation>
+    </message>
+    <message>
+        <source>Quit application</source>
+        <translation>Stop en verlaat die applikasie</translation>
+    </message>
+    <message>
+        <source>&amp;About %1</source>
+        <translation>&amp;Oor %1</translation>
+    </message>
+    <message>
+        <source>Show information about %1</source>
+        <translation>Wys inligting oor %1</translation>
+    </message>
+    <message>
+        <source>About &amp;Qt</source>
+        <translation>Oor &amp;Qt</translation>
+    </message>
+    <message>
+        <source>Show information about Qt</source>
+        <translation>Wys inligting oor Qt</translation>
+    </message>
+    <message>
+        <source>&amp;Options...</source>
+        <translation>&amp;Opsies</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for %1</source>
+        <translation>Verander konfigurasie-opsies vir %1</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt Wallet...</source>
+        <translation>&amp;Kodifiseer Beursie</translation>
+    </message>
+    <message>
+        <source>&amp;Backup Wallet...</source>
+        <translation>&amp;Rugsteun-kopie van Beursie</translation>
+    </message>
+    <message>
+        <source>&amp;Change Passphrase...</source>
+        <translation>&amp;Verander Wagwoord</translation>
+    </message>
+    <message>
+        <source>&amp;Sending addresses...</source>
+        <translation>&amp;Versending adresse...</translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses...</source>
+        <translation>&amp;Ontvanger adresse</translation>
+    </message>
+    <message>
+        <source>Open &amp;URI...</source>
+        <translation>Oop &amp; URI...</translation>
+    </message>
+    <message>
+        <source>Click to disable network activity.</source>
+        <translation>Kliek om netwerkaktiwiteit af te skakel.</translation>
+    </message>
+    <message>
+        <source>Network activity disabled.</source>
+        <translation>Netwerkaktiwiteit gedeaktiveer.</translation>
+    </message>
+    <message>
+        <source>Click to enable network activity again.</source>
+        <translation>Kliek om netwerkaktiwiteit weer aan te skakel.</translation>
+    </message>
+    <message>
+        <source>Reindexing blocks on disk...</source>
+        <translation>Besig met herindeksering van blokke op hardeskyf...</translation>
+    </message>
+    <message>
+        <source>Send coins to a DigiByte address</source>
+        <translation>Stuur munte na 'n DigiByte adres</translation>
+    </message>
+    <message>
+        <source>Backup wallet to another location</source>
+        <translation>Maak 'n rugsteun-kopié van beursie na 'n ander stoorplek</translation>
+    </message>
+    <message>
+        <source>Change the passphrase used for wallet encryption</source>
+        <translation>Verander die wagwoord wat ek vir kodifikasie van my beursie gebruik</translation>
+    </message>
+    <message>
+        <source>&amp;Debug window</source>
+        <translation>&amp;Ontfout venster</translation>
+    </message>
+    <message>
+        <source>Open debugging and diagnostic console</source>
+        <translation>Maak ontfouting en diagnostiese konsole oop</translation>
+    </message>
+    <message>
+        <source>&amp;Verify message...</source>
+        <translation>&amp;Verifieer boodskap...</translation>
+    </message>
+    <message>
+=======
         <translation>Sign &amp;message...</translation>
     </message>
     <message>
@@ -354,10 +707,13 @@
         <translation>Reindexing blocks on disk...</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+=======
         <source>Proxy is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
         <translation>Proxy is &lt;b&gt;enabled&lt;/b&gt;: %1</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
         <source>Send coins to a DigiByte address</source>
         <translation>Send coins to a DigiByte address</translation>
     </message>
@@ -374,6 +730,57 @@
         <translation>&amp;Verify message...</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+>>>>>>> bitcoin/8.22.0
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+<<<<<<< HEAD
+        <translation>Beursie</translation>
+    </message>
+    <message>
+        <source>&amp;Send</source>
+        <translation>&amp;Stuur</translation>
+    </message>
+    <message>
+        <source>&amp;Receive</source>
+        <translation>&amp;Ontvang</translation>
+    </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Wys / Versteek</translation>
+    </message>
+    <message>
+        <source>Show or hide the main Window</source>
+        <translation>Wys of versteek die hoofbladsy</translation>
+    </message>
+    <message>
+        <source>Encrypt the private keys that belong to your wallet</source>
+        <translation>Kodifiseer die private sleutes wat aan jou beursie gekoppel is.</translation>
+    </message>
+    <message>
+        <source>Sign messages with your DigiByte addresses to prove you own them</source>
+        <translation>Onderteken boodskappe met u DigiByte adresse om u eienaarskap te bewys</translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
+        <translation>Verifieër boodskappe om seker te maak dat dit met die gespesifiseerde DigiByte adresse</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Leër</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>&amp;Verstellings</translation>
+=======
+        <translation>Wallet</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
         <source>&amp;Send</source>
         <translation>&amp;Send</translation>
     </message>
@@ -408,6 +815,7 @@
     <message>
         <source>&amp;Settings</source>
         <translation>&amp;Settings</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Help</source>
@@ -415,6 +823,77 @@
     </message>
     <message>
         <source>Tabs toolbar</source>
+<<<<<<< HEAD
+        <translation>Orebalk</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and digibyte: URIs)</source>
+        <translation>Versoek betalings (genereer QR-kodes en digibyte: URI's)</translation>
+    </message>
+    <message>
+        <source>Show the list of used sending addresses and labels</source>
+        <translation>Vertoon die lys van gebruikte versendingsadresse en etikette</translation>
+    </message>
+    <message>
+        <source>Show the list of used receiving addresses and labels</source>
+        <translation>Vertoon die lys van gebruikte ontvangers-adresse en etikette</translation>
+    </message>
+    <message>
+        <source>Open a digibyte: URI or payment request</source>
+        <translation>Skep 'n digibyte: URI of betalingsversoek</translation>
+    </message>
+    <message>
+        <source>&amp;Command-line options</source>
+        <translation>&amp;Opdrag lyn opsies</translation>
+    </message>
+    <message>
+        <source>Indexing blocks on disk...</source>
+        <translation>Blokke op skyf word geïndekseer...</translation>
+    </message>
+    <message>
+        <source>Processing blocks on disk...</source>
+        <translation>Blokke op skyf word geprosesseer...</translation>
+    </message>
+    <message>
+        <source>%1 behind</source>
+        <translation>%1 agter</translation>
+    </message>
+    <message>
+        <source>Last received block was generated %1 ago.</source>
+        <translation>Laaste ontvange blok is %1 gelede gegenereer.</translation>
+    </message>
+    <message>
+        <source>Transactions after this will not yet be visible.</source>
+        <translation>Transaksies hierna sal nog nie sigbaar wees nie.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Fout</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Waarskuwing</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Inligting</translation>
+    </message>
+    <message>
+        <source>Up to date</source>
+        <translation>Op datum</translation>
+    </message>
+    <message>
+        <source>%1 client</source>
+        <translation>%1 kliënt</translation>
+    </message>
+    <message>
+        <source>Connecting to peers...</source>
+        <translation>Koppel aan eweknieë...</translation>
+    </message>
+    <message>
+        <source>Catching up...</source>
+        <translation>Word op datum gebring...</translation>
+=======
         <translation>Tabs toolbar</translation>
     </message>
     <message>
@@ -430,6 +909,13 @@
         <translation>Show the list of used receiving addresses and labels</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>Open a digibyte: URI or payment request</source>
+        <translation>Open a digibyte: URI or payment request</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
         <source>&amp;Command-line options</source>
         <translation>&amp;Command-line options</translation>
     </message>
@@ -478,6 +964,10 @@
         <translation>Up to date</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
+        <translation>Show the %1 help message to get a list with possible DigiByte command-line options</translation>
+=======
         <source>Node window</source>
         <translation>Node window</translation>
     </message>
@@ -540,6 +1030,7 @@
     <message>
         <source>Main Window</source>
         <translation>Main Window</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
     </message>
     <message>
         <source>%1 client</source>
@@ -560,16 +1051,24 @@
     <message>
         <source>Warning: %1</source>
         <translation>Warning: %1</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Date: %1
 </source>
+<<<<<<< HEAD
+        <translation>Datum: %1
+=======
         <translation>Date: %1
+>>>>>>> bitcoin/8.22.0
 </translation>
     </message>
     <message>
         <source>Amount: %1
 </source>
+<<<<<<< HEAD
+        <translation>Bedrag: %1
+=======
         <translation>Amount: %1
 </translation>
     </message>
@@ -577,28 +1076,54 @@
         <source>Wallet: %1
 </source>
         <translation>Wallet: %1
+>>>>>>> bitcoin/8.22.0
 </translation>
     </message>
     <message>
         <source>Type: %1
 </source>
+<<<<<<< HEAD
+        <translation>Tipe: %1
+=======
         <translation>Type: %1
+>>>>>>> bitcoin/8.22.0
 </translation>
     </message>
     <message>
         <source>Label: %1
 </source>
+<<<<<<< HEAD
+        <translation>Etiket: %1
+=======
         <translation>Label: %1
+>>>>>>> bitcoin/8.22.0
 </translation>
     </message>
     <message>
         <source>Address: %1
 </source>
+<<<<<<< HEAD
+        <translation>Adres: %1
+=======
         <translation>Address: %1
+>>>>>>> bitcoin/8.22.0
 </translation>
     </message>
     <message>
         <source>Sent transaction</source>
+<<<<<<< HEAD
+        <translation>Gestuurde transaksie</translation>
+    </message>
+    <message>
+        <source>Incoming transaction</source>
+        <translation>Inkomende transaksie</translation>
+    </message>
+    <message>
+        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <translation>'N fatale fout het voorgekom. DigiByte kan nie meer veilig voortgaan nie en sal nou toemaak.</translation>
+    </message>
+</context>
+=======
         <translation>Sent transaction</translation>
     </message>
     <message>
@@ -625,11 +1150,167 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</translation>
     </message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+    <message>
+        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <translation>A fatal error occurred. DigiByte can no longer continue safely and will quit.</translation>
+    </message>
+</context>
+=======
     </context>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+>>>>>>> bitcoin/8.22.0
 <context>
     <name>CoinControlDialog</name>
     <message>
         <source>Coin Selection</source>
+<<<<<<< HEAD
+        <translation>Munt Seleksie</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Hoeveelheid:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Grepe:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Bedrag:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Fooi:</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Stof:</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Na Fooi:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Verander:</translation>
+    </message>
+    <message>
+        <source>(un)select all</source>
+        <translation>(de)selekteer alle</translation>
+    </message>
+    <message>
+        <source>Tree mode</source>
+        <translation>Boom wyse</translation>
+    </message>
+    <message>
+        <source>List mode</source>
+        <translation>Lysmodus</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Bedrag</translation>
+    </message>
+    <message>
+        <source>Received with label</source>
+        <translation>Ontvang met etiket</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>Ontvang met adres</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <source>Confirmations</source>
+        <translation>Bevestigings</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Bevestig</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopieer adres</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopieer etiket</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopieer bedrag</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopieer transaksie ID</translation>
+    </message>
+    <message>
+        <source>Lock unspent</source>
+        <translation>Sluit ongespandeer</translation>
+    </message>
+    <message>
+        <source>Unlock unspent</source>
+        <translation>Ontsluit ongespandeer</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopieer hoeveelheid</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopieer fooi</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Kopieer na fooi</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Kopieer grepe</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Kopieer stof</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopieer verandering</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 gesluit)</translation>
+    </message>
+    <message>
+        <source>yes</source>
+        <translation>ja</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>nee</translation>
+    </message>
+    <message>
+        <source>This label turns red if any recipient receives an amount smaller than the current dust threshold.</source>
+        <translation>Hierdie etiket raak rooi as enige ontvanger 'n bedrag kleiner as die huidige stof drempel ontvang.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- %1 satoshi(s) per input.</source>
+        <translation>Kan verskil met +/- %1 satoshi(s) per invoer.</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(geen etiket)</translation>
+    </message>
+    <message>
+        <source>change from %1 (%2)</source>
+        <translation>verander van %1 (%2)</translation>
+    </message>
+    <message>
+        <source>(change)</source>
+        <translation>(verander)</translation>
+=======
         <translation>Coin Selection</translation>
     </message>
     <message>
@@ -829,12 +1510,56 @@
     <message>
         <source>Create</source>
         <translation>Create</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>EditAddressDialog</name>
     <message>
         <source>Edit Address</source>
+<<<<<<< HEAD
+        <translation>Wysig Adres</translation>
+    </message>
+    <message>
+        <source>&amp;Label</source>
+        <translation>&amp;Etiket</translation>
+    </message>
+    <message>
+        <source>The label associated with this address list entry</source>
+        <translation>Die etiket wat verband hou met hierdie adres lys inskrywing</translation>
+    </message>
+    <message>
+        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
+        <translation>Die adres wat verband hou met hierdie adres lys inskrywing. Dit kan net verander word vir stuur adresse.</translation>
+    </message>
+    <message>
+        <source>&amp;Address</source>
+        <translation>&amp;Adres</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>Nuwe stuur adres</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>Wysig ontvang adres</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>Wysig stuur adres</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid DigiByte address.</source>
+        <translation>Die ingevoerde adres "%1" is nie 'n geldige DigiByte adres nie.</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>Kon beursie nie oopsluit nie.</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>Nuwe sleutel generasie het misluk.</translation>
+=======
         <translation>Edit Address</translation>
     </message>
     <message>
@@ -868,6 +1593,8 @@
     <message>
         <source>The entered address "%1" is not a valid DigiByte address.</source>
         <translation>The entered address "%1" is not a valid DigiByte address.</translation>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+=======
     </message>
     <message>
         <source>Address "%1" already exists as a receiving address with label "%2" and so cannot be added as a sending address.</source>
@@ -876,6 +1603,7 @@
     <message>
         <source>The entered address "%1" is already in the address book with label "%2".</source>
         <translation>The entered address "%1" is already in the address book with label "%2".</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -884,12 +1612,32 @@
     <message>
         <source>New key generation failed.</source>
         <translation>New key generation failed.</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>FreespaceChecker</name>
     <message>
         <source>A new data directory will be created.</source>
+<<<<<<< HEAD
+        <translation>'N Nuwe data gids sal geskep word.</translation>
+    </message>
+    <message>
+        <source>name</source>
+        <translation>naam</translation>
+    </message>
+    <message>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation>Gids bestaan reeds. Voeg %1 by indien u van plan is om 'n nuwe gids hier te skep.</translation>
+    </message>
+    <message>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>Pad bestaan reeds, en is nie 'n gids nie.</translation>
+    </message>
+    <message>
+        <source>Cannot create data directory here.</source>
+        <translation>Kan hier nie data gids skep nie.</translation>
+=======
         <translation>A new data directory will be created.</translation>
     </message>
     <message>
@@ -907,12 +1655,28 @@
     <message>
         <source>Cannot create data directory here.</source>
         <translation>Cannot create data directory here.</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>HelpMessageDialog</name>
     <message>
         <source>version</source>
+<<<<<<< HEAD
+        <translation>weergawe</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-stukkie)</translation>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation>Ongeveer %1</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Opdrag lyn opsies</translation>
+=======
         <translation>version</translation>
     </message>
     <message>
@@ -922,12 +1686,28 @@
     <message>
         <source>Command-line options</source>
         <translation>Command-line options</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>Intro</name>
     <message>
         <source>Welcome</source>
+<<<<<<< HEAD
+        <translation>Welkom</translation>
+    </message>
+    <message>
+        <source>Welcome to %1.</source>
+        <translation>Welkom by %1.</translation>
+    </message>
+    <message>
+        <source>Use the default data directory</source>
+        <translation>Gebruik die standaard data gids</translation>
+    </message>
+    <message>
+        <source>Use a custom data directory:</source>
+        <translation>Gebruik 'n persoonlike data gids:</translation>
+=======
         <translation>Welcome</translation>
     </message>
     <message>
@@ -961,14 +1741,34 @@
     <message>
         <source>Use a custom data directory:</source>
         <translation>Use a custom data directory:</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>DigiByte</source>
         <translation>DigiByte</translation>
+<<<<<<< HEAD
+    </message>
+    <message>
+        <source>The wallet will also be stored in this directory.</source>
+        <translation>Die beursie sal ook in hierdie gids gestoor word.</translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Fout: Gespesifiseerde dataleêr "%1" kon nie geskep word nie.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Fout</translation>
+    </message>
+    </context>
+=======
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+=======
     </message>
     <message>
         <source>Discard blocks after verification, except most recent %1 GB (prune)</source>
         <translation>Discard blocks after verification, except most recent %1 GB (prune)</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
     </message>
     <message>
         <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
@@ -1007,19 +1807,67 @@
         <translation><numerusform>(%n GB needed for full chain)</numerusform><numerusform>(%n GB needed for full chain)</numerusform></translation>
     </message>
 </context>
+>>>>>>> bitcoin/8.22.0
 <context>
     <name>ModalOverlay</name>
     <message>
         <source>Form</source>
+<<<<<<< HEAD
+        <translation>Vorm</translation>
+    </message>
+    <message>
+        <source>Number of blocks left</source>
+        <translation>Aantal blokke oor</translation>
+    </message>
+    <message>
+        <source>Unknown...</source>
+        <translation>Onbekend...</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Laaste blok tyd</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>Vordering</translation>
+    </message>
+    <message>
+        <source>Progress increase per hour</source>
+        <translation>Vorderingstoename per uur</translation>
+    </message>
+    <message>
+        <source>calculating...</source>
+        <translation>besig met bereken...</translation>
+    </message>
+    <message>
+        <source>Estimated time left until synced</source>
+        <translation>Geskatte tyd oor totdat gesinkroniseer</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Versteek</translation>
+    </message>
+    <message>
+        <source>Unknown. Syncing Headers (%1)...</source>
+        <translation>Onbekend. Besig Met Sinchroniseer Van Hoofde (%1)...</translation>
+=======
         <translation>Form</translation>
     </message>
     <message>
         <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the digibyte network, as detailed below.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <translation>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronising with the DigiByte network, as detailed below.</translation>
+    </message>
+    <message>
+        <source>Attempting to spend digibytes that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Attempting to spend DigiBytes that are affected by not-yet-displayed transactions will not be accepted by the network.</translation>
+=======
         <translation>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the digibyte network, as detailed below.</translation>
     </message>
     <message>
         <source>Attempting to spend digibytes that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>Attempting to spend digibytes that are affected by not-yet-displayed transactions will not be accepted by the network.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1064,18 +1912,37 @@
     <message>
         <source>Unknown. Syncing Headers (%1, %2%)...</source>
         <translation>Unknown. Syncing Headers (%1, %2%)...</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>OpenURIDialog</name>
     <message>
+<<<<<<< HEAD
+        <source>Open URI</source>
+        <translation>Open URI</translation>
+    </message>
+    <message>
+        <source>Open payment request from URI or file</source>
+        <translation>Open betaling versoek van URI of lêer</translation>
+=======
         <source>Open digibyte URI</source>
         <translation>Open digibyte URI</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>URI:</source>
         <translation>URI:</translation>
     </message>
+<<<<<<< HEAD
+    <message>
+        <source>Select payment request file</source>
+        <translation>Kies betaling versoek lêer</translation>
+    </message>
+    <message>
+        <source>Select payment request file to open</source>
+        <translation>Kies betaling versoek lêer om oop te maak</translation>
+=======
 </context>
 <context>
     <name>OpenWalletActivity</name>
@@ -1094,12 +1961,88 @@
     <message>
         <source>Opening Wallet &lt;b&gt;%1&lt;/b&gt;...</source>
         <translation>Opening Wallet &lt;b&gt;%1&lt;/b&gt;...</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>OptionsDialog</name>
     <message>
         <source>Options</source>
+<<<<<<< HEAD
+        <translation>Opsies</translation>
+    </message>
+    <message>
+        <source>&amp;Main</source>
+        <translation>&amp;Hoof</translation>
+    </message>
+    <message>
+        <source>Automatically start %1 after logging in to the system.</source>
+        <translation>Begin %1 outomaties nadat jy aangemeld is by die stelsel.</translation>
+    </message>
+    <message>
+        <source>&amp;Start %1 on system login</source>
+        <translation>&amp;Begin %1 op stelsel aanmelding</translation>
+    </message>
+    <message>
+        <source>Size of &amp;database cache</source>
+        <translation>Grootte van &amp;databasis kas</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MG</translation>
+    </message>
+    <message>
+        <source>Number of script &amp;verification threads</source>
+        <translation>Aantal skrip &amp;verifikasie drade</translation>
+    </message>
+    <message>
+        <source>Active command-line options that override above options:</source>
+        <translation>Aktiewe opdrag lyn opsies wat die boonste opsies ignoreer:</translation>
+    </message>
+    <message>
+        <source>Open the %1 configuration file from the working directory.</source>
+        <translation>Maak die %1 konfigurasie lêer oop van die werk gids.</translation>
+    </message>
+    <message>
+        <source>Open Configuration File</source>
+        <translation>Open Konfigurasie Lêer</translation>
+    </message>
+    <message>
+        <source>Reset all client options to default.</source>
+        <translation>Alle kliëntopsies na verstek terugstel.</translation>
+    </message>
+    <message>
+        <source>&amp;Reset Options</source>
+        <translation>&amp;Herstel Opsies</translation>
+    </message>
+    <message>
+        <source>&amp;Network</source>
+        <translation>&amp;Netwerk</translation>
+    </message>
+    <message>
+        <source>W&amp;allet</source>
+        <translation>B&amp;eursie</translation>
+    </message>
+    <message>
+        <source>Expert</source>
+        <translation>Kenner</translation>
+    </message>
+    <message>
+        <source>Enable coin &amp;control features</source>
+        <translation>Bemagtig munt &amp;beheer funksies.</translation>
+    </message>
+    <message>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;Spandeer onbevestigde kleingeld</translation>
+    </message>
+    <message>
+        <source>&amp;Port:</source>
+        <translation>&amp;Poort:</translation>
+    </message>
+    <message>
+        <source>Used for reaching peers via:</source>
+        <translation>Word gebruik vir die bereik van eweknieë via:</translation>
+=======
         <translation>Options</translation>
     </message>
     <message>
@@ -1249,6 +2192,7 @@
     <message>
         <source>Used for reaching peers via:</source>
         <translation>Used for reaching peers via:</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>IPv4</source>
@@ -1263,6 +2207,37 @@
         <translation>Tor</translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <source>&amp;Window</source>
+        <translation>&amp;Venster</translation>
+    </message>
+    <message>
+        <source>M&amp;inimize on close</source>
+        <translation>M&amp;inimaliseer op toemaak</translation>
+    </message>
+    <message>
+        <source>&amp;Display</source>
+        <translation>&amp;Vertoon</translation>
+    </message>
+    <message>
+        <source>User Interface &amp;language:</source>
+        <translation>Gebruikers Koppelvlak &amp;taal:</translation>
+    </message>
+    <message>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>&amp;Eenheid om bedrae te toon in:</translation>
+    </message>
+    <message>
+        <source>Whether to show coin control features or not.</source>
+        <translation>Of om munt beheer funksies te wys of nie.</translation>
+=======
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
         <source>&amp;Window</source>
         <translation>&amp;Window</translation>
     </message>
@@ -1309,6 +2284,7 @@
     <message>
         <source>Options set in this dialog are overridden by the command line or in the configuration file:</source>
         <translation>Options set in this dialog are overridden by the command line or in the configuration file:</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;OK</source>
@@ -1316,6 +2292,49 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
+<<<<<<< HEAD
+        <translation>&amp;Kanselleer</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation>verstek</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>geen</translation>
+    </message>
+    <message>
+        <source>Confirm options reset</source>
+        <translation>Bevestig terugstel van opsies</translation>
+    </message>
+    <message>
+        <source>Client restart required to activate changes.</source>
+        <translation>Kliënt moet herbegin word om veranderinge te aktiveer.</translation>
+    </message>
+    <message>
+        <source>Client will be shut down. Do you want to proceed?</source>
+        <translation>Kliënt sal toegemaak word. Wil u voortgaan?</translation>
+    </message>
+    <message>
+        <source>Configuration options</source>
+        <translation>Konfigurasie opsies</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Fout</translation>
+    </message>
+    <message>
+        <source>The configuration file could not be opened.</source>
+        <translation>Die konfigurasie lêer kon nie oopgemaak word nie.</translation>
+    </message>
+    <message>
+        <source>This change would require a client restart.</source>
+        <translation>Hierdie verandering sal 'n herbegin van die kliënt vereis. </translation>
+    </message>
+    <message>
+        <source>The supplied proxy address is invalid.</source>
+        <translation>Die verskafde volmag adres is ongeldig.</translation>
+=======
         <translation>&amp;Cancel</translation>
     </message>
     <message>
@@ -1361,17 +2380,65 @@
     <message>
         <source>The supplied proxy address is invalid.</source>
         <translation>The supplied proxy address is invalid.</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>OverviewPage</name>
     <message>
         <source>Form</source>
+<<<<<<< HEAD
+        <translation>Vorm</translation>
+    </message>
+    <message>
+        <source>Watch-only:</source>
+        <translation>Kyk-net:</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Beskikbaar:</translation>
+    </message>
+    <message>
+        <source>Your current spendable balance</source>
+        <translation>U huidige bruikbare balans</translation>
+    </message>
+    <message>
+        <source>Pending:</source>
+        <translation>Hangend:</translation>
+    </message>
+    <message>
+        <source>Immature:</source>
+        <translation>Onvolwasse:</translation>
+    </message>
+    <message>
+        <source>Balances</source>
+        <translation>Balanse</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Totaal:</translation>
+    </message>
+    <message>
+        <source>Your current total balance</source>
+        <translation>U huidige totale balans</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Besteebaar:</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Onlangse transaksies</translation>
+=======
         <translation>Form</translation>
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <translation>The displayed information may be out of date. Your Wallet automatically synchronises with the DigiByte Network after a connection is established, but this process has not been completed yet.</translation>
+=======
         <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1447,25 +2514,141 @@
     <message>
         <source>or</source>
         <translation>or</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     </context>
 <context>
     <name>PaymentServer</name>
     <message>
         <source>Payment request error</source>
+<<<<<<< HEAD
+        <translation>Betalings versoek fout</translation>
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>URI hantering</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Betalings versoek verwerp</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Betalings versoek netwerk stem nie ooreen met die kliënt netwerk nie.</translation>
+    </message>
+    <message>
+        <source>Payment request expired.</source>
+        <translation>Betalings versoek verstryk.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Betalings versoek is nie geïnitialiseer nie.</translation>
+    </message>
+    <message>
+        <source>Invalid payment request.</source>
+        <translation>Ongeldige betalings versoek.</translation>
+    </message>
+    <message>
+        <source>Refund from %1</source>
+        <translation>Terugbetaling van %1</translation>
+    </message>
+    <message>
+        <source>Error communicating with %1: %2</source>
+        <translation>Kommunikerings fout met %1: %2</translation>
+    </message>
+    <message>
+        <source>Payment request cannot be parsed!</source>
+        <translation>Betalings versoek kan nie ontleed word nie!</translation>
+    </message>
+    <message>
+        <source>Network request error</source>
+        <translation>Netwerk versoek fout</translation>
+    </message>
+    </context>
+<context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>User Agent</source>
+        <translation>Gebruikeragent</translation>
+    </message>
+    <message>
+        <source>NodeId</source>
+        <translation>NodusId</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Gestuur</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Ontvang</translation>
+=======
         <translation>Payment request error</translation>
     </message>
     <message>
         <source>Cannot start digibyte: click-to-pay handler</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <translation>Cannot start DigiByte: click-to-pay handler</translation>
+=======
         <translation>Cannot start digibyte: click-to-pay handler</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
     </message>
     <message>
         <source>URI handling</source>
         <translation>URI handling</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>Payment request fetch URL is invalid: %1</source>
+        <translation>Payment request fetch URL is invalid: %1</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Invalid payment address %1</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <translation>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</translation>
+    </message>
+    <message>
+        <source>Payment request file handling</source>
+        <translation>Payment request file handling</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Payment request file cannot be read! This can be caused by an invalid payment request file.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Payment request rejected.</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Payment request network doesn't match client network.</translation>
+    </message>
+    <message>
+        <source>Payment request expired.</source>
+        <translation>Payment request expired.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Payment request is not initialised.</translation>
+    </message>
+    <message>
+        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
+        <translation>Unverified payment requests to custom payment scripts are unsupported.</translation>
+    </message>
+    <message>
+        <source>Invalid payment request.</source>
+        <translation>Invalid payment request.</translation>
+    </message>
+    <message>
+        <source>Requested payment amount of %1 is too small (considered dust).</source>
+        <translation>Requested payment amount of %1 is too small (considered dust).</translation>
+=======
         <source>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</source>
         <translation>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
     </message>
     <message>
         <source>Cannot process payment request because BIP70 is not supported.</source>
@@ -1517,17 +2700,26 @@
     <message>
         <source>Received</source>
         <translation>Received</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
+<<<<<<< HEAD
+        <translation>Bedrag</translation>
+    </message>
+    <message>
+        <source>Enter a DigiByte address (e.g. %1)</source>
+        <translation>Voer in 'n DigiByte adres (bv. %1)</translation>
+=======
         <translation>Amount</translation>
     </message>
     <message>
         <source>Enter a DigiByte address (e.g. %1)</source>
         <translation>Enter a DigiByte address (e.g. %1)</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>%1 d</source>
@@ -1535,7 +2727,11 @@
     </message>
     <message>
         <source>%1 h</source>
+<<<<<<< HEAD
+        <translation>%1 u</translation>
+=======
         <translation>%1 h</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>%1 m</source>
@@ -1547,16 +2743,29 @@
     </message>
     <message>
         <source>None</source>
+<<<<<<< HEAD
+        <translation>Geen</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>n.v.t.</translation>
+=======
         <translation>None</translation>
     </message>
     <message>
         <source>N/A</source>
         <translation>N/A</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
+<<<<<<< HEAD
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 en %2</translation>
+=======
     <message numerus="yes">
         <source>%n second(s)</source>
         <translation><numerusform>%n second</numerusform><numerusform>%n seconds</numerusform></translation>
@@ -1584,6 +2793,7 @@
     <message numerus="yes">
         <source>%n year(s)</source>
         <translation><numerusform>%n year</numerusform><numerusform>%n years</numerusform></translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>%1 B</source>
@@ -1601,6 +2811,14 @@
         <source>%1 GB</source>
         <translation>%1 GB</translation>
     </message>
+<<<<<<< HEAD
+    </context>
+<context>
+    <name>QObject::QObject</name>
+    <message>
+        <source>Error: %1</source>
+        <translation>Fout: %1</translation>
+=======
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
         <translation>Error: Specified data directory "%1" does not exist.</translation>
@@ -1620,10 +2838,14 @@
     <message>
         <source>unknown</source>
         <translation>unknown</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>QRImageWidget</name>
+<<<<<<< HEAD
+    </context>
+=======
     <message>
         <source>&amp;Save Image...</source>
         <translation>&amp;Save Image...</translation>
@@ -1653,10 +2875,78 @@
         <translation>PNG Image (*.png)</translation>
     </message>
 </context>
+>>>>>>> bitcoin/8.22.0
 <context>
     <name>RPCConsole</name>
     <message>
         <source>N/A</source>
+<<<<<<< HEAD
+        <translation>n.v.t.</translation>
+    </message>
+    <message>
+        <source>Client version</source>
+        <translation>Kliëntweergawe</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;Informasie</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Algemeen</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Netwerk</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Naam</translation>
+    </message>
+    <message>
+        <source>Number of connections</source>
+        <translation>Aantal verbindings</translation>
+    </message>
+    <message>
+        <source>Block chain</source>
+        <translation>Blokketting</translation>
+    </message>
+    <message>
+        <source>Current number of blocks</source>
+        <translation>Huidige aantal blokke</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Ontvang</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Gestuur</translation>
+    </message>
+    <message>
+        <source>Banned peers</source>
+        <translation>Verbanne porture</translation>
+    </message>
+    <message>
+        <source>Whitelisted</source>
+        <translation>Gewitlys</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Rigting</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Weergawe</translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation>Gebruikeragent</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Laaste blok tyd</translation>
+=======
         <translation>N/A</translation>
     </message>
     <message>
@@ -1858,6 +3148,7 @@
     <message>
         <source>Totals</source>
         <translation>Totals</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>In:</source>
@@ -1865,6 +3156,17 @@
     </message>
     <message>
         <source>Out:</source>
+<<<<<<< HEAD
+        <translation>Uit:</translation>
+    </message>
+    <message>
+        <source>1 &amp;hour</source>
+        <translation>1 &amp;uur</translation>
+    </message>
+    <message>
+        <source>1 &amp;day</source>
+        <translation>1 &amp;dag</translation>
+=======
         <translation>Out:</translation>
     </message>
     <message>
@@ -1882,6 +3184,7 @@
     <message>
         <source>1 &amp;day</source>
         <translation>1 &amp;day</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>1 &amp;week</source>
@@ -1889,6 +3192,29 @@
     </message>
     <message>
         <source>1 &amp;year</source>
+<<<<<<< HEAD
+        <translation>1 &amp;jaar</translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect</source>
+        <translation>&amp;Ontkoppel</translation>
+    </message>
+    <message>
+        <source>Ban for</source>
+        <translation>Verbied vir</translation>
+    </message>
+    <message>
+        <source>&amp;Unban</source>
+        <translation>&amp;Toegelaat</translation>
+    </message>
+    <message>
+        <source>Network activity disabled</source>
+        <translation>Netwerk aktiewiteit gedeaktiveer</translation>
+    </message>
+    <message>
+        <source>(node id: %1)</source>
+        <translation>(nodus id: %1)</translation>
+=======
         <translation>1 &amp;year</translation>
     </message>
     <message>
@@ -1938,6 +3264,7 @@
     <message>
         <source>(node id: %1)</source>
         <translation>(node id: %1)</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>via %1</source>
@@ -1945,6 +3272,29 @@
     </message>
     <message>
         <source>never</source>
+<<<<<<< HEAD
+        <translation>nooit</translation>
+    </message>
+    <message>
+        <source>Inbound</source>
+        <translation>Inkomende</translation>
+    </message>
+    <message>
+        <source>Outbound</source>
+        <translation>Uitgaande</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Ja</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Nee</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Onbekend</translation>
+=======
         <translation>never</translation>
     </message>
     <message>
@@ -1958,12 +3308,97 @@
     <message>
         <source>Unknown</source>
         <translation>Unknown</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>ReceiveCoinsDialog</name>
     <message>
         <source>&amp;Amount:</source>
+<<<<<<< HEAD
+        <translation>&amp;Bedrag</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etiket:</translation>
+    </message>
+    <message>
+        <source>&amp;Message:</source>
+        <translation>&amp;Boodslap:</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Skoonmaak</translation>
+    </message>
+    <message>
+        <source>&amp;Request payment</source>
+        <translation>&amp;Versoek betaling</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Wys</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Verwyder</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopieer etiket</translation>
+    </message>
+    <message>
+        <source>Copy message</source>
+        <translation>Kopieer boodskap</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopieer bedrag</translation>
+    </message>
+</context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    <message>
+        <source>QR Code</source>
+        <translation>QR Kode</translation>
+    </message>
+    <message>
+        <source>Copy &amp;Address</source>
+        <translation>Kopieer &amp;Address</translation>
+    </message>
+    <message>
+        <source>Request payment to %1</source>
+        <translation>Versoek betaling van %1</translation>
+    </message>
+    <message>
+        <source>Payment information</source>
+        <translation>Betaling informasie</translation>
+    </message>
+    <message>
+        <source>URI</source>
+        <translation>URI</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Bedrag</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Merk</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Boodskap</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Beursie</translation>
+    </message>
+    </context>
+=======
         <translation>&amp;Amount:</translation>
     </message>
     <message>
@@ -2094,10 +3529,38 @@
         <translation>Payment information</translation>
     </message>
 </context>
+>>>>>>> bitcoin/8.22.0
 <context>
     <name>RecentRequestsTableModel</name>
     <message>
         <source>Date</source>
+<<<<<<< HEAD
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Merk</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Boodskap</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(geen etiket)</translation>
+    </message>
+    <message>
+        <source>(no message)</source>
+        <translation>(geen boodskap)</translation>
+    </message>
+    <message>
+        <source>(no amount requested)</source>
+        <translation>(geen bedrag versoek)</translation>
+    </message>
+    <message>
+        <source>Requested</source>
+        <translation>Versoekte</translation>
+=======
         <translation>Date</translation>
     </message>
     <message>
@@ -2123,12 +3586,521 @@
     <message>
         <source>Requested</source>
         <translation>Requested</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 <context>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
+<<<<<<< HEAD
+        <translation>Stuur Munte</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>Munt Beheer Kenmerke</translation>
+    </message>
+    <message>
+        <source>Inputs...</source>
+        <translation>Insette...</translation>
+    </message>
+    <message>
+        <source>automatically selected</source>
+        <translation>outomaties gekies</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Onvoldoende fondse!</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Hoeveelheid:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Grepe:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Bedrag:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Fooi:</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Na Fooi:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Verander:</translation>
+    </message>
+    <message>
+        <source>Transaction Fee:</source>
+        <translation>Transaksiefooi:</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>Kies...</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>per kilogreep</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Versteek</translation>
+    </message>
+    <message>
+        <source>Recommended:</source>
+        <translation>Aanbeveel:</translation>
+    </message>
+    <message>
+        <source>Custom:</source>
+        <translation>Aangepaste:</translation>
+    </message>
+    <message>
+        <source>Add &amp;Recipient</source>
+        <translation>Voeg by &amp;Ontvanger</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Stof:</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Maak skoon &amp;Alles</translation>
+    </message>
+    <message>
+        <source>Balance:</source>
+        <translation>Balans:</translation>
+    </message>
+    <message>
+        <source>S&amp;end</source>
+        <translation>S&amp;tuur</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopieer hoeveelheid</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopieer bedrag</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopieer fooi</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Kopieer na fooi</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Kopieer grepe</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Kopieer stof</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopieer verandering</translation>
+    </message>
+    <message>
+        <source>%1 (%2 blocks)</source>
+        <translation>%1 (%2 blokke)</translation>
+    </message>
+    <message>
+        <source>%1 to %2</source>
+        <translation>%1 tot %2</translation>
+    </message>
+    <message>
+        <source>Transaction fee</source>
+        <translation>Transaksie fooi</translation>
+    </message>
+    <message>
+        <source>Payment request expired.</source>
+        <translation>Betalings versoek verstryk.</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(geen etiket)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>B&amp;edrag:</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etiket:</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Message:</source>
+        <translation>Boodskap:</translation>
+    </message>
+    <message>
+        <source>Pay To:</source>
+        <translation>Betaal Vir:</translation>
+    </message>
+    </context>
+<context>
+    <name>SendConfirmationDialog</name>
+    <message>
+        <source>Yes</source>
+        <translation>Ja</translation>
+    </message>
+</context>
+<context>
+    <name>ShutdownWindow</name>
+    </context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    <message>
+        <source>&amp;Sign Message</source>
+        <translation>&amp;Teken Boodskap</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>Handtekening</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Maak skoon &amp;Alles</translation>
+    </message>
+    <message>
+        <source>&amp;Verify Message</source>
+        <translation>&amp;Verifieer Boodskap</translation>
+    </message>
+    <message>
+        <source>Verify &amp;Message</source>
+        <translation>Verifieer &amp;Boodskap</translation>
+    </message>
+    <message>
+        <source>Message signed.</source>
+        <translation>Boodskap geteken.</translation>
+    </message>
+    <message>
+        <source>Message verified.</source>
+        <translation>Boodskap geverifieer.</translation>
+    </message>
+</context>
+<context>
+    <name>SplashScreen</name>
+    </context>
+<context>
+    <name>TrafficGraphWidget</name>
+    <message>
+        <source>KB/s</source>
+        <translation>KB/s</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionDesc</name>
+    <message>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <source>own address</source>
+        <translation>eie adres</translation>
+    </message>
+    <message>
+        <source>watch-only</source>
+        <translation>kyk-net</translation>
+    </message>
+    <message>
+        <source>label</source>
+        <translation>etiket</translation>
+    </message>
+    <message>
+        <source>Credit</source>
+        <translation>Krediet</translation>
+    </message>
+    <message>
+        <source>not accepted</source>
+        <translation>nie geaanvaar</translation>
+    </message>
+    <message>
+        <source>Debit</source>
+        <translation>Debiet</translation>
+    </message>
+    <message>
+        <source>Total debit</source>
+        <translation>Totale debiet</translation>
+    </message>
+    <message>
+        <source>Total credit</source>
+        <translation>Totale crediet</translation>
+    </message>
+    <message>
+        <source>Transaction fee</source>
+        <translation>Transaksie fooi</translation>
+    </message>
+    <message>
+        <source>Net amount</source>
+        <translation>Net bedrag</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Boodskap</translation>
+    </message>
+    <message>
+        <source>Comment</source>
+        <translation>Kommentaar</translation>
+    </message>
+    <message>
+        <source>Transaction total size</source>
+        <translation>Transaksie totale grootte</translation>
+    </message>
+    <message>
+        <source>Transaction</source>
+        <translation>Transaksie</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Bedrag</translation>
+    </message>
+    </context>
+<context>
+    <name>TransactionDescDialog</name>
+    </context>
+<context>
+    <name>TransactionTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipe</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Merk</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Gemyn</translation>
+    </message>
+    <message>
+        <source>watch-only</source>
+        <translation>kyk-net</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(geen etiket)</translation>
+    </message>
+    </context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <source>All</source>
+        <translation>Alles</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Gemyn</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Ander</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopieer adres</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopieer etiket</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopieer bedrag</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopieer transaksie ID</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Comma separated file (*.csv)</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Bevestig</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipe</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Merk</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Uitvoer was onsuksesvol</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>na</translation>
+    </message>
+</context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletFrame</name>
+    </context>
+<context>
+    <name>WalletModel</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Stuur Munte</translation>
+    </message>
+    <message>
+        <source>New fee:</source>
+        <translation>Nuwe fooi:</translation>
+    </message>
+    </context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>&amp;Export</source>
+        <translation>&amp;Voer uit</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Voer die inligting op hierdie bladsy uit na 'n leer</translation>
+    </message>
+    </context>
+<context>
+    <name>digibyte-core</name>
+    <message>
+        <source>DigiByte Core</source>
+        <translation>DigiByte Kern</translation>
+    </message>
+    <message>
+        <source>Error loading %s</source>
+        <translation>Fout met laai %s</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation>Besig met invoer...</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Inligting</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation>Teken van transaksie het misluk</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation>Dié is eksperimentele sagteware.</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation>Transaksie bedrag te klein</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation>Transaksie te groot</translation>
+    </message>
+    <message>
+        <source>Verifying wallet(s)...</source>
+        <translation>Besig met verifieer van beursie(s)...</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Waarskuwing</translation>
+    </message>
+    <message>
+        <source>%s is set very high!</source>
+        <translation>%s is baie hoog gestel!</translation>
+    </message>
+    <message>
+        <source>Starting network threads...</source>
+        <translation>Begin tans netwerkdrade...</translation>
+    </message>
+    <message>
+        <source>This is the minimum transaction fee you pay on every transaction.</source>
+        <translation>Dit is die minimum transaksie fooi wat u betaal op elke transaksie.</translation>
+    </message>
+    <message>
+        <source>This is the transaction fee you will pay if you send a transaction.</source>
+        <translation>Dit is die transaksie fooi wat u sal betaal as u 'n transaksie stuur.</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must not be negative</source>
+        <translation>Transaksies bedrae moet nie negatief wees nie</translation>
+    </message>
+    <message>
+        <source>Transaction has too long of a mempool chain</source>
+        <translation>Transaksie se mempool ketting is te lank</translation>
+    </message>
+    <message>
+        <source>Transaction must have at least one recipient</source>
+        <translation>Transaksie moet ten minste een ontvanger hê</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: '%s'</source>
+        <translation>Onbekende netwerk gespesifiseer in -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation>Onvoldoende fondse</translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation>Blokindeks word gelaai...</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation>Beursie word gelaai...</translation>
+    </message>
+    <message>
+        <source>Cannot downgrade wallet</source>
+        <translation>Kan nie beursie afgradeer nie</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation>Word herskandeer...</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation>Klaar gelaai</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Fout</translation>
+=======
         <translation>Send Coins</translation>
     </message>
     <message>
@@ -2212,6 +4184,17 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Hide</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
+        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(read the tooltip)</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
         <source>Recommended:</source>
         <translation>Recommended:</translation>
     </message>
@@ -2459,6 +4442,13 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Choose previously used address</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>This is a normal payment.</source>
+        <translation>This is a normal payment.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
         <source>The DigiByte address to send the payment to</source>
         <translation>The DigiByte address to send the payment to</translation>
     </message>
@@ -2479,10 +4469,13 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Remove this entry</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+=======
         <source>The amount to send in the selected unit</source>
         <translation>The amount to send in the selected unit</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
         <source>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</translation>
     </message>
@@ -2609,6 +4602,8 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>The DigiByte address the message was signed with</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+=======
         <source>The signed message to verify</source>
         <translation>The signed message to verify</translation>
     </message>
@@ -2617,6 +4612,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>The signature given when the message was signed</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
         <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
         <translation>Verify the message to ensure it was signed with the specified DigiByte address</translation>
     </message>
@@ -3294,6 +5290,13 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Unable to start HTTP server. See debug log for details.</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>DigiByte Core</source>
+        <translation>DigiByte Core</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
         <source>The %s developers</source>
         <translation>The %s developers</translation>
     </message>
@@ -3738,6 +5741,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Done loading</source>
         <translation>Done loading</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
 </context>
 </TS>

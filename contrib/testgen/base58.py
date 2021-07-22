@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+# Copyright (c) 2012-2018 The DigiByte Core developers
+=======
 # Copyright (c) 2012-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 '''
@@ -107,7 +111,11 @@ def get_bcaddress_version(strAddress):
 
 if __name__ == '__main__':
     # Test case (from http://gitorious.org/digibyte/python-base58.git)
+<<<<<<< HEAD
+    assert get_bcaddress_version('15VjRaDX9zpbA8LVnbrCAFzrVzN7ixHNsC') is 0
+=======
     assert get_bcaddress_version('15VjRaDX9zpbA8LVnbrCAFzrVzN7ixHNsC') == 0
+>>>>>>> bitcoin/8.22.0
     _ohai = 'o hai'.encode('ascii')
     _tmp = b58encode(_ohai)
     assert _tmp == 'DYB3oMS'

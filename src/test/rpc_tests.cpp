@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2012-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +17,11 @@
 #include <test/util/setup_common.h>
 #include <util/time.h>
 
+<<<<<<< HEAD
+#include <test/test_digibyte.h>
+=======
 #include <any>
+>>>>>>> bitcoin/8.22.0
 
 #include <boost/algorithm/string.hpp>
 #include <boost/test/unit_test.hpp>
@@ -116,7 +125,7 @@ BOOST_AUTO_TEST_CASE(rpc_rawsign)
       "\"vout\":1,\"scriptPubKey\":\"a914b10c9df5f7edf436c697f02f1efdba4cf399615187\","
       "\"redeemScript\":\"512103debedc17b3df2badbcdd86d5feb4562b86fe182e5998abd8bcd4f122c6155b1b21027e940bb73ab8732bfdf7f9216ecefca5b94d6df834e77e108f68e66f126044c052ae\"}]";
     r = CallRPC(std::string("createrawtransaction ")+prevout+" "+
-      "{\"3HqAe9LtNBjnsfM4CyYaWTnvCaUYT7v4oZ\":11}");
+      "{\"DS1P3gwq6MFtatWprr2e2J32xGPd89n75C\":11}");
     std::string notsigned = r.get_str();
     std::string privkey1 = "\"KzsXybp9jX64P5ekX1KUxRQ79Jht9uzW7LorgwE65i5rWACL6LQe\"";
     std::string privkey2 = "\"Kyhdf5LuKTRx4ge69ybABsiUAWjVRK4XGxAKk2FQLp2HjGMy87Z4\"";

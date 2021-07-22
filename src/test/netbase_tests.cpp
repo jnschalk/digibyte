@@ -1,10 +1,19 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2012-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <net_permissions.h>
 #include <netaddress.h>
 #include <netbase.h>
+<<<<<<< HEAD
+#include <test/test_digibyte.h>
+#include <utilstrencodings.h>
+=======
 #include <protocol.h>
 #include <serialize.h>
 #include <streams.h>
@@ -12,6 +21,7 @@
 #include <util/strencodings.h>
 #include <util/translation.h>
 #include <version.h>
+>>>>>>> bitcoin/8.22.0
 
 #include <string>
 
@@ -93,11 +103,19 @@ bool static TestSplitHost(const std::string& test, const std::string& host, uint
 
 BOOST_AUTO_TEST_CASE(netbase_splithost)
 {
+<<<<<<< HEAD
+    BOOST_CHECK(TestSplitHost("www.digibytecore.org", "www.digibytecore.org", -1));
+    BOOST_CHECK(TestSplitHost("[www.digibytecore.org]", "www.digibytecore.org", -1));
+    BOOST_CHECK(TestSplitHost("www.digibytecore.org:80", "www.digibytecore.org", 80));
+    BOOST_CHECK(TestSplitHost("[www.digibytecore.org]:80", "www.digibytecore.org", 80));
+    BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", -1));
+=======
     BOOST_CHECK(TestSplitHost("www.digibytecore.org", "www.digibytecore.org", 0));
     BOOST_CHECK(TestSplitHost("[www.digibytecore.org]", "www.digibytecore.org", 0));
     BOOST_CHECK(TestSplitHost("www.digibytecore.org:80", "www.digibytecore.org", 80));
     BOOST_CHECK(TestSplitHost("[www.digibytecore.org]:80", "www.digibytecore.org", 80));
     BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", 0));
+>>>>>>> bitcoin/8.22.0
     BOOST_CHECK(TestSplitHost("127.0.0.1:8333", "127.0.0.1", 8333));
     BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", 0));
     BOOST_CHECK(TestSplitHost("[127.0.0.1]:8333", "127.0.0.1", 8333));

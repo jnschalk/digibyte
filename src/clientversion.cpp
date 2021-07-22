@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+// Copyright (c) 2012-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2012-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +16,7 @@
  * for both digibyted and digibyte-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Satoshi");
+const std::string CLIENT_NAME("DigiByte");
 
 
 #ifdef HAVE_BUILD_INFO

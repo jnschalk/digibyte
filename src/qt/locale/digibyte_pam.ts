@@ -250,6 +250,13 @@
         <translation>&amp;Alilan ing Passphrase...</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pam.ts
+        <source>&amp;Receiving addresses...</source>
+        <translation>Address king pamag-Tanggap</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pam.ts
         <source>Send coins to a DigiByte address</source>
         <translation>Magpadalang barya king DigiByte address</translation>
     </message>
@@ -266,6 +273,17 @@
         <translation>&amp;Beripikan ing message...</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_pam.ts
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Wallet</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pam.ts
         <source>&amp;Show / Hide</source>
         <translation>&amp;Ipalto / Isalikut</translation>
     </message>
@@ -1266,9 +1284,18 @@
     </context>
 <context>
     <name>WalletView</name>
+<<<<<<< HEAD:src/qt/locale/digibyte_pam.ts
+    </context>
+<context>
+    <name>digibyte-core</name>
+    <message>
+        <source>DigiByte Core</source>
+        <translation>Kapilubluban ning DigiByte</translation>
+=======
     <message>
         <source>Error</source>
         <translation>Mali</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_pam.ts
     </message>
     </context>
 <context>

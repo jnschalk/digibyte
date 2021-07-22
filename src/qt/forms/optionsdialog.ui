@@ -499,7 +499,11 @@
        <item>
         <widget class="QCheckBox" name="connectSocksTor">
          <property name="toolTip">
+<<<<<<< HEAD
+          <string>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</string>
+=======
           <string>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor onion services.</string>
+>>>>>>> bitcoin/8.22.0
          </property>
          <property name="text">
           <string>Use separate SOCKS&amp;5 proxy to reach peers via Tor onion services:</string>
@@ -679,6 +683,30 @@
           <widget class="QValueComboBox" name="lang">
            <property name="toolTip">
             <string>The user interface language can be set here. This setting will take effect after restarting %1.</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+        <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_1_Display">
+         <item>
+          <widget class="QLabel" name="themeLabel">
+           <property name="text">
+            <string>Choose Wallet &amp;Theme:</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="buddy">
+            <cstring>lang</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QValueComboBox" name="theme">
+           <property name="toolTip">
+            <string>The DGB Wallet theme can be set here. This setting will take effect after restarting %1.</string>
            </property>
           </widget>
          </item>

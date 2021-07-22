@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -612,8 +617,15 @@ void CNode::copyStats(CNodeStats &stats, const std::vector<bool> &m_asmap)
         stats.minFeeFilter = 0;
     }
 
+<<<<<<< HEAD
+    // Raw ping time is in microseconds, but show it to user as whole seconds (DigiByte users should be well used to small numbers with many decimal places by now :)
+    stats.dPingTime = (((double)nPingUsecTime) / 1e6);
+    stats.dMinPing  = (((double)nMinPingUsecTime) / 1e6);
+    stats.dPingWait = (((double)nPingUsecWait) / 1e6);
+=======
     X(m_last_ping_time);
     X(m_min_ping_time);
+>>>>>>> bitcoin/8.22.0
 
     // Leave string empty if addrLocal invalid (not filled in yet)
     CService addrLocalUnlocked = GetAddrLocal();
@@ -1204,6 +1216,14 @@ void CConnman::CreateNodeFromAcceptedSocket(SOCKET hSocket,
     {
         LOCK(cs_vNodes);
         vNodes.push_back(pnode);
+
+        // Dandelion: new inbound connection
+        vDandelionInbound.push_back(pnode);
+        CNode* pto = SelectFromDandelionDestinations();
+        if (pto!=nullptr) {
+            mDandelionRoutes.insert(std::make_pair(pnode, pto));
+        }
+        LogPrint(BCLog::DANDELION, "Added inbound Dandelion connection:\n%s", GetDandelionRoutingDataDebugString());
     }
 
     // We received a new connection, harvest entropy from the time (and our peer count)
@@ -1285,10 +1305,38 @@ void CConnman::DisconnectNodes()
         std::list<CNode*> vNodesDisconnectedCopy = vNodesDisconnected;
         for (CNode* pnode : vNodesDisconnectedCopy)
         {
+<<<<<<< HEAD
+            // Delete disconnected nodes
+            std::list<CNode*> vNodesDisconnectedCopy = vNodesDisconnected;
+            for (CNode* pnode : vNodesDisconnectedCopy)
+            {
+                // wait until threads are done using it
+                if (pnode->GetRefCount() <= 0) {
+                    bool fDelete = false;
+                    {
+                        TRY_LOCK(pnode->cs_inventory, lockInv);
+                        if (lockInv) {
+                            TRY_LOCK(pnode->cs_vSend, lockSend);
+                            if (lockSend) {
+                                fDelete = true;
+                            }
+                        }
+                    }
+                    if (fDelete) {
+                        // Dandelion: close connection
+                        CloseDandelionConnections(pnode);
+                        LogPrint(BCLog::DANDELION, "Removed Dandelion connection:\n%s", GetDandelionRoutingDataDebugString()); 
+                                               
+                        vNodesDisconnected.remove(pnode);
+                        DeleteNode(pnode);
+                    }
+                }
+=======
             // Destroy the object only after other threads have stopped using it.
             if (pnode->GetRefCount() <= 0) {
                 vNodesDisconnected.remove(pnode);
                 DeleteNode(pnode);
+>>>>>>> bitcoin/8.22.0
             }
         }
     }
@@ -1400,11 +1448,303 @@ void CConnman::SocketEvents(std::set<SOCKET> &recv_set, std::set<SOCKET> &send_s
         return;
     }
 
+<<<<<<< HEAD
+bool CConnman::isDandelionInbound(const CNode* const pnode) const
+{
+    return (std::find(vDandelionInbound.begin(), vDandelionInbound.end(), pnode) != vDandelionInbound.end());
+}
+
+bool CConnman::isLocalDandelionDestinationSet() const
+{
+    return (localDandelionDestination != nullptr);
+}
+
+bool CConnman::setLocalDandelionDestination()
+{
+    if (!isLocalDandelionDestinationSet()) {
+        localDandelionDestination = SelectFromDandelionDestinations();
+        LogPrint(BCLog::DANDELION, "Set local Dandelion destination:\n%s", GetDandelionRoutingDataDebugString());
+    }
+    return isLocalDandelionDestinationSet();
+}
+
+CNode* CConnman::getDandelionDestination(CNode* pfrom) {
+    for (auto const& e : mDandelionRoutes) {
+        if (pfrom==e.first) {
+            return e.second;
+        }
+    }
+    CNode* newPto = SelectFromDandelionDestinations();
+    if (newPto!=nullptr) {
+        mDandelionRoutes.insert(std::make_pair(pfrom, newPto));
+        LogPrint(BCLog::DANDELION, "Added Dandelion route:\n%s", GetDandelionRoutingDataDebugString());
+    }
+    return newPto;
+}
+
+bool CConnman::localDandelionDestinationPushInventory(const CInv& inv) {
+    if(isLocalDandelionDestinationSet()) {
+        localDandelionDestination->PushInventory(inv);
+        return true;
+    } else if (setLocalDandelionDestination()) {
+        localDandelionDestination->PushInventory(inv);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool CConnman::insertDandelionEmbargo(const uint256& hash, const int64_t& embargo) {
+    auto pair = mDandelionEmbargo.insert(std::make_pair(hash, embargo));
+    return pair.second;
+}
+
+bool CConnman::isTxDandelionEmbargoed(const uint256& hash) const {
+    auto pair = mDandelionEmbargo.find(hash);
+    if (pair != mDandelionEmbargo.end()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool CConnman::removeDandelionEmbargo(const uint256& hash) {
+    bool removed = false;
+    for (auto iter=mDandelionEmbargo.begin(); iter!=mDandelionEmbargo.end();) {
+        if (iter->first==hash) {
+            iter = mDandelionEmbargo.erase(iter);
+            removed = true;
+        } else {
+            iter++;
+        }
+    }
+    return removed;
+}
+
+CNode* CConnman::SelectFromDandelionDestinations() const
+{
+    std::map<CNode*,uint64_t> mDandelionDestinationCounts;
+    for (size_t i=0; i<vDandelionDestination.size(); i++) {
+        mDandelionDestinationCounts.insert(std::make_pair(vDandelionDestination.at(i),0));
+    }
+    for (auto& e : mDandelionDestinationCounts) {
+        for (auto const& f : mDandelionRoutes) {
+            if (e.first == f.second) {
+                e.second+=1;
+            }
+        }
+    }
+    unsigned int minNumConnections = vDandelionInbound.size();
+    for (auto const& e : mDandelionDestinationCounts) {
+        if (e.second < minNumConnections) {
+            minNumConnections = e.second;
+        }
+    }
+    std::vector<CNode*> candidateDestinations;
+    for (auto const& e : mDandelionDestinationCounts) {
+        if (e.second == minNumConnections) {
+            candidateDestinations.push_back(e.first);
+        }
+    }
+    FastRandomContext rng;
+    CNode* dandelionDestination = nullptr;
+    if (candidateDestinations.size()>0) {
+        dandelionDestination = candidateDestinations.at(rng.randrange(candidateDestinations.size()));
+    }
+    return dandelionDestination;
+}
+
+void CConnman::CloseDandelionConnections(const CNode* const pnode)
+{
+    // Remove pnode from vDandelionInbound, if present
+    for (auto iter=vDandelionInbound.begin(); iter!=vDandelionInbound.end();) {
+        if (*iter==pnode) {
+            iter=vDandelionInbound.erase(iter);
+        } else {
+            iter++;
+        }
+    }
+    // Remove pnode from vDandelionOutbound, if present
+    for (auto iter=vDandelionOutbound.begin(); iter!=vDandelionOutbound.end();) {
+        if (*iter==pnode) {
+            iter=vDandelionOutbound.erase(iter);
+        } else {
+            iter++;
+        }
+    }
+    // Remove pnode from vDandelionDestination, if present
+    bool isDandelionDestination = false;
+    for (auto iter=vDandelionDestination.begin(); iter!=vDandelionDestination.end();) {
+        if (*iter==pnode) {
+            isDandelionDestination = true;
+            iter=vDandelionDestination.erase(iter);
+        } else {
+            iter++;
+        }
+    }
+    // Generate a replacement Dandelion destination, if necessary
+    if (isDandelionDestination) {
+        // Gather a vector of candidate replacements (outbound peers that are not already destinations)
+        std::vector<CNode*> candidateReplacements;
+        for (auto iteri=vDandelionOutbound.begin(); iteri!=vDandelionOutbound.end();) {
+            bool eligibleCandidate = true;
+            for (auto iterj=vDandelionDestination.begin(); iterj!=vDandelionDestination.end();) {
+                if (*iteri==*iterj) {
+                    eligibleCandidate = false;
+                    iterj = vDandelionDestination.end();
+                } else {
+                    iterj++;
+                }
+            }
+            if (eligibleCandidate) {
+                candidateReplacements.push_back(*iteri);
+            }
+            iteri++;
+        }
+        // Select a candidate to be the replacement destination
+        FastRandomContext rng;
+        CNode* replacementDestination = nullptr;
+        if (candidateReplacements.size()>0) {
+            replacementDestination = candidateReplacements.at(rng.randrange(candidateReplacements.size()));
+        }
+        if (replacementDestination!=nullptr) {
+            vDandelionDestination.push_back(replacementDestination);
+        }
+    }
+    // Generate a replacement pnode, to be used if necessary
+    CNode* newPto = SelectFromDandelionDestinations();
+    // Remove from mDandelionRoutes, if present; if destination, try to replace
+    for(auto iter=mDandelionRoutes.begin(); iter!=mDandelionRoutes.end();) {
+        if (iter->first==pnode) {
+            iter = mDandelionRoutes.erase(iter);
+        } else if (iter->second==pnode) {
+            if (newPto==nullptr) {
+                iter = mDandelionRoutes.erase(iter);
+            } else {
+                iter->second = newPto;
+                iter++;
+            }
+        } else {
+            iter++;
+        }
+    }
+    // Replace localDandelionDestination if equal to pnode
+    if (localDandelionDestination==pnode) {
+        localDandelionDestination = newPto;
+    }
+}
+
+std::string CConnman::GetDandelionRoutingDataDebugString() const {
+    std::string dandelionRoutingDataDebugString = "";
+    dandelionRoutingDataDebugString.append("  vDandelionInbound: ");
+    for(auto const& e : vDandelionInbound) {
+        dandelionRoutingDataDebugString.append(std::to_string(e->GetId())+" ");
+    }
+    dandelionRoutingDataDebugString.append("\n");
+    dandelionRoutingDataDebugString.append("  vDandelionOutbound: ");
+    for(auto const& e : vDandelionOutbound) {
+        dandelionRoutingDataDebugString.append(std::to_string(e->GetId())+" ");
+    }
+    dandelionRoutingDataDebugString.append("\n");
+    dandelionRoutingDataDebugString.append("  vDandelionDestination: ");
+    for(auto const& e : vDandelionDestination) {
+        dandelionRoutingDataDebugString.append(std::to_string(e->GetId())+" ");
+    }
+    dandelionRoutingDataDebugString.append("\n");
+    dandelionRoutingDataDebugString.append("  mDandelionRoutes: ");
+    for(auto const& e : mDandelionRoutes) {
+        dandelionRoutingDataDebugString.append("("+std::to_string(e.first->GetId())+","+std::to_string(e.second->GetId())+") ");
+    }
+    dandelionRoutingDataDebugString.append("\n");
+    dandelionRoutingDataDebugString.append("  localDandelionDestination: ");
+    if(localDandelionDestination==nullptr) {
+        dandelionRoutingDataDebugString.append("nullptr");
+    } else {
+        dandelionRoutingDataDebugString.append(std::to_string(localDandelionDestination->GetId()));
+    }
+    dandelionRoutingDataDebugString.append("\n");
+    return dandelionRoutingDataDebugString;
+}
+
+void CConnman::DandelionShuffle() {
+    // Dandelion debug message
+    LogPrint(BCLog::DANDELION, "Before Dandelion shuffle:\n%s", GetDandelionRoutingDataDebugString());
+    {
+        // Lock node pointers
+        LOCK(cs_vNodes);
+        // Iterate through mDandelionRoutes to facilitate bookkeeping
+        for (auto iter=mDandelionRoutes.begin(); iter!=mDandelionRoutes.end();) {
+            iter = mDandelionRoutes.erase(iter);
+        }
+        // Set localDandelionDestination to nulltpr and perform bookkeeping
+        if (localDandelionDestination!=nullptr) {
+            localDandelionDestination = nullptr;
+        }
+        // Clear vDandelionDestination
+        //  (bookkeeping already done while iterating through mDandelionRoutes)
+        vDandelionDestination.clear();
+        // Repopulate vDandelionDestination
+        while (vDandelionDestination.size()<DANDELION_MAX_DESTINATIONS &&
+               vDandelionDestination.size()<vDandelionOutbound.size()) {
+            std::vector<CNode*> candidateDestinations;
+            for (auto iteri=vDandelionOutbound.begin(); iteri!=vDandelionOutbound.end();) {
+                bool eligibleCandidate = true;
+                for (auto iterj=vDandelionDestination.begin(); iterj!=vDandelionDestination.end();) {
+                    if (*iteri==*iterj) {
+                        eligibleCandidate = false;
+                        iterj = vDandelionDestination.end();
+                    } else {
+                        iterj++;
+                    }
+                }
+                if (eligibleCandidate) {
+                    candidateDestinations.push_back(*iteri);
+                }
+                iteri++;
+            }
+            FastRandomContext rng;
+            if (candidateDestinations.size()>0) {
+                vDandelionDestination.push_back(candidateDestinations.at(rng.randrange(candidateDestinations.size())));
+            } else {
+                break;
+            }
+        }
+        // Generate new routes
+        for (auto pnode : vDandelionInbound) {
+            CNode* pto = SelectFromDandelionDestinations();
+            if (pto != nullptr) {
+                mDandelionRoutes.insert(std::make_pair(pnode, pto));
+            }
+        }
+        localDandelionDestination = SelectFromDandelionDestinations();
+    }
+    // Dandelion debug message
+    LogPrint(BCLog::DANDELION, "After Dandelion shuffle:\n%s", GetDandelionRoutingDataDebugString());
+}
+
+void CConnman::ThreadDandelionShuffle() {
+    int64_t nCurrTime = GetTimeMicros();
+    int64_t nNextDandelionShuffle = PoissonNextSend(nCurrTime, DANDELION_SHUFFLE_INTERVAL);
+    while (!interruptNet) {
+        nCurrTime = GetTimeMicros();
+        if (nCurrTime > nNextDandelionShuffle) {
+            DandelionShuffle();
+            nNextDandelionShuffle = PoissonNextSend(nCurrTime, DANDELION_SHUFFLE_INTERVAL);
+            // Sleep until the next shuffle time
+            if (!interruptNet.sleep_for(std::chrono::milliseconds((nNextDandelionShuffle-nCurrTime)/1000))) {
+                return;
+            }
+        }
+    }
+}
+
+=======
     std::unordered_map<SOCKET, struct pollfd> pollfds;
     for (SOCKET socket_id : recv_select_set) {
         pollfds[socket_id].fd = socket_id;
         pollfds[socket_id].events |= POLLIN;
     }
+>>>>>>> bitcoin/8.22.0
 
     for (SOCKET socket_id : send_select_set) {
         pollfds[socket_id].fd = socket_id;
@@ -1612,10 +1952,31 @@ void CConnman::SocketHandler()
             }
         }
 
+<<<<<<< HEAD
+        std::string strDesc = "DigiByte " + FormatFullVersion();
+
+        do {
+#ifndef UPNPDISCOVER_SUCCESS
+            /* miniupnpc 1.5 */
+            r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
+                                port.c_str(), port.c_str(), lanaddr, strDesc.c_str(), "TCP", 0);
+#else
+            /* miniupnpc 1.6 */
+            r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
+                                port.c_str(), port.c_str(), lanaddr, strDesc.c_str(), "TCP", 0, "0");
+#endif
+
+            if(r!=UPNPCOMMAND_SUCCESS)
+                LogPrintf("AddPortMapping(%s, %s, %s) failed with code %d (%s)\n",
+                    port, port, lanaddr, r, strupnperror(r));
+            else
+                LogPrintf("UPnP Port Mapping successful.\n");
+=======
         if (sendSet) {
             // Send data
             size_t bytes_sent = WITH_LOCK(pnode->cs_vSend, return SocketSendData(*pnode));
             if (bytes_sent) RecordBytesSent(bytes_sent);
+>>>>>>> bitcoin/8.22.0
         }
 
         if (InactivityCheck(*pnode)) pnode->fDisconnect = true;
@@ -2228,6 +2589,19 @@ void CConnman::OpenNetworkConnection(const CAddress& addrConnect, bool fCountFai
     {
         LOCK(cs_vNodes);
         vNodes.push_back(pnode);
+        
+        // Dandelion: new outbound connection
+        vDandelionOutbound.push_back(pnode);
+        if (vDandelionDestination.size()<DANDELION_MAX_DESTINATIONS) {
+            vDandelionDestination.push_back(pnode);
+        }
+        LogPrint(BCLog::DANDELION, "Added outbound Dandelion connection:\n%s", GetDandelionRoutingDataDebugString());
+        
+        // Dandelion service discovery
+        uint256 dummyHash;
+        dummyHash.SetHex("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        CInv dummyInv(MSG_DANDELION_TX, dummyHash);
+        pnode->PushInventory(dummyInv);
     }
 }
 
@@ -2607,12 +2981,19 @@ bool CConnman::Start(CScheduler& scheduler, const Options& connOptions)
     }
 
     // Process messages
+<<<<<<< HEAD
+    threadMessageHandler = std::thread(&TraceThread<std::function<void()> >, "msghand", std::function<void()>(std::bind(&CConnman::ThreadMessageHandler, this)));
+    
+    // Dandelion shuffle
+    threadDandelionShuffle = std::thread(&TraceThread<std::function<void()> >, "dandelion", std::function<void()>(std::bind(&CConnman::ThreadDandelionShuffle, this)));
+=======
     threadMessageHandler = std::thread(&util::TraceThread, "msghand", [this] { ThreadMessageHandler(); });
 
     if (connOptions.m_i2p_accept_incoming && m_i2p_sam_session.get() != nullptr) {
         threadI2PAcceptIncoming =
             std::thread(&util::TraceThread, "i2paccept", [this] { ThreadI2PAcceptIncoming(); });
     }
+>>>>>>> bitcoin/8.22.0
 
     // Dump network addresses
     scheduler.scheduleEvery([this] { DumpAddresses(); }, DUMP_PEERS_INTERVAL);
@@ -2674,7 +3055,12 @@ void CConnman::StopThreads()
         threadDNSAddressSeed.join();
     if (threadSocketHandler.joinable())
         threadSocketHandler.join();
+<<<<<<< HEAD
+    if (threadDandelionShuffle.joinable())
+        threadDandelionShuffle.join();
+=======
 }
+>>>>>>> bitcoin/8.22.0
 
 void CConnman::StopNodes()
 {

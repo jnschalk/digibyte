@@ -1,12 +1,25 @@
 # TOR SUPPORT IN DIGIBYTE
 
+<<<<<<< HEAD
+=======
+# TOR SUPPORT IN DIGIBYTE
+
+It is possible to run DigiByte Core as a Tor hidden service, and connect to such services.
+=======
 It is possible to run DigiByte Core as a Tor onion service, and connect to such services.
+>>>>>>> bitcoin/8.22.0
 
 The following directions assume you have a Tor proxy running on port 9050. Many distributions default to having a SOCKS proxy listening on port 9050, but others may not. In particular, the Tor Browser Bundle defaults to listening on port 9150. See [Tor Project FAQ:TBBSocksPort](https://www.torproject.org/docs/faq.html.en#TBBSocksPort) for how to properly
 configure Tor.
 
 ## Compatibility
 
+<<<<<<< HEAD
+## 1. Run DigiByte Core behind a Tor proxy
+
+The first step is running DigiByte Core behind a Tor proxy. This will already anonymize all
+outgoing connections, but more is possible.
+=======
 - Starting with version 22.0, DigiByte Core only supports Tor version 3 hidden
   services (Tor v3). Tor v2 addresses are ignored by DigiByte Core and neither
   relayed nor stored.
@@ -19,6 +32,7 @@ There are several ways to see your local onion address in DigiByte Core:
 - in the debug log (grep for "tor:" or "AddLocal")
 - in the output of RPC `getnetworkinfo` in the "localaddresses" section
 - in the output of the CLI `-netinfo` peer connections dashboard
+>>>>>>> bitcoin/8.22.0
 
 You may set the `-debug=tor` config logging option to have additional
 information in the debug log about your Tor configuration.
@@ -65,6 +79,9 @@ outgoing connections, but more is possible.
 
 In a typical situation, this suffices to run behind a Tor proxy:
 
+<<<<<<< HEAD
+	./digibyted -proxy=127.0.0.1:9050
+=======
     ./digibyted -proxy=127.0.0.1:9050
 
 ## 2. Automatically create a DigiByte Core onion service
@@ -112,20 +129,41 @@ methods to be configured: cookie authentication or digibyted's `-torpassword`
 configuration option.
 
 #### Cookie authentication
+>>>>>>> bitcoin/8.22.0
 
 For cookie authentication, the user running digibyted must have read access to
 the `CookieAuthFile` specified in the Tor configuration. In some cases this is
 preconfigured and the creation of an onion service is automatic. Don't forget to
 use the `-debug=tor` digibyted configuration option to enable Tor debug logging.
 
+<<<<<<< HEAD
+## 2. Run a DigiByte Core hidden server
+=======
 If a permissions problem is seen in the debug log, e.g. `tor: Authentication
 cookie /run/tor/control.authcookie could not be opened (check permissions)`, it
 can be resolved by adding both the user running Tor and the user running
 digibyted to the same Tor group and setting permissions appropriately.
+>>>>>>> bitcoin/8.22.0
 
 On Debian-derived systems, the Tor group will likely be `debian-tor` and one way
 to verify could be to list the groups and grep for a "tor" group name:
 
+<<<<<<< HEAD
+	HiddenServiceDir /var/lib/tor/digibyte-service/
+	HiddenServicePort 8333 127.0.0.1:8333
+	HiddenServicePort 18333 127.0.0.1:18333
+
+The directory can be different of course, but (both) port numbers should be equal to
+your digibyted's P2P listen port (8333 by default).
+
+	-externalip=X   You can tell digibyte about its publicly reachable address using
+	                this option, and this can be a .onion address. Given the above
+	                configuration, you can find your .onion address in
+	                /var/lib/tor/digibyte-service/hostname. For connections
+	                coming from unroutable addresses (such as 127.0.0.1, where the
+	                Tor proxy typically runs), .onion addresses are given
+	                preference for your node to advertise itself with.
+=======
 ```
 getent group | cut -d: -f1 | grep -i tor
 ```
@@ -136,6 +174,7 @@ auth cookie will usually be `/run/tor/control.authcookie`:
 ```
 stat -c '%G' /run/tor/control.authcookie
 ```
+>>>>>>> bitcoin/8.22.0
 
 Once you have determined the `${TORGROUP}` and selected the `${USER}` that will
 run digibyted, run this as root:
@@ -196,24 +235,72 @@ should be equal to binding address and port for inbound Tor connections (127.0.0
 
 In a typical situation, where you're only reachable via Tor, this should suffice:
 
+<<<<<<< HEAD
+	./digibyted -proxy=127.0.0.1:9050 -externalip=57qr3yd1nyntf5k.onion -listen
+=======
     ./digibyted -proxy=127.0.0.1:9050 -externalip=7zvj7a2imdgkdbg4f2dryd5rgtrn7upivr5eeij4cicjh65pooxeshid.onion -listen
+>>>>>>> bitcoin/8.22.0
 
 (obviously, replace the .onion address with your own). It should be noted that you still
 listen on all devices and another node could establish a clearnet connection, when knowing
 your address. To mitigate this, additionally bind the address of your Tor proxy:
 
+<<<<<<< HEAD
+	./digibyted ... -bind=127.0.0.1
+=======
     ./digibyted ... -bind=127.0.0.1
+>>>>>>> bitcoin/8.22.0
 
 If you don't care too much about hiding your node, and want to be reachable on IPv4
 as well, use `discover` instead:
 
+<<<<<<< HEAD
+	./digibyted ... -discover
+=======
     ./digibyted ... -discover
+>>>>>>> bitcoin/8.22.0
 
 and open port 8333 on your firewall (or use port mapping, i.e., `-upnp` or `-natpmp`).
 
 If you only want to use Tor to reach .onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
 
+<<<<<<< HEAD
+	./digibyted -onion=127.0.0.1:9050 -externalip=57qr3yd1nyntf5k.onion -discover
+
+## 3. Automatically listen on Tor
+
+Starting with Tor version 0.2.7.1 it is possible, through Tor's control socket
+API, to create and destroy 'ephemeral' hidden services programmatically.
+DigiByte Core has been updated to make use of this.
+
+This means that if Tor is running (and proper authentication has been configured),
+DigiByte Core automatically creates a hidden service to listen on. This will positively 
+affect the number of available .onion nodes.
+
+This new feature is enabled by default if DigiByte Core is listening (`-listen`), and
+requires a Tor connection to work. It can be explicitly disabled with `-listenonion=0`
+and, if not disabled, configured using the `-torcontrol` and `-torpassword` settings.
+To show verbose debugging information, pass `-debug=tor`.
+
+Connecting to Tor's control socket API requires one of two authentication methods to be
+configured. For cookie authentication the user running digibyted must have write access
+to the `CookieAuthFile` specified in Tor configuration. In some cases, this is
+preconfigured and the creation of a hidden service is automatic. If permission problems
+are seen with `-debug=tor` they can be resolved by adding both the user running Tor and
+the user running digibyted to the same group and setting permissions appropriately. On
+Debian-based systems the user running digibyted can be added to the debian-tor group,
+which has the appropriate permissions. An alternative authentication method is the use
+of the `-torpassword` flag and a `hash-password` which can be enabled and specified in
+Tor configuration.
+
+## 4. Privacy recommendations
+
+- Do not add anything but DigiByte Core ports to the hidden service created in section 2.
+  If you run a web service too, create a new hidden service for that.
+  Otherwise it is trivial to link them, which may reduce privacy. Hidden
+  services created automatically (as in section 3) always have only one port
+=======
     ./digibyted -onion=127.0.0.1:9050 -externalip=7zvj7a2imdgkdbg4f2dryd5rgtrn7upivr5eeij4cicjh65pooxeshid.onion -discover
 
 ## 4. Privacy recommendations
@@ -222,4 +309,5 @@ for normal IPv4/IPv6 communication, use:
   If you run a web service too, create a new onion service for that.
   Otherwise it is trivial to link them, which may reduce privacy. Onion
   services created automatically (as in section 2) always have only one port
+>>>>>>> bitcoin/8.22.0
   open.

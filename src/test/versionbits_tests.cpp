@@ -1,8 +1,18 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <chain.h>
+<<<<<<< HEAD
+#include <versionbits.h>
+#include <test/test_digibyte.h>
+=======
+>>>>>>> bitcoin/8.22.0
 #include <chainparams.h>
 #include <consensus/params.h>
 #include <deploymentstatus.h>
@@ -302,6 +312,43 @@ static void check_computeblockversion(const Consensus::Params& params, Consensus
 
     // Before MedianTimePast of the chain has crossed nStartTime, the bit
     // should not be set.
+<<<<<<< HEAD
+    CBlockIndex *lastBlock = nullptr;
+    lastBlock = firstChain.Mine(mainnetParams.nMinerConfirmationWindow, nTime, ALGO_SCRYPT).Tip();
+    BOOST_CHECK_EQUAL(ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1<<bit), 0);
+
+    // Mine more blocks (4 less than the adjustment period) at the old time, and check that CBV isn't setting the bit yet.
+    for (uint32_t i = 1; i < mainnetParams.nMinerConfirmationWindow - 4; i++) {
+        lastBlock = firstChain.Mine(mainnetParams.nMinerConfirmationWindow + i, nTime, ALGO_SCRYPT).Tip();
+        // This works because ALGO_SCRYPT happens
+        // to be 4, and the bit we're testing happens to be bit 28.
+        BOOST_CHECK_EQUAL(ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1<<bit), 0);
+    }
+    // Now mine 5 more blocks at the start time -- MTP should not have passed yet, so
+    // CBV should still not yet set the bit.
+    nTime = nStartTime;
+    for (uint32_t i = mainnetParams.nMinerConfirmationWindow - 4; i <= mainnetParams.nMinerConfirmationWindow; i++) {
+        lastBlock = firstChain.Mine(mainnetParams.nMinerConfirmationWindow + i, nTime, ALGO_SCRYPT).Tip();
+        BOOST_CHECK_EQUAL(ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1<<bit), 0);
+    }
+
+    // Advance to the next period and transition to STARTED,
+    lastBlock = firstChain.Mine(mainnetParams.nMinerConfirmationWindow * 3, nTime, ALGO_SCRYPT).Tip();
+    // so ComputeBlockVersion should now set the bit,
+    BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1<<bit)) != 0);
+    // and should also be using the VERSIONBITS_TOP_BITS.
+    BOOST_CHECK_EQUAL(ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & VERSIONBITS_TOP_MASK, VERSIONBITS_TOP_BITS);
+
+    // Check that ComputeBlockVersion will set the bit until nTimeout
+    nTime += 600;
+    uint32_t blocksToMine = mainnetParams.nMinerConfirmationWindow * 2; // test blocks for up to 2 time periods
+    uint32_t nHeight = mainnetParams.nMinerConfirmationWindow * 3;
+    // These blocks are all before nTimeout is reached.
+    while (nTime < nTimeout && blocksToMine > 0) {
+        lastBlock = firstChain.Mine(nHeight+1, nTime, ALGO_SCRYPT).Tip();
+        BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1<<bit)) != 0);
+        BOOST_CHECK_EQUAL(ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & VERSIONBITS_TOP_MASK, VERSIONBITS_TOP_BITS);
+=======
     if (nTime == 0) {
         // since CBlockIndex::nTime is uint32_t we can't represent any
         // earlier time, so will transition from DEFINED to STARTED at the
@@ -349,11 +396,25 @@ static void check_computeblockversion(const Consensus::Params& params, Consensus
         lastBlock = firstChain.Mine(nHeight+1, nTime, VERSIONBITS_LAST_OLD_BLOCK_VERSION).Tip();
         BOOST_CHECK((g_versionbitscache.ComputeBlockVersion(lastBlock, params) & (1 << bit)) != 0);
         BOOST_CHECK_EQUAL(g_versionbitscache.ComputeBlockVersion(lastBlock, params) & VERSIONBITS_TOP_MASK, VERSIONBITS_TOP_BITS);
+>>>>>>> bitcoin/8.22.0
         blocksToMine--;
         nTime += 600;
         nHeight += 1;
     }
 
+<<<<<<< HEAD
+    // FAILED is only triggered at the end of a period, so CBV should be setting
+    // the bit until the period transition.
+    for (uint32_t i = nHeight; i < mainnetParams.nMinerConfirmationWindow * 5; i++) {
+        lastBlock = firstChain.Mine(i, nTime, ALGO_SCRYPT).Tip();
+        BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1<<bit)) != 0);
+    }
+
+    // The next block should trigger no longer setting the bit.
+    nHeight = mainnetParams.nMinerConfirmationWindow * 5;
+    lastBlock = firstChain.Mine(nHeight, nTime, ALGO_SCRYPT).Tip();
+    BOOST_CHECK_EQUAL(ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1<<bit), 0);
+=======
     if (nTimeout != Consensus::BIP9Deployment::NO_TIMEOUT) {
         // can reach any nTimeout other than NO_TIMEOUT due to earlier BOOST_REQUIRE
 
@@ -377,6 +438,7 @@ static void check_computeblockversion(const Consensus::Params& params, Consensus
         lastBlock = firstChain.Mine(nHeight+1, nTime, VERSIONBITS_LAST_OLD_BLOCK_VERSION).Tip();
         BOOST_CHECK_EQUAL(g_versionbitscache.ComputeBlockVersion(lastBlock, params) & (1 << bit), 0);
     }
+>>>>>>> bitcoin/8.22.0
 
     // On a new chain:
     // verify that the bit will be set after lock-in, and then stop being set
@@ -385,6 +447,27 @@ static void check_computeblockversion(const Consensus::Params& params, Consensus
 
     // Mine one period worth of blocks, and check that the bit will be on for the
     // next period.
+<<<<<<< HEAD
+    lastBlock = secondChain.Mine(mainnetParams.nMinerConfirmationWindow, nTime, ALGO_SCRYPT).Tip();
+    BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1<<bit)) != 0);
+
+    // Mine another period worth of blocks, signaling the new bit.
+    lastBlock = secondChain.Mine(mainnetParams.nMinerConfirmationWindow * 2, nTime, VERSIONBITS_TOP_BITS | (1<<bit)).Tip();
+    // After one period of setting the bit on each block, it should have locked in.
+    // We keep setting the bit for one more period though, until activation.
+    BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1<<bit)) != 0);
+
+    // Now check that we keep mining the block until the end of this period, and
+    // then stop at the beginning of the next period.
+    lastBlock = secondChain.Mine((mainnetParams.nMinerConfirmationWindow * 3) - 1, nTime, ALGO_SCRYPT).Tip();
+    BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1 << bit)) != 0);
+    lastBlock = secondChain.Mine(mainnetParams.nMinerConfirmationWindow * 3, nTime, ALGO_SCRYPT).Tip();
+    BOOST_CHECK_EQUAL(ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & (1<<bit), 0);
+
+    // Finally, verify that after a soft fork has activated, CBV no longer uses
+    // ALGO_SCRYPT.
+    //BOOST_CHECK_EQUAL(ComputeBlockVersion(lastBlock, mainnetParams, ALGO_SCRYPT) & VERSIONBITS_TOP_MASK, VERSIONBITS_TOP_BITS);
+=======
     lastBlock = secondChain.Mine(params.nMinerConfirmationWindow, nTime, VERSIONBITS_LAST_OLD_BLOCK_VERSION).Tip();
     BOOST_CHECK((g_versionbitscache.ComputeBlockVersion(lastBlock, params) & (1 << bit)) != 0);
 
@@ -410,6 +493,7 @@ static void check_computeblockversion(const Consensus::Params& params, Consensus
 
     // Check that we don't signal after activation
     BOOST_CHECK_EQUAL(g_versionbitscache.ComputeBlockVersion(lastBlock, params) & (1 << bit), 0);
+>>>>>>> bitcoin/8.22.0
 }
 
 BOOST_AUTO_TEST_CASE(versionbits_computeblockversion)

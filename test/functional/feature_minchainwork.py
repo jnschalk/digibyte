@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test logic for setting nMinimumChainWork on command line.
@@ -18,7 +23,11 @@ only succeeds past a given node once its nMinimumChainWork has been exceeded.
 import time
 
 from test_framework.test_framework import DigiByteTestFramework
+<<<<<<< HEAD
+from test_framework.util import connect_nodes, assert_equal
+=======
 from test_framework.util import assert_equal
+>>>>>>> bitcoin/8.22.0
 
 # 2 hashes required per regtest block (with no difficulty adjustment)
 REGTEST_WORK_PER_BLOCK = 2
@@ -30,6 +39,9 @@ class MinimumChainWorkTest(DigiByteTestFramework):
 
         self.extra_args = [[], ["-minimumchainwork=0x65"], ["-minimumchainwork=0x65"]]
         self.node_min_work = [0, 101, 101]
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def setup_network(self):
         # This test relies on the chain setup being:

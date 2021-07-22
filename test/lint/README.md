@@ -30,7 +30,10 @@ maintained:
 * for `src/leveldb`: https://github.com/digibyte-core/leveldb.git (branch digibyte-fork)
 * for `src/univalue`: https://github.com/digibyte-core/univalue.git (branch master)
 * for `src/crypto/ctaes`: https://github.com/digibyte-core/ctaes.git (branch master)
+<<<<<<< HEAD
+=======
 * for `src/crc32c`: https://github.com/google/crc32c.git (branch master)
+>>>>>>> bitcoin/8.22.0
 
 To do so, add the upstream repository as remote:
 

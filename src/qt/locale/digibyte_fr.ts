@@ -67,6 +67,13 @@
     </message>
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Voici vos adresses DigiByte pour envoyer des paiements. Vérifiez toujours le montant et l’adresse du destinataire avant d’envoyer des pièces.</translation>
+    </message>
+    <message>
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Voici vos adresses DigiByte pour recevoir des paiements. Il est recommandé d’utiliser une nouvelle adresse de réception pour chaque transaction.</translation>
+=======
         <translation>Ce sont vos adresses DigiByte pour envoyer des paiements. Vérifiez toujours le montant et l’adresse du destinataire avant d’envoyer des pièces.</translation>
     </message>
     <message>
@@ -74,6 +81,7 @@
 Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Ce sont vos adresses DigiByte pour recevoir des paiements. Utilisez le bouton « Créer une nouvelle adresse de réception » dans l’onglet Recevoir afin de créer de nouvelles adresses.
 Il n’est possible de signer qu’avec les adresses de type « legacy ».</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -171,7 +179,11 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Avertissement : si vous chiffrez votre porte-monnaie et perdez votre phrase de passe, vous &lt;b&gt;PERDREZ TOUS VOS DIGIBYTES&lt;/b&gt; !</translation>
+=======
         <translation>Avertissement : Si vous chiffrez votre porte-monnaie et perdez votre phrase de passe, vous &lt;b&gt;PERDREZ TOUS VOS DIGIBYTES&lt;/b&gt; !</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -182,6 +194,10 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
         <translation>Le porte-monnaie est chiffré</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
+        <translation>%1 va maintenant se fermer pour terminer le processus de chiffrement. Souvenez-vous que le chiffrement de votre porte-monnaie ne peut pas protéger entièrement vos digibytes contre le vol par des logiciels malveillants qui infecteraient votre ordinateur.</translation>
+=======
         <source>Enter the new passphrase for the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Saisissez la nouvelle phrase de passe du porte-monnaie.&lt;br/&gt;Veuillez utiliser une phrase de passe composée de &lt;b&gt;dix caractères aléatoires ou plus&lt;/b&gt;, ou de &lt;b&gt;huit mots ou plus&lt;/b&gt;.</translation>
     </message>
@@ -204,6 +220,7 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     <message>
         <source>Your wallet is now encrypted. </source>
         <translation>Votre porte-monnaie est désormais chiffré.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -365,7 +382,11 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>Send coins to a DigiByte address</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Envoyer des pièces à une adresse DigiByte</translation>
+=======
         <translation>Envoyer des pièces à une adresse DigiByte</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -377,7 +398,19 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>&amp;Verify message...</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>&amp;Vérifier un message...</translation>
+    </message>
+    <message>
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Porte-monnaie</translation>
+=======
         <translation>&amp;Vérifier un message…</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>&amp;Send</source>
@@ -401,11 +434,19 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>Sign messages with your DigiByte addresses to prove you own them</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Signer les messages avec vos adresses DigiByte pour prouver que vous les détenez</translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
+        <translation>Vérifier les messages pour s’assurer qu’ils ont été signés avec les adresses DigiByte indiquées</translation>
+=======
         <translation>Signer les messages avec vos adresses DigiByte pour prouver que vous les détenez</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
         <translation>Vérifier les messages pour s’assurer qu’ils ont été signés avec les adresses DigiByte indiquées</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>&amp;File</source>
@@ -436,12 +477,23 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
         <translation>Afficher la liste d’adresses de réception et d’étiquettes utilisées</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>Open a digibyte: URI or payment request</source>
+        <translation>Ouvrir une URI digibyte: ou une demande de paiement</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
         <source>&amp;Command-line options</source>
         <translation>Options de ligne de &amp;commande</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to DigiByte network</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation><numerusform>%n connexion active avec le réseau DigiByte</numerusform><numerusform>%n connexions actives avec le réseau DigiByte</numerusform></translation>
+=======
         <translation><numerusform>%n connexion active avec le réseau DigiByte</numerusform><numerusform>%n connexions actives avec le réseau DigiByte</numerusform></translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -484,6 +536,10 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
         <translation>À jour</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
+        <translation>Afficher le message d’aide de %1 pour obtenir la liste des options de ligne de commande DigiByte possibles.</translation>
+=======
         <source>&amp;Load PSBT from file...</source>
         <translation>&amp;Charger une TBSP d’un fichier…</translation>
     </message>
@@ -578,6 +634,7 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     <message>
         <source>Main Window</source>
         <translation>Fenêtre principale</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>%1 client</source>
@@ -664,12 +721,17 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
         <translation>Le porte-monnaie est &lt;b&gt;chiffré&lt;/b&gt; et actuellement &lt;b&gt;verrouillé&lt;/b&gt;</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <translation>Une erreur fatale est survenue. DigiByte ne peut plus continuer en toute sécurité et va s’arrêter.</translation>
+=======
         <source>Original message:</source>
         <translation>Message original :</translation>
     </message>
     <message>
         <source>A fatal error occurred. %1 can no longer continue safely and will quit.</source>
         <translation>Une erreur fatale est survenue. %1 ne peut plus continuer de façon sûre et va s’arrêter.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
 </context>
 <context>
@@ -921,7 +983,11 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>The entered address "%1" is not a valid DigiByte address.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>L’adresse saisie « %1 » n’est pas une adresse DigiByte valide.</translation>
+=======
         <translation>L’adresse saisie « %1 » n’est pas une adresse DigiByte valide.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Address "%1" already exists as a receiving address with label "%2" and so cannot be added as a sending address.</source>
@@ -1021,8 +1087,13 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
         <translation>DigiByte</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
+=======
         <source>Discard blocks after verification, except most recent %1 GB (prune)</source>
         <translation>Jeter les blocs après vérification, à l’exception des %1 Go les plus récents (élagage)</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
@@ -1034,7 +1105,11 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>%1 will download and store a copy of the DigiByte block chain.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>%1 téléchargera et stockera une copie de la chaîne de blocs DigiByte.</translation>
+=======
         <translation>%1 téléchargera et stockera une copie de la chaîne de blocs DigiByte.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1069,7 +1144,11 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the digibyte network, as detailed below.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Les transactions récentes ne sont peut-être pas encore visibles et par conséquent le solde de votre porte-monnaie est peut-être erroné. Cette information sera juste quand votre porte-monnaie aura fini de se synchroniser avec le réseau DigiByte, comme décrit ci-dessous.</translation>
+=======
         <translation>Les transactions récentes ne sont peut-être pas encore visibles et par conséquent le solde de votre porte-monnaie est peut-être erroné. Ces renseignements seront justes quand votre porte-monnaie aura fini de se synchroniser avec le réseau DigiByte, comme décrit ci-dessous.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Attempting to spend digibytes that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
@@ -1266,7 +1345,11 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Ouvrir automatiquement le port du client DigiByte sur le routeur. Cela ne fonctionne que si votre routeur prend en charge l’UPnP et si la fonction est activée.</translation>
+=======
         <translation>Ouvrir automatiquement le port du client DigiByte sur le routeur. Cela ne fonctionne que si votre routeur prend en charge l’UPnP et si la fonction est activée.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1282,7 +1365,11 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>Connect to the DigiByte network through a SOCKS5 proxy.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Se connecter au réseau DigiByte par un mandataire SOCKS5.</translation>
+=======
         <translation>Se connecter au réseau DigiByte par un mandataire SOCKS5.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1317,6 +1404,13 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
         <translation>Tor</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Se connecter au réseau DigiByte au travers d’un mandataire SOCKS5 séparé pour les services cachés de Tor.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
         <source>&amp;Window</source>
         <translation>&amp;Fenêtre</translation>
     </message>
@@ -1433,7 +1527,11 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Les informations affichées peuvent être obsolètes. Votre porte-monnaie est automatiquement synchronisé avec le réseau DigiByte lorsque la connexion s’établit, or ce processus n’est pas encore terminé.</translation>
+=======
         <translation>Les renseignements affichés peuvent être obsolètes. Votre porte-monnaie se synchronise automatiquement avec le réseau DigiByte dès qu’une connexion est établie, mais ce processus n’est pas encore achevé.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1511,16 +1609,26 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
         <translation>Fenêtre de dialogue</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>Cannot start digibyte: click-to-pay handler</source>
+        <translation>Impossible de démarrer le gestionnaire de cliquer-pour-payer digibyte:</translation>
+=======
         <source>Sign Tx</source>
         <translation>Signer la transaction</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Broadcast Tx</source>
         <translation>Diffuser la transaction</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</source>
+        <translation>'digibyte://' n’est pas une URI valide. Utilisez plutôt 'digibyte:'.</translation>
+=======
         <source>Copy to Clipboard</source>
         <translation>Copier dans le presse-papiers</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Save...</source>
@@ -1531,8 +1639,13 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
         <translation>Fermer</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <translation>L’URI ne peut pas être analysée ! Cela peut être causé par une adresse DigiByte invalide ou par des paramètres d’URI mal formés.</translation>
+=======
         <source>Failed to load transaction: %1</source>
         <translation>Échec de chargement de la transaction : %1</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Failed to sign transaction: %1</source>
@@ -1705,7 +1818,11 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>Enter a DigiByte address (e.g. %1)</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Saisir une adresse DigiByte (p. ex. %1)</translation>
+=======
         <translation>Saisissez une adresse DigiByte (p. ex. %1)</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>%1 d</source>
@@ -2166,7 +2283,11 @@ Il n’est possible de signer qu’avec les adresses de type « legacy ».</tr
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Un message facultatif à joindre à la demande de paiement et qui sera affiché à l’ouverture de celle-ci. Note : le message ne sera pas envoyé avec le paiement par le réseau DigiByte.</translation>
+=======
         <translation>Un message facultatif à joindre à la demande de paiement et qui sera affiché à l’ouverture de celle-ci. Note : Le message ne sera pas envoyé avec le paiement par le réseau DigiByte.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2418,6 +2539,17 @@ Note : Les frais étant calculés par octet, des frais de « 100 satoshis par
         <translation>Cacher</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
+        <translation>Il est correct de payer les frais minimum tant que le volume transactionnel est inférieur à l’espace dans les blocs. Mais soyez conscient que cela pourrait résulter en une transaction n’étant jamais confirmée une fois qu’il y aura plus de transactions que le réseau ne pourra en traiter.</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(lire l’infobulle)</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
         <source>Recommended:</source>
         <translation>Recommandés :</translation>
     </message>
@@ -2647,7 +2779,11 @@ Note : Les frais étant calculés par octet, des frais de « 100 satoshis par
     </message>
     <message>
         <source>Warning: Invalid DigiByte address</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Avertissement : adresse DigiByte invalide</translation>
+=======
         <translation>Avertissement : L’adresse DigiByte est invalide</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2685,8 +2821,17 @@ Note : Les frais étant calculés par octet, des frais de « 100 satoshis par
         <translation>Choisir une adresse déjà utilisée</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>This is a normal payment.</source>
+        <translation>Ceci est un paiement normal.</translation>
+    </message>
+    <message>
+        <source>The DigiByte address to send the payment to</source>
+        <translation>L’adresse DigiByte à laquelle envoyer le paiement</translation>
+=======
         <source>The DigiByte address to send the payment to</source>
         <translation>L’adresse DigiByte à laquelle envoyer le paiement</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Alt+A</source>
@@ -2710,7 +2855,11 @@ Note : Les frais étant calculés par octet, des frais de « 100 satoshis par
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Les frais seront déduits du montant envoyé. Le destinataire recevra moins de digibytes que le montant saisi dans le champ de montant. Si plusieurs destinataires sont sélectionnés, les frais seront partagés également..</translation>
+=======
         <translation>Les frais seront déduits du montant envoyé. Le destinataire recevra moins de digibytes que le montant saisi dans le champ de montant. Si plusieurs destinataires sont sélectionnés, les frais seront partagés également.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2738,7 +2887,11 @@ Note : Les frais étant calculés par octet, des frais de « 100 satoshis par
     </message>
     <message>
         <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Un message qui était joint à l’URI digibyte: et qui sera stocké avec la transaction pour référence. Note : ce message ne sera pas envoyé par le réseau DigiByte.</translation>
+=======
         <translation>Un message qui était joint à l’URI digibyte: et qui sera stocké avec la transaction pour référence. Note : Ce message ne sera pas envoyé par le réseau DigiByte.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Pay To:</source>
@@ -2776,7 +2929,11 @@ Note : Les frais étant calculés par octet, des frais de « 100 satoshis par
     </message>
     <message>
         <source>The DigiByte address to sign the message with</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>L’adresse DigiByte avec laquelle signer le message</translation>
+=======
         <translation>L’adresse DigiByte avec laquelle signer le message</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2808,7 +2965,11 @@ Note : Les frais étant calculés par octet, des frais de « 100 satoshis par
     </message>
     <message>
         <source>Sign the message to prove you own this DigiByte address</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Signer le message afin de prouver que vous détenez cette adresse DigiByte</translation>
+=======
         <translation>Signer le message afin de prouver que vous détenez cette adresse DigiByte</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2839,12 +3000,21 @@ Note : Les frais étant calculés par octet, des frais de « 100 satoshis par
         <translation>Le message signé à vérifier</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <source>The DigiByte address the message was signed with</source>
+        <translation>L’adresse DigiByte avec laquelle le message a été signé</translation>
+    </message>
+    <message>
+        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
+        <translation>Vérifier le message pour s’assurer qu’il a été signé avec l’adresse DigiByte indiquée</translation>
+=======
         <source>The signature given when the message was signed</source>
         <translation>La signature donnée quand le message a été signé</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
         <translation>Vérifier le message pour s’assurer qu’il a été signé avec l’adresse DigiByte indiquée</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -3553,7 +3723,15 @@ Accédez à Fichier &gt; Ouvrir un porte-monnaie pour en charger un.
     </message>
     <message>
         <source>Unable to start HTTP server. See debug log for details.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+        <translation>Impossible de démarrer le serveur HTTP. Voir le journal de débogage pour plus de détails.</translation>
+    </message>
+    <message>
+        <source>DigiByte Core</source>
+        <translation>DigiByte Core</translation>
+=======
         <translation>Impossible de démarrer le serveur HTTP. Consultez le journal de débogage pour plus de précisions.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
     </message>
     <message>
         <source>The %s developers</source>
@@ -3944,6 +4122,8 @@ Accédez à Fichier &gt; Ouvrir un porte-monnaie pour en charger un.
         <translation>Échec de signature de la transaction</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_fr.ts
+=======
         <source>Specified -walletdir "%s" does not exist</source>
         <translation>Le -walletdir indiqué « %s» n’existe pas</translation>
     </message>
@@ -3962,6 +4142,7 @@ Accédez à Fichier &gt; Ouvrir un porte-monnaie pour en charger un.
 </translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_fr.ts
         <source>The transaction amount is too small to pay the fee</source>
         <translation>Le montant de la transaction est trop bas pour que les frais soient payés</translation>
     </message>

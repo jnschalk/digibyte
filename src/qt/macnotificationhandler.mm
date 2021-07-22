@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+// Copyright (c) 2011-2013 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +17,11 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
+<<<<<<< HEAD
+        return @"io.digibyte.DigiByte-Qt";
+=======
         return @"org.digibytefoundation.DigiByte-Qt";
+>>>>>>> bitcoin/8.22.0
     } else {
         return [self __bundleIdentifier];
     }

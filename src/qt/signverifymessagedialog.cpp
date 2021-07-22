@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -26,15 +31,24 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(const PlatformStyle *_platformS
 {
     ui->setupUi(this);
 
-    ui->addressBookButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/address-book"));
-    ui->pasteButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/editpaste"));
-    ui->copySignatureButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/editcopy"));
-    ui->signMessageButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/edit"));
-    ui->clearButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/remove"));
-    ui->addressBookButton_VM->setIcon(platformStyle->SingleColorIcon(":/icons/address-book"));
-    ui->verifyMessageButton_VM->setIcon(platformStyle->SingleColorIcon(":/icons/transaction_0"));
-    ui->clearButton_VM->setIcon(platformStyle->SingleColorIcon(":/icons/remove"));
+    QString theme = GUIUtil::getThemeName();
 
+    ui->addressBookButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/address-book"));
+    ui->pasteButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/editpaste"));
+    ui->copySignatureButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/editcopy"));
+    ui->signMessageButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/edit"));
+    ui->clearButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/remove"));
+    ui->addressBookButton_VM->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/address-book"));
+    ui->verifyMessageButton_VM->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/transaction_0"));
+    ui->clearButton_VM->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/remove"));
+
+<<<<<<< HEAD
+    ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));
+
+
+
+=======
+>>>>>>> bitcoin/8.22.0
     GUIUtil::setupAddressWidget(ui->addressIn_SM, this);
     GUIUtil::setupAddressWidget(ui->addressIn_VM, this);
 

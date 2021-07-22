@@ -1,5 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,6 +14,7 @@
 #include <consensus/params.h>
 #include <flatfile.h>
 #include <primitives/block.h>
+#include <pow.h>
 #include <tinyformat.h>
 #include <uint256.h>
 
@@ -248,6 +253,20 @@ public:
         return *phashBlock;
     }
 
+<<<<<<< HEAD
+    uint256 GetBlockPoWHash() const
+    {
+        CBlockHeader block = GetBlockHeader();
+        return GetPoWAlgoHash(block);
+    }
+
+    int GetAlgo() const
+    {
+        CBlockHeader block = GetBlockHeader();
+        return block.GetAlgo();
+    }
+    
+=======
     /**
      * Check whether this block's and all previous blocks' transactions have been
      * downloaded (and stored to disk) at some point.
@@ -256,6 +275,7 @@ public:
      * Does not imply the transactions are still stored on disk. (IsBlockPruned might return true)
      */
     bool HaveTxsDownloaded() const { return nChainTx != 0; }
+>>>>>>> bitcoin/8.22.0
 
     int64_t GetBlockTime() const
     {
@@ -314,6 +334,7 @@ public:
         return false;
     }
 
+
     //! Build the skiplist pointer for this entry.
     void BuildSkip();
 
@@ -323,6 +344,7 @@ public:
 };
 
 arith_uint256 GetBlockProof(const CBlockIndex& block);
+
 /** Return the time it would take to redo the work difference between from and to, assuming the current hashrate corresponds to the difficulty at tip, in seconds. */
 int64_t GetBlockProofEquivalentTime(const CBlockIndex& to, const CBlockIndex& from, const CBlockIndex& tip, const Consensus::Params&);
 /** Find the forking point between two chain tips. */

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,9 +13,17 @@
 #include <QDialog>
 #include <QWidget>
 
+<<<<<<< HEAD
+class DigiByteGUI;
+
+namespace interfaces {
+    class Node;
+}
+=======
 QT_BEGIN_NAMESPACE
 class QMainWindow;
 QT_END_NAMESPACE
+>>>>>>> bitcoin/8.22.0
 
 namespace Ui {
     class HelpMessageDialog;
@@ -43,8 +56,13 @@ class ShutdownWindow : public QWidget
     Q_OBJECT
 
 public:
+<<<<<<< HEAD
+    explicit ShutdownWindow(QWidget *parent=0, Qt::WindowFlags f=0);
+    static QWidget *showShutdownWindow(DigiByteGUI *window);
+=======
     explicit ShutdownWindow(QWidget *parent=nullptr, Qt::WindowFlags f=Qt::Widget);
     static QWidget* showShutdownWindow(QMainWindow* window);
+>>>>>>> bitcoin/8.22.0
 
 protected:
     void closeEvent(QCloseEvent *event) override;

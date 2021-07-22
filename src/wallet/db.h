@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -175,6 +180,8 @@ public:
     bool TxnAbort() override { return true; }
 };
 
+<<<<<<< HEAD
+=======
 /** A dummy WalletDatabase that does nothing and never fails. Only used by unit tests.
  **/
 class DummyDatabase : public WalletDatabase
@@ -232,4 +239,5 @@ fs::path SQLiteDataFile(const fs::path& path);
 bool IsBDBFile(const fs::path& path);
 bool IsSQLiteFile(const fs::path& path);
 
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_WALLET_DB_H

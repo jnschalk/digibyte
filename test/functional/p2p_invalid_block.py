@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2015-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test node responses to invalid blocks.
@@ -17,6 +22,12 @@ import time
 
 from test_framework.blocktools import create_block, create_coinbase, create_tx_with_script
 from test_framework.messages import COIN
+<<<<<<< HEAD
+from test_framework.mininode import P2PDataStore
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal
+
+=======
 from test_framework.p2p import P2PDataStore
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import assert_equal
@@ -24,11 +35,15 @@ from test_framework.util import assert_equal
 MAX_FUTURE_BLOCK_TIME = 2 * 60 * 60
 
 
+>>>>>>> bitcoin/8.22.0
 class InvalidBlockRequestTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.setup_clean_chain = True
         self.extra_args = [["-whitelist=noban@127.0.0.1"]]
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def run_test(self):
         # Add p2p connection to node0
@@ -48,7 +63,11 @@ class InvalidBlockRequestTest(DigiByteTestFramework):
         # Save the coinbase for later
         block1 = block
         tip = block.sha256
+<<<<<<< HEAD
+        node.p2p.send_blocks_and_test([block1], node, success=True)
+=======
         peer.send_blocks_and_test([block1], node, success=True)
+>>>>>>> bitcoin/8.22.0
 
         self.log.info("Mature the block.")
         node.generatetoaddress(100, node.get_deterministic_priv_key().address)
@@ -86,6 +105,19 @@ class InvalidBlockRequestTest(DigiByteTestFramework):
         assert_equal(orig_hash, block2.rehash())
         assert block2_orig.vtx != block2.vtx
 
+<<<<<<< HEAD
+        node.p2p.send_blocks_and_test([block2], node, success=False, reject_code=16, reject_reason=b'bad-txns-duplicate')
+
+        # Check transactions for duplicate inputs
+        self.log.info("Test duplicate input block.")
+
+        block2_orig.vtx[2].vin.append(block2_orig.vtx[2].vin[0])
+        block2_orig.vtx[2].rehash()
+        block2_orig.hashMerkleRoot = block2_orig.calc_merkle_root()
+        block2_orig.rehash()
+        block2_orig.solve()
+        node.p2p.send_blocks_and_test([block2_orig], node, success=False, reject_reason=b'bad-txns-inputs-duplicate')
+=======
         peer.send_blocks_and_test([block2], node, success=False, reject_reason='bad-txns-duplicate')
 
         # Check transactions for duplicate inputs (CVE-2018-17144)
@@ -98,6 +130,7 @@ class InvalidBlockRequestTest(DigiByteTestFramework):
         block2_dup.rehash()
         block2_dup.solve()
         peer.send_blocks_and_test([block2_dup], node, success=False, reject_reason='bad-txns-inputs-duplicate')
+>>>>>>> bitcoin/8.22.0
 
         self.log.info("Test very broken block.")
 
@@ -110,6 +143,9 @@ class InvalidBlockRequestTest(DigiByteTestFramework):
         block3.rehash()
         block3.solve()
 
+<<<<<<< HEAD
+        node.p2p.send_blocks_and_test([block3], node, success=False, reject_code=16, reject_reason=b'bad-cb-amount')
+=======
         peer.send_blocks_and_test([block3], node, success=False, reject_reason='bad-cb-amount')
 
 
@@ -151,6 +187,7 @@ class InvalidBlockRequestTest(DigiByteTestFramework):
         node.setmocktime(t + 1)
         peer.send_blocks_and_test([block], node, success=True)
 
+>>>>>>> bitcoin/8.22.0
 
 if __name__ == '__main__':
     InvalidBlockRequestTest().main()

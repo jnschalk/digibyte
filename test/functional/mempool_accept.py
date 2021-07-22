@@ -1,14 +1,23 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2017 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test mempool acceptance of raw transactions."""
 
+<<<<<<< HEAD
+from io import BytesIO
+from test_framework.test_framework import DigiByteTestFramework
+=======
 from decimal import Decimal
 import math
 
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.key import ECKey
+>>>>>>> bitcoin/8.22.0
 from test_framework.messages import (
     BIP125_SEQUENCE_NUMBER,
     COIN,
@@ -44,6 +53,9 @@ class MempoolAcceptanceTest(DigiByteTestFramework):
             '-txindex','-permitbaremultisig=0',
         ]] * self.num_nodes
         self.supports_cli = False
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()

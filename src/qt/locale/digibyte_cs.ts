@@ -70,9 +70,14 @@
         <translation>Tohle jsou tvé digibyteové adresy pro posílání plateb. Před odesláním mincí si vždy zkontroluj částku a cílovou adresu.</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Tohle jsou tvé digibyteové adresy pro příjem plateb. Nezapomeň si pro každou transakci vždy vygenerovat novou adresu.</translation>
+=======
         <source>These are your DigiByte addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.
 Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Tohle jsou tvé digibyteové adresy pro přijmaní plateb. Použij "Vytvoř novou přijimací adresu" pro vytvoření nových adres. Přihlašování je povoleno jen s adresami typu "Legacy"</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -181,6 +186,10 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Peněženka je zašifrována</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
+        <translation>%1 se teď ukončí, aby dokončil zašifrování. Pamatuj však, že pouhé zašifrování peněženky nemůže zabránit krádeži tvých digibyteů malwarem, kterým se může počítač nakazit.</translation>
+=======
         <source>Enter the new passphrase for the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Zadej nové heslo k peněžence.&lt;br/&gt;Použij &lt;b&gt;alespoň deset náhodných znaků&lt;/b&gt; nebo &lt;b&gt;alespoň osm slov&lt;/b&gt;.</translation>
     </message>
@@ -203,6 +212,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     <message>
         <source>Your wallet is now encrypted. </source>
         <translation>Vaše peněženka je zašifrovaná.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -359,10 +369,13 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Vytvářím nový index bloků na disku...</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+=======
         <source>Proxy is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
         <translation>Proxy je &lt;b&gt;zapnutá&lt;/b&gt;: %1</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
         <source>Send coins to a DigiByte address</source>
         <translation>Pošli mince na digibyteovou adresu</translation>
     </message>
@@ -379,6 +392,17 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>&amp;Ověř zprávu...</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Peněženka</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
         <source>&amp;Send</source>
         <translation>P&amp;ošli</translation>
     </message>
@@ -435,6 +459,13 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Ukaž seznam použitých přijímacích adres a jejich označení</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <source>Open a digibyte: URI or payment request</source>
+        <translation>Načti digibyte: URI nebo platební požadavek</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
         <source>&amp;Command-line options</source>
         <translation>Ar&amp;gumenty příkazové řádky</translation>
     </message>
@@ -483,6 +514,10 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Aktuální</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
+        <translation>Seznam argumentů DigiByteu pro příkazovou řádku získáš v nápovědě %1</translation>
+=======
         <source>Node window</source>
         <translation>Okno uzlu</translation>
     </message>
@@ -545,6 +580,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     <message>
         <source>Main Window</source>
         <translation>Hlavní okno</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
     </message>
     <message>
         <source>%1 client</source>
@@ -630,7 +666,15 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Peněženka je &lt;b&gt;zašifrovaná&lt;/b&gt; a momentálně &lt;b&gt;zamčená&lt;/b&gt;</translation>
     </message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+    <message>
+        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <translation>Stala se fatální chyba. DigiByte nemůže bezpečně pokračovat v činnosti, a proto skončí.</translation>
+    </message>
+</context>
+=======
     </context>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -873,6 +917,8 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     <message>
         <source>The entered address "%1" is not a valid DigiByte address.</source>
         <translation>Zadaná adresa „%1“ není platná digibyteová adresa.</translation>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+=======
     </message>
     <message>
         <source>Address "%1" already exists as a receiving address with label "%2" and so cannot be added as a sending address.</source>
@@ -881,6 +927,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     <message>
         <source>The entered address "%1" is already in the address book with label "%2".</source>
         <translation>Zadaná adresa „%1“ už v adresáři je s označením "%2".</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -970,10 +1017,13 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     <message>
         <source>DigiByte</source>
         <translation>DigiByte</translation>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+=======
     </message>
     <message>
         <source>Discard blocks after verification, except most recent %1 GB (prune)</source>
         <translation>Zahodit bloky po ověření, s výjimkou posledních %1 GB (prořezat)</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
     </message>
     <message>
         <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
@@ -985,7 +1035,11 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     </message>
     <message>
         <source>%1 will download and store a copy of the DigiByte block chain.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <translation>%1 bude stahovat kopii bločenky.</translation>
+=======
         <translation>%1 bude stahovat kopii blockchainu.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1268,6 +1322,13 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Tor</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Připojí se do digibyteové sítě přes SOCKS5 proxy vyhrazenou pro skryté služby v Tor síti.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
         <source>&amp;Window</source>
         <translation>O&amp;kno</translation>
     </message>
@@ -1450,12 +1511,61 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Dialog</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <source>Cannot start digibyte: click-to-pay handler</source>
+        <translation>Nemůžu spustit digibyte: obsluha click-to-pay</translation>
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>Zpracování URI</translation>
+    </message>
+    <message>
+        <source>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</source>
+        <translation>'digibyte://' není platné URI. Místo toho použij 'digibyte:'.</translation>
+    </message>
+    <message>
+        <source>Payment request fetch URL is invalid: %1</source>
+        <translation>Zdrojová URL platebního požadavku není platná: %1</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Neplatná platební adresa %1</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <translation>Nepodařilo se analyzovat URI! Důvodem může být neplatná digibyteová adresa nebo poškozené parametry URI.</translation>
+    </message>
+    <message>
+        <source>Payment request file handling</source>
+        <translation>Zpracování souboru platebního požadavku</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Soubor platebního požadavku nejde přečíst nebo zpracovat! Příčinou může být špatný soubor platebního požadavku.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Platební požadavek byl odmítnut</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Síť platebního požadavku neodpovídá síti klienta.</translation>
+    </message>
+    <message>
+        <source>Payment request expired.</source>
+        <translation>Platební požadavek vypršel.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Platební požadavek není zahájený.</translation>
+=======
         <source>Total Amount</source>
         <translation>Celková částka</translation>
     </message>
     <message>
         <source>or</source>
         <translation>nebo</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
     </message>
     </context>
 <context>
@@ -2225,6 +2335,17 @@ Poznámka: Jelikož je poplatek počítaný za bajt, poplatek o hodnotě "100 sa
         <translation>Skryj</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
+        <translation>Platit jen minimální poplatek je v pořádku, pokud je zrovna méně transakcí než místa v blocích. Ale počítej s tím, že to také může skončit transakcí, která nikdy nebude potvrzena, pokud je větší poptávka po digibyteových transakcích, než síť zvládne zpracovat.</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(viz bublina)</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
         <source>Recommended:</source>
         <translation>Doporučený:</translation>
     </message>
@@ -2472,6 +2593,13 @@ Poznámka: Jelikož je poplatek počítaný za bajt, poplatek o hodnotě "100 sa
         <translation>Vyber již použitou adresu</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <source>This is a normal payment.</source>
+        <translation>Tohle je normální platba.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
         <source>The DigiByte address to send the payment to</source>
         <translation>DigiByteová adresa příjemce</translation>
     </message>
@@ -2492,10 +2620,13 @@ Poznámka: Jelikož je poplatek počítaný za bajt, poplatek o hodnotě "100 sa
         <translation>Smaž tento záznam</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+=======
         <source>The amount to send in the selected unit</source>
         <translation>Částka k odeslání ve vybrané měně</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
         <source>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>Poplatek se odečte od posílané částky. Příjemce tak dostane méně digibyteů, než zadáš do pole Částka. Pokud vybereš více příjemců, tak se poplatek rovnoměrně rozloží.</translation>
     </message>
@@ -2620,6 +2751,8 @@ Poznámka: Jelikož je poplatek počítaný za bajt, poplatek o hodnotě "100 sa
     <message>
         <source>The DigiByte address the message was signed with</source>
         <translation>DigiByteová adresa, kterou je zpráva podepsána</translation>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+=======
     </message>
     <message>
         <source>The signed message to verify</source>
@@ -2628,6 +2761,7 @@ Poznámka: Jelikož je poplatek počítaný za bajt, poplatek o hodnotě "100 sa
     <message>
         <source>The signature given when the message was signed</source>
         <translation>Podpis daný při podpisu zprávy</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
@@ -3307,6 +3441,13 @@ Poznámka: Jelikož je poplatek počítaný za bajt, poplatek o hodnotě "100 sa
         <translation>Nemohu spustit HTTP server. Detaily viz v debug.log.</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_cs.ts
+        <source>DigiByte Core</source>
+        <translation>DigiByte Core</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_cs.ts
         <source>The %s developers</source>
         <translation>Vývojáři %s</translation>
     </message>

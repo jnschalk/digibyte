@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+// Copyright (c) 2013-2014 The DigiByte Core developers
+=======
 // Copyright (c) 2013-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,6 +11,8 @@
 
 #include <string>
 
+<<<<<<< HEAD
+=======
 struct bilingual_str;
 
 /** Non-GUI handler, which logs and prints messages. */
@@ -25,4 +31,5 @@ void noui_test_redirect();
 /** Reconnects the regular Non-GUI handlers after having used noui_test_redirect */
 void noui_reconnect();
 
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_NOUI_H

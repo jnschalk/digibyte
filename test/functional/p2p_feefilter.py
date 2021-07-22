@@ -1,17 +1,29 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2016-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test processing of feefilter messages."""
 
 from decimal import Decimal
 
+<<<<<<< HEAD
+from test_framework.messages import msg_feefilter
+from test_framework.mininode import mininode_lock, P2PInterface
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import sync_blocks, sync_mempools
+=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.messages import MSG_TX, MSG_WTX, msg_feefilter
 from test_framework.p2p import P2PInterface, p2p_lock
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import assert_equal
 from test_framework.wallet import MiniWallet
+>>>>>>> bitcoin/8.22.0
 
 
 class FeefilterConn(P2PInterface):
@@ -43,7 +55,10 @@ class TestP2PConn(P2PInterface):
         with p2p_lock:
             self.txinvs = []
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> bitcoin/8.22.0
 class FeeFilterTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
@@ -58,6 +73,9 @@ class FeeFilterTest(DigiByteTestFramework):
             "-mintxfee=0.00000100",
             "-whitelist=noban@127.0.0.1",
         ]] * self.num_nodes
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def run_test(self):
         self.test_feefilter_forcerelay()

@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+=======
 # Copyright (c) 2017-2019 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
+>>>>>>> bitcoin/8.22.0
 """Combine logs from multiple digibyte nodes as well as the test_framework log.
 
 This streams the combined log output to stdout. Use combine_logs.py > outputfile

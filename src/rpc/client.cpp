@@ -1,5 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -50,6 +55,12 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "listreceivedbyaddress", 0, "minconf" },
     { "listreceivedbyaddress", 1, "include_empty" },
     { "listreceivedbyaddress", 2, "include_watchonly" },
+<<<<<<< HEAD
+    { "listreceivedbyaccount", 0, "minconf" },
+    { "listreceivedbyaccount", 1, "include_empty" },
+    { "listreceivedbyaccount", 2, "include_watchonly" },
+=======
+>>>>>>> bitcoin/8.22.0
     { "listreceivedbylabel", 0, "minconf" },
     { "listreceivedbylabel", 1, "include_empty" },
     { "listreceivedbylabel", 2, "include_watchonly" },

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,9 +11,13 @@
 #include <node/context.h>
 #include <primitives/transaction.h>
 #include <random.h>
+<<<<<<< HEAD
+#include <test/test_digibyte.h>
+=======
 #include <test/util/setup_common.h>
 #include <wallet/coincontrol.h>
 #include <wallet/coinselection.h>
+>>>>>>> bitcoin/8.22.0
 #include <wallet/test/wallet_test_fixture.h>
 #include <wallet/wallet.h>
 
@@ -421,11 +430,19 @@ BOOST_AUTO_TEST_CASE(knapsack_solver_test)
         add_coin( 2*COIN);
         add_coin( 3*COIN);
         add_coin( 4*COIN); // now we have 5+6+7+8+18+20+30+100+200+300+400 = 1094 cents
+<<<<<<< HEAD
+        BOOST_CHECK( testWallet.SelectCoinsMinConf(95 * CENT, filter_confirmed, GroupCoins(vCoins), setCoinsRet, nValueRet, coin_selection_params, bnb_used));
+        BOOST_CHECK_EQUAL(nValueRet, 1 * COIN);  // we should get 1 DGB in 1 coin
+        BOOST_CHECK_EQUAL(setCoinsRet.size(), 1U);
+
+        BOOST_CHECK( testWallet.SelectCoinsMinConf(195 * CENT, filter_confirmed, GroupCoins(vCoins), setCoinsRet, nValueRet, coin_selection_params, bnb_used));
+=======
         BOOST_CHECK( testWallet.AttemptSelection(95 * CENT, filter_confirmed, vCoins, setCoinsRet, nValueRet, coin_selection_params));
         BOOST_CHECK_EQUAL(nValueRet, 1 * COIN);  // we should get 1 DGB in 1 coin
         BOOST_CHECK_EQUAL(setCoinsRet.size(), 1U);
 
         BOOST_CHECK( testWallet.AttemptSelection(195 * CENT, filter_confirmed, vCoins, setCoinsRet, nValueRet, coin_selection_params));
+>>>>>>> bitcoin/8.22.0
         BOOST_CHECK_EQUAL(nValueRet, 2 * COIN);  // we should get 2 DGB in 1 coin
         BOOST_CHECK_EQUAL(setCoinsRet.size(), 1U);
 

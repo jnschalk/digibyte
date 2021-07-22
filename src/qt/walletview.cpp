@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,6 +11,10 @@
 
 #include <qt/addressbookpage.h>
 #include <qt/askpassphrasedialog.h>
+<<<<<<< HEAD
+#include <qt/digibytegui.h>
+=======
+>>>>>>> bitcoin/8.22.0
 #include <qt/clientmodel.h>
 #include <qt/guiutil.h>
 #include <qt/psbtoperationsdialog.h>
@@ -51,7 +60,8 @@ WalletView::WalletView(const PlatformStyle *_platformStyle, QWidget *parent):
     QPushButton *exportButton = new QPushButton(tr("&Export"), this);
     exportButton->setToolTip(tr("Export the data in the current tab to a file"));
     if (platformStyle->getImagesOnButtons()) {
-        exportButton->setIcon(platformStyle->SingleColorIcon(":/icons/export"));
+        QString theme = GUIUtil::getThemeName();
+        exportButton->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/export"));
     }
     hbox_buttons->addStretch();
     hbox_buttons->addWidget(exportButton);
@@ -94,6 +104,33 @@ WalletView::~WalletView()
 {
 }
 
+<<<<<<< HEAD
+void WalletView::setDigiByteGUI(DigiByteGUI *gui)
+{
+    if (gui)
+    {
+        // Clicking on a transaction on the overview page simply sends you to transaction history page
+        connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), gui, SLOT(gotoHistoryPage()));
+
+        // Navigate to transaction history page after send
+        connect(sendCoinsPage, SIGNAL(coinsSent(uint256)), gui, SLOT(gotoHistoryPage()));
+
+        // Receive and report messages
+        connect(this, SIGNAL(message(QString,QString,unsigned int)), gui, SLOT(message(QString,QString,unsigned int)));
+
+        // Pass through encryption status changed signals
+        connect(this, SIGNAL(encryptionStatusChanged()), gui, SLOT(updateWalletStatus()));
+
+        // Pass through transaction notifications
+        connect(this, SIGNAL(incomingTransaction(QString,int,CAmount,QString,QString,QString,QString)), gui, SLOT(incomingTransaction(QString,int,CAmount,QString,QString,QString,QString)));
+
+        // Connect HD enabled state signal
+        connect(this, SIGNAL(hdEnabledStatusChanged()), gui, SLOT(updateWalletStatus()));
+    }
+}
+
+=======
+>>>>>>> bitcoin/8.22.0
 void WalletView::setClientModel(ClientModel *_clientModel)
 {
     this->clientModel = _clientModel;

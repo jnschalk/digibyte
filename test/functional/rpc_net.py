@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test RPC calls related to net.
@@ -7,6 +12,8 @@
 Tests correspond to code in rpc/net.cpp.
 """
 
+<<<<<<< HEAD
+=======
 from decimal import Decimal
 from itertools import product
 import time
@@ -18,6 +25,7 @@ from test_framework.messages import (
     NODE_NETWORK,
     NODE_WITNESS,
 )
+>>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_approx,

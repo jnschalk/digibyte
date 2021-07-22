@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test mempool re-org scenarios.
@@ -8,10 +13,25 @@ Test re-org scenarios with a mempool that contains transactions
 that spend (directly or indirectly) coinbase transactions.
 """
 
+<<<<<<< HEAD
+from test_framework.blocktools import create_raw_transaction
+=======
+>>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error
 from test_framework.wallet import MiniWallet
 
+<<<<<<< HEAD
+
+class MempoolCoinbaseTest(DigiByteTestFramework):
+    def set_test_params(self):
+        self.num_nodes = 2
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
+
+    alert_filename = None  # Set by setup_network
+=======
 class MempoolCoinbaseTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
@@ -21,6 +41,7 @@ class MempoolCoinbaseTest(DigiByteTestFramework):
             ],
             []
         ]
+>>>>>>> bitcoin/8.22.0
 
     def run_test(self):
         wallet = MiniWallet(self.nodes[0])

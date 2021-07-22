@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test various command line arguments and configuration file parameters."""
@@ -8,7 +13,10 @@ import os
 import time
 
 from test_framework.test_framework import DigiByteTestFramework
+<<<<<<< HEAD
+=======
 from test_framework import util
+>>>>>>> bitcoin/8.22.0
 
 
 class ConfArgsTest(DigiByteTestFramework):
@@ -18,13 +26,38 @@ class ConfArgsTest(DigiByteTestFramework):
         self.supports_cli = False
         self.wallet_names = []
 
+<<<<<<< HEAD
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
+
+    def test_config_file_parser(self):
+        # Assume node is stopped
+=======
     def test_config_file_parser(self):
         self.stop_node(0)
+>>>>>>> bitcoin/8.22.0
 
         inc_conf_file_path = os.path.join(self.nodes[0].datadir, 'include.conf')
         with open(os.path.join(self.nodes[0].datadir, 'digibyte.conf'), 'a', encoding='utf-8') as conf:
             conf.write('includeconf={}\n'.format(inc_conf_file_path))
 
+<<<<<<< HEAD
+        with open(inc_conf_file_path, 'w', encoding='utf-8') as conf:
+            conf.write('-dash=1\n')
+        self.nodes[0].assert_start_raises_init_error(expected_msg='Error reading configuration file: parse error on line 1: -dash=1, options in configuration file must be specified without leading -')
+
+        with open(inc_conf_file_path, 'w', encoding='utf-8') as conf:
+            conf.write('nono\n')
+        self.nodes[0].assert_start_raises_init_error(expected_msg='Error reading configuration file: parse error on line 1: nono, if you intended to specify a negated option, use nono=1 instead')
+
+        with open(inc_conf_file_path, 'w', encoding='utf-8') as conf:
+            conf.write('')  # clear
+
+    def run_test(self):
+        self.stop_node(0)
+
+        self.test_config_file_parser()
+=======
         self.nodes[0].assert_start_raises_init_error(
             expected_msg='Error: Error parsing command line arguments: Invalid parameter -dash_cli=1',
             extra_args=['-dash_cli=1'],
@@ -223,6 +256,7 @@ class ConfArgsTest(DigiByteTestFramework):
 
         self.test_config_file_parser()
         self.test_invalid_command_line_options()
+>>>>>>> bitcoin/8.22.0
 
         # Remove the -datadir argument so it doesn't override the config file
         self.nodes[0].args = [arg for arg in self.nodes[0].args if not arg.startswith("-datadir")]
@@ -244,6 +278,17 @@ class ConfArgsTest(DigiByteTestFramework):
             f.write("datadir=" + new_data_dir + "\n")
             f.write(conf_file_contents)
 
+<<<<<<< HEAD
+        # Temporarily disabled, because this test would access the user's home dir (~/.digibyte)
+        #self.nodes[0].assert_start_raises_init_error(['-conf=' + conf_file], 'Error reading configuration file: specified data directory "' + new_data_dir + '" does not exist.')
+
+        # Create the directory and ensure the config file now works
+        os.mkdir(new_data_dir)
+        # Temporarily disabled, because this test would access the user's home dir (~/.digibyte)
+        #self.start_node(0, ['-conf='+conf_file, '-wallet=w1'])
+        #self.stop_node(0)
+        #assert os.path.exists(os.path.join(new_data_dir, 'regtest', 'wallets', 'w1'))
+=======
         self.nodes[0].assert_start_raises_init_error(['-conf=' + conf_file], 'Error: Error reading configuration file: specified data directory "' + new_data_dir + '" does not exist.')
 
         # Create the directory and ensure the config file now works
@@ -251,6 +296,7 @@ class ConfArgsTest(DigiByteTestFramework):
         self.start_node(0, ['-conf='+conf_file])
         self.stop_node(0)
         assert os.path.exists(os.path.join(new_data_dir, self.chain, 'blocks'))
+>>>>>>> bitcoin/8.22.0
 
         # Ensure command line argument overrides datadir in conf
         os.mkdir(new_data_dir_2)

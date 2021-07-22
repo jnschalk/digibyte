@@ -1,6 +1,14 @@
 *.tar.gz
 
 *.exe
+<<<<<<< HEAD
+src/digibyte
+src/digibyted
+src/digibyte-cli
+src/digibyte-tx
+src/test/test_digibyte
+src/test/test_digibyte_fuzzy
+=======
 *.pdb
 src/digibyte
 src/digibyted
@@ -12,6 +20,7 @@ src/digibyte-util
 src/digibyte-wallet
 src/test/fuzz/fuzz
 src/test/test_digibyte
+>>>>>>> bitcoin/8.22.0
 src/qt/test/test_digibyte-qt
 
 # autoreconf
@@ -92,8 +101,12 @@ src/qt/digibyte-qt.includes
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
+<<<<<<< HEAD
+digibyte-qt
+=======
 !depends/Makefile
 src/qt/digibyte-qt
+>>>>>>> bitcoin/8.22.0
 DigiByte-Qt.app
 background.tiff*
 

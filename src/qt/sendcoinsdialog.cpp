@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -65,15 +70,16 @@ SendCoinsDialog::SendCoinsDialog(const PlatformStyle *_platformStyle, QWidget *p
     platformStyle(_platformStyle)
 {
     ui->setupUi(this);
+    QString theme = GUIUtil::getThemeName();
 
     if (!_platformStyle->getImagesOnButtons()) {
         ui->addButton->setIcon(QIcon());
         ui->clearButton->setIcon(QIcon());
         ui->sendButton->setIcon(QIcon());
     } else {
-        ui->addButton->setIcon(_platformStyle->SingleColorIcon(":/icons/add"));
-        ui->clearButton->setIcon(_platformStyle->SingleColorIcon(":/icons/remove"));
-        ui->sendButton->setIcon(_platformStyle->SingleColorIcon(":/icons/send"));
+        ui->addButton->setIcon(_platformStyle->SingleColorIcon(":/icons/" + theme + "/add"));
+        ui->clearButton->setIcon(_platformStyle->SingleColorIcon(":/icons/" + theme + "/remove"));
+        ui->sendButton->setIcon(_platformStyle->SingleColorIcon(":/icons/" + theme + "/send"));
     }
 
     GUIUtil::setupAddressWidget(ui->lineEditCoinControlChange, this);
@@ -288,7 +294,11 @@ bool SendCoinsDialog::PrepareSendText(QString& question_string, QString& informa
 
     // process prepareStatus and on error generate message shown to user
     processSendCoinsReturn(prepareStatus,
+<<<<<<< HEAD
+        DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), currentTransaction.getTransactionFee()));
+=======
         DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), m_current_transaction->getTransactionFee()));
+>>>>>>> bitcoin/8.22.0
 
     if(prepareStatus.status != WalletModel::OK) {
         fNewRecipientAllowed = true;
@@ -299,8 +309,13 @@ bool SendCoinsDialog::PrepareSendText(QString& question_string, QString& informa
     QStringList formatted;
     for (const SendCoinsRecipient &rcp : m_current_transaction->getRecipients())
     {
+<<<<<<< HEAD
+        // generate bold amount string with wallet name in case of multiwallet
+        QString amount = "<b>" + DigiByteUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), rcp.amount);
+=======
         // generate amount string with wallet name in case of multiwallet
         QString amount = DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), rcp.amount);
+>>>>>>> bitcoin/8.22.0
         if (model->isMultiwallet()) {
             amount.append(tr(" from wallet '%1'").arg(GUIUtil::HtmlEscape(model->getWalletName())));
         }
@@ -349,9 +364,15 @@ bool SendCoinsDialog::PrepareSendText(QString& question_string, QString& informa
         question_string.append(" (" + QString::number((double)m_current_transaction->getTransactionSize() / 1000) + " kB): ");
 
         // append transaction fee value
+<<<<<<< HEAD
+        questionString.append("<span style='color:#aa0000; font-weight:bold;'>");
+        questionString.append(DigiByteUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), txFee));
+        questionString.append("</span><br />");
+=======
         question_string.append("<span style='color:#aa0000; font-weight:bold;'>");
         question_string.append(DigiByteUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), txFee));
         question_string.append("</span><br />");
+>>>>>>> bitcoin/8.22.0
 
         // append RBF message according to transaction's signalling
         question_string.append("<span style='font-size:10pt; font-weight:normal;'>");
@@ -367,14 +388,24 @@ bool SendCoinsDialog::PrepareSendText(QString& question_string, QString& informa
     question_string.append("<hr />");
     CAmount totalAmount = m_current_transaction->getTotalTransactionAmount() + txFee;
     QStringList alternativeUnits;
+<<<<<<< HEAD
+    for (DigiByteUnits::Unit u : DigiByteUnits::availableUnits())
+=======
     for (const DigiByteUnits::Unit u : DigiByteUnits::availableUnits())
+>>>>>>> bitcoin/8.22.0
     {
         if(u != model->getOptionsModel()->getDisplayUnit())
             alternativeUnits.append(DigiByteUnits::formatHtmlWithUnit(u, totalAmount));
     }
+<<<<<<< HEAD
+    questionString.append(QString("<b>%1</b>: <b>%2</b>").arg(tr("Total Amount"))
+        .arg(DigiByteUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), totalAmount)));
+    questionString.append(QString("<br /><span style='font-size:10pt; font-weight:normal;'>(=%1)</span>")
+=======
     question_string.append(QString("<b>%1</b>: <b>%2</b>").arg(tr("Total Amount"))
         .arg(DigiByteUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), totalAmount)));
     question_string.append(QString("<br /><span style='font-size:10pt; font-weight:normal;'>(=%1)</span>")
+>>>>>>> bitcoin/8.22.0
         .arg(alternativeUnits.join(" " + tr("or") + " ")));
 
     if (formatted.size() > 1) {
@@ -675,6 +706,9 @@ void SendCoinsDialog::setBalance(const interfaces::WalletBalances& balances)
 {
     if(model && model->getOptionsModel())
     {
+<<<<<<< HEAD
+        ui->labelBalance->setText(DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), balances.balance));
+=======
         CAmount balance = balances.balance;
         if (model->wallet().hasExternalSigner()) {
             ui->labelBalanceName->setText(tr("External balance:"));
@@ -683,6 +717,7 @@ void SendCoinsDialog::setBalance(const interfaces::WalletBalances& balances)
             ui->labelBalanceName->setText(tr("Watch-only balance:"));
         }
         ui->labelBalance->setText(DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), balance));
+>>>>>>> bitcoin/8.22.0
     }
 }
 
@@ -723,7 +758,11 @@ void SendCoinsDialog::processSendCoinsReturn(const WalletModel::SendCoinsReturn 
         msgParams.second = CClientUIInterface::MSG_ERROR;
         break;
     case WalletModel::AbsurdFee:
+<<<<<<< HEAD
+        msgParams.first = tr("A fee higher than %1 is considered an absurdly high fee.").arg(DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), model->node().getMaxTxFee()));
+=======
         msgParams.first = tr("A fee higher than %1 is considered an absurdly high fee.").arg(DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), model->wallet().getDefaultMaxTxFee()));
+>>>>>>> bitcoin/8.22.0
         break;
     case WalletModel::PaymentRequestExpired:
         msgParams.first = tr("Payment request expired.");
@@ -801,11 +840,27 @@ void SendCoinsDialog::updateFeeMinimizedLabel()
     if (ui->radioSmartFee->isChecked())
         ui->labelFeeMinimized->setText(ui->labelSmartFee->text());
     else {
+<<<<<<< HEAD
+        ui->labelFeeMinimized->setText(DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), ui->customFee->value()) + "/kB");
+    }
+}
+
+void SendCoinsDialog::updateMinFeeLabel()
+{
+    if (model && model->getOptionsModel())
+        ui->checkBoxMinimumFee->setText(tr("Pay only the required fee of %1").arg(
+            DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), model->wallet().getRequiredFee(1000)) + "/kB")
+        );
+}
+
+void SendCoinsDialog::updateCoinControlState(CCoinControl& ctrl)
+=======
         ui->labelFeeMinimized->setText(DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), ui->customFee->value()) + "/kvB");
     }
 }
 
 void SendCoinsDialog::updateCoinControlState()
+>>>>>>> bitcoin/8.22.0
 {
     if (ui->radioCustomFee->isChecked()) {
         m_coin_control->m_feerate = CFeeRate(ui->customFee->value());
@@ -836,7 +891,11 @@ void SendCoinsDialog::updateSmartFeeLabel()
     FeeReason reason;
     CFeeRate feeRate = CFeeRate(model->wallet().getMinimumFee(1000, *m_coin_control, &returned_target, &reason));
 
+<<<<<<< HEAD
+    ui->labelSmartFee->setText(DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), feeRate.GetFeePerK()) + "/kB");
+=======
     ui->labelSmartFee->setText(DigiByteUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), feeRate.GetFeePerK()) + "/kvB");
+>>>>>>> bitcoin/8.22.0
 
     if (reason == FeeReason::FALLBACK) {
         ui->labelSmartFee2->show(); // (Smart fee not initialized yet. This usually takes a few blocks...)

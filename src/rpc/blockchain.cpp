@@ -1,5 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,7 +30,11 @@
 #include <policy/feerate.h>
 #include <policy/fees.h>
 #include <policy/policy.h>
+<<<<<<< HEAD
+#include <pow.h>
+=======
 #include <policy/rbf.h>
+>>>>>>> bitcoin/8.22.0
 #include <primitives/transaction.h>
 #include <rpc/server.h>
 #include <rpc/util.h>
@@ -111,14 +120,37 @@ CBlockPolicyEstimator& EnsureAnyFeeEstimator(const std::any& context)
 
 /* Calculate the difficulty for a given block index.
  */
-double GetDifficulty(const CBlockIndex* blockindex)
+double GetDifficulty(const CChain& chain, const CBlockIndex* blockindex, int algo)
 {
+<<<<<<< HEAD
+    unsigned int nBits;
+    unsigned int powLimit = InitialDifficulty(Params().GetConsensus(), algo);
+    if (blockindex == nullptr)
+    {
+        if (chain.Tip() == nullptr)
+            nBits = powLimit;
+        else
+        {
+            //blockindex = chainActive.Tip();
+            blockindex = GetLastBlockIndexForAlgo(chain.Tip(), Params().GetConsensus(), algo);
+            if (blockindex == nullptr)
+                nBits = powLimit;
+            else
+                nBits = blockindex->nBits;
+        }  
+    }
+    else
+        nBits = blockindex->nBits;
+ 
+    int nShift = (nBits >> 24) & 0xff;
+=======
     CHECK_NONFATAL(blockindex);
 
     int nShift = (blockindex->nBits >> 24) & 0xff;
+>>>>>>> bitcoin/8.22.0
     double dDiff =
-        (double)0x0000ffff / (double)(blockindex->nBits & 0x00ffffff);
-
+        (double)0x0000ffff / (double)(nBits & 0x00ffffff);
+ 
     while (nShift < 29)
     {
         dDiff *= 256.0;
@@ -129,10 +161,18 @@ double GetDifficulty(const CBlockIndex* blockindex)
         dDiff /= 256.0;
         nShift--;
     }
-
+ 
     return dDiff;
 }
 
+<<<<<<< HEAD
+double GetDifficulty(const CBlockIndex* blockindex, int algo)
+{
+    return GetDifficulty(chainActive, blockindex, algo);
+}
+
+UniValue blockheaderToJSON(const CBlockIndex* blockindex)
+=======
 static int ComputeNextBlockAndDepth(const CBlockIndex* tip, const CBlockIndex* blockindex, const CBlockIndex*& next)
 {
     next = tip->GetAncestor(blockindex->nHeight + 1);
@@ -171,6 +211,7 @@ CBlockIndex* ParseHashOrHeight(const UniValue& param, ChainstateManager& chainma
 }
 
 UniValue blockheaderToJSON(const CBlockIndex* tip, const CBlockIndex* blockindex)
+>>>>>>> bitcoin/8.22.0
 {
     // Serialize passed information without accessing chain state of the active chain!
     AssertLockNotHeld(cs_main); // For performance reasons
@@ -188,7 +229,7 @@ UniValue blockheaderToJSON(const CBlockIndex* tip, const CBlockIndex* blockindex
     result.pushKV("mediantime", (int64_t)blockindex->GetMedianTimePast());
     result.pushKV("nonce", (uint64_t)blockindex->nNonce);
     result.pushKV("bits", strprintf("%08x", blockindex->nBits));
-    result.pushKV("difficulty", GetDifficulty(blockindex));
+    result.pushKV("difficulty", GetDifficulty(blockindex, miningAlgo));
     result.pushKV("chainwork", blockindex->nChainWork.GetHex());
     result.pushKV("nTx", (uint64_t)blockindex->nTx);
 
@@ -206,6 +247,17 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* tip, const CBlockIn
     result.pushKV("strippedsize", (int)::GetSerializeSize(block, PROTOCOL_VERSION | SERIALIZE_TRANSACTION_NO_WITNESS));
     result.pushKV("size", (int)::GetSerializeSize(block, PROTOCOL_VERSION));
     result.pushKV("weight", (int)::GetBlockWeight(block));
+<<<<<<< HEAD
+    result.pushKV("height", blockindex->nHeight);
+    result.pushKV("version", block.nVersion);
+    result.pushKV("versionHex", strprintf("%08x", block.nVersion));
+    int algo = block.GetAlgo();
+    result.pushKV("pow_algo_id", algo);
+    result.pushKV("pow_algo", GetAlgoName(algo));
+    result.pushKV("pow_hash", GetPoWAlgoHash(block).GetHex());
+    result.pushKV("merkleroot", block.hashMerkleRoot.GetHex());
+=======
+>>>>>>> bitcoin/8.22.0
     UniValue txs(UniValue::VARR);
     if (txDetails) {
         CBlockUndo blockUndo;
@@ -224,6 +276,16 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* tip, const CBlockIn
         }
     }
     result.pushKV("tx", txs);
+<<<<<<< HEAD
+    result.pushKV("time", block.GetBlockTime());
+    result.pushKV("mediantime", (int64_t)blockindex->GetMedianTimePast());
+    result.pushKV("nonce", (uint64_t)block.nNonce);
+    result.pushKV("bits", strprintf("%08x", block.nBits));
+    result.pushKV("difficulty", GetDifficulty(blockindex, miningAlgo));
+    result.pushKV("chainwork", blockindex->nChainWork.GetHex());
+    result.pushKV("nTx", (uint64_t)blockindex->nTx);
+=======
+>>>>>>> bitcoin/8.22.0
 
     return result;
 }
@@ -446,9 +508,41 @@ static RPCHelpMan getdifficulty()
 {
     ChainstateManager& chainman = EnsureAnyChainman(request.context);
     LOCK(cs_main);
+<<<<<<< HEAD
+    return GetDifficulty(nullptr, miningAlgo);
+}
+
+static std::string EntryDescriptionString()
+{
+    return "    \"size\" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.\n"
+           "    \"fee\" : n,              (numeric) transaction fee in " + CURRENCY_UNIT + " (DEPRECATED)\n"
+           "    \"modifiedfee\" : n,      (numeric) transaction fee with fee deltas used for mining priority (DEPRECATED)\n"
+           "    \"time\" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT\n"
+           "    \"height\" : n,           (numeric) block height when transaction entered pool\n"
+           "    \"descendantcount\" : n,  (numeric) number of in-mempool descendant transactions (including this one)\n"
+           "    \"descendantsize\" : n,   (numeric) virtual transaction size of in-mempool descendants (including this one)\n"
+           "    \"descendantfees\" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) (DEPRECATED)\n"
+           "    \"ancestorcount\" : n,    (numeric) number of in-mempool ancestor transactions (including this one)\n"
+           "    \"ancestorsize\" : n,     (numeric) virtual transaction size of in-mempool ancestors (including this one)\n"
+           "    \"ancestorfees\" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) (DEPRECATED)\n"
+           "    \"wtxid\" : hash,         (string) hash of serialized transaction, including witness data\n"
+           "    \"fees\" : {\n"
+           "        \"base\" : n,         (numeric) transaction fee in " + CURRENCY_UNIT + "\n"
+           "        \"modified\" : n,     (numeric) transaction fee with fee deltas used for mining priority in " + CURRENCY_UNIT + "\n"
+           "        \"ancestor\" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) in " + CURRENCY_UNIT + "\n"
+           "        \"descendant\" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) in " + CURRENCY_UNIT + "\n"
+           "    }\n"
+           "    \"depends\" : [           (array) unconfirmed transactions used as inputs for this transaction\n"
+           "        \"transactionid\",    (string) parent transaction id\n"
+           "       ... ]\n"
+           "    \"spentby\" : [           (array) unconfirmed transactions spending outputs from this transaction\n"
+           "        \"transactionid\",    (string) child transaction id\n"
+           "       ... ]\n";
+=======
     return GetDifficulty(chainman.ActiveChain().Tip());
 },
     };
+>>>>>>> bitcoin/8.22.0
 }
 
 static std::vector<RPCResult> MempoolEntryDescription() { return {
@@ -1232,6 +1326,38 @@ static RPCHelpMan gettxoutsetinfo()
     };
 }
 
+<<<<<<< HEAD
+UniValue gettxout(const JSONRPCRequest& request)
+{
+    if (request.fHelp || request.params.size() < 2 || request.params.size() > 3)
+        throw std::runtime_error(
+            "gettxout \"txid\" n ( include_mempool )\n"
+            "\nReturns details about an unspent transaction output.\n"
+            "\nArguments:\n"
+            "1. \"txid\"             (string, required) The transaction id\n"
+            "2. \"n\"                (numeric, required) vout number\n"
+            "3. \"include_mempool\"  (boolean, optional) Whether to include the mempool. Default: true."
+            "     Note that an unspent output that is spent in the mempool won't appear.\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"bestblock\":  \"hash\",    (string) The hash of the block at the tip of the chain\n"
+            "  \"confirmations\" : n,       (numeric) The number of confirmations\n"
+            "  \"value\" : x.xxx,           (numeric) The transaction value in " + CURRENCY_UNIT + "\n"
+            "  \"scriptPubKey\" : {         (json object)\n"
+            "     \"asm\" : \"code\",       (string) \n"
+            "     \"hex\" : \"hex\",        (string) \n"
+            "     \"reqSigs\" : n,          (numeric) Number of required signatures\n"
+            "     \"type\" : \"pubkeyhash\", (string) The type, eg pubkeyhash\n"
+            "     \"addresses\" : [          (array of string) array of digibyte addresses\n"
+            "        \"address\"     (string) digibyte address\n"
+            "        ,...\n"
+            "     ]\n"
+            "  },\n"
+            "  \"coinbase\" : true|false   (boolean) Coinbase or not\n"
+            "}\n"
+
+            "\nExamples:\n"
+=======
 static RPCHelpMan gettxout()
 {
     return RPCHelpMan{"gettxout",
@@ -1260,6 +1386,7 @@ static RPCHelpMan gettxout()
             }},
         },
         RPCExamples{
+>>>>>>> bitcoin/8.22.0
             "\nGet unspent transactions\n"
             + HelpExampleCli("listunspent", "") +
             "\nView the details\n"
@@ -1362,7 +1489,12 @@ static void SoftForkDescPushBack(const CBlockIndex* active_chain_tip, UniValue& 
     softforks.pushKV(DeploymentName(dep), rv);
 }
 
+<<<<<<< HEAD
+
+static UniValue BIP9SoftForkDesc(const Consensus::Params& consensusParams, Consensus::DeploymentPos id)
+=======
 static void SoftForkDescPushBack(const CBlockIndex* active_chain_tip, UniValue& softforks, const Consensus::Params& consensusParams, Consensus::DeploymentPos id)
+>>>>>>> bitcoin/8.22.0
 {
     // For BIP9 deployments.
 
@@ -1476,12 +1608,20 @@ RPCHelpMan getblockchaininfo()
     obj.pushKV("chain",                 Params().NetworkIDString());
     obj.pushKV("blocks",                height);
     obj.pushKV("headers",               pindexBestHeader ? pindexBestHeader->nHeight : -1);
+<<<<<<< HEAD
+    obj.pushKV("bestblockhash",         chainActive.Tip()->GetBlockHash().GetHex());
+    obj.pushKV("mediantime",            (int64_t)chainActive.Tip()->GetMedianTimePast());
+    obj.pushKV("verificationprogress",  GuessVerificationProgress(Params().TxData(), chainActive.Tip()));
+    obj.pushKV("initialblockdownload",  IsInitialBlockDownload());
+    obj.pushKV("chainwork",             chainActive.Tip()->nChainWork.GetHex());
+=======
     obj.pushKV("bestblockhash",         tip->GetBlockHash().GetHex());
     obj.pushKV("difficulty",            (double)GetDifficulty(tip));
     obj.pushKV("mediantime",            (int64_t)tip->GetMedianTimePast());
     obj.pushKV("verificationprogress",  GuessVerificationProgress(Params().TxData(), tip));
     obj.pushKV("initialblockdownload",  active_chainstate.IsInitialBlockDownload());
     obj.pushKV("chainwork",             tip->nChainWork.GetHex());
+>>>>>>> bitcoin/8.22.0
     obj.pushKV("size_on_disk",          CalculateCurrentUsage());
     obj.pushKV("pruned",                fPruneMode);
     if (fPruneMode) {
@@ -1500,8 +1640,28 @@ RPCHelpMan getblockchaininfo()
             obj.pushKV("prune_target_size",  nPruneTarget);
         }
     }
-
     const Consensus::Params& consensusParams = Params().GetConsensus();
+<<<<<<< HEAD
+    CBlockIndex* tip = chainActive.Tip();
+    UniValue difficulties(UniValue::VOBJ);
+    UniValue softforks(UniValue::VARR);
+    UniValue bip9_softforks(UniValue::VOBJ);
+    for (int algo = 0; algo < NUM_ALGOS_IMPL; algo++)
+    {
+        if (IsAlgoActive(tip, consensusParams, algo))
+        {
+            difficulties.push_back(Pair(GetAlgoName(algo), (double)GetDifficulty(NULL, algo)));
+        }
+    }
+    for (int pos = Consensus::DEPLOYMENT_CSV; pos != Consensus::MAX_VERSION_BITS_DEPLOYMENTS; ++pos) {
+        BIP9SoftForkDescPushBack(bip9_softforks, consensusParams, static_cast<Consensus::DeploymentPos>(pos));
+    }
+    obj.pushKV("difficulties",             difficulties);
+    obj.pushKV("softforks",             softforks);
+    obj.pushKV("bip9_softforks", bip9_softforks);
+
+    obj.pushKV("warnings", GetWarnings("statusbar"));
+=======
     UniValue softforks(UniValue::VOBJ);
     SoftForkDescPushBack(tip, softforks, consensusParams, Consensus::DEPLOYMENT_HEIGHTINCB);
     SoftForkDescPushBack(tip, softforks, consensusParams, Consensus::DEPLOYMENT_DERSIG);
@@ -1513,6 +1673,7 @@ RPCHelpMan getblockchaininfo()
     obj.pushKV("softforks", softforks);
 
     obj.pushKV("warnings", GetWarnings(false).original);
+>>>>>>> bitcoin/8.22.0
     return obj;
 },
     };
@@ -2272,6 +2433,55 @@ public:
     }
 };
 
+<<<<<<< HEAD
+UniValue scantxoutset(const JSONRPCRequest& request)
+{
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 2)
+        throw std::runtime_error(
+            "scantxoutset <action> ( <scanobjects> )\n"
+            "\nEXPERIMENTAL warning: this call may be removed or changed in future releases.\n"
+            "\nScans the unspent transaction output set for entries that match certain output descriptors.\n"
+            "Examples of output descriptors are:\n"
+            "    addr(<address>)                      Outputs whose scriptPubKey corresponds to the specified address (does not include P2PK)\n"
+            "    raw(<hex script>)                    Outputs whose scriptPubKey equals the specified hex scripts\n"
+            "    combo(<pubkey>)                      P2PK, P2PKH, P2WPKH, and P2SH-P2WPKH outputs for the given pubkey\n"
+            "    pkh(<pubkey>)                        P2PKH outputs for the given pubkey\n"
+            "    sh(multi(<n>,<pubkey>,<pubkey>,...)) P2SH-multisig outputs for the given threshold and pubkeys\n"
+            "\nIn the above, <pubkey> either refers to a fixed public key in hexadecimal notation, or to an xpub/xprv optionally followed by one\n"
+            "or more path elements separated by \"/\", and optionally ending in \"/*\" (unhardened), or \"/*'\" or \"/*h\" (hardened) to specify all\n"
+            "unhardened or hardened child keys.\n"
+            "In the latter case, a range needs to be specified by below if different from 1000.\n"
+            "For more information on output descriptors, see the documentation in the doc/descriptors.md file.\n"
+            "\nArguments:\n"
+            "1. \"action\"                       (string, required) The action to execute\n"
+            "                                      \"start\" for starting a scan\n"
+            "                                      \"abort\" for aborting the current scan (returns true when abort was successful)\n"
+            "                                      \"status\" for progress report (in %) of the current scan\n"
+            "2. \"scanobjects\"                  (array, required) Array of scan objects\n"
+            "    [                             Every scan object is either a string descriptor or an object:\n"
+            "        \"descriptor\",             (string, optional) An output descriptor\n"
+            "        {                         (object, optional) An object with output descriptor and metadata\n"
+            "          \"desc\": \"descriptor\",   (string, required) An output descriptor\n"
+            "          \"range\": n,             (numeric, optional) Up to what child index HD chains should be explored (default: 1000)\n"
+            "        },\n"
+            "        ...\n"
+            "    ]\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"unspents\": [\n"
+            "    {\n"
+            "    \"txid\" : \"transactionid\",     (string) The transaction id\n"
+            "    \"vout\": n,                    (numeric) the vout value\n"
+            "    \"scriptPubKey\" : \"script\",    (string) the script key\n"
+            "    \"amount\" : x.xxx,             (numeric) The total amount in " + CURRENCY_UNIT + " of the unspent output\n"
+            "    \"height\" : n,                 (numeric) Height of the unspent transaction output\n"
+            "   }\n"
+            "   ,...], \n"
+            " \"total_amount\" : x.xxx,          (numeric) The total amount of all found unspent outputs in " + CURRENCY_UNIT + "\n"
+            "]\n"
+        );
+
+=======
 static RPCHelpMan scantxoutset()
 {
     return RPCHelpMan{"scantxoutset",
@@ -2334,6 +2544,7 @@ static RPCHelpMan scantxoutset()
         RPCExamples{""},
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
 {
+>>>>>>> bitcoin/8.22.0
     RPCTypeCheck(request.params, {UniValue::VSTR, UniValue::VARR});
 
     UniValue result(UniValue::VOBJ);

@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+# Distributed under the MIT software license, see the accompanying
+# file COPYING or http://www.opensource.org/licenses/mit-license.php.
+"""Test the importmulti RPC."""
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, assert_greater_than, assert_raises_rpc_error
+
+class ImportMultiTest (DigiByteTestFramework):
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -35,6 +46,7 @@ from test_framework.wallet_util import (
 
 
 class ImportMultiTest(DigiByteTestFramework):
+>>>>>>> bitcoin/8.22.0
     def set_test_params(self):
         self.num_nodes = 2
         self.extra_args = [["-addresstype=legacy"], ["-addresstype=legacy"]]
@@ -82,7 +94,11 @@ class ImportMultiTest(DigiByteTestFramework):
 
         # RPC importmulti -----------------------------------------------
 
+<<<<<<< HEAD
+        # DigiByte Address
+=======
         # DigiByte Address (implicit non-internal)
+>>>>>>> bitcoin/8.22.0
         self.log.info("Should import an address")
         key = get_key(self.nodes[0])
         self.test_importmulti({"scriptPubKey": {"address": key.p2pkh_addr},

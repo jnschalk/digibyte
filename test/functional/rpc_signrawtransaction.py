@@ -1,9 +1,19 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2015-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test transaction signing using the signrawtransaction* RPCs."""
 
+<<<<<<< HEAD
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, assert_raises_rpc_error
+
+=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.address import (
     script_to_p2sh,
@@ -40,11 +50,15 @@ from decimal import (
     Decimal,
     getcontext,
 )
+>>>>>>> bitcoin/8.22.0
 
 class SignRawTransactionsTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
@@ -82,6 +96,14 @@ class SignRawTransactionsTest(DigiByteTestFramework):
         self.log.info("Test correct error reporting when trying to sign a locked output")
         self.nodes[0].encryptwallet("password")
 
+        rawTx = '020000000156b958f78e3f24e0b2f4e4db1255426b0902027cb37e3ddadb52e37c3557dddb0000000000ffffffff01c0a6b929010000001600149a2ee8c77140a053f36018ac8124a6ececc1668a00000000'
+
+        assert_raises_rpc_error(-13, "Please enter the wallet passphrase with walletpassphrase first", self.nodes[0].signrawtransactionwithwallet, rawTx)
+
+    def test_with_lock_outputs(self):
+        """Test correct error reporting when trying to sign a locked output"""
+        self.nodes[0].encryptwallet("password")
+        self.restart_node(0)
         rawTx = '020000000156b958f78e3f24e0b2f4e4db1255426b0902027cb37e3ddadb52e37c3557dddb0000000000ffffffff01c0a6b929010000001600149a2ee8c77140a053f36018ac8124a6ececc1668a00000000'
 
         assert_raises_rpc_error(-13, "Please enter the wallet passphrase with walletpassphrase first", self.nodes[0].signrawtransactionwithwallet, rawTx)
@@ -337,12 +359,16 @@ class SignRawTransactionsTest(DigiByteTestFramework):
     def run_test(self):
         self.successful_signing_test()
         self.script_verification_error_test()
+<<<<<<< HEAD
+        self.test_with_lock_outputs()
+=======
         self.witness_script_test()
         self.OP_1NEGATE_test()
         self.test_with_lock_outputs()
         self.test_fully_signed_tx()
         self.test_signing_with_csv()
         self.test_signing_with_cltv()
+>>>>>>> bitcoin/8.22.0
 
 
 if __name__ == '__main__':

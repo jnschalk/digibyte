@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -85,6 +90,21 @@ static const bool DEFAULT_FIXEDSEEDS = true;
 static const size_t DEFAULT_MAXRECEIVEBUFFER = 5 * 1000;
 static const size_t DEFAULT_MAXSENDBUFFER    = 1 * 1000;
 
+<<<<<<< HEAD
+// NOTE: When adjusting this, update rpcnet:setban's help ("24h")
+static const unsigned int DEFAULT_MISBEHAVING_BANTIME = 60 * 60 * 24;  // Default 24-hour ban
+
+/** Maximum number of outbound peers designated as Dandelion destinations */
+static const int DANDELION_MAX_DESTINATIONS = 2;
+/** Expected time between Dandelion routing shuffles (in seconds). */
+static const int DANDELION_SHUFFLE_INTERVAL = 600;
+/** The minimum amount of time a Dandelion transaction is embargoed (seconds) */
+static const int DANDELION_EMBARGO_MINIMUM = 10;
+/** The average additional embargo time beyond the minimum amount (seconds) */
+static const int DANDELION_EMBARGO_AVG_ADD = 20;
+
+=======
+>>>>>>> bitcoin/8.22.0
 typedef int64_t NodeId;
 
 struct AddedNodeInfo
@@ -111,6 +131,365 @@ struct CSerializedNetMsg
     std::string m_type;
 };
 
+<<<<<<< HEAD
+class NetEventsInterface;
+class CConnman
+{
+public:
+
+    enum NumConnections {
+        CONNECTIONS_NONE = 0,
+        CONNECTIONS_IN = (1U << 0),
+        CONNECTIONS_OUT = (1U << 1),
+        CONNECTIONS_ALL = (CONNECTIONS_IN | CONNECTIONS_OUT),
+    };
+
+    struct Options
+    {
+        ServiceFlags nLocalServices = NODE_NONE;
+        int nMaxConnections = 0;
+        int nMaxOutbound = 0;
+        int nMaxAddnode = 0;
+        int nMaxFeeler = 0;
+        int nBestHeight = 0;
+        CClientUIInterface* uiInterface = nullptr;
+        NetEventsInterface* m_msgproc = nullptr;
+        unsigned int nSendBufferMaxSize = 0;
+        unsigned int nReceiveFloodSize = 0;
+        uint64_t nMaxOutboundTimeframe = 0;
+        uint64_t nMaxOutboundLimit = 0;
+        std::vector<std::string> vSeedNodes;
+        std::vector<CSubNet> vWhitelistedRange;
+        std::vector<CService> vBinds, vWhiteBinds;
+        bool m_use_addrman_outgoing = true;
+        std::vector<std::string> m_specified_outgoing;
+        std::vector<std::string> m_added_nodes;
+    };
+
+    void Init(const Options& connOptions) {
+        nLocalServices = connOptions.nLocalServices;
+        nMaxConnections = connOptions.nMaxConnections;
+        nMaxOutbound = std::min(connOptions.nMaxOutbound, connOptions.nMaxConnections);
+        nMaxAddnode = connOptions.nMaxAddnode;
+        nMaxFeeler = connOptions.nMaxFeeler;
+        nBestHeight = connOptions.nBestHeight;
+        clientInterface = connOptions.uiInterface;
+        m_msgproc = connOptions.m_msgproc;
+        nSendBufferMaxSize = connOptions.nSendBufferMaxSize;
+        nReceiveFloodSize = connOptions.nReceiveFloodSize;
+        {
+            LOCK(cs_totalBytesSent);
+            nMaxOutboundTimeframe = connOptions.nMaxOutboundTimeframe;
+            nMaxOutboundLimit = connOptions.nMaxOutboundLimit;
+        }
+        vWhitelistedRange = connOptions.vWhitelistedRange;
+        {
+            LOCK(cs_vAddedNodes);
+            vAddedNodes = connOptions.m_added_nodes;
+        }
+    }
+
+    CConnman(uint64_t seed0, uint64_t seed1);
+    ~CConnman();
+    bool Start(CScheduler& scheduler, const Options& options);
+    void Stop();
+    void Interrupt();
+    bool GetNetworkActive() const { return fNetworkActive; };
+    void SetNetworkActive(bool active);
+    void OpenNetworkConnection(const CAddress& addrConnect, bool fCountFailure, CSemaphoreGrant *grantOutbound = nullptr, const char *strDest = nullptr, bool fOneShot = false, bool fFeeler = false, bool manual_connection = false);
+    bool CheckIncomingNonce(uint64_t nonce);
+
+    bool ForNode(NodeId id, std::function<bool(CNode* pnode)> func);
+
+    void PushMessage(CNode* pnode, CSerializedNetMsg&& msg);
+
+    template<typename Callable>
+    void ForEachNode(Callable&& func)
+    {
+        LOCK(cs_vNodes);
+        for (auto&& node : vNodes) {
+            if (NodeFullyConnected(node))
+                func(node);
+        }
+    };
+
+    template<typename Callable>
+    void ForEachNode(Callable&& func) const
+    {
+        LOCK(cs_vNodes);
+        for (auto&& node : vNodes) {
+            if (NodeFullyConnected(node))
+                func(node);
+        }
+    };
+
+    template<typename Callable, typename CallableAfter>
+    void ForEachNodeThen(Callable&& pre, CallableAfter&& post)
+    {
+        LOCK(cs_vNodes);
+        for (auto&& node : vNodes) {
+            if (NodeFullyConnected(node))
+                pre(node);
+        }
+        post();
+    };
+
+    template<typename Callable, typename CallableAfter>
+    void ForEachNodeThen(Callable&& pre, CallableAfter&& post) const
+    {
+        LOCK(cs_vNodes);
+        for (auto&& node : vNodes) {
+            if (NodeFullyConnected(node))
+                pre(node);
+        }
+        post();
+    };
+
+    // Addrman functions
+    size_t GetAddressCount() const;
+    void SetServices(const CService &addr, ServiceFlags nServices);
+    void MarkAddressGood(const CAddress& addr);
+    void AddNewAddresses(const std::vector<CAddress>& vAddr, const CAddress& addrFrom, int64_t nTimePenalty = 0);
+    std::vector<CAddress> GetAddresses();
+
+    // Denial-of-service detection/prevention
+    // The idea is to detect peers that are behaving
+    // badly and disconnect/ban them, but do it in a
+    // one-coding-mistake-won't-shatter-the-entire-network
+    // way.
+    // IMPORTANT:  There should be nothing I can give a
+    // node that it will forward on that will make that
+    // node's peers drop it. If there is, an attacker
+    // can isolate a node and/or try to split the network.
+    // Dropping a node for sending stuff that is invalid
+    // now but might be valid in a later version is also
+    // dangerous, because it can cause a network split
+    // between nodes running old code and nodes running
+    // new code.
+    void Ban(const CNetAddr& netAddr, const BanReason& reason, int64_t bantimeoffset = 0, bool sinceUnixEpoch = false);
+    void Ban(const CSubNet& subNet, const BanReason& reason, int64_t bantimeoffset = 0, bool sinceUnixEpoch = false);
+    void ClearBanned(); // needed for unit testing
+    bool IsBanned(CNetAddr ip);
+    bool IsBanned(CSubNet subnet);
+    bool Unban(const CNetAddr &ip);
+    bool Unban(const CSubNet &ip);
+    void GetBanned(banmap_t &banmap);
+    void SetBanned(const banmap_t &banmap);
+
+    // This allows temporarily exceeding nMaxOutbound, with the goal of finding
+    // a peer that is better than all our current peers.
+    void SetTryNewOutboundPeer(bool flag);
+    bool GetTryNewOutboundPeer();
+
+    // Return the number of outbound peers we have in excess of our target (eg,
+    // if we previously called SetTryNewOutboundPeer(true), and have since set
+    // to false, we may have extra peers that we wish to disconnect). This may
+    // return a value less than (num_outbound_connections - num_outbound_slots)
+    // in cases where some outbound connections are not yet fully connected, or
+    // not yet fully disconnected.
+    int GetExtraOutboundCount();
+
+    bool AddNode(const std::string& node);
+    bool RemoveAddedNode(const std::string& node);
+    std::vector<AddedNodeInfo> GetAddedNodeInfo();
+
+    size_t GetNodeCount(NumConnections num);
+    void GetNodeStats(std::vector<CNodeStats>& vstats);
+    bool DisconnectNode(const std::string& node);
+    bool DisconnectNode(NodeId id);
+
+    ServiceFlags GetLocalServices() const;
+
+    //!set the max outbound target in bytes
+    void SetMaxOutboundTarget(uint64_t limit);
+    uint64_t GetMaxOutboundTarget();
+
+    //!set the timeframe for the max outbound target
+    void SetMaxOutboundTimeframe(uint64_t timeframe);
+    uint64_t GetMaxOutboundTimeframe();
+
+    //!check if the outbound target is reached
+    // if param historicalBlockServingLimit is set true, the function will
+    // response true if the limit for serving historical blocks has been reached
+    bool OutboundTargetReached(bool historicalBlockServingLimit);
+
+    //!response the bytes left in the current max outbound cycle
+    // in case of no limit, it will always response 0
+    uint64_t GetOutboundTargetBytesLeft();
+
+    //!response the time in second left in the current max outbound cycle
+    // in case of no limit, it will always response 0
+    uint64_t GetMaxOutboundTimeLeftInCycle();
+
+    uint64_t GetTotalBytesRecv();
+    uint64_t GetTotalBytesSent();
+
+    void SetBestHeight(int height);
+    int GetBestHeight() const;
+
+    /** Get a unique deterministic randomizer. */
+    CSipHasher GetDeterministicRandomizer(uint64_t id) const;
+
+    unsigned int GetReceiveFloodSize() const;
+
+    void WakeMessageHandler();
+    
+    // Public Dandelion field
+    std::map<uint256, int64_t> mDandelionEmbargo;
+    // Dandelion methods
+    bool isDandelionInbound(const CNode* const pnode) const;
+    bool isLocalDandelionDestinationSet() const;
+    bool setLocalDandelionDestination();
+    CNode* getDandelionDestination(CNode* pfrom);
+    bool localDandelionDestinationPushInventory(const CInv& inv);
+    bool insertDandelionEmbargo(const uint256& hash, const int64_t& embargo);
+    bool isTxDandelionEmbargoed(const uint256& hash) const;
+    bool removeDandelionEmbargo(const uint256& hash);
+
+    /** Attempts to obfuscate tx time through exponentially distributed emitting.
+        Works assuming that a single interval is used.
+        Variable intervals will result in privacy decrease.
+    */
+    int64_t PoissonNextSendInbound(int64_t now, int average_interval_seconds);
+
+private:
+    struct ListenSocket {
+        SOCKET socket;
+        bool whitelisted;
+
+        ListenSocket(SOCKET socket_, bool whitelisted_) : socket(socket_), whitelisted(whitelisted_) {}
+    };
+
+    bool BindListenPort(const CService &bindAddr, std::string& strError, bool fWhitelisted = false);
+    bool Bind(const CService &addr, unsigned int flags);
+    bool InitBinds(const std::vector<CService>& binds, const std::vector<CService>& whiteBinds);
+    void ThreadOpenAddedConnections();
+    void AddOneShot(const std::string& strDest);
+    void ProcessOneShot();
+    void ThreadOpenConnections(std::vector<std::string> connect);
+    void ThreadMessageHandler();
+    void AcceptConnection(const ListenSocket& hListenSocket);
+    void ThreadSocketHandler();
+    void ThreadDNSAddressSeed();
+    void ThreadDandelionShuffle();
+
+    uint64_t CalculateKeyedNetGroup(const CAddress& ad) const;
+
+    CNode* FindNode(const CNetAddr& ip);
+    CNode* FindNode(const CSubNet& subNet);
+    CNode* FindNode(const std::string& addrName);
+    CNode* FindNode(const CService& addr);
+
+    bool AttemptToEvictConnection();
+    CNode* ConnectNode(CAddress addrConnect, const char *pszDest, bool fCountFailure, bool manual_connection);
+    bool IsWhitelistedRange(const CNetAddr &addr);
+
+    void DeleteNode(CNode* pnode);
+
+    NodeId GetNewNodeId();
+
+    size_t SocketSendData(CNode *pnode) const;
+    //!check is the banlist has unwritten changes
+    bool BannedSetIsDirty();
+    //!set the "dirty" flag for the banlist
+    void SetBannedSetDirty(bool dirty=true);
+    //!clean unused entries (if bantime has expired)
+    void SweepBanned();
+    void DumpAddresses();
+    void DumpData();
+    void DumpBanlist();
+
+    // Network stats
+    void RecordBytesRecv(uint64_t bytes);
+    void RecordBytesSent(uint64_t bytes);
+
+    // Whether the node should be passed out in ForEach* callbacks
+    static bool NodeFullyConnected(const CNode* pnode);
+
+    // Network usage totals
+    CCriticalSection cs_totalBytesRecv;
+    CCriticalSection cs_totalBytesSent;
+    uint64_t nTotalBytesRecv GUARDED_BY(cs_totalBytesRecv);
+    uint64_t nTotalBytesSent GUARDED_BY(cs_totalBytesSent);
+
+    // outbound limit & stats
+    uint64_t nMaxOutboundTotalBytesSentInCycle GUARDED_BY(cs_totalBytesSent);
+    uint64_t nMaxOutboundCycleStartTime GUARDED_BY(cs_totalBytesSent);
+    uint64_t nMaxOutboundLimit GUARDED_BY(cs_totalBytesSent);
+    uint64_t nMaxOutboundTimeframe GUARDED_BY(cs_totalBytesSent);
+
+    // Whitelisted ranges. Any node connecting from these is automatically
+    // whitelisted (as well as those connecting to whitelisted binds).
+    std::vector<CSubNet> vWhitelistedRange;
+
+    unsigned int nSendBufferMaxSize;
+    unsigned int nReceiveFloodSize;
+
+    std::vector<ListenSocket> vhListenSocket;
+    std::atomic<bool> fNetworkActive;
+    banmap_t setBanned;
+    CCriticalSection cs_setBanned;
+    bool setBannedIsDirty;
+    bool fAddressesInitialized;
+    CAddrMan addrman;
+    std::deque<std::string> vOneShots;
+    CCriticalSection cs_vOneShots;
+    std::vector<std::string> vAddedNodes GUARDED_BY(cs_vAddedNodes);
+    CCriticalSection cs_vAddedNodes;
+    std::vector<CNode*> vNodes;
+    std::list<CNode*> vNodesDisconnected;
+    mutable CCriticalSection cs_vNodes;
+    std::atomic<NodeId> nLastNodeId;
+
+    // Dandelion fields
+    std::vector<CNode*> vDandelionInbound;
+    std::vector<CNode*> vDandelionOutbound;
+    std::vector<CNode*> vDandelionDestination;
+    CNode* localDandelionDestination = nullptr;
+    std::map<CNode*, CNode*> mDandelionRoutes;
+    // Dandelion helper functions
+    CNode* SelectFromDandelionDestinations() const;
+    void CloseDandelionConnections(const CNode* const pnode);
+    std::string GetDandelionRoutingDataDebugString() const;
+    void DandelionShuffle();
+    
+    /** Services this instance offers */
+    ServiceFlags nLocalServices;
+
+    std::unique_ptr<CSemaphore> semOutbound;
+    std::unique_ptr<CSemaphore> semAddnode;
+    int nMaxConnections;
+    int nMaxOutbound;
+    int nMaxAddnode;
+    int nMaxFeeler;
+    std::atomic<int> nBestHeight;
+    CClientUIInterface* clientInterface;
+    NetEventsInterface* m_msgproc;
+
+    /** SipHasher seeds for deterministic randomness */
+    const uint64_t nSeed0, nSeed1;
+
+    /** flag for waking the message processor. */
+    bool fMsgProcWake;
+
+    std::condition_variable condMsgProc;
+    std::mutex mutexMsgProc;
+    std::atomic<bool> flagInterruptMsgProc;
+
+    CThreadInterrupt interruptNet;
+
+    std::thread threadDNSAddressSeed;
+    std::thread threadSocketHandler;
+    std::thread threadOpenAddedConnections;
+    std::thread threadOpenConnections;
+    std::thread threadMessageHandler;
+    std::thread threadDandelionShuffle;
+
+    /** flag for deciding to connect to an extra outbound peer,
+     *  in excess of nMaxOutbound
+     *  This takes the place of a feeler connection */
+    std::atomic_bool m_try_another_outbound_peer;
+=======
 /** Different types of connections to a peer. This enum encapsulates the
  * information we have available at the time of opening or accepting the
  * connection. Aside from INBOUND, all types are initiated by us.
@@ -125,6 +504,7 @@ enum class ConnectionType {
      * exchanged.
      */
     INBOUND,
+>>>>>>> bitcoin/8.22.0
 
     /**
      * These are the default connections that we use to connect with the
@@ -451,7 +831,14 @@ public:
     // next time DisconnectNodes() runs
     std::atomic_bool fDisconnect{false};
     CSemaphoreGrant grantOutbound;
+<<<<<<< HEAD
+    CCriticalSection cs_filter;
+    std::unique_ptr<CBloomFilter> pfilter;
+    std::atomic<int> nRefCount;
+    bool fSupportsDandelion = false;
+=======
     std::atomic<int> nRefCount{0};
+>>>>>>> bitcoin/8.22.0
 
     const uint64_t nKeyedNetGroup;
     std::atomic_bool fPauseRecv{false};
@@ -476,9 +863,70 @@ public:
         return m_conn_type == ConnectionType::OUTBOUND_FULL_RELAY;
     }
 
+<<<<<<< HEAD
+public:
+    uint256 hashContinue;
+    std::atomic<int> nStartingHeight;
+
+    // flood relay
+    std::vector<CAddress> vAddrToSend;
+    CRollingBloomFilter addrKnown;
+    bool fGetAddr;
+    std::set<uint256> setKnown;
+    int64_t nNextAddrSend;
+    int64_t nNextLocalAddrSend;
+
+    // inventory based relay
+    CRollingBloomFilter filterInventoryKnown;
+    // Set of Dandelion transactions that should be known to this peer
+    std::set<uint256> setDandelionInventoryKnown;
+    // Set of transaction ids we still have to announce.
+    // They are sorted by the mempool before relay, so the order is not important.
+    std::set<uint256> setInventoryTxToSend;
+    // List of Dandelion transaction ids to announce.
+    std::vector<uint256> vInventoryDandelionTxToSend;
+    // List of block ids we still have announce.
+    // There is no final sorting before sending, as they are always sent immediately
+    // and in the order requested.
+    std::vector<uint256> vInventoryBlockToSend;
+    CCriticalSection cs_inventory;
+    std::set<uint256> setAskFor;
+    std::multimap<int64_t, CInv> mapAskFor;
+    int64_t nNextInvSend;
+    // Used for headers announcements - unfiltered blocks to relay
+    // Also protected by cs_inventory
+    std::vector<uint256> vBlockHashesToAnnounce;
+    // Used for BIP35 mempool sending, also protected by cs_inventory
+    bool fSendMempool;
+
+    // Last time a "MEMPOOL" request was serviced.
+    std::atomic<int64_t> timeLastMempoolReq;
+
+    // Block and TXN accept times
+    std::atomic<int64_t> nLastBlockTime;
+    std::atomic<int64_t> nLastTXTime;
+
+    // Ping time measurement:
+    // The pong reply we're expecting, or 0 if no pong expected.
+    std::atomic<uint64_t> nPingNonceSent;
+    // Time (in usec) the last ping was sent, or 0 if no ping was ever sent.
+    std::atomic<int64_t> nPingUsecStart;
+    // Last measured round-trip time.
+    std::atomic<int64_t> nPingUsecTime;
+    // Best measured round-trip time.
+    std::atomic<int64_t> nMinPingUsecTime;
+    // Whether a ping is requested.
+    std::atomic<bool> fPingQueued;
+    // Minimum fee rate with which to filter inv's to this node
+    CAmount minFeeFilter;
+    CCriticalSection cs_feeFilter;
+    CAmount lastSentFeeFilter;
+    int64_t nextSendTimeFeeFilter;
+=======
     bool IsManualConn() const {
         return m_conn_type == ConnectionType::MANUAL;
     }
+>>>>>>> bitcoin/8.22.0
 
     bool IsBlockOnlyConn() const {
         return m_conn_type == ConnectionType::BLOCK_RELAY;
@@ -750,6 +1198,19 @@ public:
 
     struct Options
     {
+<<<<<<< HEAD
+        LOCK(cs_inventory);
+        if (inv.type == MSG_TX) {
+            if (!filterInventoryKnown.contains(inv.hash)) {
+                setInventoryTxToSend.insert(inv.hash);
+            }
+        } else if (inv.type == MSG_DANDELION_TX) {
+            if (setDandelionInventoryKnown.count(inv.hash)==0) {
+                vInventoryDandelionTxToSend.push_back(inv.hash);
+            }
+        } else if (inv.type == MSG_BLOCK) {
+            vInventoryBlockToSend.push_back(inv.hash);
+=======
         ServiceFlags nLocalServices = NODE_NONE;
         int nMaxConnections = 0;
         int m_max_outbound_full_relay = 0;
@@ -796,6 +1257,7 @@ public:
         {
             LOCK(cs_totalBytesSent);
             nMaxOutboundLimit = connOptions.nMaxOutboundLimit;
+>>>>>>> bitcoin/8.22.0
         }
         vWhitelistedRange = connOptions.vWhitelistedRange;
         {

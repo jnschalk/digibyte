@@ -147,8 +147,13 @@ class FrameworkInfo(object):
 class ApplicationBundleInfo(object):
     def __init__(self, path: str):
         self.path = path
+<<<<<<< HEAD
+        appName = "DigiByte-Qt"
+        self.binaryPath = os.path.join(path, "Contents", "MacOS", appName)
+=======
         # for backwards compatibility reasons, this must remain as DigiByte-Qt
         self.binaryPath = os.path.join(path, "Contents", "MacOS", "DigiByte-Qt")
+>>>>>>> bitcoin/8.22.0
         if not os.path.exists(self.binaryPath):
             raise RuntimeError(f"Could not find bundle binary for {path}")
         self.resourcesPath = os.path.join(path, "Contents", "Resources")

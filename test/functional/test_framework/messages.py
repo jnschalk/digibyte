@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 # Copyright (c) 2010 ArtForz -- public domain half-a-node
 # Copyright (c) 2012 Jeff Garzik
+<<<<<<< HEAD
+# Copyright (c) 2010-2018 The DigiByte Core developers
+=======
 # Copyright (c) 2010-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """DigiByte test framework primitive and message structures
@@ -38,7 +42,10 @@ MAX_BLOOM_FILTER_SIZE = 36000
 MAX_BLOOM_HASH_FUNCS = 50
 
 COIN = 100000000  # 1 dgb in satoshis
+<<<<<<< HEAD
+=======
 MAX_MONEY = 21000000 * COIN
+>>>>>>> bitcoin/8.22.0
 
 BIP125_SEQUENCE_NUMBER = 0xfffffffd  # Sequence number that is rbf-opt-in (BIP 125) and csv-opt-out (BIP 68)
 
@@ -201,6 +208,9 @@ def from_hex(obj, hex_string):
     return obj
 
 
+<<<<<<< HEAD
+# Objects that map to digibyted objects, which can be serialized/deserialized
+=======
 def tx_from_hex(hex_string):
     """Deserialize from hex string to a transaction object"""
     return from_hex(CTransaction(), hex_string)
@@ -227,6 +237,7 @@ class CAddress:
     }
 
     I2P_PAD = "===="
+>>>>>>> bitcoin/8.22.0
 
     def __init__(self):
         self.time = 0
@@ -310,6 +321,15 @@ class CInv:
 
     typemap = {
         0: "Error",
+<<<<<<< HEAD
+        1: "TX",
+        2: "Block",
+        1|MSG_WITNESS_FLAG: "WitnessTx",
+        2|MSG_WITNESS_FLAG : "WitnessBlock",
+        4: "CompactBlock",
+        5: "DandelionTx",
+        5|MSG_WITNESS_FLAG: "DandelionWitnessTx"
+=======
         MSG_TX: "TX",
         MSG_BLOCK: "Block",
         MSG_TX | MSG_WITNESS_FLAG: "WitnessTx",
@@ -317,6 +337,7 @@ class CInv:
         MSG_FILTERED_BLOCK: "filtered Block",
         MSG_CMPCT_BLOCK: "CompactBlock",
         MSG_WTX: "WTX",
+>>>>>>> bitcoin/8.22.0
     }
 
     def __init__(self, t=0, h=0):
@@ -1378,6 +1399,25 @@ class msg_mempool:
     def __repr__(self):
         return "msg_mempool()"
 
+<<<<<<< HEAD
+class msg_notfound():
+    command = b"notfound"
+        
+    def __init__(self):
+        pass
+                
+    def deserialize(self, f):
+        pass
+                        
+    def serialize(self):
+        return b""
+                                
+    def __repr__(self):
+        return "msg_notfound()"
+
+class msg_sendheaders():
+    command = b"sendheaders"
+=======
 
 class msg_notfound:
     __slots__ = ("vec", )
@@ -1399,6 +1439,7 @@ class msg_notfound:
 class msg_sendheaders:
     __slots__ = ()
     msgtype = b"sendheaders"
+>>>>>>> bitcoin/8.22.0
 
     def __init__(self):
         pass
@@ -1609,10 +1650,30 @@ class msg_cmpctblock:
     def __repr__(self):
         return "msg_cmpctblock(HeaderAndShortIDs=%s)" % repr(self.header_and_shortids)
 
+<<<<<<< HEAD
+class msg_dandeliontx():
+    command = b"dandeliontx"
+        
+    def __init__(self, tx=CTransaction()):
+        self.tx = tx
+                
+    def deserialize(self, f):
+        self.tx.deserialize(f)
+                        
+    def serialize(self):
+        return self.tx.serialize_without_witness()
+                                
+    def __repr__(self):
+        return "msg_dandeliontx(tx=%s)" % (repr(self.tx))
+
+class msg_getblocktxn():
+    command = b"getblocktxn"
+=======
 
 class msg_getblocktxn:
     __slots__ = ("block_txn_request",)
     msgtype = b"getblocktxn"
+>>>>>>> bitcoin/8.22.0
 
     def __init__(self):
         self.block_txn_request = None

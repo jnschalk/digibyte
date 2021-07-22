@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +13,11 @@
 #include <pow.h>
 #include <streams.h>
 
+<<<<<<< HEAD
+#include <test/test_digibyte.h>
+=======
 #include <test/util/setup_common.h>
+>>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 
@@ -44,7 +53,7 @@ static CBlock BuildBlockTestCase() {
     bool mutated;
     block.hashMerkleRoot = BlockMerkleRoot(block, &mutated);
     assert(!mutated);
-    while (!CheckProofOfWork(block.GetHash(), block.nBits, Params().GetConsensus())) ++block.nNonce;
+    while (!CheckProofOfWork(block.GetPoWAlgoHash(Params().GetConsensus()), block.nBits, Params().GetConsensus())) ++block.nNonce;
     return block;
 }
 
@@ -275,7 +284,7 @@ BOOST_AUTO_TEST_CASE(EmptyBlockRoundTripTest)
     bool mutated;
     block.hashMerkleRoot = BlockMerkleRoot(block, &mutated);
     assert(!mutated);
-    while (!CheckProofOfWork(block.GetHash(), block.nBits, Params().GetConsensus())) ++block.nNonce;
+    while (!CheckProofOfWork(block.GetPoWAlgoHash(Params().GetConsensus()), block.nBits, Params().GetConsensus())) ++block.nNonce;
 
     // Test simple header round-trip with only coinbase
     {
@@ -365,7 +374,10 @@ BOOST_AUTO_TEST_CASE(TransactionsRequestDeserializationOverflowTest) {
         BOOST_CHECK(0);
     } catch(std::ios_base::failure &) {
         // deserialize should fail
+<<<<<<< HEAD
+=======
         BOOST_CHECK(true); // Needed to suppress "Test case [...] did not check any assertions"
+>>>>>>> bitcoin/8.22.0
     }
 }
 

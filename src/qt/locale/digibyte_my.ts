@@ -49,6 +49,8 @@
     </context>
 <context>
     <name>DigiByteGUI</name>
+<<<<<<< HEAD
+=======
     <message>
         <source>Error</source>
         <translation>အမှား</translation>
@@ -61,17 +63,21 @@
         <source>Information</source>
         <translation>အချက်အလက်</translation>
     </message>
+>>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>CoinControlDialog</name>
     </context>
 <context>
+<<<<<<< HEAD
+=======
     <name>CreateWalletActivity</name>
     </context>
 <context>
     <name>CreateWalletDialog</name>
     </context>
 <context>
+>>>>>>> bitcoin/8.22.0
     <name>EditAddressDialog</name>
     </context>
 <context>
@@ -82,10 +88,13 @@
     </context>
 <context>
     <name>Intro</name>
+<<<<<<< HEAD
+=======
     <message>
         <source>Error</source>
         <translation>အမှား</translation>
     </message>
+>>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>ModalOverlay</name>
@@ -94,6 +103,9 @@
     <name>OpenURIDialog</name>
     </context>
 <context>
+<<<<<<< HEAD
+    <name>OptionsDialog</name>
+=======
     <name>OpenWalletActivity</name>
     </context>
 <context>
@@ -102,14 +114,18 @@
         <source>Error</source>
         <translation>အမှား</translation>
     </message>
+>>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>OverviewPage</name>
     </context>
 <context>
+<<<<<<< HEAD
+=======
     <name>PSBTOperationsDialog</name>
     </context>
 <context>
+>>>>>>> bitcoin/8.22.0
     <name>PaymentServer</name>
     </context>
 <context>
@@ -119,6 +135,12 @@
     <name>QObject</name>
     </context>
 <context>
+<<<<<<< HEAD
+    <name>QObject::QObject</name>
+    </context>
+<context>
+=======
+>>>>>>> bitcoin/8.22.0
     <name>QRImageWidget</name>
     </context>
 <context>
@@ -135,17 +157,55 @@
     </context>
 <context>
     <name>SendCoinsDialog</name>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:src/qt/locale/digibyte_zh.ts
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>余额不足</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>选择...</translation>
+    </message>
+    <message>
+        <source>The recipient address is not valid. Please recheck.</source>
+        <translation>收款人地址无效，请再次确认。</translation>
+    </message>
+    <message>
+        <source>Pay only the required fee of %1</source>
+        <translation>仅支付全额的%1</translation>
+    </message>
+    <message>
+        <source>Warning: Invalid DigiByte address</source>
+        <translation>警告：比特币地址无效</translation>
+    </message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_my.ts
+>>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>SendCoinsEntry</name>
     </context>
 <context>
+<<<<<<< HEAD
+    <name>SendConfirmationDialog</name>
+    </context>
+<context>
+=======
+>>>>>>> bitcoin/8.22.0
     <name>ShutdownWindow</name>
     </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     </context>
 <context>
+<<<<<<< HEAD
+    <name>SplashScreen</name>
+    </context>
+<context>
+=======
+>>>>>>> bitcoin/8.22.0
     <name>TrafficGraphWidget</name>
     </context>
 <context>
@@ -164,9 +224,12 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
+<<<<<<< HEAD
+=======
     <name>WalletController</name>
     </context>
 <context>
+>>>>>>> bitcoin/8.22.0
     <name>WalletFrame</name>
     </context>
 <context>
@@ -175,17 +238,49 @@
 <context>
     <name>WalletView</name>
     <message>
+<<<<<<< HEAD
         <source>&amp;Export</source>
         <translation>&amp;ထုတ်ယူသိမ်းဆည်း</translation>
+=======
+<<<<<<< HEAD:src/qt/locale/digibyte_zh.ts
+        <source>Export the data in the current tab to a file</source>
+        <translation>将当前选项卡中的数据导出到文件</translation>
+    </message>
+    </context>
+<context>
+    <name>digibyte-core</name>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>根据费率标准，本次转账超额</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation>超额转账</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>警告</translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation>余额不足</translation>
+=======
+        <source>&amp;Export</source>
+        <translation>&amp;ထုတ်ယူသိမ်းဆည်း</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_my.ts
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
         <translation>လက်ရှိ tab မှာရှိတဲ့ဒေတာတွေကို ဖိုင်လ်မှာသိမ်းမယ်။</translation>
     </message>
+<<<<<<< HEAD
+=======
     <message>
         <source>Error</source>
         <translation>အမှား</translation>
     </message>
+>>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>digibyte-core</name>

@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -260,7 +265,7 @@ class CTransaction
 {
 public:
     // Default transaction version.
-    static const int32_t CURRENT_VERSION=2;
+    static const int32_t CURRENT_VERSION=1;
 
     // The local variables are made const to prevent unintended modification
     // without updating the cached hash value. However, CTransaction is not
@@ -386,6 +391,8 @@ struct CMutableTransaction
 typedef std::shared_ptr<const CTransaction> CTransactionRef;
 template <typename Tx> static inline CTransactionRef MakeTransactionRef(Tx&& txIn) { return std::make_shared<const CTransaction>(std::forward<Tx>(txIn)); }
 
+<<<<<<< HEAD
+=======
 /** A generic txid reference (txid or wtxid). */
 class GenTxid
 {
@@ -399,4 +406,5 @@ public:
     friend bool operator<(const GenTxid& a, const GenTxid& b) { return std::tie(a.m_is_wtxid, a.m_hash) < std::tie(b.m_is_wtxid, b.m_hash); }
 };
 
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_PRIMITIVES_TRANSACTION_H

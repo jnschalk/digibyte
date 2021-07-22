@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,6 +14,71 @@
 #include <primitives/transaction.h>
 #include <serialize.h>
 #include <uint256.h>
+#include <util.h>
+
+namespace Consensus { struct Params; }
+
+enum { 
+    ALGO_UNKNOWN = -1,
+    ALGO_SHA256D  = 0,
+    ALGO_SCRYPT   = 1,
+    ALGO_GROESTL  = 2,
+    ALGO_SKEIN    = 3,
+    ALGO_QUBIT    = 4,
+    //ALGO_EQUIHASH = 5,
+    //ALGO_ETHASH   = 6,
+    ALGO_ODO      = 7,
+    NUM_ALGOS_IMPL };
+
+const int NUM_ALGOS = 5;
+
+enum {
+    // primary version
+    BLOCK_VERSION_DEFAULT        = 2, 
+
+    // algo
+    BLOCK_VERSION_ALGO           = (15 << 8),
+    BLOCK_VERSION_SCRYPT         = (0 << 8),
+    BLOCK_VERSION_SHA256D        = (2 << 8),
+    BLOCK_VERSION_GROESTL        = (4 << 8),
+    BLOCK_VERSION_SKEIN          = (6 << 8),
+    BLOCK_VERSION_QUBIT          = (8 << 8),
+    //BLOCK_VERSION_EQUIHASH       = (10 << 8),
+    //BLOCK_VERSION_ETHASH         = (12 << 8),
+    BLOCK_VERSION_ODO            = (14 << 8),
+};
+
+std::string GetAlgoName(int Algo);
+
+int GetAlgoByName(std::string strAlgo, int fallback);
+
+inline int GetVersionForAlgo(int algo)
+{
+    switch(algo)
+    {
+        case ALGO_SHA256D:
+            return BLOCK_VERSION_SHA256D;
+        case ALGO_SCRYPT:
+            return BLOCK_VERSION_SCRYPT;
+        case ALGO_GROESTL:
+            return BLOCK_VERSION_GROESTL;
+        case ALGO_SKEIN:
+            return BLOCK_VERSION_SKEIN;
+        case ALGO_QUBIT:
+            return BLOCK_VERSION_QUBIT;
+        //case ALGO_EQUIHASH:
+            //return BLOCK_VERSION_EQUIHASH;
+        //case ALGO_ETHASH:
+            //return BLOCK_VERSION_ETHASH;
+        case ALGO_ODO:
+            return BLOCK_VERSION_ODO;
+        default:
+            assert(false);
+            return 0;
+    }
+}
+
+uint32_t OdoKey(const Consensus::Params& params, uint32_t nTime);
 
 /** Nodes collect new transactions into a block, hash them into a hash tree,
  * and scan through nonce values to make the block's hash satisfy proof-of-work
@@ -50,7 +120,17 @@ public:
         return (nBits == 0);
     }
 
+    // Set Algo to use
+    inline void SetAlgo(int algo)
+    {
+        nVersion |= GetVersionForAlgo(algo);
+    }
+    
+    int GetAlgo() const;
+
     uint256 GetHash() const;
+
+    uint256 GetPoWAlgoHash(const Consensus::Params& params) const;
 
     int64_t GetBlockTime() const
     {
@@ -104,7 +184,7 @@ public:
         return block;
     }
 
-    std::string ToString() const;
+    std::string ToString(const Consensus::Params& params) const;
 };
 
 /** Describes a place in the block chain to another node such that if the

@@ -66,6 +66,13 @@
         <translation>እነኚ የቢትኮይን ክፍያ የመላኪያ አድራሻዎችዎ ናቸው:: ገንዘብ/ኮይኖች ከመላክዎ በፊት መጠኑን እና የመቀበያ አድራሻውን ሁልጊዜ ያረጋግጡ::</translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>እነኚ የቢትኮይን ክፍያ የመቀበያ አድራሻዎችዎ ናቸው:: ለእያንዳንዱ ግብይት አዲስ የመቀበያ አድራሻ እንዲጠቀሙ ይመከራል:: </translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0
         <source>&amp;Copy Address</source>
         <translation>&amp;አድራሻ ቅዳ</translation>
     </message>
@@ -128,6 +135,13 @@
         <translation>አዲስ የይለፍ-ሐረጉን ይድገሙት</translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation>አዲስ የይለፍ ሐረግዎን ወደ ቢትኮይን ቦርሳዎ ያስገቡ:: &lt;br/&gt;እባክዎ ለየይለፍ ሐረግዎ&lt;b&gt;አስር ወይም ከዚያ በላይ የዘፈቀደ ዓይነተ-ፊደላት&lt;/b&gt;, ወይም&lt;b&gt;ስምንት ወይም ከዚያ በላይ ቃላት&lt;/b&gt; ይጠቀሙ ::</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0
         <source>Encrypt wallet</source>
         <translation>የቢትኮይን ቦርሳውን አመስጥር</translation>
     </message>
@@ -152,6 +166,13 @@
         <translation>ይለፍ-ሐረግ ለውጥ</translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <source>Enter the old passphrase and new passphrase to the wallet.</source>
+        <translation>የድሮውን የይለፍ-ሐረግ እና አዲሱን የይለፍ-ሐረግ ወደ ቢትኮይን ቦርሳዎ ያስገቡ::</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0
         <source>Confirm wallet encryption</source>
         <translation>የቢትኮይን ቦርሳዎን ማመስጠር ያረጋግጡ</translation>
     </message>
@@ -168,6 +189,13 @@
         <translation>ቦርሳዎ ምስጢር ተደርጓል</translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
+        <translation>%1 የማመስጠር ሂደቱን ለመጨረስ አሁን ይዘጋል:: ያስታውሱ፣ ኮምፒተርዎ በተንኮል አዘል ሶፍትዌር ከተበከለ ቦርሳዎን ማመስጠር ቢትኮይኖቾን ሙሉበሙሉ እንዳይሰረቁ ሊከላከል አይችልም::</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
         <translation>አስፈላጊ: ከ ቦርሳ ፋይልዎ ያከናወኗቸው ቀደም ያሉ ምትኬዎች በአዲስ በተፈጠረ የማመስጠሪያ ፋይል ውስጥ መተካት አለባቸው. ለደህንነት ሲባል, አዲሱን የተመሰጠ የቦርሳ ፋይል መጠቀም ሲጀመሩ ወዲያውኑ ቀደም ሲል ያልተመሰጠሩ የቦርሳ ፋይል ቅጂዎች ዋጋ ቢስ ይሆናሉ::</translation>
     </message>
@@ -230,6 +258,13 @@
         <translation>&amp;አጠቃላይ እይታ</translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <source>Node</source>
+        <translation>እትር</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0
         <source>Show general overview of wallet</source>
         <translation>የቦርሳ አጠቃላይ እይታ ኣሳይ</translation>
     </message>
@@ -278,12 +313,15 @@
     </message>
     </context>
 <context>
+<<<<<<< HEAD
+=======
     <name>CreateWalletActivity</name>
     </context>
 <context>
     <name>CreateWalletDialog</name>
     </context>
 <context>
+>>>>>>> bitcoin/8.22.0
     <name>EditAddressDialog</name>
     </context>
 <context>
@@ -302,18 +340,24 @@
     <name>OpenURIDialog</name>
     </context>
 <context>
+<<<<<<< HEAD
+=======
     <name>OpenWalletActivity</name>
     </context>
 <context>
+>>>>>>> bitcoin/8.22.0
     <name>OptionsDialog</name>
     </context>
 <context>
     <name>OverviewPage</name>
     </context>
 <context>
+<<<<<<< HEAD
+=======
     <name>PSBTOperationsDialog</name>
     </context>
 <context>
+>>>>>>> bitcoin/8.22.0
     <name>PaymentServer</name>
     </context>
 <context>
@@ -323,6 +367,12 @@
     <name>QObject</name>
     </context>
 <context>
+<<<<<<< HEAD
+    <name>QObject::QObject</name>
+    </context>
+<context>
+=======
+>>>>>>> bitcoin/8.22.0
     <name>QRImageWidget</name>
     </context>
 <context>
@@ -333,6 +383,17 @@
     </context>
 <context>
     <name>ReceiveRequestDialog</name>
+<<<<<<< HEAD
+    <message>
+        <source>Address</source>
+        <translation>አድራሻ</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>መለያ ስም</translation>
+    </message>
+=======
+>>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
@@ -356,12 +417,24 @@
     <name>SendCoinsEntry</name>
     </context>
 <context>
+<<<<<<< HEAD
+    <name>SendConfirmationDialog</name>
+    </context>
+<context>
+=======
+>>>>>>> bitcoin/8.22.0
     <name>ShutdownWindow</name>
     </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     </context>
 <context>
+<<<<<<< HEAD
+    <name>SplashScreen</name>
+    </context>
+<context>
+=======
+>>>>>>> bitcoin/8.22.0
     <name>TrafficGraphWidget</name>
     </context>
 <context>
@@ -404,9 +477,12 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
+<<<<<<< HEAD
+=======
     <name>WalletController</name>
     </context>
 <context>
+>>>>>>> bitcoin/8.22.0
     <name>WalletFrame</name>
     </context>
 <context>

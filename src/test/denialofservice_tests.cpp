@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2021 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,11 +27,35 @@
 #include <util/time.h>
 #include <validation.h>
 
+<<<<<<< HEAD
+#include <test/test_digibyte.h>
+
+=======
 #include <array>
+>>>>>>> bitcoin/8.22.0
 #include <stdint.h>
 
 #include <boost/test/unit_test.hpp>
 
+<<<<<<< HEAD
+// Tests these internal-to-net_processing.cpp methods:
+extern bool AddOrphanTx(const CTransactionRef& tx, NodeId peer);
+extern void EraseOrphansFor(NodeId peer);
+extern unsigned int LimitOrphanTxSize(unsigned int nMaxOrphans);
+extern void Misbehaving(NodeId nodeid, int howmuch, const std::string& message="");
+
+// Arbitrary Timeout Value to trigger a disconnect.
+#define CONNECTION_TIMEOUT_MS 20000
+
+struct COrphanTx {
+    CTransactionRef tx;
+    NodeId fromPeer;
+    int64_t nTimeExpire;
+};
+extern std::map<uint256, COrphanTx> mapOrphanTransactions;
+
+=======
+>>>>>>> bitcoin/8.22.0
 static CService ip(uint32_t i)
 {
     struct in_addr s;
@@ -57,8 +86,13 @@ BOOST_AUTO_TEST_CASE(outbound_slow_chain_eviction)
 
     // Mock an outbound peer
     CAddress addr1(ip(0xa0b0c001), NODE_NONE);
+<<<<<<< HEAD
+    CNode dummyNode1(id++, ServiceFlags(NODE_NETWORK|NODE_WITNESS|NODE_GETUTXO), 0, INVALID_SOCKET, addr1, 0, 0, CAddress(), "", /*fInboundIn=*/ false);
+    dummyNode1.SetSendVersion(PROTOCOL_VERSION);
+=======
     CNode dummyNode1(id++, ServiceFlags(NODE_NETWORK | NODE_WITNESS), INVALID_SOCKET, addr1, /* nKeyedNetGroupIn */ 0, /* nLocalHostNonceIn */ 0, CAddress(), /* pszDest */ "", ConnectionType::OUTBOUND_FULL_RELAY, /* inbound_onion */ false);
     dummyNode1.SetCommonVersion(PROTOCOL_VERSION);
+>>>>>>> bitcoin/8.22.0
 
     peerLogic->InitializeNode(&dummyNode1);
     dummyNode1.fSuccessfullyConnected = true;
@@ -83,7 +117,7 @@ BOOST_AUTO_TEST_CASE(outbound_slow_chain_eviction)
 
     int64_t nStartTime = GetTime();
     // Wait 21 minutes
-    SetMockTime(nStartTime+21*60);
+    SetMockTime(nStartTime+21*60); // Overrides future calls to GetTime()
     {
         LOCK(dummyNode1.cs_sendProcessing);
         BOOST_CHECK(peerLogic->SendMessages(&dummyNode1)); // should result in getheaders
@@ -93,20 +127,29 @@ BOOST_AUTO_TEST_CASE(outbound_slow_chain_eviction)
         BOOST_CHECK(dummyNode1.vSendMsg.size() > 0);
     }
     // Wait 3 more minutes
-    SetMockTime(nStartTime+24*60);
+    SetMockTime(nStartTime+24*60); // Overrides future calls to GetTime()
     {
         LOCK(dummyNode1.cs_sendProcessing);
         BOOST_CHECK(peerLogic->SendMessages(&dummyNode1)); // should result in disconnect
     }
     BOOST_CHECK(dummyNode1.fDisconnect == true);
+<<<<<<< HEAD
+    SetMockTime(0); // Overrides future calls to GetTime()
+=======
+>>>>>>> bitcoin/8.22.0
 
     peerLogic->FinalizeNode(dummyNode1);
 }
 
 static void AddRandomOutboundPeer(std::vector<CNode*>& vNodes, PeerManager& peerLogic, ConnmanTestMsg& connman)
 {
+<<<<<<< HEAD
+    CAddress addr(ip(GetRandInt(0xffffffff)), NODE_NONE);
+    vNodes.emplace_back(new CNode(id++, ServiceFlags(NODE_NETWORK|NODE_WITNESS|NODE_GETUTXO), 0, INVALID_SOCKET, addr, 0, 0, CAddress(), "", /*fInboundIn=*/ false));
+=======
     CAddress addr(ip(g_insecure_rand_ctx.randbits(32)), NODE_NONE);
     vNodes.emplace_back(new CNode(id++, ServiceFlags(NODE_NETWORK | NODE_WITNESS), INVALID_SOCKET, addr, /* nKeyedNetGroupIn */ 0, /* nLocalHostNonceIn */ 0, CAddress(), /* pszDest */ "", ConnectionType::OUTBOUND_FULL_RELAY, /* inbound_onion */ false));
+>>>>>>> bitcoin/8.22.0
     CNode &node = *vNodes.back();
     node.SetCommonVersion(PROTOCOL_VERSION);
 
@@ -144,7 +187,11 @@ BOOST_AUTO_TEST_CASE(stale_tip_peer_management)
         BOOST_CHECK(node->fDisconnect == false);
     }
 
+<<<<<<< HEAD
+    SetMockTime(GetTime() + CONNECTION_TIMEOUT_MS); // Overrides future calls to GetTime()
+=======
     SetMockTime(GetTime() + 3 * chainparams.GetConsensus().nPowTargetSpacing + 1);
+>>>>>>> bitcoin/8.22.0
 
     // Now tip should definitely be stale, and we should look for an extra
     // outbound peer
@@ -222,6 +269,17 @@ BOOST_AUTO_TEST_CASE(peer_discouragement)
         LOCK(nodes[0]->cs_sendProcessing);
         BOOST_CHECK(peerLogic->SendMessages(nodes[0]));
     }
+<<<<<<< HEAD
+    BOOST_CHECK(connman->IsBanned(addr1));
+    BOOST_CHECK(!connman->IsBanned(ip(0xa0b0c001|0x0000ff00))); // Different IP, not banned
+
+    CAddress addr2(ip(0xa0b0c002), NODE_NONE);
+    CNode dummyNode2(id++, ServiceFlags(NODE_NETWORK|NODE_GETUTXO), 0, INVALID_SOCKET, addr2, 1, 1, CAddress(), "", true);
+    dummyNode2.SetSendVersion(PROTOCOL_VERSION);
+    peerLogic->InitializeNode(&dummyNode2);
+    dummyNode2.nVersion = 1;
+    dummyNode2.fSuccessfullyConnected = true;
+=======
     BOOST_CHECK(banman->IsDiscouraged(addr[0]));
     BOOST_CHECK(nodes[0]->fDisconnect);
     BOOST_CHECK(!banman->IsDiscouraged(other_addr)); // Different address, not discouraged
@@ -234,6 +292,7 @@ BOOST_AUTO_TEST_CASE(peer_discouragement)
     nodes[1]->fSuccessfullyConnected = true;
     connman->AddTestNode(*nodes[1]);
     peerLogic->Misbehaving(nodes[1]->GetId(), DISCOURAGEMENT_THRESHOLD - 1, /* message */ "");
+>>>>>>> bitcoin/8.22.0
     {
         LOCK(nodes[1]->cs_sendProcessing);
         BOOST_CHECK(peerLogic->SendMessages(nodes[1]));
@@ -279,7 +338,59 @@ BOOST_AUTO_TEST_CASE(peer_discouragement)
     for (CNode* node : nodes) {
         peerLogic->FinalizeNode(*node);
     }
+<<<<<<< HEAD
+    BOOST_CHECK(connman->IsBanned(addr2));
+
+    bool dummy;
+    peerLogic->FinalizeNode(dummyNode1.GetId(), dummy);
+    peerLogic->FinalizeNode(dummyNode2.GetId(), dummy);
+}
+
+BOOST_AUTO_TEST_CASE(DoS_banscore)
+{
+
+    connman->ClearBanned();
+    gArgs.ForceSetArg("-banscore", "111"); // because 11 is my favorite number
+    CAddress addr1(ip(0xa0b0c001), NODE_NONE);
+    CNode dummyNode1(id++, ServiceFlags(NODE_NETWORK|NODE_GETUTXO), 0, INVALID_SOCKET, addr1, 3, 1, CAddress(), "", true);
+    dummyNode1.SetSendVersion(PROTOCOL_VERSION);
+    peerLogic->InitializeNode(&dummyNode1);
+    dummyNode1.nVersion = 1;
+    dummyNode1.fSuccessfullyConnected = true;
+    {
+        LOCK(cs_main);
+        Misbehaving(dummyNode1.GetId(), 100);
+    }
+    {
+        LOCK2(cs_main, dummyNode1.cs_sendProcessing);
+        peerLogic->SendMessages(&dummyNode1);
+    }
+    BOOST_CHECK(!connman->IsBanned(addr1));
+    {
+        LOCK(cs_main);
+        Misbehaving(dummyNode1.GetId(), 10);
+    }
+    {
+        LOCK2(cs_main, dummyNode1.cs_sendProcessing);
+        peerLogic->SendMessages(&dummyNode1);
+    }
+    BOOST_CHECK(!connman->IsBanned(addr1));
+    {
+        LOCK(cs_main);
+        Misbehaving(dummyNode1.GetId(), 1);
+    }
+    {
+        LOCK2(cs_main, dummyNode1.cs_sendProcessing);
+        peerLogic->SendMessages(&dummyNode1);
+    }
+    BOOST_CHECK(connman->IsBanned(addr1));
+    gArgs.ForceSetArg("-banscore", std::to_string(DEFAULT_BANSCORE_THRESHOLD));
+
+    bool dummy;
+    peerLogic->FinalizeNode(dummyNode1.GetId(), dummy);
+=======
     connman->ClearTestNodes();
+>>>>>>> bitcoin/8.22.0
 }
 
 BOOST_AUTO_TEST_CASE(DoS_bantime)
@@ -307,6 +418,13 @@ BOOST_AUTO_TEST_CASE(DoS_bantime)
     }
     BOOST_CHECK(banman->IsDiscouraged(addr));
 
+<<<<<<< HEAD
+    SetMockTime(nStartTime+60*60); // Overrides future calls to GetTime()
+    BOOST_CHECK(connman->IsBanned(addr));
+
+    SetMockTime(nStartTime+60*60*24+1); // Overrides future calls to GetTime()
+    BOOST_CHECK(!connman->IsBanned(addr));
+=======
     peerLogic->FinalizeNode(dummyNode);
 }
 
@@ -317,6 +435,7 @@ public:
     {
         return m_orphans.size();
     }
+>>>>>>> bitcoin/8.22.0
 
     CTransactionRef RandomOrphan() EXCLUSIVE_LOCKS_REQUIRED(g_cs_orphans)
     {

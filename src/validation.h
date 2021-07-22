@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -40,8 +45,22 @@
 #include <utility>
 #include <vector>
 
+<<<<<<< HEAD
+#include <atomic>
+
+// The following constants are used in GetDGBSubsidy()
+#define BLOCK_TIME_SECONDS 15
+#define MINUTES 60
+#define SECONDS 60
+#define HOURS 24
+#define MONTHS_PER_YEAR 12
+#define DAYS_PER_YEAR 365
+#define SECONDS_PER_MONTH (SECONDS * MINUTES * HOURS * DAYS_PER_YEAR / MONTHS_PER_YEAR);
+
+=======
 class CChainState;
 class BlockValidationState;
+>>>>>>> bitcoin/8.22.0
 class CBlockIndex;
 class CBlockTreeDB;
 class CBlockUndo;
@@ -59,8 +78,29 @@ struct PrecomputedTransactionData;
 struct LockPoints;
 struct AssumeutxoData;
 
+<<<<<<< HEAD
+/** Index marker for when no witness commitment is present in a coinbase transaction. */
+static constexpr int NO_WITNESS_COMMITMENT{-1};
+
+/** Minimum size of a witness commitment structure. Defined in BIP 141. **/
+static constexpr size_t MINIMUM_WITNESS_COMMITMENT{38};
+
+/** Default for -whitelistrelay. */
+static const bool DEFAULT_WHITELISTRELAY = true;
+/** Default for -whitelistforcerelay. */
+static const bool DEFAULT_WHITELISTFORCERELAY = true;
 /** Default for -minrelaytxfee, minimum relay fee for transactions */
 static const unsigned int DEFAULT_MIN_RELAY_TX_FEE = 1000;
+//! -maxtxfee default
+static const CAmount DEFAULT_TRANSACTION_MAXFEE = 1.0 * COIN;
+//! Discourage users to set fees higher than this amount (in satoshis) per kB
+static const CAmount HIGH_TX_FEE_PER_KB = 0.01 * COIN;
+//! -maxtxfee will warn if called with a higher fee than this amount (in satoshis)
+static const CAmount HIGH_MAX_TX_FEE = 100 * HIGH_TX_FEE_PER_KB;
+=======
+/** Default for -minrelaytxfee, minimum relay fee for transactions */
+static const unsigned int DEFAULT_MIN_RELAY_TX_FEE = 1000;
+>>>>>>> bitcoin/8.22.0
 /** Default for -limitancestorcount, max number of in-mempool ancestors */
 static const unsigned int DEFAULT_ANCESTOR_LIMIT = 25;
 /** Default for -limitancestorsize, maximum kilobytes of tx + all in-mempool ancestors */
@@ -75,6 +115,37 @@ static const unsigned int DEFAULT_MEMPOOL_EXPIRY = 336;
 static const int MAX_SCRIPTCHECK_THREADS = 15;
 /** -par default (number of script-checking threads, 0 = auto) */
 static const int DEFAULT_SCRIPTCHECK_THREADS = 0;
+<<<<<<< HEAD
+/** Number of blocks that can be requested at any given time from a single peer. */
+static const int MAX_BLOCKS_IN_TRANSIT_PER_PEER = 32;
+/** Timeout in seconds during which a peer must stall block download progress before being disconnected. */
+static const unsigned int BLOCK_STALLING_TIMEOUT = 2;
+/** Number of headers sent in one getheaders result. We rely on the assumption that if a peer sends
+ *  less than this number, we reached its tip. Changing this value is a protocol upgrade. */
+static const unsigned int MAX_HEADERS_RESULTS = 10000;
+/** Maximum depth of blocks we're willing to serve as compact blocks to peers
+ *  when requested. For older blocks, a regular BLOCK response will be sent. */
+static const int MAX_CMPCTBLOCK_DEPTH = 5;
+/** Maximum depth of blocks we're willing to respond to GETBLOCKTXN requests for. */
+static const int MAX_BLOCKTXN_DEPTH = 10;
+/** Size of the "block download window": how far ahead of our current height do we fetch?
+ *  Larger windows tolerate larger download speed differences between peer, but increase the potential
+ *  degree of disordering of blocks on disk (which make reindexing and pruning harder). We'll probably
+ *  want to make this a per-peer adaptive value at some point. */
+static const unsigned int BLOCK_DOWNLOAD_WINDOW = 1024;
+/** Time to wait (in seconds) between writing blocks/block index to disk. */
+static const unsigned int DATABASE_WRITE_INTERVAL = 60 * 60;
+/** Time to wait (in seconds) between flushing chainstate to disk. */
+static const unsigned int DATABASE_FLUSH_INTERVAL = 24 * 60 * 60;
+/** Maximum length of reject messages. */
+static const unsigned int MAX_REJECT_MESSAGE_LENGTH = 111;
+/** Block download timeout base, expressed in millionths of the block interval (i.e. 10 min) */
+static const int64_t BLOCK_DOWNLOAD_TIMEOUT_BASE = 1000000;
+/** Additional block download timeout per parallel downloading peer (i.e. 5 min) */
+static const int64_t BLOCK_DOWNLOAD_TIMEOUT_PER_PEER = 500000;
+
+=======
+>>>>>>> bitcoin/8.22.0
 static const int64_t DEFAULT_MAX_TIP_AGE = 24 * 60 * 60;
 static const bool DEFAULT_CHECKPOINTS_ENABLED = true;
 static const bool DEFAULT_TXINDEX = false;
@@ -105,7 +176,16 @@ enum class SynchronizationState {
     POST_INIT
 };
 
+<<<<<<< HEAD
+extern CScript COINBASE_FLAGS;
+extern CCriticalSection cs_main;
+extern CBlockPolicyEstimator feeEstimator;
+extern CTxMemPool mempool;
+extern std::atomic_bool g_is_mempool_loaded;
+extern CTxMemPool stempool;
+=======
 extern RecursiveMutex cs_main;
+>>>>>>> bitcoin/8.22.0
 typedef std::unordered_map<uint256, CBlockIndex*, BlockHasher> BlockMap;
 extern Mutex g_best_block_mutex;
 extern std::condition_variable g_best_block_cv;
@@ -154,12 +234,38 @@ void StopScriptCheckWorkerThreads();
  */
 CTransactionRef GetTransaction(const CBlockIndex* const block_index, const CTxMemPool* const mempool, const uint256& hash, const Consensus::Params& consensusParams, uint256& hashBlock);
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams);
+CAmount GetDGBSubsidy(int nHeight,  const Consensus::Params& consensusParams);
 
 bool AbortNode(BlockValidationState& state, const std::string& strMessage, const bilingual_str& userMessage = bilingual_str{});
 
 /** Guess verification progress (as a fraction between 0.0=genesis and 1.0=current tip). */
 double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex* pindex);
 
+<<<<<<< HEAD
+/** Calculate the amount of disk space the block & undo files currently use */
+uint64_t CalculateCurrentUsage();
+
+/**
+ *  Mark one block file as pruned.
+ */
+void PruneOneBlockFile(const int fileNumber);
+
+/**
+ *  Mark one block file as pruned.
+ */
+void PruneOneBlockFile(const int fileNumber);
+
+/**
+ *  Actually unlink the specified files
+ */
+void UnlinkPrunedFiles(const std::set<int>& setFilesToPrune);
+
+/** Flush all state, indexes and buffers to disk. */
+void FlushStateToDisk();
+/** Prune block files and flush state to disk. */
+void PruneAndFlush();
+=======
+>>>>>>> bitcoin/8.22.0
 /** Prune block files up to a given height */
 void PruneBlockFilesManual(CChainState& active_chainstate, int nManualPruneHeight);
 
@@ -863,6 +969,11 @@ private:
  *   have been downloaded and validated (via background validation), otherwise
  *   it will be the IBD chainstate.
  */
+<<<<<<< HEAD
+int32_t ComputeBlockVersion(const CBlockIndex* pindexPrev, const Consensus::Params& params, int algo);
+
+bool IsAlgoActive(const CBlockIndex* pindexPrev, const Consensus::Params& consensus, int algo);
+=======
 class ChainstateManager
 {
 private:
@@ -914,6 +1025,7 @@ private:
         CChainState& snapshot_chainstate,
         CAutoFile& coins_file,
         const SnapshotMetadata& metadata);
+>>>>>>> bitcoin/8.22.0
 
 public:
     std::thread m_load_block;
@@ -1052,12 +1164,43 @@ extern std::unique_ptr<CBlockTreeDB> pblocktree;
 
 using FopenFn = std::function<FILE*(const fs::path&, const char*)>;
 
+/** Get block file info entry for one block file */
+CBlockFileInfo* GetBlockFileInfo(size_t n);
+
 /** Dump the mempool to disk. */
 bool DumpMempool(const CTxMemPool& pool, FopenFn mockable_fopen_function = fsbridge::fopen, bool skip_file_commit = false);
 
 /** Load the mempool from disk. */
 bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mockable_fopen_function = fsbridge::fopen);
 
+<<<<<<< HEAD
+/** Compute at which vout of the block's coinbase transaction the witness commitment occurs, or -1 if not found */
+inline int GetWitnessCommitmentIndex(const CBlock& block)
+{
+    int commitpos = NO_WITNESS_COMMITMENT;
+    if (!block.vtx.empty()) {
+        for (size_t o = 0; o < block.vtx[0]->vout.size(); o++) {
+            const CTxOut& vout = block.vtx[0]->vout[o];
+            if (vout.scriptPubKey.size() >= MINIMUM_WITNESS_COMMITMENT &&
+                vout.scriptPubKey[0] == OP_RETURN &&
+                vout.scriptPubKey[1] == 0x24 &&
+                vout.scriptPubKey[2] == 0xaa &&
+                vout.scriptPubKey[3] == 0x21 &&
+                vout.scriptPubKey[4] == 0xa9 &&
+                vout.scriptPubKey[5] == 0xed) {
+                commitpos = o;
+            }
+        }
+    }
+    return commitpos;
+}
+
+//! Check whether the block associated with this index entry is pruned or not.
+inline bool IsBlockPruned(const CBlockIndex* pblockindex)
+{
+    return (fHavePruned && !(pblockindex->nStatus & BLOCK_HAVE_DATA) && pblockindex->nTx > 0);
+}
+=======
 /**
  * Return the expected assumeutxo value for a given height, if one exists.
  *
@@ -1066,5 +1209,6 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
  * @returns empty if no assumeutxo configuration exists for the given height.
  */
 const AssumeutxoData* ExpectedAssumeutxo(const int height, const CChainParams& params);
+>>>>>>> bitcoin/8.22.0
 
 #endif // DIGIBYTE_VALIDATION_H

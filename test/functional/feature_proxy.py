@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2015-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test digibyted with different proxy configuration.
@@ -18,9 +23,14 @@ Test plan:
     - proxy on IPv6
 
 - Create various proxies (as threads)
+<<<<<<< HEAD
+- Create digibyteds that connect to them
+- Manipulate the digibyteds using addnode (onetry) an observe effects
+=======
 - Create nodes that connect to them
 - Manipulate the peer connections using addnode (onetry) and observe effects
 - Test the getpeerinfo `network` field for the peer
+>>>>>>> bitcoin/8.22.0
 
 addnode connect to IPv4
 addnode connect to IPv6
@@ -44,6 +54,8 @@ from test_framework.netutil import test_ipv6_local
 
 RANGE_BEGIN = PORT_MIN + 2 * PORT_RANGE  # Start after p2p and rpc ports
 
+<<<<<<< HEAD
+=======
 # Networks returned by RPC getpeerinfo.
 NET_UNROUTABLE = "not_publicly_routable"
 NET_IPV4 = "ipv4"
@@ -55,6 +67,7 @@ NET_I2P = "i2p"
 NETWORKS = frozenset({NET_IPV4, NET_IPV6, NET_ONION, NET_I2P})
 
 
+>>>>>>> bitcoin/8.22.0
 class ProxyTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
@@ -119,7 +132,11 @@ class ProxyTest(DigiByteTestFramework):
         self.log.debug("Test: outgoing IPv4 connection through node for address {}".format(addr))
         node.addnode(addr, "onetry")
         cmd = proxies[0].queue.get()
+<<<<<<< HEAD
+        assert(isinstance(cmd, Socks5Command))
+=======
         assert isinstance(cmd, Socks5Command)
+>>>>>>> bitcoin/8.22.0
         # Note: digibyted's SOCKS5 implementation only sends atyp DOMAINNAME, even if connecting directly to IPv4/IPv6
         assert_equal(cmd.atyp, AddressType.DOMAINNAME)
         assert_equal(cmd.addr, b"15.61.23.23")
@@ -135,7 +152,11 @@ class ProxyTest(DigiByteTestFramework):
             self.log.debug("Test: outgoing IPv6 connection through node for address {}".format(addr))
             node.addnode(addr, "onetry")
             cmd = proxies[1].queue.get()
+<<<<<<< HEAD
+            assert(isinstance(cmd, Socks5Command))
+=======
             assert isinstance(cmd, Socks5Command)
+>>>>>>> bitcoin/8.22.0
             # Note: digibyted's SOCKS5 implementation only sends atyp DOMAINNAME, even if connecting directly to IPv4/IPv6
             assert_equal(cmd.atyp, AddressType.DOMAINNAME)
             assert_equal(cmd.addr, b"1233:3432:2434:2343:3234:2345:6546:4534")
@@ -147,13 +168,22 @@ class ProxyTest(DigiByteTestFramework):
             self.network_test(node, addr, network=NET_IPV6)
 
         if test_onion:
+<<<<<<< HEAD
+            # Test: outgoing onion connection through node
+            node.addnode("digibyteostk4e4re.onion:8333", "onetry")
+=======
             addr = "pg6mmjiyjmcrsslvykfwnntlaru7p5svn6y2ymmju6nubxndf4pscryd.onion:8333"
             self.log.debug("Test: outgoing onion connection through node for address {}".format(addr))
             node.addnode(addr, "onetry")
+>>>>>>> bitcoin/8.22.0
             cmd = proxies[2].queue.get()
             assert isinstance(cmd, Socks5Command)
             assert_equal(cmd.atyp, AddressType.DOMAINNAME)
+<<<<<<< HEAD
+            assert_equal(cmd.addr, b"digibyteostk4e4re.onion")
+=======
             assert_equal(cmd.addr, b"pg6mmjiyjmcrsslvykfwnntlaru7p5svn6y2ymmju6nubxndf4pscryd.onion")
+>>>>>>> bitcoin/8.22.0
             assert_equal(cmd.port, 8333)
             if not auth:
                 assert_equal(cmd.username, None)

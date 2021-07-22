@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+// Copyright (c) 2016-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2016-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -47,6 +51,7 @@ uint64_t CBlockHeaderAndShortTxIDs::GetShortID(const uint256& txhash) const {
 
 
 ReadStatus PartiallyDownloadedBlock::InitData(const CBlockHeaderAndShortTxIDs& cmpctblock, const std::vector<std::pair<uint256, CTransactionRef>>& extra_txn) {
+    CBlockIndex pindex;
     if (cmpctblock.header.IsNull() || (cmpctblock.shorttxids.empty() && cmpctblock.prefilledtxn.empty()))
         return READ_STATUS_INVALID;
     if (cmpctblock.shorttxids.size() + cmpctblock.prefilledtxn.size() > MAX_BLOCK_WEIGHT / MIN_SERIALIZABLE_TRANSACTION_WEIGHT)

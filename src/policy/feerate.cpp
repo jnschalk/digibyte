@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +12,13 @@
 
 #include <tinyformat.h>
 
+<<<<<<< HEAD
+const std::string CURRENCY_UNIT = "DGB";
+
+CFeeRate::CFeeRate(const CAmount& nFeePaid, size_t nBytes_)
+=======
 CFeeRate::CFeeRate(const CAmount& nFeePaid, uint32_t num_bytes)
+>>>>>>> bitcoin/8.22.0
 {
     const int64_t nSize{num_bytes};
 

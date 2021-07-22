@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -489,6 +494,7 @@ RPCConsole::RPCConsole(interfaces::Node& node, const PlatformStyle *_platformSty
         // RPCConsole is a child widget.
         ui->splitter->restoreState(settings.value("RPCConsoleWidgetPeersTabSplitterSizes").toByteArray());
     }
+    QString theme = GUIUtil::getThemeName();
 
     m_peer_widget_header_state = settings.value("PeersTabPeerHeaderState").toByteArray();
     m_banlist_widget_header_state = settings.value("PeersTabBanlistHeaderState").toByteArray();
@@ -516,8 +522,13 @@ RPCConsole::RPCConsole(interfaces::Node& node, const PlatformStyle *_platformSty
     ui->openDebugLogfileButton->setToolTip(ui->openDebugLogfileButton->toolTip().arg(PACKAGE_NAME));
 
     if (platformStyle->getImagesOnButtons()) {
-        ui->openDebugLogfileButton->setIcon(platformStyle->SingleColorIcon(":/icons/export"));
+        ui->openDebugLogfileButton->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/export"));
     }
+<<<<<<< HEAD
+    ui->clearButton->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/remove"));
+    ui->fontBiggerButton->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/fontbigger"));
+    ui->fontSmallerButton->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/fontsmaller"));
+=======
     ui->clearButton->setIcon(platformStyle->SingleColorIcon(":/icons/remove"));
 
     ui->fontBiggerButton->setIcon(platformStyle->SingleColorIcon(":/icons/fontbigger"));
@@ -533,6 +544,7 @@ RPCConsole::RPCConsole(interfaces::Node& node, const PlatformStyle *_platformSty
     GUIUtil::AddButtonShortcut(ui->fontSmallerButton, tr("Ctrl+_"));
 
     ui->promptIcon->setIcon(platformStyle->SingleColorIcon(QStringLiteral(":/icons/prompticon")));
+>>>>>>> bitcoin/8.22.0
 
     // Install event filter for up and down arrow
     ui->lineEdit->installEventFilter(this);

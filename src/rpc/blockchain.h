@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -33,7 +38,7 @@ static constexpr int NUM_GETBLOCKSTATS_PERCENTILES = 5;
  * @return A floating point number that is a multiple of the main net minimum
  * difficulty (4295032833 hashes).
  */
-double GetDifficulty(const CBlockIndex* blockindex);
+double GetDifficulty(const CBlockIndex* blockindex = nullptr, int algo = 2);
 
 /** Callback for when block tip changed. */
 void RPCNotifyBlockChange(const CBlockIndex*);

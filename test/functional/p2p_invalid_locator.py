@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2015-2017 The DigiByte Core developers
+=======
 # Copyright (c) 2015-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test node responses to invalid locators.
 """
 
 from test_framework.messages import msg_getheaders, msg_getblocks, MAX_LOCATOR_SZ
+<<<<<<< HEAD
+from test_framework.mininode import P2PInterface
+=======
 from test_framework.p2p import P2PInterface
+>>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 
 
 class InvalidLocatorTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def run_test(self):
         node = self.nodes[0]  # convenience reference to the node

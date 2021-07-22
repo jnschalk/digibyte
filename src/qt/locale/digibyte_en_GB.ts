@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+<TS language="af" version="2.1">
+=======
 <TS language="en_GB" version="2.1">
+>>>>>>> bitcoin/8.22.0
 <context>
     <name>AddressBookPage</name>
     <message>
@@ -68,12 +72,22 @@
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</translation>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+    </message>
+    <message>
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</translation>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
     </message>
     <message>
         <source>These are your DigiByte addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.
 Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>These are your DigiByte addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.
 Signing is only possible with addresses of the type 'legacy'.</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -123,7 +137,11 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
+<<<<<<< HEAD
+        <translation>Passphrase Dialog</translation>
+=======
         <translation>Passphrase Dialogue</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Enter passphrase</source>
@@ -182,6 +200,13 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Wallet encrypted</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
+        <translation>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</translation>
+=======
+=======
+>>>>>>> bitcoin/8.22.0
         <source>Enter the new passphrase for the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Enter the new passphrase for the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</translation>
     </message>
@@ -204,6 +229,10 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
     <message>
         <source>Your wallet is now encrypted. </source>
         <translation>Your wallet is now encrypted. </translation>
+<<<<<<< HEAD
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -261,7 +290,11 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
+<<<<<<< HEAD
+        <translation>Synchronizing with network...</translation>
+=======
         <translation>Synchronising with network...</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>&amp;Overview</source>
@@ -360,10 +393,19 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Reindexing blocks on disk...</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+=======
+=======
+>>>>>>> bitcoin/8.22.0
         <source>Proxy is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
         <translation>Proxy is &lt;b&gt;enabled&lt;/b&gt;: %1</translation>
     </message>
     <message>
+<<<<<<< HEAD
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
         <source>Send coins to a DigiByte address</source>
         <translation>Send coins to a DigiByte address</translation>
     </message>
@@ -380,6 +422,20 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>&amp;Verify message...</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Wallet</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
         <source>&amp;Send</source>
         <translation>&amp;Send</translation>
     </message>
@@ -436,6 +492,16 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Show the list of used receiving addresses and labels</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>Open a digibyte: URI or payment request</source>
+        <translation>Open a digibyte: URI or payment request</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
         <source>&amp;Command-line options</source>
         <translation>&amp;Command-line options</translation>
     </message>
@@ -484,6 +550,12 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Up to date</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
+        <translation>Show the %1 help message to get a list with possible DigiByte command-line options</translation>
+=======
+=======
         <source>&amp;Load PSBT from file...</source>
         <translation>&amp;Load PSBT from file...</translation>
     </message>
@@ -500,6 +572,7 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Load Partially Signed DigiByte Transaction from clipboard</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Node window</source>
         <translation>Node window</translation>
     </message>
@@ -536,6 +609,8 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Close wallet</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Close All Wallets...</source>
         <translation>Close All Wallets...</translation>
     </message>
@@ -544,10 +619,13 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Close all wallets</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
         <translation>Show the %1 help message to get a list with possible DigiByte command-line options</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>&amp;Mask values</source>
         <translation>&amp;Mask values</translation>
     </message>
@@ -556,6 +634,7 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Mask the values in the Overview tab</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>default wallet</source>
         <translation>default wallet</translation>
     </message>
@@ -578,6 +657,10 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
     <message>
         <source>Main Window</source>
         <translation>Main Window</translation>
+<<<<<<< HEAD
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>%1 client</source>
@@ -663,6 +746,17 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</translation>
     </message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+    <message>
+        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <translation>A fatal error occurred. DigiByte can no longer continue safely and will quit.</translation>
+    </message>
+</context>
+=======
+    </context>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
     <message>
         <source>Original message:</source>
         <translation>Original message:</translation>
@@ -672,6 +766,7 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>A fatal error occurred. %1 can no longer continue safely and will quit.</translation>
     </message>
 </context>
+>>>>>>> bitcoin/8.22.0
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -873,6 +968,8 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Make Blank Wallet</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Use descriptors for scriptPubKey management</source>
         <translation>Use descriptors for scriptPubKey management</translation>
     </message>
@@ -881,6 +978,7 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Descriptor Wallet</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Create</source>
         <translation>Create</translation>
     </message>
@@ -922,6 +1020,11 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
     <message>
         <source>The entered address "%1" is not a valid DigiByte address.</source>
         <translation>The entered address "%1" is not a valid DigiByte address.</translation>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+=======
+=======
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Address "%1" already exists as a receiving address with label "%2" and so cannot be added as a sending address.</source>
@@ -930,6 +1033,10 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
     <message>
         <source>The entered address "%1" is already in the address book with label "%2".</source>
         <translation>The entered address "%1" is already in the address book with label "%2".</translation>
+<<<<<<< HEAD
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -1019,10 +1126,19 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
     <message>
         <source>DigiByte</source>
         <translation>DigiByte</translation>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+=======
+=======
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Discard blocks after verification, except most recent %1 GB (prune)</source>
         <translation>Discard blocks after verification, except most recent %1 GB (prune)</translation>
+<<<<<<< HEAD
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
@@ -1069,11 +1185,25 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
     </message>
     <message>
         <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the digibyte network, as detailed below.</source>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <translation>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronising with the DigiByte network, as detailed below.</translation>
+    </message>
+    <message>
+        <source>Attempting to spend digibytes that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Attempting to spend DigiBytes that are affected by not-yet-displayed transactions will not be accepted by the network.</translation>
+=======
+=======
+>>>>>>> bitcoin/8.22.0
         <translation>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the digibyte network, as detailed below.</translation>
     </message>
     <message>
         <source>Attempting to spend digibytes that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>Attempting to spend digibytes that are affected by not-yet-displayed transactions will not be accepted by the network.</translation>
+<<<<<<< HEAD
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1317,6 +1447,16 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Tor</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
         <source>&amp;Window</source>
         <translation>&amp;Window</translation>
     </message>
@@ -1357,6 +1497,8 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Whether to show coin control features or not.</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor onion services.</source>
         <translation>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor onion services.</translation>
     </message>
@@ -1365,6 +1507,7 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Use separate SOCKS&amp;5 proxy to reach peers via Tor onion services:</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>&amp;Third party transaction URLs</source>
         <translation>&amp;Third party transaction URLs</translation>
     </message>
@@ -1433,7 +1576,15 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <translation>The displayed information may be out of date. Your Wallet automatically synchronises with the DigiByte Network after a connection is established, but this process has not been completed yet.</translation>
+=======
         <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1499,6 +1650,90 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <source>Current total balance in watch-only addresses</source>
         <translation>Current total balance in watch-only addresses</translation>
     </message>
+<<<<<<< HEAD
+    </context>
+<context>
+    <name>PSBTOperationsDialog</name>
+    <message>
+        <source>Total Amount</source>
+        <translation>Total Amount</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>or</translation>
+    </message>
+    </context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Payment request error</source>
+        <translation>Payment request error</translation>
+    </message>
+    <message>
+        <source>Cannot start digibyte: click-to-pay handler</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <translation>Cannot start DigiByte: click-to-pay handler</translation>
+=======
+        <translation>Cannot start digibyte: click-to-pay handler</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>URI handling</translation>
+    </message>
+    <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>Payment request fetch URL is invalid: %1</source>
+        <translation>Payment request fetch URL is invalid: %1</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Invalid payment address %1</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <translation>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</translation>
+    </message>
+    <message>
+        <source>Payment request file handling</source>
+        <translation>Payment request file handling</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Payment request file cannot be read! This can be caused by an invalid payment request file.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Payment request rejected.</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Payment request network doesn't match client network.</translation>
+    </message>
+    <message>
+        <source>Payment request expired.</source>
+        <translation>Payment request expired.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Payment request is not initialised.</translation>
+    </message>
+    <message>
+        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
+        <translation>Unverified payment requests to custom payment scripts are unsupported.</translation>
+    </message>
+    <message>
+        <source>Invalid payment request.</source>
+        <translation>Invalid payment request.</translation>
+    </message>
+    <message>
+        <source>Requested payment amount of %1 is too small (considered dust).</source>
+        <translation>Requested payment amount of %1 is too small (considered dust).</translation>
+=======
+        <source>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</source>
+        <translation>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
     <message>
         <source>Privacy mode activated for the Overview tab. To unmask the values, uncheck Settings-&gt;Mask values.</source>
         <translation>Privacy mode activated for the Overview tab. To unmask the values, uncheck Settings-&gt;Mask values.</translation>
@@ -1644,6 +1879,7 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
     <message>
         <source>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</source>
         <translation>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</translation>
+>>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Cannot process payment request because BIP70 is not supported.</source>
@@ -1792,10 +2028,13 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Error: %1</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Error initializing settings: %1</source>
         <translation>Error initializing settings: %1</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>%1 didn't yet exit safely...</source>
         <translation>%1 didn't yet exit safely...</translation>
     </message>
@@ -1974,10 +2213,13 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Node window</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Current block height</source>
         <translation>Current block height</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Open the %1 debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Open the %1 debug log file from the current data directory. This can take a few seconds for large log files.</translation>
     </message>
@@ -1990,10 +2232,13 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Increase font size</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Permissions</source>
         <translation>Permissions</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Services</source>
         <translation>Services</translation>
     </message>
@@ -2248,6 +2493,12 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <source>Could not unlock wallet.</source>
         <translation>Could not unlock wallet.</translation>
     </message>
+<<<<<<< HEAD
+    </context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    <message>
+=======
     <message>
         <source>Could not generate new %1 address</source>
         <translation>Could not generate new %1 address</translation>
@@ -2264,14 +2515,18 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Address:</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Amount:</source>
         <translation>Amount:</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Label:</source>
         <translation>Label:</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Message:</source>
         <translation>Message:</translation>
     </message>
@@ -2418,6 +2673,20 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Hide</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
+        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(read the tooltip)</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
         <source>Recommended:</source>
         <translation>Recommended:</translation>
     </message>
@@ -2546,6 +2815,8 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Are you sure you want to send?</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Create Unsigned</source>
         <translation>Create Unsigned</translation>
     </message>
@@ -2562,6 +2833,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>PSBT saved</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>or</source>
         <translation>or</translation>
     </message>
@@ -2570,10 +2842,13 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>You can increase the fee later (signals Replace-By-Fee, BIP-125).</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Please, review your transaction proposal. This will produce a Partially Signed DigiByte Transaction (PSBT) which you can save or copy and then sign with e.g. an offline %1 wallet, or a PSBT-compatible hardware wallet.</source>
         <translation>Please, review your transaction proposal. This will produce a Partially Signed DigiByte Transaction (PSBT) which you can save or copy and then sign with e.g. an offline %1 wallet, or a PSBT-compatible hardware wallet.</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Please, review your transaction.</source>
         <translation>Please, review your transaction.</translation>
     </message>
@@ -2685,6 +2960,16 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Choose previously used address</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>This is a normal payment.</source>
+        <translation>This is a normal payment.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
         <source>The DigiByte address to send the payment to</source>
         <translation>The DigiByte address to send the payment to</translation>
     </message>
@@ -2705,10 +2990,19 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Remove this entry</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+=======
+=======
+>>>>>>> bitcoin/8.22.0
         <source>The amount to send in the selected unit</source>
         <translation>The amount to send in the selected unit</translation>
     </message>
     <message>
+<<<<<<< HEAD
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
         <source>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</translation>
     </message>
@@ -2835,6 +3129,11 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>The DigiByte address the message was signed with</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+=======
+=======
+>>>>>>> bitcoin/8.22.0
         <source>The signed message to verify</source>
         <translation>The signed message to verify</translation>
     </message>
@@ -2843,6 +3142,10 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>The signature given when the message was signed</translation>
     </message>
     <message>
+<<<<<<< HEAD
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
         <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
         <translation>Verify the message to ensure it was signed with the specified DigiByte address</translation>
     </message>
@@ -3387,6 +3690,12 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <source>Closing the wallet for too long can result in having to resync the entire chain if pruning is enabled.</source>
         <translation>Closing the wallet for too long can result in having to resync the entire chain if pruning is enabled.</translation>
     </message>
+<<<<<<< HEAD
+    </context>
+<context>
+    <name>WalletFrame</name>
+    <message>
+=======
     <message>
         <source>Close all wallets</source>
         <translation>Close all wallets</translation>
@@ -3407,6 +3716,7 @@ Go to File &gt; Open Wallet to load a wallet.
 - OR -</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Create a new wallet</source>
         <translation>Create a new wallet</translation>
     </message>
@@ -3485,6 +3795,8 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Error</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Unable to decode PSBT from clipboard (invalid base64)</source>
         <translation>Unable to decode PSBT from clipboard (invalid base64)</translation>
     </message>
@@ -3505,6 +3817,7 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Unable to decode PSBT</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Backup Wallet</source>
         <translation>Backup Wallet</translation>
     </message>
@@ -3556,6 +3869,16 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Unable to start HTTP server. See debug log for details.</translation>
     </message>
     <message>
+<<<<<<< HEAD
+<<<<<<< HEAD:src/qt/locale/digibyte_en_GB.ts
+        <source>DigiByte Core</source>
+        <translation>DigiByte Core</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_af.ts
+=======
+>>>>>>> bitcoin/8.22.0
         <source>The %s developers</source>
         <translation>The %s developers</translation>
     </message>
@@ -3796,6 +4119,8 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Error: Listening for incoming connections failed (listen returned error %s)</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>%s corrupt. Try using the wallet tool digibyte-wallet to salvage or restoring a backup.</source>
         <translation>%s corrupt. Try using the wallet tool digibyte-wallet to salvage or restoring a backup.</translation>
     </message>
@@ -3804,6 +4129,7 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Cannot upgrade a non HD split wallet without upgrading to support pre split keypool. Please use version 169900 or no version specified.</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</translation>
     </message>
@@ -3812,6 +4138,8 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>The transaction amount is too small to send after the fee has been deducted</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>This error could occur if this wallet was not shutdown cleanly and was last loaded using a build with a newer version of Berkeley DB. If so, please use the software that last loaded this wallet</source>
         <translation>This error could occur if this wallet was not shutdown cleanly and was last loaded using a build with a newer version of Berkeley DB. If so, please use the software that last loaded this wallet</translation>
     </message>
@@ -3824,10 +4152,13 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Transaction needs a change address, but we can't generate it. Please call keypoolrefill first.</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
         <translation>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>A fatal internal error occurred, see debug.log for details</source>
         <translation>A fatal internal error occurred, see debug.log for details</translation>
     </message>
@@ -3840,6 +4171,7 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Disk space is too low!</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Error reading from database, shutting down.</source>
         <translation>Error reading from database, shutting down.</translation>
     </message>
@@ -3852,6 +4184,8 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Error: Disk space is low for %s</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>Error: Keypool ran out, please call keypoolrefill first</source>
         <translation>Error: Keypool ran out, please call keypoolrefill first</translation>
     </message>
@@ -3860,6 +4194,7 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Fee rate (%s) is lower than the minimum fee rate setting (%s)</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Invalid -onion address or hostname: '%s'</source>
         <translation>Invalid -onion address or hostname: '%s'</translation>
     </message>
@@ -3880,10 +4215,13 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Need to specify a port with -whitebind: '%s'</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
         <source>No proxy server specified. Use -proxy=&lt;ip&gt; or -proxy=&lt;ip:port&gt;.</source>
         <translation>No proxy server specified. Use -proxy=&lt;ip&gt; or -proxy=&lt;ip:port&gt;.</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0
         <source>Prune mode is incompatible with -blockfilterindex.</source>
         <translation>Prune mode is incompatible with -blockfilterindex.</translation>
     </message>

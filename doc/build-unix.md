@@ -6,8 +6,13 @@ Some notes on how to build DigiByte Core in Unix.
 
 Note
 ---------------------
+<<<<<<< HEAD
+Always use absolute paths to configure and compile DigiByte Core and the dependencies,
+for example, when specifying the path of the dependency:
+=======
 Always use absolute paths to configure and compile DigiByte Core and the dependencies.
 For example, when specifying the path of the dependency:
+>>>>>>> bitcoin/8.22.0
 
     ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
 
@@ -24,7 +29,11 @@ make # use "-j N" for N parallel jobs
 make install # optional
 ```
 
+<<<<<<< HEAD
+This will build digibyte-qt as well if the dependencies are met.
+=======
 This will build digibyte-qt as well, if the dependencies are met.
+>>>>>>> bitcoin/8.22.0
 
 Dependencies
 ---------------------
@@ -82,7 +91,12 @@ Build requirements:
 
 Now, you can either build from self-compiled [depends](/depends/README.md) or install the required dependencies:
 
+<<<<<<< HEAD
+**For Ubuntu only:** db4.8 packages are available [here](https://launchpad.net/~digibyte/+archive/digibyte).
+You can add the repository and install using the following commands:
+=======
     sudo apt-get install libevent-dev libboost-dev libboost-system-dev libboost-filesystem-dev libboost-test-dev
+>>>>>>> bitcoin/8.22.0
 
 Berkeley DB is required for the wallet.
 
@@ -91,9 +105,13 @@ Berkeley DB 5.1 or later. This will break binary wallet compatibility with the d
 are based on BerkeleyDB 4.8. If you do not care about wallet compatibility,
 pass `--with-incompatible-bdb` to configure.
 
+<<<<<<< HEAD
+See the section "Disable-wallet mode" to build DigiByte Core without wallet.
+=======
 Otherwise, you can build Berkeley DB [yourself](#berkeley-db).
 
 SQLite is required for the descriptor wallet:
+>>>>>>> bitcoin/8.22.0
 
     sudo apt install libsqlite3-dev
 
@@ -255,14 +273,23 @@ Hardening enables the following features:
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
+<<<<<<< HEAD
+    	scanelf -e ./digibyte
+=======
         scanelf -e ./digibyte
+>>>>>>> bitcoin/8.22.0
 
     The output should contain:
 
      TYPE
     ET_DYN
 
+<<<<<<< HEAD
+* Non-executable Stack
+    If the stack is executable then trivial stack-based buffer overflow exploits are possible if
+=======
 * _Non-executable Stack_: If the stack is executable then trivial stack-based buffer overflow exploits are possible if
+>>>>>>> bitcoin/8.22.0
     vulnerable buffers are found. By default, DigiByte Core should be built with a non-executable stack,
     but if one of the libraries it uses asks for an executable stack or someone makes a mistake
     and uses a compiler extension which requires an executable stack, it will silently build an
@@ -331,7 +358,11 @@ To build executables for ARM:
     make HOST=arm-linux-gnueabihf NO_QT=1
     cd ..
     ./autogen.sh
+<<<<<<< HEAD
+    ./configure --prefix=$PWD/depends/arm-linux-gnueabihf --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++
+=======
     CONFIG_SITE=$PWD/depends/arm-linux-gnueabihf/share/config.site ./configure --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++
+>>>>>>> bitcoin/8.22.0
     make
 
 

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -49,6 +54,8 @@ CoinControlDialog::CoinControlDialog(CCoinControl& coin_control, WalletModel* _m
     platformStyle(_platformStyle)
 {
     ui->setupUi(this);
+ /* Open CSS when configured */
+    this->setStyleSheet(GUIUtil::loadStyleSheet());
 
     // context menu
     contextMenu = new QMenu(this);
@@ -237,13 +244,14 @@ void CoinControlDialog::copyTransactionHash()
 // context menu action: lock coin
 void CoinControlDialog::lockCoin()
 {
+    QString theme = GUIUtil::getThemeName();
     if (contextMenuItem->checkState(COLUMN_CHECKBOX) == Qt::Checked)
         contextMenuItem->setCheckState(COLUMN_CHECKBOX, Qt::Unchecked);
 
     COutPoint outpt(uint256S(contextMenuItem->data(COLUMN_ADDRESS, TxHashRole).toString().toStdString()), contextMenuItem->data(COLUMN_ADDRESS, VOutRole).toUInt());
     model->wallet().lockCoin(outpt);
     contextMenuItem->setDisabled(true);
-    contextMenuItem->setIcon(COLUMN_CHECKBOX, platformStyle->SingleColorIcon(":/icons/lock_closed"));
+    contextMenuItem->setIcon(COLUMN_CHECKBOX, platformStyle->SingleColorIcon(":/icons/" + theme + "/lock_closed"));
     updateLabelLocked();
 }
 
@@ -577,6 +585,7 @@ void CoinControlDialog::updateView()
         return;
 
     bool treeMode = ui->radioTreeMode->isChecked();
+    QString theme = GUIUtil::getThemeName();
 
     ui->treeWidget->clear();
     ui->treeWidget->setEnabled(false); // performance, otherwise updateLabels would be called for every checked checkbox
@@ -672,7 +681,7 @@ void CoinControlDialog::updateView()
             {
                 m_coin_control.UnSelect(output); // just to be sure
                 itemOutput->setDisabled(true);
-                itemOutput->setIcon(COLUMN_CHECKBOX, platformStyle->SingleColorIcon(":/icons/lock_closed"));
+                itemOutput->setIcon(COLUMN_CHECKBOX, platformStyle->SingleColorIcon(":/icons/" + theme + "/lock_closed"));
             }
 
             // set checkbox

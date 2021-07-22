@@ -90,6 +90,73 @@ example:
 BUILDDIR=$PWD/build contrib/devtools/gen-manpages.sh
 ```
 
+<<<<<<< HEAD
+
+Run this script from the root of the repository to verify that a subtree matches the contents of
+the commit it claims to have been updated to.
+
+To use, make sure that you have fetched the upstream repository branch in which the subtree is
+maintained:
+* for `src/secp256k1`: https://github.com/digibyte-core/secp256k1.git (branch master)
+* for `src/leveldb`: https://github.com/digibyte-core/leveldb.git (branch digibyte-fork)
+* for `src/univalue`: https://github.com/digibyte-core/univalue.git (branch master)
+* for `src/crypto/ctaes`: https://github.com/digibyte-core/ctaes.git (branch master)
+
+Usage: `git-subtree-check.sh DIR (COMMIT)`
+
+`COMMIT` may be omitted, in which case `HEAD` is used.
+
+=======
+github-merge.py
+===============
+
+A small script to automate merging pull-requests securely and sign them with GPG.
+
+For example:
+
+  ./github-merge.py 3077
+
+(in any git repository) will help you merge pull request #3077 for the
+digibyte/digibyte repository.
+
+What it does:
+* Fetch master and the pull request.
+* Locally construct a merge commit.
+* Show the diff that merge results in.
+* Ask you to verify the resulting source tree (so you can do a make
+check or whatever).
+* Ask you whether to GPG sign the merge commit.
+* Ask you whether to push the result upstream.
+
+This means that there are no potential race conditions (where a
+pullreq gets updated while you're reviewing it, but before you click
+merge), and when using GPG signatures, that even a compromised GitHub
+couldn't mess with the sources.
+
+Setup
+---------
+Configuring the github-merge tool for the digibyte repository is done in the following way:
+
+    git config githubmerge.repository digibyte/digibyte
+    git config githubmerge.testcmd "make -j4 check" (adapt to whatever you want to use for testing)
+    git config --global user.signingkey mykeyid (if you want to GPG sign)
+
+Create and verify timestamps of merge commits
+---------------------------------------------
+To create or verify timestamps on the merge commits, install the OpenTimestamps
+client via `pip3 install opentimestamps-client`. Then, dowload the gpg wrapper
+`ots-git-gpg-wrapper.sh` and set it as git's `gpg.program`. See
+[the ots git integration documentation](https://github.com/opentimestamps/opentimestamps-client/blob/master/doc/git-integration.md#usage)
+for further details.
+
+optimize-pngs.py
+================
+
+A script to optimize png files in the digibyte
+repository (requires pngcrush).
+
+=======
+>>>>>>> bitcoin/8.22.0
 security-check.py and test-security-check.py
 ============================================
 
@@ -106,7 +173,16 @@ This makes sure they are still compatible with the minimum supported distributio
 
 For macOS and Windows we check that the executables are only linked against libraries we allow.
 
+<<<<<<< HEAD
+If there are 'unsupported' symbols, the return value will be 1 a list like this will be printed:
+
+    .../64/test_digibyte: symbol memcpy from unsupported version GLIBC_2.14
+    .../64/test_digibyte: symbol __fdelt_chk from unsupported version GLIBC_2.15
+    .../64/test_digibyte: symbol std::out_of_range::~out_of_range() from unsupported version GLIBCXX_3.4.15
+    .../64/test_digibyte: symbol _ZNSt8__detail15_List_nod from unsupported version GLIBCXX_3.4.15
+=======
 Example usage after a gitian build:
+>>>>>>> bitcoin/8.22.0
 
     find ../gitian-builder/build -type f -executable | xargs python3 contrib/devtools/symbol-check.py
 

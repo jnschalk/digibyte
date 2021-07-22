@@ -1,10 +1,48 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2016-2019 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <versionbits.h>
 #include <consensus/params.h>
 
+<<<<<<< HEAD
+const struct VBDeploymentInfo VersionBitsDeploymentInfo[Consensus::MAX_VERSION_BITS_DEPLOYMENTS] = {
+    {
+        /*.name =*/ "testdummy",
+        /*.gbt_force =*/ true,
+    },
+    {
+        /*.name =*/ "csv",
+        /*.gbt_force =*/ true,
+    },
+    {
+        /*.name =*/ "segwit",
+        /*.gbt_force =*/ true,
+    },
+    {
+        /*.name =*/ "nversionbips",
+        /*.gbt_force =*/ true,
+    },
+    {
+        /*.name =*/ "reservealgo",
+        /*.gbt_force =*/ true,
+    },
+    {
+        /*.name =*/ "odo",
+        /*.gbt_force =*/ true,
+    },
+    //{
+       // /*.name =*/ "equihash",
+        ///*.gbt_force =*/ true,
+    //}
+};
+=======
+>>>>>>> bitcoin/8.22.0
 ThresholdState AbstractThresholdConditionChecker::GetStateFor(const CBlockIndex* pindexPrev, const Consensus::Params& params, ThresholdConditionCache& cache) const
 {
     int nPeriod = Period(params);

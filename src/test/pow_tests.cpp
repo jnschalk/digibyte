@@ -1,11 +1,23 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+// Distributed under the MIT/X11 software license, see the accompanying
+=======
 // Copyright (c) 2015-2020 The DigiByte Core developers
 // Distributed under the MIT software license, see the accompanying
+>>>>>>> bitcoin/8.22.0
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <chain.h>
 #include <chainparams.h>
 #include <pow.h>
+<<<<<<< HEAD
+#include <random.h>
+#include <util.h>
+#include <test/test_digibyte.h>
+=======
 #include <test/util/setup_common.h>
+>>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 
@@ -32,7 +44,7 @@ BOOST_AUTO_TEST_CASE(get_next_work_pow_limit)
     pindexLast.nHeight = 2015;
     pindexLast.nTime = 1233061996;  // Block #2015
     pindexLast.nBits = 0x1d00ffff;
-    BOOST_CHECK_EQUAL(CalculateNextWorkRequired(&pindexLast, nLastRetargetTime, chainParams->GetConsensus()), 0x1d00ffffU);
+    BOOST_CHECK_EQUAL(CalculateNextWorkRequired(&pindexLast, nLastRetargetTime, chainParams->GetConsensus()), 0x1D01B304U);
 }
 
 /* Test the constraint on the lower bound for actual time taken */
@@ -117,12 +129,21 @@ BOOST_AUTO_TEST_CASE(GetBlockProofEquivalentTime_test)
 {
     const auto chainParams = CreateChainParams(*m_node.args, CBaseChainParams::MAIN);
     std::vector<CBlockIndex> blocks(10000);
+
     for (int i = 0; i < 10000; i++) {
         blocks[i].pprev = i ? &blocks[i - 1] : nullptr;
         blocks[i].nHeight = i;
+        blocks[i].nVersion = 1;
         blocks[i].nTime = 1269211443 + i * chainParams->GetConsensus().nPowTargetSpacing;
         blocks[i].nBits = 0x207fffff; /* target 0x7fffff000... */
         blocks[i].nChainWork = i ? blocks[i - 1].nChainWork + GetBlockProof(blocks[i - 1]) : arith_uint256(0);
+
+        // Create random block hash
+        const uint256 randomhash = GetRandHash();
+        uint256* ptr = new uint256();
+        *ptr = randomhash;
+
+        blocks[i].phashBlock = ptr;
     }
 
     for (int j = 0; j < 1000; j++) {

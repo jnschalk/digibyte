@@ -2,7 +2,13 @@ OpenBSD build guide
 ======================
 (updated for OpenBSD 6.9)
 
+<<<<<<< HEAD
+This guide describes how to build digibyted and command-line utilities on OpenBSD.
+
+OpenBSD is most commonly used as a server OS, so this guide does not contain instructions for building the GUI.
+=======
 This guide describes how to build digibyted, digibyte-qt, and command-line utilities on OpenBSD.
+>>>>>>> bitcoin/8.22.0
 
 Preparation
 -------------
@@ -111,7 +117,11 @@ The standard ulimit restrictions in OpenBSD are very strict:
 
     data(kbytes)         1572864
 
+<<<<<<< HEAD
+This, unfortunately, in some cases not enough to compile some `.cpp` files in the project,
+=======
 This is, unfortunately, in some cases not enough to compile some `.cpp` files in the project,
+>>>>>>> bitcoin/8.22.0
 (see issue [#6658](https://github.com/digibyte/digibyte/issues/6658)).
 If your user is in the `staff` group the limit can be raised with:
 

@@ -1,5 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
+# Copyright (c) 2012-2016 The DigiByte Core developers
+=======
 # Copyright (c) 2012-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,9 +22,19 @@ else
     exit 1
 fi
 
+<<<<<<< HEAD
+git_check_in_repo() {
+    ! { git status --porcelain -uall --ignored "$@" 2>/dev/null || echo '??'; } | grep -q '?'
+}
+
+DESC=""
+SUFFIX=""
+if [ "${DIGIBYTE_GENBUILD_NO_GIT}" != "1" -a -e "$(which git 2>/dev/null)" -a "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ] && git_check_in_repo share/genbuild.sh; then
+=======
 GIT_TAG=""
 GIT_COMMIT=""
 if [ "${DIGIBYTE_GENBUILD_NO_GIT}" != "1" ] && [ -e "$(command -v git)" ] && [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
+>>>>>>> bitcoin/8.22.0
     # clean 'dirty' status of touched files that haven't been modified
     git diff >/dev/null 2>/dev/null
 
@@ -31,8 +45,13 @@ if [ "${DIGIBYTE_GENBUILD_NO_GIT}" != "1" ] && [ -e "$(command -v git)" ] && [ "
     fi
 
     # otherwise generate suffix from git, i.e. string like "59887e8-dirty"
+<<<<<<< HEAD
+    SUFFIX=$(git rev-parse --short HEAD)
+    git diff-index --quiet HEAD -- || SUFFIX="$SUFFIX-DGB"
+=======
     GIT_COMMIT=$(git rev-parse --short=12 HEAD)
     git diff-index --quiet HEAD -- || GIT_COMMIT="$GIT_COMMIT-dirty"
+>>>>>>> bitcoin/8.22.0
 fi
 
 if [ -n "$GIT_TAG" ]; then

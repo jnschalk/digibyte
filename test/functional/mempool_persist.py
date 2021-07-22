@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test mempool persistence.
@@ -39,6 +44,11 @@ from decimal import Decimal
 import os
 import time
 
+<<<<<<< HEAD
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, assert_raises_rpc_error, wait_until
+
+=======
 from test_framework.p2p import P2PTxInvStore
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
@@ -48,6 +58,7 @@ from test_framework.util import (
 )
 
 
+>>>>>>> bitcoin/8.22.0
 class MempoolPersistTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
@@ -55,6 +66,17 @@ class MempoolPersistTest(DigiByteTestFramework):
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
+<<<<<<< HEAD
+
+    def run_test(self):
+        chain_height = self.nodes[0].getblockcount()
+        assert_equal(chain_height, 200)
+
+        self.log.debug("Mine a single block to get out of IBD")
+        self.nodes[0].generate(1)
+        self.sync_all()
+=======
+>>>>>>> bitcoin/8.22.0
 
     def run_test(self):
         self.log.debug("Send 5 transactions from node2 (to its own address)")
@@ -100,10 +122,16 @@ class MempoolPersistTest(DigiByteTestFramework):
         self.start_node(1, extra_args=["-persistmempool=0"])
         self.start_node(0)
         self.start_node(2)
+<<<<<<< HEAD
+        # Give digibyted a second to reload the mempool
+        wait_until(lambda: len(self.nodes[0].getrawmempool()) == 5, timeout=1)
+        wait_until(lambda: len(self.nodes[2].getrawmempool()) == 5, timeout=1)
+=======
         assert self.nodes[0].getmempoolinfo()["loaded"]  # start_node is blocking on the mempool being loaded
         assert self.nodes[2].getmempoolinfo()["loaded"]
         assert_equal(len(self.nodes[0].getrawmempool()), 6)
         assert_equal(len(self.nodes[2].getrawmempool()), 5)
+>>>>>>> bitcoin/8.22.0
         # The others have loaded their mempool. If node_1 loaded anything, we'd probably notice by now:
         assert_equal(len(self.nodes[1].getrawmempool()), 0)
 
@@ -121,8 +149,14 @@ class MempoolPersistTest(DigiByteTestFramework):
         # start node0 with wallet disabled so wallet transactions don't get resubmitted
         self.log.debug("Stop-start node0 with -persistmempool=0. Verify that it doesn't load its mempool.dat file.")
         self.stop_nodes()
+<<<<<<< HEAD
+        self.start_node(0, extra_args=["-persistmempool=0"])
+        # Give digibyted a second to reload the mempool
+        time.sleep(1)
+=======
         self.start_node(0, extra_args=["-persistmempool=0", "-disablewallet"])
         assert self.nodes[0].getmempoolinfo()["loaded"]
+>>>>>>> bitcoin/8.22.0
         assert_equal(len(self.nodes[0].getrawmempool()), 0)
 
         self.log.debug("Stop-start node0. Verify that it has the transactions in its mempool.")

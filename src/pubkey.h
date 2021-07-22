@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Copyright (c) 2017 The Zcash developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -316,10 +321,13 @@ public:
     ~ECCVerifyHandle();
 };
 
+<<<<<<< HEAD
+=======
 typedef struct secp256k1_context_struct secp256k1_context;
 
 /** Access to the internal secp256k1 context used for verification. Only intended to be used
  *  by key.cpp. */
 const secp256k1_context* GetVerifyContext();
 
+>>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_PUBKEY_H

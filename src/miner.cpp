@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,7 +30,20 @@
 #include <algorithm>
 #include <utility>
 
+<<<<<<< HEAD
+// Unconfirmed transactions in the memory pool often depend on other
+// transactions in the memory pool. When we select transactions from the
+// pool, we select by highest fee rate of a transaction combined with all
+// its ancestors.
+
+uint64_t nLastBlockTx = 0;
+uint64_t nLastBlockWeight = 0;
+
+
+int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParams, const CBlockIndex* pindexPrev, int algo)
+=======
 int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParams, const CBlockIndex* pindexPrev)
+>>>>>>> bitcoin/8.22.0
 {
     int64_t nOldTime = pblock->nTime;
     int64_t nNewTime = std::max(pindexPrev->GetMedianTimePast()+1, GetAdjustedTime());
@@ -35,7 +53,7 @@ int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParam
 
     // Updating time can change work required on testnet:
     if (consensusParams.fPowAllowMinDifficultyBlocks)
-        pblock->nBits = GetNextWorkRequired(pindexPrev, pblock, consensusParams);
+        pblock->nBits = GetNextWorkRequired(pindexPrev, pblock, consensusParams, algo);
 
     return nNewTime - nOldTime;
 }
@@ -99,7 +117,11 @@ void BlockAssembler::resetBlock()
     nFees = 0;
 }
 
+<<<<<<< HEAD
+std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, int algo, bool fMineWitnessTx)
+=======
 std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn)
+>>>>>>> bitcoin/8.22.0
 {
     int64_t nTimeStart = GetTimeMicros();
 
@@ -120,8 +142,15 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     CBlockIndex* pindexPrev = m_chainstate.m_chain.Tip();
     assert(pindexPrev != nullptr);
     nHeight = pindexPrev->nHeight + 1;
+    pblock->nVersion = ComputeBlockVersion(pindexPrev, chainparams.GetConsensus(), algo);
 
+    if (!IsAlgoActive(pindexPrev, chainparams.GetConsensus(), algo))
+        throw std::runtime_error(strprintf("Algorithm '%s' is not currently active.", GetAlgoName(algo).c_str()));
+
+<<<<<<< HEAD
+=======
     pblock->nVersion = g_versionbitscache.ComputeBlockVersion(pindexPrev, chainparams.GetConsensus());
+>>>>>>> bitcoin/8.22.0
     // -regtest only: allow overriding block.nVersion with
     // -blockversion=N to test forking scenarios
     if (chainparams.MineBlocksOnDemand())
@@ -170,8 +199,8 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
 
     // Fill in header
     pblock->hashPrevBlock  = pindexPrev->GetBlockHash();
-    UpdateTime(pblock, chainparams.GetConsensus(), pindexPrev);
-    pblock->nBits          = GetNextWorkRequired(pindexPrev, pblock, chainparams.GetConsensus());
+    UpdateTime(pblock, chainparams.GetConsensus(), pindexPrev, algo);
+    pblock->nBits          = GetNextWorkRequired(pindexPrev, pblock, chainparams.GetConsensus(), algo);
     pblock->nNonce         = 0;
     pblocktemplate->vTxSigOpsCost[0] = WITNESS_SCALE_FACTOR * GetLegacySigOpCount(*pblock->vtx[0]);
 
@@ -433,6 +462,17 @@ void BlockAssembler::addPackageTxs(int &nPackagesSelected, int &nDescendantsUpda
         // Update transactions that depend on each of these
         nDescendantsUpdated += UpdatePackagesForAdded(ancestors, mapModifiedTx);
     }
+}
+
+void RegenerateCommitments(CBlock& block, const CBlockIndex* pindexPrev, const Consensus::Params& consensusParams)
+{
+    CMutableTransaction tx{*block.vtx.at(0)};
+    tx.vout.erase(tx.vout.begin() + GetWitnessCommitmentIndex(block));
+    block.vtx.at(0) = MakeTransactionRef(tx);
+
+    GenerateCoinbaseCommitment(block, pindexPrev, Params().GetConsensus());
+
+    block.hashMerkleRoot = BlockMerkleRoot(block);
 }
 
 void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned int& nExtraNonce)

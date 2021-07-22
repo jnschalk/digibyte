@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test multiwallet.
@@ -10,11 +15,16 @@ from decimal import Decimal
 from threading import Thread
 import os
 import shutil
+<<<<<<< HEAD
+import time
+
+=======
 import stat
 import time
 
 from test_framework.authproxy import JSONRPCException
 from test_framework.blocktools import COINBASE_MATURITY
+>>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.test_node import ErrorMatch
 from test_framework.util import (
@@ -25,6 +35,8 @@ from test_framework.util import (
 
 got_loading_error = False
 
+<<<<<<< HEAD
+=======
 
 def test_load_unload(node, name):
     global got_loading_error
@@ -40,6 +52,7 @@ def test_load_unload(node, name):
                 return
 
 
+>>>>>>> bitcoin/8.22.0
 class MultiWalletTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
@@ -56,6 +69,9 @@ class MultiWalletTest(DigiByteTestFramework):
             default=os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data/wallets/'),
             help='Test data with wallet directories (default: %(default)s)',
         )
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def run_test(self):
         node = self.nodes[0]
@@ -372,7 +388,15 @@ class MultiWalletTest(DigiByteTestFramework):
 
         # Successfully unload the wallet referenced by the request endpoint
         # Also ensure unload works during walletpassphrase timeout
+<<<<<<< HEAD
+        wallets = node.listwallets()
         w2.encryptwallet('test')
+        self.restart_node(0, ['-wallet={}'.format(wallet) for wallet in wallets])
+        w1 = node.get_wallet_rpc(wallet_names[0])
+        w2 = node.get_wallet_rpc(wallet_names[1])
+=======
+        w2.encryptwallet('test')
+>>>>>>> bitcoin/8.22.0
         w2.walletpassphrase('test', 1)
         w2.unloadwallet()
         time.sleep(1.1)

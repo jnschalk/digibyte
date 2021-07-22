@@ -1,6 +1,10 @@
 # FreeBSD Build Guide
 
+<<<<<<< HEAD
+This guide describes how to build digibyted and command-line utilities on FreeBSD.
+=======
 **Updated for FreeBSD [12.2](https://www.freebsd.org/releases/12.2R/announce.html)**
+>>>>>>> bitcoin/8.22.0
 
 This guide describes how to build digibyted, command-line utilities, and GUI on FreeBSD.
 
@@ -67,6 +71,9 @@ pkg install db5
 ``` bash
 pkg install sqlite3
 ```
+<<<<<<< HEAD
+git clone https://github.com/digibyte/digibyte
+=======
 ---
 
 #### GUI Dependencies
@@ -75,14 +82,19 @@ pkg install sqlite3
 DigiByte Core includes a GUI built with the cross-platform Qt Framework. To compile the GUI, we need to install `qt5`. Skip if you don't intend to use the GUI.
 ```bash
 pkg install qt5
+>>>>>>> bitcoin/8.22.0
 ```
 ###### libqrencode
 
+<<<<<<< HEAD
+## Building DigiByte Core
+=======
 The GUI can encode addresses in a QR Code. To build in QR support for the GUI, install `libqrencode`. Skip if not using the GUI or don't want QR code functionality.
 ```bash
 pkg install libqrencode
 ```
 ---
+>>>>>>> bitcoin/8.22.0
 
 #### Test Suite Dependencies
 There is an included test suite that is useful for testing code changes when developing.

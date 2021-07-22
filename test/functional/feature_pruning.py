@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2014-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the pruning code.
@@ -8,6 +13,13 @@ WARNING:
 This test uses 4GB of disk space.
 This test takes 30 mins or more (up to 2 hours)
 """
+<<<<<<< HEAD
+
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, assert_greater_than, assert_raises_rpc_error, connect_nodes, mine_large_block, sync_blocks, wait_until
+
+=======
+>>>>>>> bitcoin/8.22.0
 import os
 
 from test_framework.blocktools import create_coinbase
@@ -83,7 +95,11 @@ class PruneTest(DigiByteTestFramework):
 
         # Create nodes 0 and 1 to mine.
         # Create node 2 to test pruning.
+<<<<<<< HEAD
+        self.full_node_default_args = ["-maxreceivebuffer=20000", "-checkblocks=5", "-limitdescendantcount=100", "-limitdescendantsize=5000", "-limitancestorcount=100", "-limitancestorsize=5000"]
+=======
         self.full_node_default_args = ["-maxreceivebuffer=20000", "-checkblocks=5"]
+>>>>>>> bitcoin/8.22.0
         # Create nodes 3 and 4 to test manual pruning (they will be re-started with manual pruning later)
         # Create nodes 5 to test wallet in prune mode, but do not connect
         self.extra_args = [
@@ -94,7 +110,10 @@ class PruneTest(DigiByteTestFramework):
             ["-maxreceivebuffer=20000"],
             ["-prune=550"],
         ]
+<<<<<<< HEAD
+=======
         self.rpc_timeout = 120
+>>>>>>> bitcoin/8.22.0
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()

@@ -1,11 +1,20 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <qt/walletframe.h>
 
+<<<<<<< HEAD
+#include <qt/digibytegui.h>
+=======
 #include <qt/overviewpage.h>
 #include <qt/walletmodel.h>
+>>>>>>> bitcoin/8.22.0
 #include <qt/walletview.h>
 
 #include <cassert>
@@ -16,10 +25,17 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+<<<<<<< HEAD
+WalletFrame::WalletFrame(const PlatformStyle *_platformStyle, DigiByteGUI *_gui) :
+    QFrame(_gui),
+    gui(_gui),
+    platformStyle(_platformStyle)
+=======
 WalletFrame::WalletFrame(const PlatformStyle* _platformStyle, QWidget* parent)
     : QFrame(parent),
       platformStyle(_platformStyle),
       m_size_hint(OverviewPage{platformStyle, nullptr}.sizeHint())
+>>>>>>> bitcoin/8.22.0
 {
     // Leave HBox hook for adding a list view later
     QHBoxLayout *walletFrameLayout = new QHBoxLayout(this);
@@ -64,6 +80,11 @@ bool WalletFrame::addWallet(WalletModel* walletModel, WalletView* walletView)
 
     if (mapWalletViews.count(walletModel) > 0) return false;
 
+<<<<<<< HEAD
+    WalletView *walletView = new WalletView(platformStyle, this);
+    walletView->setDigiByteGUI(gui);
+=======
+>>>>>>> bitcoin/8.22.0
     walletView->setClientModel(clientModel);
     walletView->setWalletModel(walletModel);
     walletView->showOutOfSyncWarning(bOutOfSync);

@@ -64,6 +64,13 @@
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>這些是你要付款過去的 DigiByte 位址。在付款之前，務必要檢查金額和收款位址是否正確。</translation>
+<<<<<<< HEAD:src/qt/locale/digibyte_zh_HK.ts
+    </message>
+    <message>
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>這些是你用來收款的 DigiByte 位址。建議在每次交易時，都使用一個新的收款位址。</translation>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_zh_HK.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -168,6 +175,13 @@
         <translation>錢包已加密</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_zh_HK.ts
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
+        <translation>%1 現在要關閉來完成加密程序。請記得將錢包加密不能完全防止你的 DigiBytes 經被入侵電腦的惡意程式偷取。</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_zh_HK.ts
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
         <translation>重要: 請改用新產生的加密錢包檔，來取代所以舊錢包檔的備份。為安全計，當你開始使用新的加密錢包檔後，舊錢包檔的備份就不能再使用了。</translation>
     </message>
@@ -310,6 +324,17 @@
         <translation>驗證訊息... &amp;V</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_zh_HK.ts
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>錢包</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_zh_HK.ts
         <source>&amp;Send</source>
         <translation>付款 &amp;S</translation>
     </message>
@@ -636,6 +661,20 @@
         <source>Export the data in the current tab to a file</source>
         <translation>把目前分頁的資料匯出至檔案</translation>
     </message>
+<<<<<<< HEAD:src/qt/locale/digibyte_zh_HK.ts
+    </context>
+<context>
+    <name>digibyte-core</name>
+    <message>
+        <source>Information</source>
+        <translation>資訊</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>警告</translation>
+    </message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_zh_HK.ts
     <message>
         <source>Error</source>
         <translation>錯誤</translation>

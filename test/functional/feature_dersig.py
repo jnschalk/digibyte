@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2015-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test BIP66 (DER SIG).
@@ -15,6 +20,9 @@ from test_framework.messages import msg_block
 from test_framework.p2p import P2PInterface
 from test_framework.script import CScript
 from test_framework.test_framework import DigiByteTestFramework
+<<<<<<< HEAD
+from test_framework.util import assert_equal, bytes_to_hex_str, wait_until
+=======
 from test_framework.util import (
     assert_equal,
 )
@@ -22,6 +30,7 @@ from test_framework.wallet import (
     MiniWallet,
     MiniWalletMode,
 )
+>>>>>>> bitcoin/8.22.0
 
 DERSIG_HEIGHT = 1251
 
@@ -65,6 +74,9 @@ class BIP66Test(DigiByteTestFramework):
                 "type": "buried",
             },
         )
+
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_wallet()
 
     def run_test(self):
         peer = self.nodes[0].add_p2p_connection(P2PInterface())
@@ -133,10 +145,30 @@ class BIP66Test(DigiByteTestFramework):
         block.rehash()
         block.solve()
 
+<<<<<<< HEAD
+        self.nodes[0].p2p.send_and_ping(msg_block(block))
+        assert_equal(int(self.nodes[0].getbestblockhash(), 16), tip)
+
+        wait_until(lambda: "reject" in self.nodes[0].p2p.last_message.keys(), lock=mininode_lock)
+        with mininode_lock:
+            # We can receive different reject messages depending on whether
+            # digibyted is running with multiple script check threads. If script
+            # check threads are not in use, then transaction script validation
+            # happens sequentially, and digibyted produces more specific reject
+            # reasons.
+            assert self.nodes[0].p2p.last_message["reject"].code in [REJECT_INVALID, REJECT_NONSTANDARD]
+            assert_equal(self.nodes[0].p2p.last_message["reject"].data, block.sha256)
+            if self.nodes[0].p2p.last_message["reject"].code == REJECT_INVALID:
+                # Generic rejection when a block is invalid
+                assert_equal(self.nodes[0].p2p.last_message["reject"].reason, b'block-validation-failed')
+            else:
+                assert b'Non-canonical DER signature' in self.nodes[0].p2p.last_message["reject"].reason
+=======
         with self.nodes[0].assert_debug_log(expected_msgs=['CheckInputScripts on {} failed with non-mandatory-script-verify-flag (Non-canonical DER signature)'.format(block.vtx[-1].hash)]):
             peer.send_and_ping(msg_block(block))
             assert_equal(int(self.nodes[0].getbestblockhash(), 16), tip)
             peer.sync_with_ping()
+>>>>>>> bitcoin/8.22.0
 
         self.log.info("Test that a version 3 block with a DERSIG-compliant transaction is accepted")
         block.vtx[1] = self.create_tx(self.coinbase_txids[1])

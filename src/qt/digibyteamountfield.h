@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/qt/digibyteamountfield.h
+// Copyright (c) 2011-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.h
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -26,7 +30,11 @@ class DigiByteAmountField: public QWidget
     Q_PROPERTY(qint64 value READ value WRITE setValue NOTIFY valueChanged USER true)
 
 public:
+<<<<<<< HEAD:src/qt/digibyteamountfield.h
+    explicit DigiByteAmountField(QWidget *parent = 0);
+=======
     explicit DigiByteAmountField(QWidget *parent = nullptr);
+>>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.h
 
     CAmount value(bool *value=nullptr) const;
     void setValue(const CAmount& value);

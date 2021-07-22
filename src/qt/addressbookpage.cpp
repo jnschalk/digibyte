@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,6 +15,10 @@
 #include <qt/forms/ui_addressbookpage.h>
 
 #include <qt/addresstablemodel.h>
+<<<<<<< HEAD
+#include <qt/digibytegui.h>
+=======
+>>>>>>> bitcoin/8.22.0
 #include <qt/csvmodelwriter.h>
 #include <qt/editaddressdialog.h>
 #include <qt/guiutil.h>
@@ -62,6 +71,7 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode _mode,
     mode(_mode),
     tab(_tab)
 {
+    QString theme = GUIUtil::getThemeName();
     ui->setupUi(this);
 
     if (!platformStyle->getImagesOnButtons()) {
@@ -70,10 +80,10 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode _mode,
         ui->deleteAddress->setIcon(QIcon());
         ui->exportButton->setIcon(QIcon());
     } else {
-        ui->newAddress->setIcon(platformStyle->SingleColorIcon(":/icons/add"));
-        ui->copyAddress->setIcon(platformStyle->SingleColorIcon(":/icons/editcopy"));
-        ui->deleteAddress->setIcon(platformStyle->SingleColorIcon(":/icons/remove"));
-        ui->exportButton->setIcon(platformStyle->SingleColorIcon(":/icons/export"));
+        ui->newAddress->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/add"));
+        ui->copyAddress->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/editcopy"));
+        ui->deleteAddress->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/remove"));
+        ui->exportButton->setIcon(platformStyle->SingleColorIcon(":/icons/" + theme + "/export"));
     }
 
     switch(mode)
@@ -106,7 +116,11 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode _mode,
         ui->newAddress->setVisible(true);
         break;
     case ReceivingTab:
+<<<<<<< HEAD
+        ui->labelExplanation->setText(tr("These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction."));
+=======
         ui->labelExplanation->setText(tr("These are your DigiByte addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.\nSigning is only possible with addresses of the type 'legacy'."));
+>>>>>>> bitcoin/8.22.0
         ui->deleteAddress->setVisible(false);
         ui->newAddress->setVisible(false);
         break;

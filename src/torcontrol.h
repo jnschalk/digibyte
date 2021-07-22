@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2015-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -31,6 +36,8 @@ void StartTorControl(CService onion_service_target);
 void InterruptTorControl();
 void StopTorControl();
 
+<<<<<<< HEAD
+=======
 CService DefaultOnionServiceTarget();
 
 /** Reply from Tor, can be single or multi-line */
@@ -157,4 +164,5 @@ public:
     static void reconnect_cb(evutil_socket_t fd, short what, void *arg);
 };
 
+>>>>>>> bitcoin/8.22.0
 #endif /* DIGIBYTE_TORCONTROL_H */

@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/digibyte-tx.cpp
+// Copyright (c) 2009-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2009-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0:src/bitcoin-tx.cpp
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -35,9 +39,13 @@ static bool fCreateBlank;
 static std::map<std::string,UniValue> registers;
 static const int CONTINUE_EXECUTION=-1;
 
+<<<<<<< HEAD:src/digibyte-tx.cpp
+static void SetupDigiByteTxArgs()
+=======
 const std::function<std::string(const char*)> G_TRANSLATION_FUN = nullptr;
 
 static void SetupDigiByteTxArgs(ArgsManager &argsman)
+>>>>>>> bitcoin/8.22.0:src/bitcoin-tx.cpp
 {
     SetupHelpOptions(argsman);
 
@@ -80,7 +88,14 @@ static void SetupDigiByteTxArgs(ArgsManager &argsman)
 //
 static int AppInitRawTx(int argc, char* argv[])
 {
+<<<<<<< HEAD:src/digibyte-tx.cpp
+    //
+    // Parameters
+    //
+    SetupDigiByteTxArgs();
+=======
     SetupDigiByteTxArgs(gArgs);
+>>>>>>> bitcoin/8.22.0:src/bitcoin-tx.cpp
     std::string error;
     if (!gArgs.ParseParameters(argc, argv, error)) {
         tfm::format(std::cerr, "Error parsing command line arguments: %s\n", error);
@@ -99,6 +114,13 @@ static int AppInitRawTx(int argc, char* argv[])
 
     if (argc < 2 || HelpRequested(gArgs) || gArgs.IsArgSet("-version")) {
         // First part of help message is specific to this utility
+<<<<<<< HEAD:src/digibyte-tx.cpp
+        std::string strUsage = PACKAGE_NAME " digibyte-tx utility version " + FormatFullVersion() + "\n\n" +
+            "Usage:  digibyte-tx [options] <hex-tx> [commands]  Update hex-encoded digibyte transaction\n" +
+            "or:     digibyte-tx [options] -create [commands]   Create hex-encoded digibyte transaction\n" +
+            "\n";
+        strUsage += gArgs.GetHelpMessage();
+=======
         std::string strUsage = PACKAGE_NAME " digibyte-tx utility version " + FormatFullVersion() + "\n";
         if (!gArgs.IsArgSet("-version")) {
             strUsage += "\n"
@@ -107,6 +129,7 @@ static int AppInitRawTx(int argc, char* argv[])
                 "\n";
             strUsage += gArgs.GetHelpMessage();
         }
+>>>>>>> bitcoin/8.22.0:src/bitcoin-tx.cpp
 
         tfm::format(std::cout, "%s", strUsage);
 
@@ -459,6 +482,11 @@ static void MutateTxAddOutScript(CMutableTransaction& tx, const std::string& str
         std::string flags = vStrInputParts.back();
         bSegWit = (flags.find('W') != std::string::npos);
         bScriptHash = (flags.find('S') != std::string::npos);
+    }
+
+    if (scriptPubKey.size() > MAX_SCRIPT_SIZE) {
+        throw std::runtime_error(strprintf(
+                    "script exceeds size limit: %d > %d", scriptPubKey.size(), MAX_SCRIPT_SIZE));
     }
 
     if (scriptPubKey.size() > MAX_SCRIPT_SIZE) {

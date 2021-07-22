@@ -70,10 +70,15 @@
         <translation>Це ваші адреси DigiByte для надсилання платежів. Завжди перевіряйте суму та адресу одержувача перед відправленням монет.</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Це ваші адреси DigiByte для отримання платежів. Для кожної транзакції рекомендується використовувати нову адресу одержувача.</translation>
+=======
         <source>These are your DigiByte addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.
 Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Це ваші Біткойн адреси для отримання платежів. Використовуйте кнопку "Створити нову адресу для отримання" на вкладці отримання, щоб створити нові адреси.
 Підпис можливий лише з адресами типу "legacy".</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -171,7 +176,11 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <translation>УВАГА: Якщо ви зашифруєте гаманець і забудете пароль, ви &lt;b&gt;ВТРАТИТЕ ВСІ СВОЇ БІТКОІНИ&lt;/b&gt;!</translation>
+=======
         <translation>Увага: Якщо ви зашифруєте гаманець і забудете пароль, ви &lt;b&gt;ВТРАТИТЕ ВСІ СВОЇ БІТКОІНИ&lt;/b&gt;!</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -182,6 +191,10 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Гаманець зашифровано</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
+        <translation>%1 буде закрито зараз, щоб завершити процес шифрування. Пам'ятайте, що шифрування гаманця не може повністю захистити ваші біткойни від крадіжки шкідливими програмами, у випадку якщо ваш комп'ютер буде інфіковано.</translation>
+=======
         <source>Enter the new passphrase for the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Введіть новий пароль для гаманця.&lt;br/&gt; Будь ласка, використовуйте пароль з &lt;b&gt;десяти або більше випадкових символів&lt;/b&gt;, або &lt;b&gt; вісім або більше слів&lt;/b&gt;.</translation>
     </message>
@@ -204,6 +217,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     <message>
         <source>Your wallet is now encrypted. </source>
         <translation>Ваш гаманець зашифровано.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -380,6 +394,17 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>П&amp;еревірити повідомлення...</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>DigiByte</source>
+        <translation>DigiByte</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Гаманець</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
         <source>&amp;Send</source>
         <translation>&amp;Відправити</translation>
     </message>
@@ -401,11 +426,19 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     </message>
     <message>
         <source>Sign messages with your DigiByte addresses to prove you own them</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <translation>Підтвердіть, що Ви є власником повідомлення підписавши його Вашою DigiByte-адресою </translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
+        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною DigiByte-адресою</translation>
+=======
         <translation>Підтвердіть, що Ви є власником повідомлення підписавши його Вашою Біткойн адресою</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
         <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Біткойн адресою</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
     <message>
         <source>&amp;File</source>
@@ -436,6 +469,13 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Показати список адрес і міток, що були використані для отримання</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>Open a digibyte: URI or payment request</source>
+        <translation>Відкрити digibyte: URI чи запит платежу</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
         <source>&amp;Command-line options</source>
         <translation>П&amp;араметри командного рядка</translation>
     </message>
@@ -484,6 +524,8 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Синхронізовано</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+=======
         <source>&amp;Load PSBT from file...</source>
         <translation>&amp;Завантажити PSBT з файлу...</translation>
     </message>
@@ -544,6 +586,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Закрити всі гаманці</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
         <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
         <translation>Показати довідку %1 для отримання переліку можливих параметрів командного рядка.</translation>
     </message>
@@ -664,12 +707,17 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>&lt;b&gt;Зашифрований&lt;/b&gt; гаманець &lt;b&gt;заблоковано&lt;/b&gt;</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <translation>Сталася фатальна помилка. Гаманець буде закрито.</translation>
+=======
         <source>Original message:</source>
         <translation>Первинне повідомлення:</translation>
     </message>
     <message>
         <source>A fatal error occurred. %1 can no longer continue safely and will quit.</source>
         <translation>Сталася фатальна помилка. %1 більше не може продовжувати безпечно і вийде.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
 </context>
 <context>
@@ -1069,7 +1117,11 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     </message>
     <message>
         <source>Attempting to spend digibytes that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <translation>Спроба видправити біткойни, які ще не відображаються, не буде прийнята мережею.</translation>
+=======
         <translation>Спроба відправити біткоїни, які ще не відображаються, не буде прийнята мережею.</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1313,6 +1365,13 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Tor</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Підключатися до мережі DigiByte через окремий SOCKS5 проксі для прихованих сервісів Tor.</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
         <source>&amp;Window</source>
         <translation>&amp;Вікно</translation>
     </message>
@@ -1507,16 +1566,26 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Діалог</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>Cannot start digibyte: click-to-pay handler</source>
+        <translation>Не вдається запустити біткойн: обробник клацни-плати</translation>
+=======
         <source>Sign Tx</source>
         <translation>Знак Tx</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
     <message>
         <source>Broadcast Tx</source>
         <translation>Трансляція Tx</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>'digibyte://' is not a valid URI. Use 'digibyte:' instead.</source>
+        <translation>'digibyte://' не вірний URI. Використовуйте 'digibyte:'.</translation>
+=======
         <source>Copy to Clipboard</source>
         <translation>Копіювати у буфер обміну</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
     <message>
         <source>Save...</source>
@@ -1527,8 +1596,13 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>Завершити</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>URI cannot be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <translation>Неможливо обробити URI! Причиною цього може бути некоректна Біткойн-адреса або неправильні параметри URI.</translation>
+=======
         <source>Failed to load transaction: %1</source>
         <translation>Не вдалося завантажити транзакцію: %1</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
     <message>
         <source>Failed to sign transaction: %1</source>
@@ -1701,7 +1775,11 @@ Signing is only possible with addresses of the type 'legacy'.</source>
     </message>
     <message>
         <source>Enter a DigiByte address (e.g. %1)</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <translation>Введіть адресу DigiByte (наприклад %1)</translation>
+=======
         <translation>Введіть адресу Біткойн (наприклад %1)</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
     <message>
         <source>%1 d</source>
@@ -2414,6 +2492,17 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Приховати</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for digibyte transactions than the network can process.</source>
+        <translation>Оплата тільки мінімальної комісії є прийнятною, допоки обсяг транзакцій є меншим простору в блоках. Але майте на увазі, що це може анулювати транзакцію, якщо попит на DigiByte транзакції стане більшим, ніж мережа зможе обробити.</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(читати підказки)</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
         <source>Recommended:</source>
         <translation>Рекомендовано:</translation>
     </message>
@@ -2682,7 +2771,11 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>The DigiByte address to send the payment to</source>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <translation>Адреса DigiByte для відправлення платежу</translation>
+=======
         <translation>Адреса Біткойн для відправлення платежу</translation>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
     </message>
     <message>
         <source>Alt+A</source>
@@ -2701,10 +2794,13 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Видалити цей запис</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+=======
         <source>The amount to send in the selected unit</source>
         <translation>Сума у вибраній одиниці, яку потрібно надіслати</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
         <source>The fee will be deducted from the amount being sent. The recipient will receive less digibytes than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>Комісію буде знято зі вказаної суми. До отримувача надійде менше біткоінів, ніж було вказано в полі кількості. Якщо ж отримувачів декілька - комісію буде розподілено між ними.</translation>
     </message>
@@ -2831,6 +2927,8 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Адреса DigiByte, якою було підписано це повідомлення</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+=======
         <source>The signed message to verify</source>
         <translation>Підписане повідомлення для підтвердження</translation>
     </message>
@@ -2839,6 +2937,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Підпис наданий при підписанні цього повідомлення</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
         <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
         <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною DigiByte-адресою</translation>
     </message>
@@ -3550,6 +3649,13 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Неможливо запустити HTTP-сервер. Детальніший опис наведено в журналі зневадження.</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+        <source>DigiByte Core</source>
+        <translation>DigiByte Core</translation>
+    </message>
+    <message>
+=======
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
         <source>The %s developers</source>
         <translation>Розробники %s</translation>
     </message>
@@ -3950,11 +4056,14 @@ Go to File &gt; Open Wallet to load a wallet.
         <translation>Вказаний шлях -walletdir "%s" не є каталогом</translation>
     </message>
     <message>
+<<<<<<< HEAD:src/qt/locale/digibyte_uk.ts
+=======
         <source>The specified config file %s does not exist
 </source>
         <translation>Зазначений файл конфігурації %s не існує</translation>
     </message>
     <message>
+>>>>>>> bitcoin/8.22.0:src/qt/locale/bitcoin_uk.ts
         <source>The transaction amount is too small to pay the fee</source>
         <translation>Неможливо сплатити комісію із-за малої суми транзакції</translation>
     </message>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+// Copyright (c) 2016-2018 The DigiByte Core developers
+=======
 // Copyright (c) 2016-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,7 +20,11 @@
 // characteristics than e.g. reindex timings. But that's not a requirement of
 // every benchmark."
 // (https://github.com/digibyte/digibyte/issues/7883#issuecomment-224807484)
+<<<<<<< HEAD
+static void CCoinsCaching(benchmark::State& state)
+=======
 static void CCoinsCaching(benchmark::Bench& bench)
+>>>>>>> bitcoin/8.22.0
 {
     const ECCVerifyHandle verify_handle;
     ECC_Start();

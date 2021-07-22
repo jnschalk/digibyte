@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2016-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +12,11 @@
 #include <interfaces/node.h>
 #include <rpc/server.h>
 #include <qt/rpcconsole.h>
+<<<<<<< HEAD
+#include <test/test_digibyte.h>
+=======
 #include <test/util/setup_common.h>
+>>>>>>> bitcoin/8.22.0
 #include <univalue.h>
 #include <util/system.h>
 
@@ -81,8 +90,13 @@ void RPCNestedTests::rpcNestedTests()
     RPCConsole::RPCExecuteCommandLine(m_node, result2, "createrawtransaction( [],  {} , 0   )"); //whitespace between parameters is allowed
     QVERIFY(result == result2);
 
+<<<<<<< HEAD
+    RPCConsole::RPCExecuteCommandLine(*node, result, "getblock(getbestblockhash())[tx][0]", &filtered);
+    QVERIFY(result == "72ddd9496b004221ed0557358846d9248ecd4c440ebd28ed901efc18757d0fad");
+=======
     RPCConsole::RPCExecuteCommandLine(m_node, result, "getblock(getbestblockhash())[tx][0]", &filtered);
     QVERIFY(result == "4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b");
+>>>>>>> bitcoin/8.22.0
     QVERIFY(filtered == "getblock(getbestblockhash())[tx][0]");
 
     RPCConsole::RPCParseCommandLine(nullptr, result, "importprivkey", false, &filtered);

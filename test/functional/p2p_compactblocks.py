@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+# Copyright (c) 2009-2019 The Bitcoin Core developers
+# Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 # Copyright (c) 2016-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test compact blocks (BIP 152).
@@ -9,6 +14,14 @@ Version 2 compact blocks are post-segwit (wtxids)
 """
 import random
 
+<<<<<<< HEAD
+from test_framework.blocktools import create_block, create_coinbase, add_witness_commitment
+from test_framework.messages import BlockTransactions, BlockTransactionsRequest, calculate_shortid, CBlock, CBlockHeader, CInv, COutPoint, CTransaction, CTxIn, CTxInWitness, CTxOut, FromHex, HeaderAndShortIDs, msg_block, msg_blocktxn, msg_cmpctblock, msg_getblocktxn, msg_getdata, msg_getheaders, msg_headers, msg_inv, msg_sendcmpct, msg_sendheaders, msg_tx, msg_witness_block, msg_witness_blocktxn, MSG_WITNESS_FLAG, NODE_NETWORK, NODE_WITNESS, P2PHeaderAndShortIDs, PrefilledTransaction, ser_uint256, ToHex
+from test_framework.mininode import mininode_lock, P2PInterface
+from test_framework.script import CScript, OP_TRUE, OP_DROP
+from test_framework.test_framework import DigiByteTestFramework
+from test_framework.util import assert_equal, get_bip9_status, satoshi_round, sync_blocks, wait_until
+=======
 from test_framework.blocktools import (
     COINBASE_MATURITY,
     NORMAL_GBT_REQUEST_PARAMS,
@@ -65,6 +78,7 @@ from test_framework.util import (
     assert_equal,
     softfork_active,
 )
+>>>>>>> bitcoin/8.22.0
 
 # TestP2PConn: A peer we use to send messages to digibyted, and store responses.
 class TestP2PConn(P2PInterface):
@@ -290,9 +304,13 @@ class CompactBlocksTest(DigiByteTestFramework):
 
     # Compare the generated shortids to what we expect based on BIP 152, given
     # digibyted's choice of nonce.
+<<<<<<< HEAD
+    def test_compactblock_construction(self, node, test_node, version, use_witness_address):
+=======
     def test_compactblock_construction(self, test_node, use_witness_address=True):
         version = test_node.cmpct_version
         node = self.nodes[0]
+>>>>>>> bitcoin/8.22.0
         # Generate a bunch of transactions.
         node.generate(COINBASE_MATURITY + 1)
         num_transactions = 25
@@ -604,9 +622,13 @@ class CompactBlocksTest(DigiByteTestFramework):
             test_node.send_and_ping(msg_no_witness_block(block))
         assert_equal(int(node.getbestblockhash(), 16), block.sha256)
 
+<<<<<<< HEAD
+    def test_getblocktxn_handler(self, node, test_node, version):
+=======
     def test_getblocktxn_handler(self, test_node):
         version = test_node.cmpct_version
         node = self.nodes[0]
+>>>>>>> bitcoin/8.22.0
         # digibyted will not send blocktxn responses for blocks whose height is
         # more than 10 blocks deep.
         MAX_GETBLOCKTXN_DEPTH = 10

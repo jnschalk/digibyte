@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2014-2019 The DigiByte Core developers
+=======
 // Copyright (c) 2011-2020 The DigiByte Core developers
+>>>>>>> bitcoin/8.22.0
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -101,7 +106,11 @@ private:
     QString formatTxDate(const TransactionRecord *wtx) const;
     QString formatTxType(const TransactionRecord *wtx) const;
     QString formatTxToAddress(const TransactionRecord *wtx, bool tooltip) const;
+<<<<<<< HEAD
+    QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, DigiByteUnits::SeparatorStyle separators=DigiByteUnits::separatorStandard) const;
+=======
     QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, DigiByteUnits::SeparatorStyle separators=DigiByteUnits::SeparatorStyle::STANDARD) const;
+>>>>>>> bitcoin/8.22.0
     QString formatTooltip(const TransactionRecord *rec) const;
     QVariant txStatusDecoration(const TransactionRecord *wtx) const;
     QVariant txWatchonlyDecoration(const TransactionRecord *wtx) const;
