@@ -30,13 +30,10 @@
         <translation>ลบที่อยู่ที่เลือกไว้ออกจากรายการ</translation>
     </message>
     <message>
-<<<<<<< HEAD
-=======
         <source>Enter address or label to search</source>
         <translation>ป้อนที่อยู่หรือฉลากเพื่อค้นหา</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Export the data in the current tab to a file</source>
         <translation>ส่งออกข้อมูลที่อยู่ในแถบนี้ไปในไฟล์</translation>
     </message>
@@ -73,13 +70,6 @@
         <translation>ที่อยู่ DigiByte ของคุณสำหรับการส่งการชำระเงิน โปรดตรวจสอบจำนวนเงินและที่อยู่รับก่อนที่จะส่งเหรียญ</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>ที่อยู่ DigiByte ของคุณสำหรับการรับเงิน แนะนำให้ใช้ที่อยู่รับใหม่สำหรับแต่ละธุรกรรม</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0
         <source>&amp;Copy Address</source>
         <translation>คัดลอกที่อยู่</translation>
     </message>
@@ -103,15 +93,11 @@
         <source>Exporting Failed</source>
         <translation>การส่งออกล้มเหลว</translation>
     </message>
-<<<<<<< HEAD
-    </context>
-=======
     <message>
         <source>There was an error trying to save the address list to %1. Please try again.</source>
         <translation>เกิดข้อผิดพลาดขณะพยายามบันทึกรายการที่อยู่ไปยัง %1 กรุณาลองอีกครั้ง.</translation>
     </message>
 </context>
->>>>>>> bitcoin/8.22.0
 <context>
     <name>AddressTableModel</name>
     <message>
@@ -146,13 +132,10 @@
         <translation>ทำซ้ำข้อความรหัสใหม่</translation>
     </message>
     <message>
-<<<<<<< HEAD
-=======
         <source>Show passphrase</source>
         <translation>ดูวลี</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Encrypt wallet</source>
         <translation>กระเป๋าสตางค์ เข้ารหัส</translation>
     </message>
@@ -176,14 +159,6 @@
         <source>Change passphrase</source>
         <translation>เปลี่ยน ข้อความรหัสผ่าน</translation>
     </message>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>BanTableModel</name>
-    </context>
-<context>
-    <name>DigiByteGUI</name>
-=======
     <message>
         <source>Confirm wallet encryption</source>
         <translation>ยืนยันการเข้ารหัสกระเป๋าเงิน</translation>
@@ -275,17 +250,6 @@
         <translation>&amp;เปลี่ยนรหัสผ่าน...</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-        <source>&amp;Sending addresses...</source>
-        <translation>&amp;ที่เก็บเงิน ที่จะส่ง digibyte</translation>
-    </message>
-    <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>&amp;ที่เก็บเงิน ที่จะรับ digibyte</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
         <source>Open &amp;URI...</source>
         <translation>เปิด &amp;URI</translation>
     </message>
@@ -314,17 +278,6 @@
         <translation>&amp;ยืนยันข้อความ...</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>กระเป๋าเงิน</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
         <source>&amp;Send</source>
         <translation>&amp;ส่ง</translation>
     </message>
@@ -379,13 +332,6 @@
     <message>
         <source>Show the list of used receiving addresses and labels</source>
         <translation>แสดงรายการ ที่เก็บเงินที่จะรับ digibyte เข้า และป้ายชื่อ ที่ใช้ไปแล้ว</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-    </message>
-    <message>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>เปิด digibyte: URI หรือ การเรียกเก็บเงิน (การเรียกให้ชำระเงิน)</translation>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -438,13 +384,10 @@
     <message>
         <source>Show the %1 help message to get a list with possible DigiByte command-line options</source>
         <translation>แสดง %1 ข้อความช่วยเหลือ เพื่อแสดงรายการ ตัวเลือกที่เป็นไปได้สำหรับ DigiByte command-line</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-=======
     </message>
     <message>
         <source>&amp;Window</source>
         <translation>&amp;วันโดว์</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
     </message>
     <message>
         <source>%1 client</source>
@@ -500,13 +443,10 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>กระเป๋าเงินถูก &lt;b&gt;เข้ารหัส&lt;/b&gt; และในปัจจุบัน &lt;b&gt;ล็อค &lt;/b&gt;</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
-<<<<<<< HEAD
-=======
         <source>Coin Selection</source>
         <translation>การเลือก Coin</translation>
     </message>
@@ -591,36 +531,11 @@
         <translation>คัดลอก ID ธุรกรรม</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>(no label)</source>
         <translation>(ไม่มีฉลาก)</translation>
     </message>
     </context>
 <context>
-<<<<<<< HEAD
-    <name>EditAddressDialog</name>
-    </context>
-<context>
-    <name>FreespaceChecker</name>
-    </context>
-<context>
-    <name>HelpMessageDialog</name>
-    </context>
-<context>
-    <name>Intro</name>
-    </context>
-<context>
-    <name>ModalOverlay</name>
-    </context>
-<context>
-    <name>OpenURIDialog</name>
-    </context>
-<context>
-    <name>OptionsDialog</name>
-    </context>
-<context>
-    <name>OverviewPage</name>
-=======
     <name>CreateWalletActivity</name>
     </context>
 <context>
@@ -724,8 +639,6 @@
     <message>
         <source>DigiByte</source>
         <translation>DigiByte</translation>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-=======
     </message>
     <message>
         <source>Approximately %1 GB of data will be stored in this directory.</source>
@@ -734,7 +647,6 @@
     <message>
         <source>The wallet will also be stored in this directory.</source>
         <translation>The wallet เก็บใว้ในไดเร็กทอรี่</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -889,13 +801,6 @@
         <translation>Tor</translation>
     </message>
     <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-        <source>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>เชื่อมต่อกับ เครือข่าย DigiByte ผ่านทาง พร้อกซี่ SOCKS5 แยกต่างหาก สำหรับ Tor เซอร์วิส</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
         <source>&amp;Window</source>
         <translation>&amp;วันโดว์</translation>
     </message>
@@ -917,7 +822,6 @@
     </context>
 <context>
     <name>PSBTOperationsDialog</name>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>PaymentServer</name>
@@ -927,11 +831,6 @@
     </context>
 <context>
     <name>QObject</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>QObject::QObject</name>
-=======
     <message>
         <source>Amount</source>
         <translation>จำนวน</translation>
@@ -940,7 +839,6 @@
         <source>%1 and %2</source>
         <translation>%1 และ %2</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>QRImageWidget</name>
@@ -950,8 +848,6 @@
     </context>
 <context>
     <name>ReceiveCoinsDialog</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>&amp;Label:</source>
         <translation>&amp;ชื่อ:</translation>
@@ -964,34 +860,21 @@
         <source>Copy amount</source>
         <translation>คัดลอกจำนวนเงิน</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>ReceiveRequestDialog</name>
     <message>
-<<<<<<< HEAD
-        <source>Address</source>
-        <translation>ที่อยู่</translation>
-    </message>
-    <message>
-        <source>Label</source>
-        <translation>ฉลาก, ป้าย,</translation>
-=======
         <source>Amount:</source>
         <translation>จำนวน:</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
     <message>
-<<<<<<< HEAD
-=======
         <source>Date</source>
         <translation>วันที่</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Label</source>
         <translation>ฉลาก, ป้าย,</translation>
     </message>
@@ -1003,8 +886,6 @@
 <context>
     <name>SendCoinsDialog</name>
     <message>
-<<<<<<< HEAD
-=======
         <source>Send Coins</source>
         <translation>ส่งเหรียญ</translation>
     </message>
@@ -1041,23 +922,16 @@
         <translation>คัดลอกจำนวนเงิน</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>(no label)</source>
         <translation>(ไม่มีฉลาก)</translation>
     </message>
 </context>
 <context>
     <name>SendCoinsEntry</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>SendConfirmationDialog</name>
-=======
     <message>
         <source>&amp;Label:</source>
         <translation>&amp;ชื่อ:</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>ShutdownWindow</name>
@@ -1066,18 +940,10 @@
     <name>SignVerifyMessageDialog</name>
     </context>
 <context>
-<<<<<<< HEAD
-    <name>SplashScreen</name>
-    </context>
-<context>
-=======
->>>>>>> bitcoin/8.22.0
     <name>TrafficGraphWidget</name>
     </context>
 <context>
     <name>TransactionDesc</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>Date</source>
         <translation>วันที่</translation>
@@ -1086,7 +952,6 @@
         <source>Amount</source>
         <translation>จำนวน</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>TransactionDescDialog</name>
@@ -1094,13 +959,10 @@
 <context>
     <name>TransactionTableModel</name>
     <message>
-<<<<<<< HEAD
-=======
         <source>Date</source>
         <translation>วันที่</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Label</source>
         <translation>ฉลาก, ป้าย,</translation>
     </message>
@@ -1112,8 +974,6 @@
 <context>
     <name>TransactionView</name>
     <message>
-<<<<<<< HEAD
-=======
         <source>Copy address</source>
         <translation>คัดลอกที่อยู่</translation>
     </message>
@@ -1130,13 +990,10 @@
         <translation>คัดลอก ID ธุรกรรม</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Comma separated file (*.csv)</source>
         <translation>ไฟล์ที่คั่นด้วยจุลภาค (* .csv)</translation>
     </message>
     <message>
-<<<<<<< HEAD
-=======
         <source>Confirmed</source>
         <translation>ยืนยันแล้ว</translation>
     </message>
@@ -1145,7 +1002,6 @@
         <translation>วันที่</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Label</source>
         <translation>ฉลาก, ป้าย,</translation>
     </message>
@@ -1162,21 +1018,13 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>WalletController</name>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>WalletFrame</name>
     </context>
 <context>
     <name>WalletModel</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>WalletView</name>
-=======
     <message>
         <source>Send Coins</source>
         <translation>ส่งเหรียญ</translation>
@@ -1184,13 +1032,6 @@
     </context>
 <context>
     <name>WalletView</name>
-<<<<<<< HEAD:src/qt/locale/digibyte_th_TH.ts
-    </context>
-<context>
-    <name>digibyte-core</name>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_th.ts
->>>>>>> bitcoin/8.22.0
     <message>
         <source>&amp;Export</source>
         <translation>ส่งออก</translation>
@@ -1199,13 +1040,10 @@
         <source>Export the data in the current tab to a file</source>
         <translation>ส่งออกข้อมูลที่อยู่ในแถบนี้ไปในไฟล์</translation>
     </message>
-<<<<<<< HEAD
-=======
     <message>
         <source>Error</source>
         <translation>ข้อผิดพลาด</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>digibyte-core</name>

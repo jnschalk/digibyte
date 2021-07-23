@@ -67,13 +67,6 @@
         <translation>പേയ്മെന്റുകൾ അയയ്ക്കുന്നതിനുള്ള നിങ്ങളുടെ ബിറ്റ്കോയിൻ വിലാസങ്ങളാണ് ഇവ. നാണയങ്ങൾ അയയ്ക്കുന്നതിനുമുമ്പ് എല്ലായ്പ്പോഴും തുകയും സ്വീകരിക്കുന്ന വിലാസവും പരിശോധിക്കുക.</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>പേയ്മെന്റ് സ്വീകരിക്കുന്നതിന് നിങ്ങളുടെ ബിറ്റ്കോയിൻ വിലാസങ്ങളാണ് ഇവ. ഓരോ ഇടപാടിനും പുതിയ സ്വീകരിക്കുന്ന വിലാസം ഉപയോഗിക്കുന്നതാണ് ഉചിതം.</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0
         <source>&amp;Copy Address</source>
         <translation>&amp;വിലാസം പകർത്തുക</translation>
     </message>
@@ -97,15 +90,11 @@
         <source>Exporting Failed</source>
         <translation>കയറ്റുമതി പരാജയപ്പെട്ടു</translation>
     </message>
-<<<<<<< HEAD
-    </context>
-=======
     <message>
         <source>There was an error trying to save the address list to %1. Please try again.</source>
         <translation>%1 ലേക്ക് വിലാസ ലിസ്റ്റ് സംരക്ഷിക്കാൻ ശ്രമിക്കുന്നതിൽ ഒരു പിശകുണ്ടായിരുന്നു. വീണ്ടും ശ്രമിക്കുക.</translation>
     </message>
 </context>
->>>>>>> bitcoin/8.22.0
 <context>
     <name>AddressTableModel</name>
     <message>
@@ -140,13 +129,8 @@
         <translation>പുതിയ രഹസ്യപദപ്രയോഗം ആവർത്തിക്കുക</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>വാലറ്റിൽ പുതിയ രഹസ്യപദപ്രയോഗം നൽകുക. &lt;br/&gt; &lt;b&gt; പത്തോ അതിലധികമോ റാൻഡം പ്രതീകങ്ങൾ &lt;/ b&gt; അല്ലെങ്കിൽ &lt;b&gt; എട്ട് അല്ലെങ്കിൽ അതിൽ കൂടുതൽ വാക്കുകൾ &lt;/ b&gt; ഒരു രഹസ്യപദപ്രയോഗം ഉപയോഗിക്കുക.</translation>
-=======
         <source>Show passphrase</source>
         <translation>രഹസ്യപദം  കാണിക്കുക </translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Encrypt wallet</source>
@@ -173,13 +157,6 @@
         <translation>പാസ്ഫ്രെയ്സ് മാറ്റുക</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Enter the old passphrase and new passphrase to the wallet.</source>
-        <translation>പഴയ രഹസ്യപദപ്രയോഗം പുതിയ രഹസ്യപദപ്രയോഗം വാലറ്റിൽ നൽകുക.</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0
         <source>Confirm wallet encryption</source>
         <translation>വാലറ്റ് എൻക്രിപ്ഷൻ സ്ഥിരീകരിക്കുക</translation>
     </message>
@@ -187,8 +164,6 @@
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
         <translation>മുന്നറിയിപ്പ്: നിങ്ങളുടെ വാലറ്റ് എൻക്രിപ്റ്റ് ചെയ്ത് പാസ്ഫ്രെയ്സ് നഷ്ടപ്പെടുകയാണെങ്കിൽ, നിങ്ങളുടെ എല്ലാ ബിറ്റ്കൊയിനുകളും നഷ്ടപ്പെടും!</translation>
     </message>
-<<<<<<< HEAD
-=======
     <message>
         <source>Wallet encrypted</source>
         <translation>വാലറ്റ് എന്ക്രിപ്റ് ചെയ്തു കഴിഞ്ഞു .</translation>
@@ -197,15 +172,12 @@
         <source>Enter the old passphrase and new passphrase for the wallet.</source>
         <translation>വാലെറ്റിന്റെ പഴയ രഹസ്യപദവും പുതിയ രഹസ്യപദവും നൽകുക.</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>BanTableModel</name>
     </context>
 <context>
     <name>DigiByteGUI</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>Browse transaction history</source>
         <translation>ഇടപാടുകളുടെ ചരിത്രം പരിശോധിയ്ക്കുക</translation>
@@ -308,13 +280,10 @@
         <source>Incoming transaction</source>
         <translation>വരവ്വ് വെച്ച ഇടപാടുകൾ </translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
-<<<<<<< HEAD
-=======
         <source>Coin Selection</source>
         <translation>കോയിൻ തിരഞ്ഞെടുക്കൽ </translation>
     </message>
@@ -363,14 +332,11 @@
         <translation>സ്ഥിതീകരിച്ചു</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>(no label)</source>
         <translation>(ലേബൽ ഇല്ല)</translation>
     </message>
     </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>CreateWalletActivity</name>
     </context>
 <context>
@@ -381,29 +347,20 @@
     </message>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>EditAddressDialog</name>
     </context>
 <context>
     <name>FreespaceChecker</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>name</source>
         <translation>നാമധേയം / പേര് </translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>HelpMessageDialog</name>
     </context>
 <context>
     <name>Intro</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>ModalOverlay</name>
-=======
     <message>
         <source>Error</source>
         <translation>പിശക് </translation>
@@ -423,18 +380,11 @@
         <source>calculating...</source>
         <translation>കണക്കായ്ക്കിക്കൊണ്ടിരിക്കുന്നു</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>OpenURIDialog</name>
     </context>
 <context>
-<<<<<<< HEAD
-    <name>OptionsDialog</name>
-    </context>
-<context>
-    <name>OverviewPage</name>
-=======
     <name>OpenWalletActivity</name>
     <message>
         <source>default wallet</source>
@@ -465,7 +415,6 @@
     </context>
 <context>
     <name>PSBTOperationsDialog</name>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>PaymentServer</name>
@@ -475,11 +424,6 @@
     </context>
 <context>
     <name>QObject</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>QObject::QObject</name>
-=======
     <message>
         <source>Amount</source>
         <translation>തുക </translation>
@@ -488,7 +432,6 @@
         <source>Error: %1</source>
         <translation>തെറ്റ് : %1 </translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>QRImageWidget</name>
@@ -502,29 +445,17 @@
 <context>
     <name>ReceiveRequestDialog</name>
     <message>
-<<<<<<< HEAD
-        <source>Address</source>
-        <translation>വിലാസം</translation>
-    </message>
-    <message>
-        <source>Label</source>
-        <translation>ലേബൽ</translation>
-=======
         <source>Amount:</source>
         <translation>തുക:</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
     <message>
-<<<<<<< HEAD
-=======
         <source>Date</source>
         <translation>തീയതി </translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Label</source>
         <translation>ലേബൽ</translation>
     </message>
@@ -536,8 +467,6 @@
 <context>
     <name>SendCoinsDialog</name>
     <message>
-<<<<<<< HEAD
-=======
         <source>Quantity:</source>
         <translation>നിര്‍ദ്ധിഷ്‌ടസംഖ്യ / അളവ് :</translation>
     </message>
@@ -558,7 +487,6 @@
         <translation>പെയ്മെന്റിനുള്ള അഭ്യർത്ഥന  കാലഹരണപ്പെട്ടു പോയിരിക്കുന്നു. </translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>(no label)</source>
         <translation>(ലേബൽ ഇല്ല)</translation>
     </message>
@@ -567,30 +495,16 @@
     <name>SendCoinsEntry</name>
     </context>
 <context>
-<<<<<<< HEAD
-    <name>SendConfirmationDialog</name>
-    </context>
-<context>
-=======
->>>>>>> bitcoin/8.22.0
     <name>ShutdownWindow</name>
     </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     </context>
 <context>
-<<<<<<< HEAD
-    <name>SplashScreen</name>
-    </context>
-<context>
-=======
->>>>>>> bitcoin/8.22.0
     <name>TrafficGraphWidget</name>
     </context>
 <context>
     <name>TransactionDesc</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>Date</source>
         <translation>തീയതി </translation>
@@ -599,7 +513,6 @@
         <source>Amount</source>
         <translation>തുക </translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>TransactionDescDialog</name>
@@ -607,13 +520,10 @@
 <context>
     <name>TransactionTableModel</name>
     <message>
-<<<<<<< HEAD
-=======
         <source>Date</source>
         <translation>തീയതി </translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Label</source>
         <translation>ലേബൽ</translation>
     </message>
@@ -629,8 +539,6 @@
         <translation>കോമയാൽ വേർതിരിച്ച ഫയൽ (* .csv)</translation>
     </message>
     <message>
-<<<<<<< HEAD
-=======
         <source>Confirmed</source>
         <translation>സ്ഥിതീകരിച്ചു</translation>
     </message>
@@ -639,7 +547,6 @@
         <translation>തീയതി </translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Label</source>
         <translation>ലേബൽ</translation>
     </message>
@@ -656,8 +563,6 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>WalletController</name>
     <message>
         <source>Close wallet</source>
@@ -665,20 +570,15 @@
     </message>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>WalletFrame</name>
     </context>
 <context>
     <name>WalletModel</name>
-<<<<<<< HEAD
-    </context>
-=======
     <message>
         <source>default wallet</source>
         <translation>സ്ഥിരം ആയ വാലറ്റ്</translation>
     </message>
 </context>
->>>>>>> bitcoin/8.22.0
 <context>
     <name>WalletView</name>
     <message>
@@ -689,13 +589,10 @@
         <source>Export the data in the current tab to a file</source>
         <translation>നിലവിലെ ടാബിൽ ഒരു ഫയലിൽ ഡാറ്റ എക്സ്പോർട്ട് ചെയ്യുക</translation>
     </message>
-<<<<<<< HEAD
-=======
     <message>
         <source>Error</source>
         <translation>പിശക് </translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>digibyte-core</name>

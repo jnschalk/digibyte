@@ -378,12 +378,6 @@
     </context>
 <context>
     <name>WalletView</name>
-<<<<<<< HEAD:src/qt/locale/digibyte_ur_PK.ts
-    </context>
-<context>
-    <name>digibyte-core</name>
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_ur.ts
     <message>
         <source>&amp;Export</source>
         <translation>برآمد</translation>

@@ -1,71 +1,8 @@
-<<<<<<< HEAD
-<TS language="my" version="2.1">
-=======
 <TS language="zh" version="2.1">
->>>>>>> bitcoin/8.22.0
 <context>
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-<<<<<<< HEAD
-        <translation>လိပ်စာ သို့မဟုတ် ခေါင်းစဉ်တပ်ရန် Right-click နှိပ်ပါ။</translation>
-    </message>
-    <message>
-        <source>Create a new address</source>
-        <translation>လိပ်စာအသစ်ယူမယ်။</translation>
-    </message>
-    <message>
-        <source>&amp;New</source>
-        <translation>&amp;အသစ်</translation>
-    </message>
-    <message>
-        <source>Copy the currently selected address to the system clipboard</source>
-        <translation>လက်ရှိရွေးထားတဲ့ လိပ်စာကို clipboard ပေါ်တင်မယ်။</translation>
-    </message>
-    <message>
-        <source>&amp;Copy</source>
-        <translation>&amp;ကူးမယ်</translation>
-    </message>
-    <message>
-        <source>Delete the currently selected address from the list</source>
-        <translation>လက်ရှိရွေးထားတဲ့ လိပ်စာကို ဖျက်မယ်။</translation>
-    </message>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>လက်ရှိ tab မှာရှိတဲ့ဒေတာတွေကို ဖိုင်လ်မှာသိမ်းမယ်။</translation>
-    </message>
-    <message>
-        <source>&amp;Export</source>
-        <translation>&amp;ထုတ်ယူသိမ်းဆည်း</translation>
-    </message>
-    <message>
-        <source>&amp;Delete</source>
-        <translation>&amp;ဖျက်</translation>
-    </message>
-    </context>
-<context>
-    <name>AddressTableModel</name>
-    </context>
-<context>
-    <name>AskPassphraseDialog</name>
-    </context>
-<context>
-    <name>BanTableModel</name>
-    </context>
-<context>
-    <name>DigiByteGUI</name>
-    <message>
-        <source>Error</source>
-        <translation>အမှား</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>သတိပေးချက်</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>အချက်အလက်</translation>
-=======
         <translation>右键单击来编辑地址或者标签</translation>
     </message>
     <message>
@@ -675,13 +612,10 @@
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>钱包是&lt;b&gt;加密的&lt;/b&gt;，目前&lt;b&gt;已锁定&lt;/b&gt;</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     </context>
 <context>
     <name>CoinControlDialog</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>Coin Selection</source>
         <translation>币种选择</translation>
@@ -818,30 +752,12 @@
         <source>(no label)</source>
         <translation>(没有标签)</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>CreateWalletActivity</name>
     </context>
 <context>
     <name>CreateWalletDialog</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>EditAddressDialog</name>
-    </context>
-<context>
-    <name>FreespaceChecker</name>
-    </context>
-<context>
-    <name>HelpMessageDialog</name>
-    </context>
-<context>
-    <name>Intro</name>
-    <message>
-        <source>Error</source>
-        <translation>အမှား</translation>
-=======
     <message>
         <source>Create Wallet</source>
         <translation>创建钱包</translation>
@@ -993,25 +909,10 @@
     <message>
         <source>Error</source>
         <translation>错误</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     </context>
 <context>
     <name>ModalOverlay</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>OpenURIDialog</name>
-    </context>
-<context>
-    <name>OpenWalletActivity</name>
-    </context>
-<context>
-    <name>OptionsDialog</name>
-    <message>
-        <source>Error</source>
-        <translation>အမှား</translation>
-=======
     <message>
         <source>Form</source>
         <translation>表格</translation>
@@ -1128,18 +1029,14 @@
     <message>
         <source>Error</source>
         <translation>错误</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     </context>
 <context>
     <name>OverviewPage</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>Form</source>
         <translation>表格</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>PSBTOperationsDialog</name>
@@ -1152,34 +1049,16 @@
     </context>
 <context>
     <name>QObject</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>Amount</source>
         <translation>总计</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>QRImageWidget</name>
     </context>
 <context>
     <name>RPCConsole</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>ReceiveCoinsDialog</name>
-    </context>
-<context>
-    <name>ReceiveRequestDialog</name>
-    </context>
-<context>
-    <name>RecentRequestsTableModel</name>
-    </context>
-<context>
-    <name>SendCoinsDialog</name>
-<<<<<<< HEAD:src/qt/locale/digibyte_zh.ts
-=======
     <message>
         <source>Node window</source>
         <translation>结点窗口</translation>
@@ -1264,14 +1143,11 @@
     </context>
 <context>
     <name>SendCoinsDialog</name>
->>>>>>> bitcoin/8.22.0
     <message>
         <source>Insufficient funds!</source>
         <translation>余额不足</translation>
     </message>
     <message>
-<<<<<<< HEAD
-=======
         <source>Quantity:</source>
         <translation>数量：</translation>
     </message>
@@ -1296,13 +1172,10 @@
         <translation>变化：</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>Choose...</source>
         <translation>选择...</translation>
     </message>
     <message>
-<<<<<<< HEAD
-=======
         <source>Warning: Fee estimation is currently not possible.</source>
         <translation>警告:目前无法估算费用。</translation>
     </message>
@@ -1382,15 +1255,10 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>手续费</translation>
     </message>
     <message>
->>>>>>> bitcoin/8.22.0
         <source>The recipient address is not valid. Please recheck.</source>
         <translation>收款人地址无效，请再次确认。</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Pay only the required fee of %1</source>
-        <translation>仅支付全额的%1</translation>
-=======
         <source>The amount to pay must be larger than 0.</source>
         <translation>支付的总额必须大于0。</translation>
     </message>
@@ -1417,19 +1285,11 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Payment request expired.</source>
         <translation>支付请求已过期。</translation>
->>>>>>> bitcoin/8.22.0
     </message>
     <message>
         <source>Warning: Invalid DigiByte address</source>
         <translation>警告：比特币地址无效</translation>
     </message>
-<<<<<<< HEAD
-=======
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_my.ts
-    </context>
-<context>
-    <name>SendCoinsEntry</name>
-=======
     <message>
         <source>The address you selected for change is not part of this wallet. Any or all funds in your wallet may be sent to this address. Are you sure?</source>
         <translation>您选择更改的地址不在此钱包中。钱包里的所有资金都可以发送到这个地址。你确定吗?</translation>
@@ -1469,28 +1329,22 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
         <translation>附在比特币上的消息:URI将与交易一起存储，供参考。注意：此信息不会通过比特币网络发送。</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>ShutdownWindow</name>
     </context>
 <context>
     <name>SignVerifyMessageDialog</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>Choose previously used address</source>
         <translation>选择以前使用的地址</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>TrafficGraphWidget</name>
     </context>
 <context>
     <name>TransactionDesc</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>Date</source>
         <translation>日期</translation>
@@ -1503,18 +1357,12 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <source>Amount</source>
         <translation>总计</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>TransactionDescDialog</name>
     </context>
 <context>
     <name>TransactionTableModel</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>TransactionView</name>
-=======
     <message>
         <source>Date</source>
         <translation>日期</translation>
@@ -1570,29 +1418,12 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <source>Exporting Failed</source>
         <translation>导出失败</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
     <name>WalletController</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>WalletFrame</name>
-    </context>
-<context>
-    <name>WalletModel</name>
-    </context>
-<context>
-    <name>WalletView</name>
-    <message>
-<<<<<<< HEAD:src/qt/locale/digibyte_zh.ts
-        <source>Export the data in the current tab to a file</source>
-        <translation>将当前选项卡中的数据导出到文件</translation>
-    </message>
-=======
     <message>
         <source>Close wallet</source>
         <translation>关闭钱包</translation>
@@ -1626,47 +1457,14 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <source>Error</source>
         <translation>错误</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>digibyte-core</name>
     <message>
-<<<<<<< HEAD
-        <source>Transaction too large for fee policy</source>
-        <translation>根据费率标准，本次转账超额</translation>
-    </message>
-    <message>
-=======
->>>>>>> bitcoin/8.22.0
         <source>Transaction too large</source>
         <translation>超额转账</translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Warning</source>
-        <translation>警告</translation>
-    </message>
-    <message>
-        <source>Insufficient funds</source>
-        <translation>余额不足</translation>
-=======
-        <source>&amp;Export</source>
-        <translation>&amp;ထုတ်ယူသိမ်းဆည်း</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_my.ts
-    </message>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>လက်ရှိ tab မှာရှိတဲ့ဒေတာတွေကို ဖိုင်လ်မှာသိမ်းမယ်။</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>အမှား</translation>
-    </message>
-    </context>
-<context>
-    <name>digibyte-core</name>
-    </context>
-=======
         <source>Insufficient funds</source>
         <translation>余额不足</translation>
     </message>
@@ -1683,5 +1481,4 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>载入完成</translation>
     </message>
 </context>
->>>>>>> bitcoin/8.22.0
 </TS>

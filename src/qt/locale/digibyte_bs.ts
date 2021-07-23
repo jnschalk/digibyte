@@ -1,9 +1,6 @@
 <TS language="bs" version="2.1">
 <context>
     <name>AddressBookPage</name>
-<<<<<<< HEAD
-    </context>
-=======
     <message>
         <source>Right-click to edit address or label</source>
         <translation>Desni klik za uređivanje adrese ili oznake</translation>
@@ -70,12 +67,7 @@
     </message>
     <message>
         <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-<<<<<<< HEAD:src/qt/locale/digibyte_es_AR.ts
-        <translation>Estas son tus direcciones DigiByte para enviar pagos. Chequea siempre el monto y la dirección destino antes de mandar monedas.
-</translation>
-=======
         <translation>Ovo su vaše DigiByte adrese za slanje novca. Uvijek provjerite iznos i adresu primaoca prije slanja novca.</translation>
->>>>>>> bitcoin/8.22.0:src/qt/locale/digibyte_bs.ts
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -106,7 +98,6 @@
         <translation>Došlo je do greške kod spašavanja liste adresa na %1. Molimo pokušajte ponovo.</translation>
     </message>
 </context>
->>>>>>> bitcoin/8.22.0
 <context>
     <name>AddressTableModel</name>
     </context>
@@ -118,27 +109,17 @@
     </context>
 <context>
     <name>DigiByteGUI</name>
-<<<<<<< HEAD
-    <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
-    </message>
-=======
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>CoinControlDialog</name>
     </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>CreateWalletActivity</name>
     </context>
 <context>
     <name>CreateWalletDialog</name>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>EditAddressDialog</name>
     </context>
 <context>
@@ -149,13 +130,10 @@
     </context>
 <context>
     <name>Intro</name>
-<<<<<<< HEAD
-=======
     <message>
         <source>DigiByte</source>
         <translation>DigiByte</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>ModalOverlay</name>
@@ -164,24 +142,18 @@
     <name>OpenURIDialog</name>
     </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>OpenWalletActivity</name>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>OptionsDialog</name>
     </context>
 <context>
     <name>OverviewPage</name>
     </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>PSBTOperationsDialog</name>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>PaymentServer</name>
     </context>
 <context>
@@ -191,12 +163,6 @@
     <name>QObject</name>
     </context>
 <context>
-<<<<<<< HEAD
-    <name>QObject::QObject</name>
-    </context>
-<context>
-=======
->>>>>>> bitcoin/8.22.0
     <name>QRImageWidget</name>
     </context>
 <context>
@@ -226,12 +192,6 @@
     </message>
     </context>
 <context>
-<<<<<<< HEAD
-    <name>SendConfirmationDialog</name>
-    </context>
-<context>
-=======
->>>>>>> bitcoin/8.22.0
     <name>ShutdownWindow</name>
     </context>
 <context>
@@ -246,12 +206,6 @@
     </message>
     </context>
 <context>
-<<<<<<< HEAD
-    <name>SplashScreen</name>
-    </context>
-<context>
-=======
->>>>>>> bitcoin/8.22.0
     <name>TrafficGraphWidget</name>
     </context>
 <context>
@@ -285,8 +239,6 @@
         <source>This year</source>
         <translation>Ove godine</translation>
     </message>
-<<<<<<< HEAD
-=======
     <message>
         <source>Comma separated file (*.csv)</source>
         <translation>Datoteka podataka odvojenih zarezima (*.csv)</translation>
@@ -295,18 +247,14 @@
         <source>Exporting Failed</source>
         <translation>Izvoz neuspješan</translation>
     </message>
->>>>>>> bitcoin/8.22.0
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-<<<<<<< HEAD
-=======
     <name>WalletController</name>
     </context>
 <context>
->>>>>>> bitcoin/8.22.0
     <name>WalletFrame</name>
     </context>
 <context>
@@ -314,15 +262,6 @@
     </context>
 <context>
     <name>WalletView</name>
-<<<<<<< HEAD
-    </context>
-<context>
-    <name>digibyte-core</name>
-    <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Jezrga</translation>
-    </message>
-=======
     <message>
         <source>&amp;Export</source>
         <translation>&amp;Izvezite</translation>
@@ -334,6 +273,5 @@
     </context>
 <context>
     <name>digibyte-core</name>
->>>>>>> bitcoin/8.22.0
     </context>
 </TS>
