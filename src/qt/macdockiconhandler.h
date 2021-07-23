@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-// Copyright (c) 2011-2015 The DigiByte Core developers
-=======
-// Copyright (c) 2011-2018 The DigiByte Core developers
->>>>>>> bitcoin/8.22.0
+// Copyright (c) 2011-2015 The Bitcoin Core developers
+// Copyright (c) 2014-2018 The DigiByte Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
