@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-<<<<<<< HEAD
-# Copyright (c) 2009-2019 The Bitcoin Core developers
-# Copyright (c) 2014-2019 The DigiByte Core developers
+# Copyright (c) 2009-2020 The Bitcoin Core developers
+# Copyright (c) 2014-2020 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the listsincelast RPC."""
@@ -10,7 +9,6 @@ from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import assert_equal, assert_array_result, assert_raises_rpc_error
 
 class ListSinceBlockTest (DigiByteTestFramework):
-=======
 # Copyright (c) 2017-2020 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -31,7 +29,6 @@ from test_framework.wallet_util import bytes_to_wif
 from decimal import Decimal
 
 class ListSinceBlockTest(DigiByteTestFramework):
->>>>>>> bitcoin/8.22.0
     def set_test_params(self):
         self.num_nodes = 4
         self.setup_clean_chain = True
