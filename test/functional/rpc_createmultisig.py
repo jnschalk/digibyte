@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
-<<<<<<< HEAD
-# Copyright (c) 2009-2019 The Bitcoin Core developers
-# Copyright (c) 2014-2019 The DigiByte Core developers
+# Copyright (c) 2009-2020 The Bitcoin Core developers
+# Copyright (c) 2014-2020 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test transaction signing using the signrawtransaction* RPCs."""
 
 from test_framework.test_framework import DigiByteTestFramework
 import decimal
-=======
-# Copyright (c) 2015-2020 The DigiByte Core developers
+# Copyright (c) 2014-2020 The DigiByte Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test multisig RPCs"""
@@ -29,7 +27,6 @@ from test_framework.util import (
     assert_equal,
 )
 from test_framework.wallet_util import bytes_to_wif
->>>>>>> bitcoin/8.22.0
 
 class RpcCreateMultiSigTest(DigiByteTestFramework):
     def set_test_params(self):
