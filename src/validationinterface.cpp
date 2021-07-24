@@ -17,11 +17,9 @@
 #include <unordered_map>
 #include <utility>
 
-<<<<<<< HEAD
 #include <boost/bind.hpp>
 #include <boost/signals2/signal.hpp>
 
-=======
 //! The MainSignalsInstance manages a list of shared_ptr<CValidationInterface>
 //! callbacks.
 //!
@@ -29,7 +27,6 @@
 //! registered, and a std::list is to used to store the callbacks that are
 //! currently registered as well as any callbacks that are just unregistered
 //! and about to be deleted when they are done executing.
->>>>>>> bitcoin/8.22.0
 struct MainSignalsInstance {
 private:
     Mutex m_mutex;
