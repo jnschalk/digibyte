@@ -8,13 +8,9 @@
 
 #include <tinyformat.h>
 
-<<<<<<< HEAD
 const std::string CURRENCY_UNIT = "DGB";
 
-CFeeRate::CFeeRate(const CAmount& nFeePaid, size_t nBytes_)
-=======
 CFeeRate::CFeeRate(const CAmount& nFeePaid, uint32_t num_bytes)
->>>>>>> bitcoin/8.22.0
 {
     const int64_t nSize{num_bytes};
 
