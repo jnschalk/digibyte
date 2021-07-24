@@ -14,12 +14,9 @@
 #include <limits>
 #include <sstream>
 #include <string>
-<<<<<<< HEAD
 #include <version.h>
 #include <test/test_digibyte.h>
-=======
 #include <vector>
->>>>>>> bitcoin/8.22.0
 
 BOOST_AUTO_TEST_SUITE(arith_uint256_tests)
 
