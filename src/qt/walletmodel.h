@@ -5,13 +5,10 @@
 
 #ifndef DIGIBYTE_QT_WALLETMODEL_H
 #define DIGIBYTE_QT_WALLETMODEL_H
-<<<<<<< HEAD
-=======
 
 #if defined(HAVE_CONFIG_H)
 #include <config/digibyte-config.h>
 #endif
->>>>>>> bitcoin/8.22.0
 
 #include <key.h>
 #include <script/standard.h>

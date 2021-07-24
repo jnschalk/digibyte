@@ -26,11 +26,8 @@
 #include <policy/feerate.h>
 #include <policy/fees.h>
 #include <policy/policy.h>
-<<<<<<< HEAD
 #include <pow.h>
-=======
 #include <policy/rbf.h>
->>>>>>> bitcoin/8.22.0
 #include <primitives/transaction.h>
 #include <rpc/server.h>
 #include <rpc/util.h>
