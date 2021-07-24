@@ -47,41 +47,8 @@ void ReceiveRequestDialog::setModel(WalletModel *_model)
 void ReceiveRequestDialog::setInfo(const SendCoinsRecipient &_info)
 {
     this->info = _info;
-<<<<<<< HEAD
-    update();
-}
-
-void ReceiveRequestDialog::update()
-{
-    if(!model)
-        return;
-    QString target = info.label;
-    if(target.isEmpty())
-        target = info.address;
-    setWindowTitle(tr("Request payment to %1").arg(target));
-
-    QString uri = GUIUtil::formatDigiByteURI(info);
-    ui->btnSaveAs->setEnabled(false);
-    QString html;
-    html += "<html><font face='verdana, arial, helvetica, sans-serif'>";
-    html += "<b>"+tr("Payment information")+"</b><br>";
-    html += "<b>"+tr("URI")+"</b>: ";
-    html += "<a href=\""+uri+"\">" + GUIUtil::HtmlEscape(uri) + "</a><br>";
-    html += "<b>"+tr("Address")+"</b>: " + GUIUtil::HtmlEscape(info.address) + "<br>";
-    if(info.amount)
-        html += "<b>"+tr("Amount")+"</b>: " + DigiByteUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), info.amount) + "<br>";
-    if(!info.label.isEmpty())
-        html += "<b>"+tr("Label")+"</b>: " + GUIUtil::HtmlEscape(info.label) + "<br>";
-    if(!info.message.isEmpty())
-        html += "<b>"+tr("Message")+"</b>: " + GUIUtil::HtmlEscape(info.message) + "<br>";
-    if(model->isMultiwallet()) {
-        html += "<b>"+tr("Wallet")+"</b>: " + GUIUtil::HtmlEscape(model->getWalletName()) + "<br>";
-    }
-    ui->outUri->setText(html);
-=======
     setWindowTitle(tr("Request payment to %1").arg(info.label.isEmpty() ? info.address : info.label));
     QString uri = GUIUtil::formatDigiByteURI(info);
->>>>>>> bitcoin/8.22.0
 
 #ifdef USE_QRCODE
     if (ui->qr_code->setQR(uri, info.address)) {

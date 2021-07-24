@@ -671,51 +671,16 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 
 void setClipboard(const QString& str)
 {
-<<<<<<< HEAD
-    CFURLRef digibyteAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (digibyteAppUrl == nullptr) {
-        return false;
-    }
-
-    LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, digibyteAppUrl);
-
-    CFRelease(digibyteAppUrl);
-    return !!foundItem; // return boolified object
-=======
     QClipboard* clipboard = QApplication::clipboard();
     clipboard->setText(str, QClipboard::Clipboard);
     if (clipboard->supportsSelection()) {
         clipboard->setText(str, QClipboard::Selection);
     }
->>>>>>> bitcoin/8.22.0
 }
 
 fs::path qstringToBoostPath(const QString &path)
 {
-<<<<<<< HEAD
-    CFURLRef digibyteAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (digibyteAppUrl == nullptr) {
-        return false;
-    }
-
-    LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, digibyteAppUrl);
-
-    if(fAutoStart && !foundItem) {
-        // add digibyte app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, digibyteAppUrl, nullptr, nullptr);
-    }
-    else if(!fAutoStart && foundItem) {
-        // remove item
-        LSSharedFileListItemRemove(loginItems, foundItem);
-    }
-
-    CFRelease(digibyteAppUrl);
-    return true;
-=======
     return fs::path(path.toStdString());
->>>>>>> bitcoin/8.22.0
 }
 
 <<<<<<< HEAD

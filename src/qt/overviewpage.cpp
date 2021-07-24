@@ -202,17 +202,6 @@ void OverviewPage::setBalance(const interfaces::WalletBalances& balances)
 {
     int unit = walletModel->getOptionsModel()->getDisplayUnit();
     m_balances = balances;
-<<<<<<< HEAD
-    ui->labelBalance->setText(DigiByteUnits::formatWithUnit(unit, balances.balance, false, DigiByteUnits::separatorAlways));
-    ui->labelUnconfirmed->setText(DigiByteUnits::formatWithUnit(unit, balances.unconfirmed_balance, false, DigiByteUnits::separatorAlways));
-    ui->labelImmature->setText(DigiByteUnits::formatWithUnit(unit, balances.immature_balance, false, DigiByteUnits::separatorAlways));
-    ui->labelTotal->setText(DigiByteUnits::formatWithUnit(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, false, DigiByteUnits::separatorAlways));
-    ui->labelWatchAvailable->setText(DigiByteUnits::formatWithUnit(unit, balances.watch_only_balance, false, DigiByteUnits::separatorAlways));
-    ui->labelWatchPending->setText(DigiByteUnits::formatWithUnit(unit, balances.unconfirmed_watch_only_balance, false, DigiByteUnits::separatorAlways));
-    ui->labelWatchImmature->setText(DigiByteUnits::formatWithUnit(unit, balances.immature_watch_only_balance, false, DigiByteUnits::separatorAlways));
-    ui->labelWatchTotal->setText(DigiByteUnits::formatWithUnit(unit, balances.watch_only_balance + balances.unconfirmed_watch_only_balance + balances.immature_watch_only_balance, false, DigiByteUnits::separatorAlways));
-
-=======
     if (walletModel->wallet().isLegacy()) {
         if (walletModel->wallet().privateKeysDisabled()) {
             ui->labelBalance->setText(DigiByteUnits::formatWithPrivacy(unit, balances.watch_only_balance, DigiByteUnits::SeparatorStyle::ALWAYS, m_privacy));
@@ -235,7 +224,6 @@ void OverviewPage::setBalance(const interfaces::WalletBalances& balances)
         ui->labelImmature->setText(DigiByteUnits::formatWithPrivacy(unit, balances.immature_balance, DigiByteUnits::SeparatorStyle::ALWAYS, m_privacy));
         ui->labelTotal->setText(DigiByteUnits::formatWithPrivacy(unit, balances.balance + balances.unconfirmed_balance + balances.immature_balance, DigiByteUnits::SeparatorStyle::ALWAYS, m_privacy));
     }
->>>>>>> bitcoin/8.22.0
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
     bool showImmature = balances.immature_balance != 0;

@@ -9,17 +9,9 @@
 #include <QDialog>
 #include <QWidget>
 
-<<<<<<< HEAD
-class DigiByteGUI;
-
-namespace interfaces {
-    class Node;
-}
-=======
 QT_BEGIN_NAMESPACE
 class QMainWindow;
 QT_END_NAMESPACE
->>>>>>> bitcoin/8.22.0
 
 namespace Ui {
     class HelpMessageDialog;
@@ -52,13 +44,8 @@ class ShutdownWindow : public QWidget
     Q_OBJECT
 
 public:
-<<<<<<< HEAD
-    explicit ShutdownWindow(QWidget *parent=0, Qt::WindowFlags f=0);
-    static QWidget *showShutdownWindow(DigiByteGUI *window);
-=======
     explicit ShutdownWindow(QWidget *parent=nullptr, Qt::WindowFlags f=Qt::Widget);
     static QWidget* showShutdownWindow(QMainWindow* window);
->>>>>>> bitcoin/8.22.0
 
 protected:
     void closeEvent(QCloseEvent *event) override;

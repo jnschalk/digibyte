@@ -11,14 +11,6 @@
 
 #include <qt/forms/ui_helpmessagedialog.h>
 
-<<<<<<< HEAD
-#include <qt/digibytegui.h>
-#include <qt/clientmodel.h>
-#include <qt/guiconstants.h>
-#include <qt/intro.h>
-#include <qt/paymentrequestplus.h>
-=======
->>>>>>> bitcoin/8.22.0
 #include <qt/guiutil.h>
 
 #include <clientversion.h>
@@ -158,11 +150,7 @@ ShutdownWindow::ShutdownWindow(QWidget *parent, Qt::WindowFlags f):
     GUIUtil::handleCloseWindowShortcut(this);
 }
 
-<<<<<<< HEAD
-QWidget *ShutdownWindow::showShutdownWindow(DigiByteGUI *window)
-=======
 QWidget* ShutdownWindow::showShutdownWindow(QMainWindow* window)
->>>>>>> bitcoin/8.22.0
 {
     assert(window != nullptr);
 

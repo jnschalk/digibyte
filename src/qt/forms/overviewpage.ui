@@ -6,13 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-<<<<<<< HEAD
-    <width>643</width>
-    <height>342</height>
-=======
     <width>798</width>
     <height>318</height>
->>>>>>> bitcoin/8.22.0
    </rect>
   </property>
   <property name="windowTitle">
@@ -128,11 +123,7 @@
                <string>Unconfirmed transactions to watch-only addresses</string>
               </property>
               <property name="text">
-<<<<<<< HEAD
-               <string notr="true">0.000 000 00 DGB</string>
-=======
                <string notr="true">0.00000000 DGB</string>
->>>>>>> bitcoin/8.22.0
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -151,11 +142,7 @@
                <string>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</string>
               </property>
               <property name="text">
-<<<<<<< HEAD
-               <string notr="true">0.000 000 00 DGB</string>
-=======
                <string notr="true">0.00000000 DGB</string>
->>>>>>> bitcoin/8.22.0
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -174,11 +161,7 @@
                <string>Mined balance in watch-only addresses that has not yet matured</string>
               </property>
               <property name="text">
-<<<<<<< HEAD
-               <string notr="true">0.000 000 00 DGB</string>
-=======
                <string notr="true">0.00000000 DGB</string>
->>>>>>> bitcoin/8.22.0
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -230,11 +213,7 @@
                <string>Mined balance that has not yet matured</string>
               </property>
               <property name="text">
-<<<<<<< HEAD
-               <string notr="true">0.000 000 00 DGB</string>
-=======
                <string notr="true">0.00000000 DGB</string>
->>>>>>> bitcoin/8.22.0
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -273,11 +252,7 @@
                <string>Your current total balance</string>
               </property>
               <property name="text">
-<<<<<<< HEAD
-               <string notr="true">0.000 000 00 DGB</string>
-=======
-               <string notr="true">21 000 000.00000000 DGB</string>
->>>>>>> bitcoin/8.22.0
+               <string notr="true">21 000 000 000.00000000 DGB</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -296,11 +271,7 @@
                <string>Current total balance in watch-only addresses</string>
               </property>
               <property name="text">
-<<<<<<< HEAD
-               <string notr="true">0.000 000 00 DGB</string>
-=======
-               <string notr="true">21 000 000.00000000 DGB</string>
->>>>>>> bitcoin/8.22.0
+               <string notr="true">21 000 000 000.00000000 DGB</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -336,11 +307,7 @@
                <string>Your current spendable balance</string>
               </property>
               <property name="text">
-<<<<<<< HEAD
-               <string notr="true">0.000 000 00 DGB</string>
-=======
-               <string notr="true">21 000 000.00000000 DGB</string>
->>>>>>> bitcoin/8.22.0
+               <string notr="true">21 000 000 000.00000000 DGB</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -359,11 +326,7 @@
                <string>Your current balance in watch-only addresses</string>
               </property>
               <property name="text">
-<<<<<<< HEAD
-               <string notr="true">0.000 000 00 DGB</string>
-=======
-               <string notr="true">21 000 000.00000000 DGB</string>
->>>>>>> bitcoin/8.22.0
+               <string notr="true">21 000 000 000.00000000 DGB</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -547,11 +510,6 @@
    </item>
   </layout>
  </widget>
-<<<<<<< HEAD
- <resources>
-  <include location="../digibyte.qrc"/>
- </resources>
-=======
  <customwidgets>
   <customwidget>
    <class>TransactionOverviewWidget</class>
@@ -560,6 +518,5 @@
   </customwidget>
  </customwidgets>
  <resources/>
->>>>>>> bitcoin/8.22.0
  <connections/>
 </ui>

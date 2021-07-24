@@ -10,10 +10,6 @@
 
 #include <QStackedWidget>
 
-<<<<<<< HEAD
-class DigiByteGUI;
-=======
->>>>>>> bitcoin/8.22.0
 class ClientModel;
 class OverviewPage;
 class PlatformStyle;
@@ -43,10 +39,6 @@ public:
     explicit WalletView(const PlatformStyle *platformStyle, QWidget *parent);
     ~WalletView();
 
-<<<<<<< HEAD
-    void setDigiByteGUI(DigiByteGUI *gui);
-=======
->>>>>>> bitcoin/8.22.0
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
     */
