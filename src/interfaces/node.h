@@ -41,8 +41,6 @@ class Handler;
 class WalletClient;
 struct BlockTip;
 
-<<<<<<< HEAD
-=======
 //! Block and header tip information
 struct BlockAndHeaderTipInfo
 {
@@ -53,7 +51,6 @@ struct BlockAndHeaderTipInfo
     double verification_progress;
 };
 
->>>>>>> bitcoin/8.22.0
 //! Top-level interface for a digibyte node (digibyted process).
 class Node
 {
