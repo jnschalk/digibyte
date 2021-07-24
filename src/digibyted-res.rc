@@ -17,10 +17,6 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "DigiByte"
-<<<<<<< HEAD
-<<<<<<< HEAD:src/digibyted-res.rc
-=======
->>>>>>> bitcoin/8.22.0
             VALUE "FileDescription",    "digibyted (DigiByte node with a JSON-RPC server)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "digibyted"
@@ -28,18 +24,6 @@ BEGIN
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "digibyted.exe"
             VALUE "ProductName",        "digibyted"
-<<<<<<< HEAD
-=======
-            VALUE "FileDescription",    "digibyte-cli (JSON-RPC client for " PACKAGE_NAME ")"
-            VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "digibyte-cli"
-            VALUE "LegalCopyright",     COPYRIGHT_STR
-            VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "digibyte-cli.exe"
-            VALUE "ProductName",        "digibyte-cli"
->>>>>>> bitcoin/8.22.0:src/digibyte-cli-res.rc
-=======
->>>>>>> bitcoin/8.22.0
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END
