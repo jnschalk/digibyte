@@ -102,11 +102,7 @@ private:
     QString formatTxDate(const TransactionRecord *wtx) const;
     QString formatTxType(const TransactionRecord *wtx) const;
     QString formatTxToAddress(const TransactionRecord *wtx, bool tooltip) const;
-<<<<<<< HEAD
-    QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, DigiByteUnits::SeparatorStyle separators=DigiByteUnits::separatorStandard) const;
-=======
     QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, DigiByteUnits::SeparatorStyle separators=DigiByteUnits::SeparatorStyle::STANDARD) const;
->>>>>>> bitcoin/8.22.0
     QString formatTooltip(const TransactionRecord *rec) const;
     QVariant txStatusDecoration(const TransactionRecord *wtx) const;
     QVariant txWatchonlyDecoration(const TransactionRecord *wtx) const;
