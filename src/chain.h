@@ -250,7 +250,6 @@ public:
         return *phashBlock;
     }
 
-<<<<<<< HEAD
     uint256 GetBlockPoWHash() const
     {
         CBlockHeader block = GetBlockHeader();
@@ -263,7 +262,6 @@ public:
         return block.GetAlgo();
     }
     
-=======
     /**
      * Check whether this block's and all previous blocks' transactions have been
      * downloaded (and stored to disk) at some point.
@@ -272,7 +270,6 @@ public:
      * Does not imply the transactions are still stored on disk. (IsBlockPruned might return true)
      */
     bool HaveTxsDownloaded() const { return nChainTx != 0; }
->>>>>>> bitcoin/8.22.0
 
     int64_t GetBlockTime() const
     {

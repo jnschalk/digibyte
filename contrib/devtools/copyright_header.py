@@ -16,21 +16,6 @@ import os
 ################################################################################
 
 EXCLUDE = [
-<<<<<<< HEAD
-    # libsecp256k1:
-    'src/secp256k1/include/secp256k1.h',
-    'src/secp256k1/include/secp256k1_ecdh.h',
-    'src/secp256k1/include/secp256k1_recovery.h',
-    'src/secp256k1/include/secp256k1_schnorr.h',
-    'src/secp256k1/src/java/org_digibyte_NativeSecp256k1.c',
-    'src/secp256k1/src/java/org_digibyte_NativeSecp256k1.h',
-    'src/secp256k1/src/java/org_digibyte_Secp256k1Context.c',
-    'src/secp256k1/src/java/org_digibyte_Secp256k1Context.h',
-    # univalue:
-    'src/univalue/test/object.cpp',
-    'src/univalue/lib/univalue_escapes.h',
-=======
->>>>>>> bitcoin/8.22.0
     # auto generated:
     'src/qt/digibytestrings.cpp',
     'src/chainparamsseeds.h',

@@ -44,10 +44,6 @@ def assert_fee_amount(fee, tx_size, fee_per_kB):
     # allow the wallet's estimation to be at most 2 bytes off
     if fee > (tx_size + 2) * fee_per_kB / 1000:
         raise AssertionError("Fee of %s DGB too high! (Should be %s DGB)" % (str(fee), str(target_fee)))
-<<<<<<< HEAD
-=======
-
->>>>>>> bitcoin/8.22.0
 
 def assert_equal(thing1, thing2, *args):
     if thing1 != thing2 or any(thing1 != arg for arg in args):
@@ -346,11 +342,6 @@ def initialize_datadir(dirname, n, chain):
     datadir = get_datadir_path(dirname, n)
     if not os.path.isdir(datadir):
         os.makedirs(datadir)
-<<<<<<< HEAD
-    with open(os.path.join(datadir, "digibyte.conf"), 'w', encoding='utf8') as f:
-        f.write("regtest=1\n")
-        f.write("[regtest]\n")
-=======
     write_config(os.path.join(datadir, "digibyte.conf"), n=n, chain=chain)
     os.makedirs(os.path.join(datadir, 'stderr'), exist_ok=True)
     os.makedirs(os.path.join(datadir, 'stdout'), exist_ok=True)
@@ -370,7 +361,6 @@ def write_config(config_path, *, n, chain, extra_config=""):
             f.write("{}=1\n".format(chain_name_conf_arg))
         if chain_name_conf_section:
             f.write("[{}]\n".format(chain_name_conf_section))
->>>>>>> bitcoin/8.22.0
         f.write("port=" + str(p2p_port(n)) + "\n")
         f.write("rpcport=" + str(rpc_port(n)) + "\n")
         f.write("fallbackfee=0.0002\n")

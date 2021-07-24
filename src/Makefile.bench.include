@@ -12,10 +12,7 @@ GENERATED_BENCH_FILES = $(RAW_BENCH_FILES:.raw=.raw.h)
 
 bench_bench_digibyte_SOURCES = \
   $(RAW_BENCH_FILES) \
-<<<<<<< HEAD
-=======
   bench/addrman.cpp \
->>>>>>> bitcoin/8.22.0
   bench/bench_digibyte.cpp \
   bench/bench.cpp \
   bench/bench.h \

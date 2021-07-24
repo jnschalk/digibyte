@@ -22,8 +22,6 @@ import configparser
 import sys
 
 
-<<<<<<< HEAD
-=======
 def call_with_auth(node, user, password):
     url = urllib.parse.urlparse(node.url)
     headers = {"Authorization": "Basic " + str_to_b64str('{}:{}'.format(user, password))}
@@ -36,7 +34,6 @@ def call_with_auth(node, user, password):
     return resp
 
 
->>>>>>> bitcoin/8.22.0
 class HTTPBasicsTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
@@ -45,10 +42,7 @@ class HTTPBasicsTest(DigiByteTestFramework):
     def setup_chain(self):
         super().setup_chain()
         #Append rpcauth to digibyte.conf before initialization
-<<<<<<< HEAD
-=======
         self.rtpassword = "cA773lm788buwYe4g4WT+05pKyNruVKjQ25x3n0DQcM="
->>>>>>> bitcoin/8.22.0
         rpcauth = "rpcauth=rt:93648e835a54c573682c2eb19f882535$7681e9c5b74bdd85e78166031d2058e1069b3ed7ed967c93fc63abba06f31144"
 
         self.rpcuser = "rpcuser💻"

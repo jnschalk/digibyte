@@ -255,13 +255,8 @@ void Shutdown(NodeContext& node)
     /// for example if the data directory was found to be locked.
     /// Be sure that anything that writes files or flushes caches only does this if the respective
     /// module was initialized.
-<<<<<<< HEAD
-    RenameThread("digibyte-shutoff");
-    mempool.AddTransactionsUpdated(1);
-=======
     util::ThreadRename("shutoff");
     if (node.mempool) node.mempool->AddTransactionsUpdated(1);
->>>>>>> bitcoin/8.22.0
 
     // Changes to mempool should also be made to Dandelion stempool
     stempool.AddTransactionsUpdated(1);
@@ -1338,11 +1333,7 @@ bool AppInitParameterInteraction(const ArgsManager& args)
 static bool LockDataDirectory(bool probeOnly)
 {
     // Make sure only a single DigiByte process is using the data directory.
-<<<<<<< HEAD
-    fs::path datadir = GetDataDir();
-=======
     fs::path datadir = gArgs.GetDataDirNet();
->>>>>>> bitcoin/8.22.0
     if (!DirIsWritable(datadir)) {
         return InitError(strprintf(_("Cannot write to data directory '%s'; check permissions."), datadir.string()));
     }
@@ -1405,14 +1396,6 @@ bool AppInitMain(NodeContext& node, interfaces::BlockAndHeaderTipInfo* tip_info)
         return false;
     }
 
-<<<<<<< HEAD
-    if (!g_logger->m_log_timestamps)
-        LogPrintf("Startup time: %s\n", FormatISO8601DateTime(GetTime()));
-    LogPrintf("Default data directory %s\n", GetDefaultDataDir().string());
-    LogPrintf("Using data directory %s\n", GetDataDir().string());
-    LogPrintf("Using config file %s\n", GetConfigFile(gArgs.GetArg("-conf", DIGIBYTE_CONF_FILENAME)).string());
-=======
->>>>>>> bitcoin/8.22.0
     LogPrintf("Using at most %i automatic connections (%i file descriptors available)\n", nMaxConnections, nFD);
 
     // Warn about relative -datadir path.
@@ -1421,11 +1404,7 @@ bool AppInitMain(NodeContext& node, interfaces::BlockAndHeaderTipInfo* tip_info)
                   "current working directory '%s'. This is fragile, because if digibyte is started in the future "
                   "from a different location, it will be unable to locate the current data files. There could "
                   "also be data loss if digibyte is started while in a temporary directory.\n",
-<<<<<<< HEAD
-            gArgs.GetArg("-datadir", ""), fs::current_path().string());
-=======
                   args.GetArg("-datadir", ""), fs::current_path().string());
->>>>>>> bitcoin/8.22.0
     }
 
     InitSignatureCache();
@@ -1600,22 +1579,18 @@ bool AppInitMain(NodeContext& node, interfaces::BlockAndHeaderTipInfo* tip_info)
         }
     }
 
-<<<<<<< HEAD
     // Algo
-    std::string strAlgo = gArgs.GetArg("-algo", "scrypt");
+    std::string strAlgo = args.GetArg("-algo", "scrypt");
     miningAlgo = GetAlgoByName(strAlgo, ALGO_SCRYPT);
 
     LogPrintf("Selected Algo: %s\n", strAlgo);
 
     // see Step 2: parameter interactions for more information about these
-    fListen = gArgs.GetBoolArg("-listen", DEFAULT_LISTEN);
-    fDiscover = gArgs.GetBoolArg("-discover", true);
-    fRelayTxes = !gArgs.GetBoolArg("-blocksonly", DEFAULT_BLOCKSONLY);
+    fListen = args.GetBoolArg("-listen", DEFAULT_LISTEN);
+    fDiscover = args.GetBoolArg("-discover", true);
+    fRelayTxes = !args.GetBoolArg("-blocksonly", DEFAULT_BLOCKSONLY);
 
-    for (const std::string& strAddr : gArgs.GetArgs("-externalip")) {
-=======
     for (const std::string& strAddr : args.GetArgs("-externalip")) {
->>>>>>> bitcoin/8.22.0
         CService addrLocal;
         if (Lookup(strAddr, addrLocal, GetListenPort(), fNameLookup) && addrLocal.IsValid())
             AddLocal(addrLocal, LOCAL_MANUAL);

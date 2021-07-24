@@ -302,19 +302,6 @@ public:
     //! Calculate the size of the cache (in bytes)
     size_t DynamicMemoryUsage() const;
 
-<<<<<<< HEAD
-    /**
-     * Amount of digibytes coming in to a transaction
-     * Note that lightweight clients may not know anything besides the hash of previous transactions,
-     * so may not be able to calculate this.
-     *
-     * @param[in] tx	transaction for which we are checking input total
-     * @return	Sum of value of all inputs (scriptSigs)
-     */
-    CAmount GetValueIn(const CTransaction& tx) const;
-
-=======
->>>>>>> bitcoin/8.22.0
     //! Check whether all prevouts of the transaction are present in the UTXO set represented by this view
     bool HaveInputs(const CTransaction& tx) const;
 
@@ -347,8 +334,6 @@ void AddCoins(CCoinsViewCache& cache, const CTransaction& tx, int nHeight, bool 
 //! lookups to database, so it should be used with care.
 const Coin& AccessByTxid(const CCoinsViewCache& cache, const uint256& txid);
 
-<<<<<<< HEAD
-=======
 /**
  * This is a minimally invasive approach to shutdown on LevelDB read errors from the
  * chainstate, while keeping user interface out of the common library, which is shared
@@ -373,5 +358,4 @@ private:
 
 };
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_COINS_H
