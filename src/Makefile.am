@@ -25,14 +25,9 @@ else
 LIBUNIVALUE = $(UNIVALUE_LIBS)
 endif
 
-<<<<<<< HEAD
-DIGIBYTE_INCLUDES=-I$(builddir) $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
-
-DIGIBYTE_INCLUDES += -I$(srcdir)/secp256k1/include
-=======
 DIGIBYTE_INCLUDES=-I$(builddir) -I$(srcdir)/secp256k1/include $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
 
->>>>>>> bitcoin/8.22.0
+DIGIBYTE_INCLUDES += -I$(srcdir)/secp256k1/include
 DIGIBYTE_INCLUDES += $(UNIVALUE_CFLAGS)
 
 LIBDIGIBYTE_SERVER=libdigibyte_server.a
@@ -52,10 +47,7 @@ LIBDIGIBYTECONSENSUS=libdigibyteconsensus.la
 endif
 if ENABLE_WALLET
 LIBDIGIBYTE_WALLET=libdigibyte_wallet.a
-<<<<<<< HEAD
-=======
 LIBDIGIBYTE_WALLET_TOOL=libdigibyte_wallet_tool.a
->>>>>>> bitcoin/8.22.0
 endif
 
 LIBDIGIBYTE_CRYPTO= $(LIBDIGIBYTE_CRYPTO_BASE)
@@ -84,13 +76,9 @@ EXTRA_LIBRARIES += \
   $(LIBDIGIBYTE_CONSENSUS) \
   $(LIBDIGIBYTE_SERVER) \
   $(LIBDIGIBYTE_CLI) \
-<<<<<<< HEAD
-  $(LIBDIGIBYTE_WALLET) \
-=======
   $(LIBDIGIBYTE_IPC) \
   $(LIBDIGIBYTE_WALLET) \
   $(LIBDIGIBYTE_WALLET_TOOL) \
->>>>>>> bitcoin/8.22.0
   $(LIBDIGIBYTE_ZMQ)
 
 lib_LTLIBRARIES = $(LIBDIGIBYTECONSENSUS)
@@ -102,12 +90,6 @@ BENCHMARKS =
 
 if BUILD_DIGIBYTED
   bin_PROGRAMS += digibyted
-<<<<<<< HEAD
-endif
-
-if BUILD_DIGIBYTE_UTILS
-  bin_PROGRAMS += digibyte-cli digibyte-tx
-=======
 endif
 
 if BUILD_DIGIBYTE_NODE
@@ -130,7 +112,6 @@ endif
 
 if BUILD_DIGIBYTE_UTIL
   bin_PROGRAMS += digibyte-util
->>>>>>> bitcoin/8.22.0
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -332,11 +313,6 @@ obj/build.h: FORCE
 	@$(top_srcdir)/share/genbuild.sh "$(abs_top_builddir)/src/obj/build.h" \
 	  "$(abs_top_srcdir)"
 libdigibyte_util_a-clientversion.$(OBJEXT): obj/build.h
-<<<<<<< HEAD
-
-# server: shared between digibyted and digibyte-qt
-libdigibyte_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-=======
 
 ipc/capnp/libdigibyte_ipc_a-ipc.$(OBJEXT): $(libdigibyte_ipc_mpgen_input:=.h)
 
@@ -345,7 +321,6 @@ ipc/capnp/libdigibyte_ipc_a-ipc.$(OBJEXT): $(libdigibyte_ipc_mpgen_input:=.h)
 # from wallet and gui code (see node/README.md). Shared code should go in
 # libdigibyte_common or libdigibyte_util libraries, instead.
 libdigibyte_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(NATPMP_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
->>>>>>> bitcoin/8.22.0
 libdigibyte_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_server_a_SOURCES = \
   addrdb.cpp \
@@ -404,11 +379,6 @@ libdigibyte_server_a_SOURCES = \
   validationinterface.cpp \
   versionbits.cpp \
   $(DIGIBYTE_CORE_H)
-<<<<<<< HEAD
-
-if ENABLE_ZMQ
-libdigibyte_zmq_a_CPPFLAGS = $(DIGIBYTE_INCLUDES) $(ZMQ_CFLAGS)
-=======
 
 if ENABLE_WALLET
 libdigibyte_server_a_SOURCES += wallet/init.cpp
@@ -419,7 +389,6 @@ endif
 
 if ENABLE_ZMQ
 libdigibyte_zmq_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(ZMQ_CFLAGS)
->>>>>>> bitcoin/8.22.0
 libdigibyte_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
@@ -432,16 +401,10 @@ endif
 
 # wallet: shared between digibyted and digibyte-qt, but only linked
 # when wallet enabled
-<<<<<<< HEAD
-libdigibyte_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
-libdigibyte_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libdigibyte_wallet_a_SOURCES = \
-  interfaces/wallet.cpp \
-=======
 libdigibyte_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(SQLITE_CFLAGS)
 libdigibyte_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_wallet_a_SOURCES = \
->>>>>>> bitcoin/8.22.0
+  interfaces/wallet.cpp \
   wallet/coincontrol.cpp \
   wallet/context.cpp \
   wallet/crypter.cpp \
@@ -463,8 +426,6 @@ libdigibyte_wallet_a_SOURCES = \
   wallet/walletutil.cpp \
   wallet/coinselection.cpp \
   $(DIGIBYTE_CORE_H)
-<<<<<<< HEAD
-=======
 
 if USE_SQLITE
 libdigibyte_wallet_a_SOURCES += wallet/sqlite.cpp
@@ -478,7 +439,6 @@ libdigibyte_wallet_tool_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_wallet_tool_a_SOURCES = \
   wallet/wallettool.cpp \
   $(DIGIBYTE_CORE_H)
->>>>>>> bitcoin/8.22.0
 
 # crypto primitives library
 crypto_libdigibyte_crypto_base_a_CPPFLAGS = $(AM_CPPFLAGS)
@@ -487,12 +447,8 @@ crypto_libdigibyte_crypto_base_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes_helper.c \
   crypto/aes.h \
-<<<<<<< HEAD
-  crypto/brg_endian.h \
-=======
   crypto/chacha_poly_aead.h \
   crypto/chacha_poly_aead.cpp \
->>>>>>> bitcoin/8.22.0
   crypto/chacha20.h \
   crypto/chacha20.cpp \
   crypto/common.h \
@@ -502,15 +458,10 @@ crypto_libdigibyte_crypto_base_a_SOURCES = \
   crypto/hmac_sha256.h \
   crypto/hmac_sha512.cpp \
   crypto/hmac_sha512.h \
-<<<<<<< HEAD
-  crypto/KeccakP-800-reference.c \
-  crypto/KeccakP-800-SnP.h \
-=======
   crypto/poly1305.h \
   crypto/poly1305.cpp \
   crypto/muhash.h \
   crypto/muhash.cpp \
->>>>>>> bitcoin/8.22.0
   crypto/ripemd160.cpp \
   crypto/ripemd160.h \
   crypto/sha1.cpp \
@@ -520,14 +471,10 @@ crypto_libdigibyte_crypto_base_a_SOURCES = \
   crypto/sha3.cpp \
   crypto/sha3.h \
   crypto/sha512.cpp \
-<<<<<<< HEAD
-  crypto/sha512.h 
-
-=======
   crypto/sha512.h \
   crypto/siphash.cpp \
   crypto/siphash.h
->>>>>>> bitcoin/8.22.0
+
 
 if USE_ASM
 crypto_libdigibyte_crypto_base_a_SOURCES += crypto/sha256_sse4.cpp
@@ -679,13 +626,6 @@ libdigibyte_util_a_SOURCES = \
   support/cleanse.cpp \
   sync.cpp \
   threadinterrupt.cpp \
-<<<<<<< HEAD
-  util.cpp \
-  utilmoneystr.cpp \
-  utilstrencodings.cpp \
-  utiltime.cpp \
-  $(DIGIBYTE_CORE_H)
-=======
   util/asmap.cpp \
   util/bip32.cpp \
   util/bytevectorhash.cpp \
@@ -713,7 +653,6 @@ libdigibyte_util_a_SOURCES = \
 if USE_LIBEVENT
 libdigibyte_util_a_SOURCES += util/url.cpp
 endif
->>>>>>> bitcoin/8.22.0
 
 if GLIBC_BACK_COMPAT
 libdigibyte_util_a_SOURCES += compat/glibc_compat.cpp
@@ -724,35 +663,14 @@ endif
 libdigibyte_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 libdigibyte_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libdigibyte_cli_a_SOURCES = \
-<<<<<<< HEAD
-=======
   compat/stdin.h \
   compat/stdin.cpp \
->>>>>>> bitcoin/8.22.0
   rpc/client.cpp \
   $(DIGIBYTE_CORE_H)
 
 nodist_libdigibyte_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-<<<<<<< HEAD
-# digibyted binary #
-digibyted_SOURCES = digibyted.cpp
-digibyted_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
-digibyted_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-digibyted_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-
-if TARGET_WINDOWS
-digibyted_SOURCES += digibyted-res.rc
-endif
-
-digibyted_LDADD = \
-  $(LIBDIGIBYTE_SERVER) \
-  $(LIBDIGIBYTE_WALLET) \
-  $(LIBDIGIBYTE_COMMON) \
-  $(LIBUNIVALUE) \
-  $(LIBDIGIBYTE_UTIL) \
-=======
 # digibyted & digibyte-node binaries #
 digibyte_daemon_sources = digibyted.cpp
 digibyte_bin_cppflags = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
@@ -763,12 +681,13 @@ if TARGET_WINDOWS
 digibyte_daemon_sources += digibyted-res.rc
 endif
 
+digibyted_LDADD = \
 digibyte_bin_ldadd = \
   $(LIBDIGIBYTE_WALLET) \
   $(LIBDIGIBYTE_COMMON) \
   $(LIBDIGIBYTE_UTIL) \
   $(LIBUNIVALUE) \
->>>>>>> bitcoin/8.22.0
+  $(LIBDIGIBYTE_UTIL) \
   $(LIBDIGIBYTE_ZMQ) \
   $(LIBDIGIBYTE_CONSENSUS) \
   $(LIBDIGIBYTE_CRYPTO) \
@@ -777,10 +696,6 @@ digibyte_bin_ldadd = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-<<<<<<< HEAD
-digibyted_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
-
-=======
 digibyte_bin_ldadd += $(BOOST_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(NATPMP_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(SQLITE_LIBS)
 
 digibyted_SOURCES = $(digibyte_daemon_sources) init/digibyted.cpp
@@ -795,16 +710,11 @@ digibyte_node_CXXFLAGS = $(digibyte_bin_cxxflags)
 digibyte_node_LDFLAGS = $(digibyte_bin_ldflags)
 digibyte_node_LDADD = $(LIBDIGIBYTE_SERVER) $(digibyte_bin_ldadd) $(LIBDIGIBYTE_IPC) $(LIBMULTIPROCESS_LIBS)
 
->>>>>>> bitcoin/8.22.0
 # digibyte-cli binary #
 digibyte_cli_SOURCES = digibyte-cli.cpp
 digibyte_cli_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(EVENT_CFLAGS)
 digibyte_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-<<<<<<< HEAD
-digibyte_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-=======
 digibyte_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
->>>>>>> bitcoin/8.22.0
 
 if TARGET_WINDOWS
 digibyte_cli_SOURCES += digibyte-cli-res.rc
@@ -816,22 +726,14 @@ digibyte_cli_LDADD = \
   $(LIBDIGIBYTE_UTIL) \
   $(LIBDIGIBYTE_CRYPTO)
 
-<<<<<<< HEAD
-digibyte_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
-=======
 digibyte_cli_LDADD += $(BOOST_LIBS) $(EVENT_LIBS)
->>>>>>> bitcoin/8.22.0
 #
 
 # digibyte-tx binary #
 digibyte_tx_SOURCES = digibyte-tx.cpp
 digibyte_tx_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
 digibyte_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-<<<<<<< HEAD
-digibyte_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-=======
 digibyte_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
->>>>>>> bitcoin/8.22.0
 
 if TARGET_WINDOWS
 digibyte_tx_SOURCES += digibyte-tx-res.rc
@@ -845,15 +747,6 @@ digibyte_tx_LDADD = \
   $(LIBDIGIBYTE_CRYPTO) \
   $(LIBSECP256K1)
 
-<<<<<<< HEAD
-digibyte_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
-#
-
-# digibyteconsensus library #
-if BUILD_DIGIBYTE_LIBS
-include_HEADERS = script/digibyteconsensus.h
-libdigibyteconsensus_la_SOURCES = $(crypto_libdigibyte_crypto_base_a_SOURCES) $(libdigibyte_consensus_a_SOURCES)
-=======
 digibyte_tx_LDADD += $(BOOST_LIBS)
 #
 
@@ -894,20 +787,14 @@ digibyte_util_LDADD += $(BOOST_LIBS)
 if BUILD_DIGIBYTE_LIBS
 include_HEADERS = script/digibyteconsensus.h
 libdigibyteconsensus_la_SOURCES = support/cleanse.cpp $(crypto_libdigibyte_crypto_base_a_SOURCES) $(libdigibyte_consensus_a_SOURCES)
->>>>>>> bitcoin/8.22.0
 
 if GLIBC_BACK_COMPAT
   libdigibyteconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
 libdigibyteconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-<<<<<<< HEAD
-libdigibyteconsensus_la_LIBADD = $(LIBSECP256K1) $(BOOST_LIBS) $(CRYPTO_LIBS)
-libdigibyteconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_DIGIBYTE_INTERNAL $(SSL_CFLAGS)
-=======
 libdigibyteconsensus_la_LIBADD = $(LIBSECP256K1)
 libdigibyteconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_DIGIBYTE_INTERNAL
->>>>>>> bitcoin/8.22.0
 libdigibyteconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
