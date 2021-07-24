@@ -9,11 +9,8 @@
 #include <pow.h>
 #include <streams.h>
 
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <test/util/setup_common.h>
->>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 
@@ -370,10 +367,7 @@ BOOST_AUTO_TEST_CASE(TransactionsRequestDeserializationOverflowTest) {
         BOOST_CHECK(0);
     } catch(std::ios_base::failure &) {
         // deserialize should fail
-<<<<<<< HEAD
-=======
         BOOST_CHECK(true); // Needed to suppress "Test case [...] did not check any assertions"
->>>>>>> bitcoin/8.22.0
     }
 }
 

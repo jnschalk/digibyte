@@ -9,13 +9,10 @@
 #include <policy/policy.h>
 #include <primitives/transaction.h>
 #include <script/script.h>
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <script/standard.h>
 #include <test/util/setup_common.h>
 #include <validation.h>
->>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 

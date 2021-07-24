@@ -7,13 +7,8 @@
 #include <scheduler.h>
 #include <util/time.h>
 
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
 
-#include <boost/bind.hpp>
-#include <boost/thread.hpp>
-=======
->>>>>>> bitcoin/8.22.0
 #include <boost/test/unit_test.hpp>
 
 #include <functional>
@@ -157,13 +152,6 @@ BOOST_AUTO_TEST_CASE(singlethreadedscheduler_ordered)
     // the callbacks should run in exactly the order in which they were enqueued
     for (int i = 0; i < 100; ++i) {
         queue1.AddToProcessQueue([i, &counter1]() {
-<<<<<<< HEAD
-            assert(i == counter1++);
-        });
-
-        queue2.AddToProcessQueue([i, &counter2]() {
-            assert(i == counter2++);
-=======
             bool expectation = i == counter1++;
             assert(expectation);
         });
@@ -171,7 +159,6 @@ BOOST_AUTO_TEST_CASE(singlethreadedscheduler_ordered)
         queue2.AddToProcessQueue([i, &counter2]() {
             bool expectation = i == counter2++;
             assert(expectation);
->>>>>>> bitcoin/8.22.0
         });
     }
 

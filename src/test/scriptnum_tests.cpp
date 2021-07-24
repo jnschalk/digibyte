@@ -4,12 +4,9 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <script/script.h>
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <test/scriptnum10.h>
 #include <test/util/setup_common.h>
->>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 #include <limits.h>

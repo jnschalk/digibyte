@@ -3,11 +3,7 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <cuckoocache.h>
-<<<<<<< HEAD
-#include <script/sigcache.h>
 #include <test/test_digibyte.h>
-=======
->>>>>>> bitcoin/8.22.0
 #include <random.h>
 #include <script/sigcache.h>
 #include <test/util/setup_common.h>

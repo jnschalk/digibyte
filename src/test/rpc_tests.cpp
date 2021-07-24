@@ -13,11 +13,8 @@
 #include <test/util/setup_common.h>
 #include <util/time.h>
 
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <any>
->>>>>>> bitcoin/8.22.0
 
 #include <boost/algorithm/string.hpp>
 #include <boost/test/unit_test.hpp>

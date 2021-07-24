@@ -3,11 +3,8 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <bech32.h>
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <test/util/str.h>
->>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 

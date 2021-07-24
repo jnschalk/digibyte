@@ -8,12 +8,9 @@
 
 #include <chain.h>
 #include <rpc/blockchain.h>
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <test/util/setup_common.h>
 #include <util/string.h>
->>>>>>> bitcoin/8.22.0
 
 /* Equality between doubles is imprecise. Comparison should be done
  * with a small threshold of tolerance, rather than exact equality.
@@ -78,15 +75,4 @@ BOOST_AUTO_TEST_CASE(get_difficulty_for_very_high_target)
     TestDifficulty(0x12345678, 5913134931067755359633408.0);
 }
 
-<<<<<<< HEAD
-// Verify that difficulty is 0.00024414 for an empty chain.
-// Genesis Block (scrypt pow) has 0x1e0ffff0 set as difficulty.
-BOOST_AUTO_TEST_CASE(get_difficulty_for_null_tip)
-{
-    double difficulty = GetDifficulty(nullptr);
-    RejectDifficultyMismatch(difficulty, 0.00024414);
-}
-
-=======
->>>>>>> bitcoin/8.22.0
 BOOST_AUTO_TEST_SUITE_END()

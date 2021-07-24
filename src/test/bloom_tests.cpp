@@ -478,17 +478,8 @@ BOOST_AUTO_TEST_CASE(rolling_bloom)
         if (rb1.contains(RandomData()))
             ++nHits;
     }
-<<<<<<< HEAD
-    // Run test_digibyte with --log_level=message to see BOOST_TEST_MESSAGEs:
-    BOOST_TEST_MESSAGE("RollingBloomFilter got " << nHits << " false positives (~100 expected)");
-
-    // Insanely unlikely to get a fp count outside this range:
-    BOOST_CHECK(nHits > 25);
-    BOOST_CHECK(nHits < 175);
-=======
     // Expect about 100 hits
     BOOST_CHECK_EQUAL(nHits, 75U);
->>>>>>> bitcoin/8.22.0
 
     BOOST_CHECK(rb1.contains(data[DATASIZE-1]));
     rb1.reset();

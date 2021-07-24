@@ -17,43 +17,22 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with `make check`.
 
-<<<<<<< HEAD
-To run the digibyted tests manually, launch `src/test/test_digibyte`. To recompile
-after a test file was modified, run `make` and then run the test again. If you
-modify a non-test file, use `make -C src/test` to recompile only what's needed
-to run the digibyted tests.
-
-To add more digibyted tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
-=======
 To run the unit tests manually, launch `src/test/test_digibyte`. To recompile
 after a test file was modified, run `make` and then run the test again. If you
 modify a non-test file, use `make -C src/test` to recompile only what's needed
 to run the unit tests.
 
 To add more unit tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
->>>>>>> bitcoin/8.22.0
 .cpp files in the `test/` directory or add new .cpp files that
 implement new `BOOST_AUTO_TEST_SUITE` sections.
 
-<<<<<<< HEAD
-To run the digibyte-qt tests manually, launch `src/qt/test/test_digibyte-qt`
-
-To add more digibyte-qt tests, add them to the `src/qt/test/` directory and
-=======
 To run the GUI unit tests manually, launch `src/qt/test/test_digibyte-qt`
 
 To add more GUI unit tests, add them to the `src/qt/test/` directory and
->>>>>>> bitcoin/8.22.0
 the `src/qt/test/test_main.cpp` file.
 
 ### Running individual tests
 
-<<<<<<< HEAD
-test_digibyte has some built-in command-line arguments; for
-example, to run just the getarg_tests verbosely:
-
-    test_digibyte --log_level=all --run_test=getarg_tests
-=======
 `test_digibyte` has some built-in command-line arguments; for
 example, to run just the `getarg_tests` verbosely:
 
@@ -63,7 +42,6 @@ example, to run just the `getarg_tests` verbosely:
 test case is entered, for example. The `DEBUG_LOG_OUT` after the two dashes
 redirects the debug log, which would normally go to a file in the test datadir
 (`BasicTestingSetup::m_path_root`), to the standard terminal output.
->>>>>>> bitcoin/8.22.0
 
 ... or to run just the doubledash test:
 

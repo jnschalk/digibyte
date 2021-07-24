@@ -5,12 +5,9 @@
 
 #include <amount.h>
 #include <policy/feerate.h>
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 
 #include <limits>
->>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 
@@ -104,11 +101,7 @@ BOOST_AUTO_TEST_CASE(BinaryOperatorTest)
     BOOST_CHECK(a <= a);
     BOOST_CHECK(b >= a);
     BOOST_CHECK(b >= b);
-<<<<<<< HEAD
-    // a should be 0.00000002 DGB/kB now
-=======
     // a should be 0.00000002 DGB/kvB now
->>>>>>> bitcoin/8.22.0
     a += a;
     BOOST_CHECK(a == b);
 }
@@ -117,13 +110,9 @@ BOOST_AUTO_TEST_CASE(ToStringTest)
 {
     CFeeRate feeRate;
     feeRate = CFeeRate(1);
-<<<<<<< HEAD
-    BOOST_CHECK_EQUAL(feeRate.ToString(), "0.00000001 DGB/kB");
-=======
     BOOST_CHECK_EQUAL(feeRate.ToString(), "0.00000001 DGB/kvB");
     BOOST_CHECK_EQUAL(feeRate.ToString(FeeEstimateMode::DGB_KVB), "0.00000001 DGB/kvB");
     BOOST_CHECK_EQUAL(feeRate.ToString(FeeEstimateMode::SAT_VB), "0.001 sat/vB");
->>>>>>> bitcoin/8.22.0
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -9,15 +9,12 @@
 #include <test/util/logging.h>
 #include <test/util/setup_common.h>
 #include <timedata.h>
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <util/string.h>
 #include <util/translation.h>
 #include <warnings.h>
 
 #include <string>
->>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 

@@ -23,35 +23,13 @@
 #include <util/time.h>
 #include <validation.h>
 
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
 
-=======
 #include <array>
->>>>>>> bitcoin/8.22.0
 #include <stdint.h>
 
 #include <boost/test/unit_test.hpp>
 
-<<<<<<< HEAD
-// Tests these internal-to-net_processing.cpp methods:
-extern bool AddOrphanTx(const CTransactionRef& tx, NodeId peer);
-extern void EraseOrphansFor(NodeId peer);
-extern unsigned int LimitOrphanTxSize(unsigned int nMaxOrphans);
-extern void Misbehaving(NodeId nodeid, int howmuch, const std::string& message="");
-
-// Arbitrary Timeout Value to trigger a disconnect.
-#define CONNECTION_TIMEOUT_MS 20000
-
-struct COrphanTx {
-    CTransactionRef tx;
-    NodeId fromPeer;
-    int64_t nTimeExpire;
-};
-extern std::map<uint256, COrphanTx> mapOrphanTransactions;
-
-=======
->>>>>>> bitcoin/8.22.0
 static CService ip(uint32_t i)
 {
     struct in_addr s;

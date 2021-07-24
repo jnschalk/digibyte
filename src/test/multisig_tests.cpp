@@ -13,10 +13,7 @@
 #include <test/util/setup_common.h>
 #include <tinyformat.h>
 #include <uint256.h>
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
->>>>>>> bitcoin/8.22.0
 
 
 #include <boost/test/unit_test.hpp>
