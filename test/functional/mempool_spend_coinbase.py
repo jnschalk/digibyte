@@ -14,10 +14,6 @@ but less mature coinbase spends are NOT.
 """
 
 from test_framework.test_framework import DigiByteTestFramework
-<<<<<<< HEAD
-from test_framework.blocktools import create_raw_transaction
-=======
->>>>>>> bitcoin/8.22.0
 from test_framework.util import assert_equal, assert_raises_rpc_error
 from test_framework.wallet import MiniWallet
 

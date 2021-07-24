@@ -121,39 +121,6 @@ class ZMQTest (DigiByteTestFramework):
     def skip_test_if_missing_module(self):
         self.skip_if_no_py3_zmq()
         self.skip_if_no_digibyted_zmq()
-<<<<<<< HEAD
-        self.skip_if_no_wallet()
-
-    def setup_nodes(self):
-        # Import keys
-        self.add_nodes(self.num_nodes)
-        self.start_nodes()
-        super().import_deterministic_coinbase_privkeys()
-        self.stop_nodes()
-
-        import zmq
-
-        # Initialize ZMQ context and socket.
-        # All messages are received in the same socket which means
-        # that this test fails if the publishing order changes.
-        # Note that the publishing order is not defined in the documentation and
-        # is subject to change.
-        address = "tcp://127.0.0.1:28332"
-        self.zmq_context = zmq.Context()
-        socket = self.zmq_context.socket(zmq.SUB)
-        socket.set(zmq.RCVTIMEO, 60000)
-        socket.connect(address)
-
-        # Subscribe to all available topics.
-        self.hashblock = ZMQSubscriber(socket, b"hashblock")
-        self.hashtx = ZMQSubscriber(socket, b"hashtx")
-        self.rawblock = ZMQSubscriber(socket, b"rawblock")
-        self.rawtx = ZMQSubscriber(socket, b"rawtx")
-
-        self.nodes[0].extra_args = ["-zmqpub%s=%s" % (sub.topic.decode(), address) for sub in [self.hashblock, self.hashtx, self.rawblock, self.rawtx]]
-        self.start_nodes()
-=======
->>>>>>> bitcoin/8.22.0
 
     def import_deterministic_coinbase_privkeys(self):
         pass

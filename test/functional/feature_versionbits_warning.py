@@ -13,14 +13,8 @@ import re
 
 from test_framework.blocktools import create_block, create_coinbase
 from test_framework.messages import msg_block
-<<<<<<< HEAD
-from test_framework.mininode import P2PInterface, mininode_lock
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import wait_until
-=======
 from test_framework.p2p import P2PInterface
 from test_framework.test_framework import DigiByteTestFramework
->>>>>>> bitcoin/8.22.0
 
 VB_PERIOD = 144           # versionbits period length for regtest
 VB_THRESHOLD = 108        # versionbits activation threshold for regtest

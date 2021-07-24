@@ -8,8 +8,6 @@
 Tests correspond to code in rpc/net.cpp.
 """
 
-<<<<<<< HEAD
-=======
 from decimal import Decimal
 from itertools import product
 import time
@@ -21,7 +19,6 @@ from test_framework.messages import (
     NODE_NETWORK,
     NODE_WITNESS,
 )
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_approx,

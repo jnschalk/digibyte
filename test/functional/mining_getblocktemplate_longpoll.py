@@ -9,15 +9,10 @@ from decimal import Decimal
 import random
 import threading
 
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import get_rpc_proxy, random_transaction
-=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import get_rpc_proxy
 from test_framework.wallet import MiniWallet
->>>>>>> bitcoin/8.22.0
 
 
 class LongpollThread(threading.Thread):

@@ -24,8 +24,6 @@ import http.client
 import os
 import subprocess
 
-<<<<<<< HEAD
-=======
 from test_framework.address import ADDRESS_BCRT1_P2WSH_OP_TRUE
 from test_framework.blocktools import (
     create_block,
@@ -38,7 +36,6 @@ from test_framework.messages import (
     msg_block,
 )
 from test_framework.p2p import P2PInterface
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_equal,
@@ -57,18 +54,10 @@ class BlockchainTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1
-<<<<<<< HEAD
-
-    def skip_test_if_missing_module(self):
-        self.skip_if_no_wallet()
-
-    def run_test(self):
-=======
         self.supports_cli = False
 
     def run_test(self):
         self.mine_chain()
->>>>>>> bitcoin/8.22.0
         self.restart_node(0, extra_args=['-stopatheight=207', '-prune=1'])  # Set extra args with pruning after rescan is complete
 
         self._test_getblockchaininfo()
@@ -241,11 +230,7 @@ class BlockchainTest(DigiByteTestFramework):
         assert_equal(res['transactions'], 200)
         assert_equal(res['height'], 200)
         assert_equal(res['txouts'], 200)
-<<<<<<< HEAD
-        assert_equal(res['bogosize'], 15000),
-=======
         assert_equal(res['bogosize'], 16800),
->>>>>>> bitcoin/8.22.0
         assert_equal(res['bestblock'], node.getblockhash(200))
         size = res['disk_size']
         assert size > 6400

@@ -300,13 +300,9 @@ class CompactBlocksTest(DigiByteTestFramework):
 
     # Compare the generated shortids to what we expect based on BIP 152, given
     # digibyted's choice of nonce.
-<<<<<<< HEAD
-    def test_compactblock_construction(self, node, test_node, version, use_witness_address):
-=======
     def test_compactblock_construction(self, test_node, use_witness_address=True):
         version = test_node.cmpct_version
         node = self.nodes[0]
->>>>>>> bitcoin/8.22.0
         # Generate a bunch of transactions.
         node.generate(COINBASE_MATURITY + 1)
         num_transactions = 25
@@ -618,13 +614,9 @@ class CompactBlocksTest(DigiByteTestFramework):
             test_node.send_and_ping(msg_no_witness_block(block))
         assert_equal(int(node.getbestblockhash(), 16), block.sha256)
 
-<<<<<<< HEAD
-    def test_getblocktxn_handler(self, node, test_node, version):
-=======
     def test_getblocktxn_handler(self, test_node):
         version = test_node.cmpct_version
         node = self.nodes[0]
->>>>>>> bitcoin/8.22.0
         # digibyted will not send blocktxn responses for blocks whose height is
         # more than 10 blocks deep.
         MAX_GETBLOCKTXN_DEPTH = 10

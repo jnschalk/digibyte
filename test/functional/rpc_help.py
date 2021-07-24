@@ -8,9 +8,6 @@
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error
 
-<<<<<<< HEAD
-import os
-=======
 from collections import defaultdict
 import os
 import re
@@ -44,18 +41,11 @@ def process_mapping(fname):
                     cmds.append((name, idx, argname))
     assert not in_rpcs and cmds
     return cmds
->>>>>>> bitcoin/8.22.0
 
 
 class HelpRpcTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
-<<<<<<< HEAD
-
-    def run_test(self):
-        self.test_categories()
-        self.dump_help()
-=======
         self.supports_cli = False
 
     def run_test(self):
@@ -95,7 +85,6 @@ class HelpRpcTest(DigiByteTestFramework):
             if all(convert) != any(convert):
                 # Only allow dummy to fail consistency check
                 assert argname == 'dummy', ('WARNING: conversion mismatch for argument named %s (%s)' % (argname, list(zip(all_methods_by_argname[argname], converts_by_argname[argname]))))
->>>>>>> bitcoin/8.22.0
 
     def test_categories(self):
         node = self.nodes[0]
@@ -117,12 +106,6 @@ class HelpRpcTest(DigiByteTestFramework):
         if self.is_wallet_compiled():
             components.append('Wallet')
 
-<<<<<<< HEAD
-        if self.is_zmq_compiled():
-            components.append('Zmq')
-
-        assert_equal(titles, components)
-=======
         if self.is_external_signer_compiled():
             components.append('Signer')
 
@@ -130,7 +113,6 @@ class HelpRpcTest(DigiByteTestFramework):
             components.append('Zmq')
 
         assert_equal(titles, sorted(components))
->>>>>>> bitcoin/8.22.0
 
     def dump_help(self):
         dump_dir = os.path.join(self.options.tmpdir, 'rpc_help_dump')
@@ -141,14 +123,11 @@ class HelpRpcTest(DigiByteTestFramework):
                 # Make sure the node can generate the help at runtime without crashing
                 f.write(self.nodes[0].help(call))
 
-<<<<<<< HEAD
-=======
     def wallet_help(self):
         assert 'getnewaddress ( "label" "address_type" )' in self.nodes[0].help('getnewaddress')
         self.restart_node(0, extra_args=['-nowallet=1'])
         assert 'getnewaddress ( "label" "address_type" )' in self.nodes[0].help('getnewaddress')
 
->>>>>>> bitcoin/8.22.0
 
 if __name__ == '__main__':
     HelpRpcTest().main()

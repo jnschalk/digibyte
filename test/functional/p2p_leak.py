@@ -83,20 +83,6 @@ class LazyPeer(P2PInterface):
     def on_wtxidrelay(self, message): self.got_wtxidrelay = True
     def on_sendaddrv2(self, message): self.got_sendaddrv2 = True
 
-<<<<<<< HEAD
-# Node that never sends a version. We'll use this to send a bunch of messages
-# anyway, and eventually get disconnected.
-class CNodeNoVersionBan(CLazyNode):
-    # send a bunch of veracks without sending a message. This should get us disconnected.
-    # NOTE: implementation-specific check here. Remove if digibyted ban behavior changes
-    def on_open(self):
-        super().on_open()
-        for i in range(banscore):
-            self.send_message(msg_verack())
-
-    def on_reject(self, message): pass
-=======
->>>>>>> bitcoin/8.22.0
 
 # Peer that sends a version but not a verack.
 class NoVerackIdlePeer(LazyPeer):
@@ -113,25 +99,6 @@ class NoVerackIdlePeer(LazyPeer):
         self.send_message(msg_ping())
         self.send_message(msg_getaddr())
 
-<<<<<<< HEAD
-class P2PLeakTest(DigiByteTestFramework):
-    def set_test_params(self):
-        self.num_nodes = 1
-        self.extra_args = [['-banscore=' + str(banscore)]]
-
-    def skip_test_if_missing_module(self):
-        self.skip_if_no_wallet()
-
-    def run_test(self):
-        no_version_bannode = self.nodes[0].add_p2p_connection(CNodeNoVersionBan(), send_version=False, wait_for_verack=False)
-        no_version_idlenode = self.nodes[0].add_p2p_connection(CNodeNoVersionIdle(), send_version=False, wait_for_verack=False)
-        no_verack_idlenode = self.nodes[0].add_p2p_connection(CNodeNoVerackIdle())
-
-        wait_until(lambda: no_version_bannode.ever_connected, timeout=10, lock=mininode_lock)
-        wait_until(lambda: no_version_idlenode.ever_connected, timeout=10, lock=mininode_lock)
-        wait_until(lambda: no_verack_idlenode.version_received, timeout=10, lock=mininode_lock)
-=======
->>>>>>> bitcoin/8.22.0
 
 class P2PVersionStore(P2PInterface):
     version_received = None

@@ -9,13 +9,6 @@ WARNING:
 This test uses 4GB of disk space.
 This test takes 30 mins or more (up to 2 hours)
 """
-<<<<<<< HEAD
-
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, assert_greater_than, assert_raises_rpc_error, connect_nodes, mine_large_block, sync_blocks, wait_until
-
-=======
->>>>>>> bitcoin/8.22.0
 import os
 
 from test_framework.blocktools import create_coinbase
@@ -106,10 +99,7 @@ class PruneTest(DigiByteTestFramework):
             ["-maxreceivebuffer=20000"],
             ["-prune=550"],
         ]
-<<<<<<< HEAD
-=======
         self.rpc_timeout = 120
->>>>>>> bitcoin/8.22.0
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()

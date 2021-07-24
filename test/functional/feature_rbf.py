@@ -72,33 +72,18 @@ def make_utxo(node, amount, confirmed=True, scriptPubKey=DUMMY_P2WPKH_SCRIPT):
 
 class ReplaceByFeeTest(DigiByteTestFramework):
     def set_test_params(self):
-<<<<<<< HEAD
-        self.num_nodes = 2
-        self.extra_args = [
-            [
-                "-maxorphantx=1000",
-                "-whitelist=127.0.0.1",
-=======
         self.num_nodes = 1
         self.extra_args = [
             [
                 "-acceptnonstdtxn=1",
                 "-maxorphantx=1000",
->>>>>>> bitcoin/8.22.0
                 "-limitancestorcount=50",
                 "-limitancestorsize=101",
                 "-limitdescendantcount=200",
                 "-limitdescendantsize=101",
             ],
-<<<<<<< HEAD
-            [
-                "-mempoolreplacement=0",
-            ],
-        ]
-=======
         ]
         self.supports_cli = False
->>>>>>> bitcoin/8.22.0
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()

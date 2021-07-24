@@ -41,12 +41,6 @@ class RpcCreateMultiSigTest(DigiByteTestFramework):
         self.skip_if_no_wallet()
 
     def get_keys(self):
-<<<<<<< HEAD
-        node0, node1, node2 = self.nodes
-        self.add = [node1.getnewaddress() for _ in range(self.nkeys)]
-        self.pub = [node1.getaddressinfo(a)["pubkey"] for a in self.add]
-        self.priv = [node1.dumpprivkey(a) for a in self.add]
-=======
         self.pub = []
         self.priv = []
         node0, node1, node2 = self.nodes
@@ -55,7 +49,6 @@ class RpcCreateMultiSigTest(DigiByteTestFramework):
             k.generate()
             self.pub.append(k.get_pubkey().get_bytes().hex())
             self.priv.append(bytes_to_wif(k.get_bytes(), k.is_compressed))
->>>>>>> bitcoin/8.22.0
         self.final = node2.getnewaddress()
 
     def run_test(self):
@@ -63,11 +56,7 @@ class RpcCreateMultiSigTest(DigiByteTestFramework):
 
         self.check_addmultisigaddress_errors()
 
-<<<<<<< HEAD
-        # 50 DGB each, rest will be 25 DGB each
-=======
         self.log.info('Generating blocks ...')
->>>>>>> bitcoin/8.22.0
         node0.generate(149)
         self.sync_all()
 

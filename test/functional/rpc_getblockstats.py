@@ -7,11 +7,8 @@
 #
 # Test getblockstats rpc call
 #
-<<<<<<< HEAD
-=======
 
 from test_framework.blocktools import COINBASE_MATURITY
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_equal,

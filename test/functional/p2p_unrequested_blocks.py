@@ -55,13 +55,6 @@ Node1 is unused in tests 3-7:
 import time
 
 from test_framework.blocktools import create_block, create_coinbase, create_tx_with_script
-<<<<<<< HEAD
-from test_framework.messages import CBlockHeader, CInv, msg_block, msg_headers, msg_inv
-from test_framework.mininode import mininode_lock, P2PInterface
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, assert_raises_rpc_error, connect_nodes, sync_blocks
-
-=======
 from test_framework.messages import CBlockHeader, CInv, MSG_BLOCK, msg_block, msg_headers, msg_inv
 from test_framework.p2p import p2p_lock, P2PInterface
 from test_framework.test_framework import DigiByteTestFramework
@@ -71,7 +64,6 @@ from test_framework.util import (
 )
 
 
->>>>>>> bitcoin/8.22.0
 class AcceptBlockTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True

@@ -31,11 +31,7 @@ don't have test cases for.
 - Avoid wildcard imports
 - Use a module-level docstring to describe what the test is testing, and how it
   is testing it.
-<<<<<<< HEAD
-- When subclassing the DigiByteTestFramwork, place overrides for the
-=======
 - When subclassing the DigiByteTestFramework, place overrides for the
->>>>>>> bitcoin/8.22.0
   `set_test_params()`, `add_options()` and `setup_xxxx()` methods at the top of
   the subclass, then locally-defined helper methods, then the `run_test()` method.
 - Use `f'{x}'` for string formatting in preference to `'{}'.format(x)` or `'%s' % x`.
@@ -67,12 +63,6 @@ don't have test cases for.
 - Avoid stop-starting the nodes multiple times during the test if possible. A
   stop-start takes several seconds, so doing it several times blows up the
   runtime of the test.
-<<<<<<< HEAD
-- Set the `self.setup_clean_chain` variable in `set_test_params()` to control whether
-  or not to use the cached data directories. The cached data directories
-  contain a 200-block pre-mined blockchain and wallets for four nodes. Each node
-  has 25 mature blocks (25x50=1250 DGB) in its wallet.
-=======
 - Set the `self.setup_clean_chain` variable in `set_test_params()` to `True` to
   initialize an empty blockchain and start from the Genesis block, rather than
   load a premined blockchain from cache with the default value of `False`. The
@@ -80,7 +70,6 @@ don't have test cases for.
   spendable mining rewards being split between four nodes. Each node has 25
   mature block subsidies (25x50=1250 DGB) in its wallet. Using them is much more
   efficient than mining blocks in your test.
->>>>>>> bitcoin/8.22.0
 - When calling RPCs with lots of arguments, consider using named keyword
   arguments instead of positional arguments to make the intent of the call
   clear to readers.
@@ -123,14 +112,9 @@ p2p_conn = node.add_p2p_connection(P2PInterface())
 p2p_conn.send_and_ping(msg)
 ```
 
-<<<<<<< HEAD
-#### [test_framework/authproxy.py](test_framework/authproxy.py)
-Taken from the [python-digibyterpc repository](https://github.com/jgarzik/python-digibyterpc).
-=======
 They can also be referenced by indexing into a `TestNode`'s `p2ps` list, which
 contains the list of test framework `p2p` objects connected to itself
 (it does not include any `TestNode`s):
->>>>>>> bitcoin/8.22.0
 
 ```python
 node.p2ps[0].sync_with_ping()
@@ -162,16 +146,6 @@ Base class for functional tests.
 #### [util.py](test_framework/util.py)
 Generally useful functions.
 
-<<<<<<< HEAD
-#### [test_framework/mininode.py](test_framework/mininode.py)
-Basic code to support P2P connectivity to a digibyted.
-
-#### [test_framework/script.py](test_framework/script.py)
-Utilities for manipulating transaction scripts (originally from python-digibytelib)
-
-#### [test_framework/key.py](test_framework/key.py)
-Wrapper around OpenSSL EC_Key (originally from python-digibytelib)
-=======
 #### [p2p.py](test_framework/p2p.py)
 Test objects for interacting with a digibyted node over the p2p interface.
 
@@ -180,7 +154,6 @@ Utilities for manipulating transaction scripts (originally from python-digibytel
 
 #### [key.py](test_framework/key.py)
 Test-only secp256k1 elliptic curve implementation
->>>>>>> bitcoin/8.22.0
 
 #### [blocktools.py](test_framework/blocktools.py)
 Helper functions for creating blocks and transactions.

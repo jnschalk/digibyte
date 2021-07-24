@@ -19,11 +19,7 @@ only succeeds past a given node once its nMinimumChainWork has been exceeded.
 import time
 
 from test_framework.test_framework import DigiByteTestFramework
-<<<<<<< HEAD
-from test_framework.util import connect_nodes, assert_equal
-=======
 from test_framework.util import assert_equal
->>>>>>> bitcoin/8.22.0
 
 # 2 hashes required per regtest block (with no difficulty adjustment)
 REGTEST_WORK_PER_BLOCK = 2

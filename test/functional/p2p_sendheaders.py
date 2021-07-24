@@ -186,14 +186,9 @@ class BaseNode(P2PInterface):
         inv should be a list of block hashes."""
 
         test_function = lambda: self.block_announced
-<<<<<<< HEAD
-        wait_until(test_function, timeout=60, lock=mininode_lock)
-        with mininode_lock:
-=======
         self.wait_until(test_function)
 
         with p2p_lock:
->>>>>>> bitcoin/8.22.0
             compare_inv = []
             if "inv" in self.last_message:
                 compare_inv = [x.hash for x in self.last_message["inv"].inv]

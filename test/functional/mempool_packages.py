@@ -9,11 +9,6 @@ from decimal import Decimal
 
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.messages import COIN
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, assert_raises_rpc_error, satoshi_round, sync_blocks, sync_mempools
-
-=======
 from test_framework.p2p import P2PTxInvStore
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
@@ -24,7 +19,6 @@ from test_framework.util import (
 )
 
 # default limits
->>>>>>> bitcoin/8.22.0
 MAX_ANCESTORS = 25
 MAX_DESCENDANTS = 25
 # custom limits for node1
@@ -35,31 +29,6 @@ assert MAX_DESCENDANTS_CUSTOM >= MAX_ANCESTORS_CUSTOM
 class MempoolPackagesTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
-<<<<<<< HEAD
-        self.extra_args = [["-maxorphantx=1000"], ["-maxorphantx=1000", "-limitancestorcount=5"]]
-
-    def skip_test_if_missing_module(self):
-        self.skip_if_no_wallet()
-
-    # Build a transaction that spends parent_txid:vout
-    # Return amount sent
-    def chain_transaction(self, node, parent_txid, vout, value, fee, num_outputs):
-        send_value = satoshi_round((value - fee)/num_outputs)
-        inputs = [ {'txid' : parent_txid, 'vout' : vout} ]
-        outputs = {}
-        for i in range(num_outputs):
-            outputs[node.getnewaddress()] = send_value
-        rawtx = node.createrawtransaction(inputs, outputs)
-        signedtx = node.signrawtransactionwithwallet(rawtx)
-        txid = node.sendrawtransaction(signedtx['hex'])
-        fulltx = node.getrawtransaction(txid, 1)
-        assert(len(fulltx['vout']) == num_outputs) # make sure we didn't generate a change output
-        return (txid, send_value)
-
-    def run_test(self):
-        # Mine some blocks and have them mature.
-        self.nodes[0].generate(101)
-=======
         self.extra_args = [
             [
                 "-maxorphantx=1000",
@@ -79,7 +48,6 @@ class MempoolPackagesTest(DigiByteTestFramework):
         # Mine some blocks and have them mature.
         peer_inv_store = self.nodes[0].add_p2p_connection(P2PTxInvStore()) # keep track of invs
         self.nodes[0].generate(COINBASE_MATURITY + 1)
->>>>>>> bitcoin/8.22.0
         utxo = self.nodes[0].listunspent(10)
         txid = utxo[0]['txid']
         vout = utxo[0]['vout']

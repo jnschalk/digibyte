@@ -79,11 +79,8 @@ def find_spendable_utxo(node, min_value):
 
     raise AssertionError("Unspent output equal or higher than %s not found" % min_value)
 
-<<<<<<< HEAD
-=======
 txs_mined = {} # txindex from txid to blockhash
 
->>>>>>> bitcoin/8.22.0
 class SegWitTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
@@ -91,27 +88,6 @@ class SegWitTest(DigiByteTestFramework):
         # This test tests SegWit both pre and post-activation, so use the normal BIP9 activation.
         self.extra_args = [
             [
-<<<<<<< HEAD
-                "-rpcserialversion=0",
-                "-vbparams=segwit:0:999999999999",
-                "-addresstype=legacy",
-                "-deprecatedrpc=addwitnessaddress",
-            ],
-            [
-                "-blockversion=4",
-                "-rpcserialversion=1",
-                "-vbparams=segwit:0:999999999999",
-                "-addresstype=legacy",
-                "-deprecatedrpc=addwitnessaddress",
-            ],
-            [
-                "-blockversion=536870915",
-                "-vbparams=segwit:0:999999999999",
-                "-addresstype=legacy",
-                "-deprecatedrpc=addwitnessaddress",
-            ],
-        ]
-=======
                 "-acceptnonstdtxn=1",
                 "-rpcserialversion=0",
                 "-segwitheight=432",
@@ -130,7 +106,6 @@ class SegWitTest(DigiByteTestFramework):
             ],
         ]
         self.rpc_timeout = 120
->>>>>>> bitcoin/8.22.0
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()

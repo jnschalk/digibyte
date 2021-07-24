@@ -5,10 +5,6 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test deprecation of RPC calls."""
 from test_framework.test_framework import DigiByteTestFramework
-<<<<<<< HEAD
-from test_framework.util import assert_raises_rpc_error
-=======
->>>>>>> bitcoin/8.22.0
 
 class DeprecatedRpcTest(DigiByteTestFramework):
     def set_test_params(self):

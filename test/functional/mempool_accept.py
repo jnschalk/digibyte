@@ -5,16 +5,11 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test mempool acceptance of raw transactions."""
 
-<<<<<<< HEAD
-from io import BytesIO
-from test_framework.test_framework import DigiByteTestFramework
-=======
 from decimal import Decimal
 import math
 
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.key import ECKey
->>>>>>> bitcoin/8.22.0
 from test_framework.messages import (
     BIP125_SEQUENCE_NUMBER,
     COIN,

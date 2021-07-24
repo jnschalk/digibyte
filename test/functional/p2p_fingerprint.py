@@ -26,10 +26,6 @@ from test_framework.util import (
     assert_equal,
 )
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bitcoin/8.22.0
 class P2PFingerprintTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True

@@ -25,24 +25,15 @@
 from time import sleep
 
 from test_framework.messages import msg_ping
-<<<<<<< HEAD
-from test_framework.mininode import P2PInterface
-from test_framework.test_framework import DigiByteTestFramework
-=======
 from test_framework.p2p import P2PInterface
 from test_framework.test_framework import DigiByteTestFramework
 
->>>>>>> bitcoin/8.22.0
 
 class TestP2PConn(P2PInterface):
     def on_version(self, message):
         # Don't send a verack in response
         pass
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bitcoin/8.22.0
 class TimeoutsTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True

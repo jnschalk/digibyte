@@ -51,10 +51,6 @@ class TestP2PConn(P2PInterface):
         with p2p_lock:
             self.txinvs = []
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bitcoin/8.22.0
 class FeeFilterTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2

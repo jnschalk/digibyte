@@ -89,13 +89,8 @@ class HTTPBasicsTest (DigiByteTestFramework):
         conn.connect()
         conn.request('POST', '/', '{"method": "getbestblockhash"}', headers)
         out1 = conn.getresponse().read()
-<<<<<<< HEAD
-        assert(b'"error":null' in out1)
-        assert(conn.sock!=None) #connection must be closed because digibyted should use keep-alive by default
-=======
         assert b'"error":null' in out1
         assert conn.sock is not None  #connection must be closed because digibyted should use keep-alive by default
->>>>>>> bitcoin/8.22.0
 
         # Check excessive request size
         conn = http.client.HTTPConnection(urlNode2.hostname, urlNode2.port)

@@ -11,11 +11,6 @@ from test_framework.util import (
     assert_equal,
 )
 
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, connect_nodes_bi, sync_blocks
-=======
->>>>>>> bitcoin/8.22.0
 
 class InvalidateTest(DigiByteTestFramework):
     def set_test_params(self):

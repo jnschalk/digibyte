@@ -11,14 +11,8 @@
 """
 
 from test_framework.test_framework import DigiByteTestFramework
-<<<<<<< HEAD
-from test_framework.util import wait_until
-
-class ReindexTest(DigiByteTestFramework):
-=======
 from test_framework.util import assert_equal
 
->>>>>>> bitcoin/8.22.0
 
 class ReindexTest(DigiByteTestFramework):
     def set_test_params(self):

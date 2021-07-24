@@ -6,12 +6,9 @@
 """Test the fundrawtransaction RPC."""
 
 from decimal import Decimal
-<<<<<<< HEAD
-=======
 from itertools import product
 
 from test_framework.descriptors import descsum_create
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_approx,
@@ -43,14 +40,7 @@ class RawTransactionsTest(DigiByteTestFramework):
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
 
-<<<<<<< HEAD
-    def skip_test_if_missing_module(self):
-        self.skip_if_no_wallet()
-
-    def setup_network(self, split=False):
-=======
     def setup_network(self):
->>>>>>> bitcoin/8.22.0
         self.setup_nodes()
 
         self.connect_nodes(0, 1)
@@ -245,11 +235,7 @@ class RawTransactionsTest(DigiByteTestFramework):
         dec_tx  = self.nodes[2].decoderawtransaction(rawtx)
         assert_equal(utx['txid'], dec_tx['vin'][0]['txid'])
 
-<<<<<<< HEAD
-        assert_raises_rpc_error(-5, "changeAddress must be a valid digibyte address", self.nodes[2].fundrawtransaction, rawtx, {'changeAddress':'foobar'})
-=======
         assert_raises_rpc_error(-5, "Change address must be a valid digibyte address", self.nodes[2].fundrawtransaction, rawtx, {'changeAddress':'foobar'})
->>>>>>> bitcoin/8.22.0
 
     def test_valid_change_address(self):
         self.log.info("Test fundrawtxn with a provided change address")
@@ -499,15 +485,6 @@ class RawTransactionsTest(DigiByteTestFramework):
         addr1Obj = self.nodes[2].getaddressinfo(addr1)
         addr2Obj = self.nodes[2].getaddressinfo(addr2)
 
-<<<<<<< HEAD
-        mSigObj = self.nodes[2].addmultisigaddress(2, [addr1Obj['pubkey'], addr2Obj['pubkey']])['address']
-
-
-        # send 1.2 DGB to msig addr
-        txId = self.nodes[0].sendtoaddress(mSigObj, 1.2)
-        self.sync_all()
-        self.nodes[1].generate(1)
-=======
         self.nodes[2].createwallet(wallet_name='wmulti', disable_private_keys=True)
         wmulti = self.nodes[2].get_wallet_rpc('wmulti')
         w2 = self.nodes[2].get_wallet_rpc(self.default_wallet_name)
@@ -524,7 +501,6 @@ class RawTransactionsTest(DigiByteTestFramework):
         # Send 1.2 DGB to msig addr.
         self.nodes[0].sendtoaddress(mSigObj, 1.2)
         self.nodes[0].generate(1)
->>>>>>> bitcoin/8.22.0
         self.sync_all()
 
         oldBalance = self.nodes[1].getbalance()

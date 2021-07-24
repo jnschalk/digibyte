@@ -12,12 +12,6 @@
 import copy
 from decimal import Decimal
 
-<<<<<<< HEAD
-from test_framework.blocktools import create_coinbase
-from test_framework.messages import CBlock
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, assert_raises_rpc_error
-=======
 from test_framework.blocktools import (
     create_coinbase,
     NORMAL_GBT_REQUEST_PARAMS,
@@ -37,7 +31,6 @@ from test_framework.util import (
 
 VERSIONBITS_TOP_BITS = 0x20000000
 VERSIONBITS_DEPLOYMENT_TESTDUMMY_BIT = 28
->>>>>>> bitcoin/8.22.0
 
 
 def assert_template(node, block, expect, rehash=True):
@@ -50,10 +43,6 @@ def assert_template(node, block, expect, rehash=True):
     })
     assert_equal(rsp, expect)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bitcoin/8.22.0
 class MiningTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
