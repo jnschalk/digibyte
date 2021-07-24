@@ -26,14 +26,11 @@ static constexpr uint16_t DEFAULT_GUI_PROXY_PORT = 9050;
  */
 static inline int PruneMiBtoGB(int64_t mib) { return (mib * 1024 * 1024 + GB_BYTES - 1) / GB_BYTES; }
 
-<<<<<<< HEAD
-=======
 /**
  * Convert displayed prune target GB to configured MiB. Round down so roundtrip GB -> MiB -> GB conversion is stable.
  */
 static inline int64_t PruneGBtoMiB(int gb) { return gb * GB_BYTES / 1024 / 1024; }
 
->>>>>>> bitcoin/8.22.0
 /** Interface from Qt to configuration data structure for DigiByte client.
    To Qt, the options are presented as a list with the different options
    laid out vertically.
