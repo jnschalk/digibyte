@@ -24,9 +24,6 @@ public:
     virtual ~WalletInitInterface() {}
 };
 
-<<<<<<< HEAD
-=======
 extern const WalletInitInterface& g_wallet_init_interface;
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_WALLETINITINTERFACE_H
