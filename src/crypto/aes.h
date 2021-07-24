@@ -65,7 +65,6 @@ private:
     unsigned char iv[AES_BLOCKSIZE];
 };
 
-<<<<<<< HEAD
 class AES128CBCEncrypt
 {
 public:
@@ -92,6 +91,4 @@ private:
     unsigned char iv[AES_BLOCKSIZE];
 };
 
-=======
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_CRYPTO_AES_H
