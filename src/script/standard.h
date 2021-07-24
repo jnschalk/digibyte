@@ -147,20 +147,12 @@ struct WitnessUnknown
 /**
  * A txout script template with a specific destination. It is either:
  *  * CNoDestination: no destination set
-<<<<<<< HEAD
- *  * CKeyID: TX_PUBKEYHASH destination (P2PKH)
- *  * CScriptID: TX_SCRIPTHASH destination (P2SH)
- *  * WitnessV0ScriptHash: TX_WITNESS_V0_SCRIPTHASH destination (P2WSH)
- *  * WitnessV0KeyHash: TX_WITNESS_V0_KEYHASH destination (P2WPKH)
- *  * WitnessUnknown: TX_WITNESS_UNKNOWN destination (P2W???)
-=======
  *  * PKHash: TxoutType::PUBKEYHASH destination (P2PKH)
  *  * ScriptHash: TxoutType::SCRIPTHASH destination (P2SH)
  *  * WitnessV0ScriptHash: TxoutType::WITNESS_V0_SCRIPTHASH destination (P2WSH)
  *  * WitnessV0KeyHash: TxoutType::WITNESS_V0_KEYHASH destination (P2WPKH)
  *  * WitnessV1Taproot: TxoutType::WITNESS_V1_TAPROOT destination (P2TR)
  *  * WitnessUnknown: TxoutType::WITNESS_UNKNOWN destination (P2W???)
->>>>>>> bitcoin/8.22.0
  *  A CTxDestination is the internal data type encoded in a digibyte address
  */
 using CTxDestination = std::variant<CNoDestination, PKHash, ScriptHash, WitnessV0ScriptHash, WitnessV0KeyHash, WitnessV1Taproot, WitnessUnknown>;
