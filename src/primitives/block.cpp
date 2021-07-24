@@ -17,12 +17,7 @@
 #include <util.h>
 #include <hash.h>
 #include <tinyformat.h>
-<<<<<<< HEAD
-#include <utilstrencodings.h>
-#include <crypto/common.h>
 #include <arith_uint256.h>
-=======
->>>>>>> bitcoin/8.22.0
 
 uint256 CBlockHeader::GetHash() const
 {
