@@ -355,16 +355,12 @@ class SignRawTransactionsTest(DigiByteTestFramework):
     def run_test(self):
         self.successful_signing_test()
         self.script_verification_error_test()
-<<<<<<< HEAD
-        self.test_with_lock_outputs()
-=======
         self.witness_script_test()
         self.OP_1NEGATE_test()
         self.test_with_lock_outputs()
         self.test_fully_signed_tx()
         self.test_signing_with_csv()
         self.test_signing_with_cltv()
->>>>>>> bitcoin/8.22.0
 
 
 if __name__ == '__main__':

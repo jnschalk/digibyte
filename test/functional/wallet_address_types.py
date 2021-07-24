@@ -54,16 +54,12 @@ Test that the nodes generate the correct change address type:
 from decimal import Decimal
 import itertools
 
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.descriptors import (
     descsum_create,
     descsum_check,
 )
->>>>>>> bitcoin/8.22.0
 from test_framework.util import (
     assert_equal,
     assert_greater_than,

@@ -91,11 +91,7 @@ class ImportMultiTest(DigiByteTestFramework):
 
         # RPC importmulti -----------------------------------------------
 
-<<<<<<< HEAD
-        # DigiByte Address
-=======
         # DigiByte Address (implicit non-internal)
->>>>>>> bitcoin/8.22.0
         self.log.info("Should import an address")
         key = get_key(self.nodes[0])
         self.test_importmulti({"scriptPubKey": {"address": key.p2pkh_addr},

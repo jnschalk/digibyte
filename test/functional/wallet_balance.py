@@ -5,34 +5,22 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the wallet balance RPC methods."""
 from decimal import Decimal
-<<<<<<< HEAD
-
-=======
 import struct
 
 from test_framework.address import ADDRESS_BCRT1_UNSPENDABLE as ADDRESS_WATCHONLY
 from test_framework.blocktools import COINBASE_MATURITY
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
 )
 
-<<<<<<< HEAD
-RANDOM_COINBASE_ADDRESS = 'mneYUmWYsuk7kySiURxCi3AGxrAqZxLgPZ'
-=======
->>>>>>> bitcoin/8.22.0
 
 def create_transactions(node, address, amt, fees):
     # Create and sign raw transactions from node to address for amt.
     # Creates a transaction for each fee and returns an array
     # of the raw transactions.
-<<<<<<< HEAD
-    utxos = node.listunspent(0)
-=======
     utxos = [u for u in node.listunspent(0) if u['spendable']]
->>>>>>> bitcoin/8.22.0
 
     # Create transactions
     inputs = []
@@ -40,16 +28,6 @@ def create_transactions(node, address, amt, fees):
     for utxo in utxos:
         inputs.append({"txid": utxo["txid"], "vout": utxo["vout"]})
         ins_total += utxo['amount']
-<<<<<<< HEAD
-        if ins_total > amt:
-            break
-
-    txs = []
-    for fee in fees:
-        outputs = {address: amt, node.getrawchangeaddress(): ins_total - amt - fee}
-        raw_tx = node.createrawtransaction(inputs, outputs, 0, True)
-        raw_tx = node.signrawtransactionwithwallet(raw_tx)
-=======
         if ins_total >= amt + max(fees):
             break
     # make sure there was enough utxos
@@ -64,7 +42,6 @@ def create_transactions(node, address, amt, fees):
         raw_tx = node.createrawtransaction(inputs, outputs, 0, True)
         raw_tx = node.signrawtransactionwithwallet(raw_tx)
         assert_equal(raw_tx['complete'], True)
->>>>>>> bitcoin/8.22.0
         txs.append(raw_tx)
 
     return txs
@@ -73,34 +50,15 @@ class WalletTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = True
-<<<<<<< HEAD
-=======
         self.extra_args = [
             ['-limitdescendantcount=3'],  # Limit mempool descendants as a hack to have wallet txs rejected from the mempool
             [],
         ]
->>>>>>> bitcoin/8.22.0
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
 
     def run_test(self):
-<<<<<<< HEAD
-        # Check that nodes don't own any UTXOs
-        assert_equal(len(self.nodes[0].listunspent()), 0)
-        assert_equal(len(self.nodes[1].listunspent()), 0)
-
-        self.log.info("Mining one block for each node")
-
-        self.nodes[0].generate(1)
-        self.sync_all()
-        self.nodes[1].generate(1)
-        self.nodes[1].generatetoaddress(100, RANDOM_COINBASE_ADDRESS)
-        self.sync_all()
-
-        assert_equal(self.nodes[0].getbalance(), 50)
-        assert_equal(self.nodes[1].getbalance(), 50)
-=======
         if not self.options.descriptors:
             # Tests legacy watchonly behavior which is not present (and does not need to be tested) in descriptor wallets
             self.nodes[0].importaddress(ADDRESS_WATCHONLY)
@@ -130,15 +88,10 @@ class WalletTest(DigiByteTestFramework):
 
             assert_equal(self.nodes[0].getbalance(), 50)
             assert_equal(self.nodes[1].getbalance(), 50)
->>>>>>> bitcoin/8.22.0
 
         self.log.info("Test getbalance with different arguments")
         assert_equal(self.nodes[0].getbalance("*"), 50)
         assert_equal(self.nodes[0].getbalance("*", 1), 50)
-<<<<<<< HEAD
-        assert_equal(self.nodes[0].getbalance("*", 1, True), 50)
-        assert_equal(self.nodes[0].getbalance(minconf=1), 50)
-=======
         assert_equal(self.nodes[0].getbalance(minconf=1), 50)
         if not self.options.descriptors:
             assert_equal(self.nodes[0].getbalance(minconf=0, include_watchonly=True), 100)
@@ -147,7 +100,6 @@ class WalletTest(DigiByteTestFramework):
             assert_equal(self.nodes[0].getbalance(minconf=0, include_watchonly=True), 50)
             assert_equal(self.nodes[0].getbalance("*", 1, True), 50)
         assert_equal(self.nodes[1].getbalance(minconf=0, include_watchonly=True), 50)
->>>>>>> bitcoin/8.22.0
 
         # Send 40 DGB from 0 to 1 and 60 DGB from 1 to 0.
         txs = create_transactions(self.nodes[0], self.nodes[1].getnewaddress(), 40, [Decimal('0.01')])
@@ -163,41 +115,6 @@ class WalletTest(DigiByteTestFramework):
         # First argument of getbalance must be set to "*"
         assert_raises_rpc_error(-32, "dummy first argument must be excluded or set to \"*\"", self.nodes[1].getbalance, "")
 
-<<<<<<< HEAD
-        self.log.info("Test getbalance and getunconfirmedbalance with unconfirmed inputs")
-
-        # getbalance without any arguments includes unconfirmed transactions, but not untrusted transactions
-        assert_equal(self.nodes[0].getbalance(), Decimal('9.99'))  # change from node 0's send
-        assert_equal(self.nodes[1].getbalance(), Decimal('29.99'))  # change from node 1's send
-        # Same with minconf=0
-        assert_equal(self.nodes[0].getbalance(minconf=0), Decimal('9.99'))
-        assert_equal(self.nodes[1].getbalance(minconf=0), Decimal('29.99'))
-        # getbalance with a minconf incorrectly excludes coins that have been spent more recently than the minconf blocks ago
-        # TODO: fix getbalance tracking of coin spentness depth
-        assert_equal(self.nodes[0].getbalance(minconf=1), Decimal('0'))
-        assert_equal(self.nodes[1].getbalance(minconf=1), Decimal('0'))
-        # getunconfirmedbalance
-        assert_equal(self.nodes[0].getunconfirmedbalance(), Decimal('60'))  # output of node 1's spend
-        assert_equal(self.nodes[1].getunconfirmedbalance(), Decimal('0'))  # Doesn't include output of node 0's send since it was spent
-
-        # Node 1 bumps the transaction fee and resends
-        self.nodes[1].sendrawtransaction(txs[1]['hex'])
-        self.sync_all()
-
-        self.log.info("Test getbalance and getunconfirmedbalance with conflicted unconfirmed inputs")
-
-        assert_equal(self.nodes[0].getwalletinfo()["unconfirmed_balance"], Decimal('60'))  # output of node 1's send
-        assert_equal(self.nodes[0].getunconfirmedbalance(), Decimal('60'))
-        assert_equal(self.nodes[1].getwalletinfo()["unconfirmed_balance"], Decimal('0'))  # Doesn't include output of node 0's send since it was spent
-        assert_equal(self.nodes[1].getunconfirmedbalance(), Decimal('0'))
-
-        self.nodes[1].generatetoaddress(1, RANDOM_COINBASE_ADDRESS)
-        self.sync_all()
-
-        # balances are correct after the transactions are confirmed
-        assert_equal(self.nodes[0].getbalance(), Decimal('69.99'))  # node 1's send plus change from node 0's send
-        assert_equal(self.nodes[1].getbalance(), Decimal('29.98'))  # change from node 0's send
-=======
         self.log.info("Test balances with unconfirmed inputs")
 
         # Before `test_balance()`, we have had two nodes with a balance of 50
@@ -290,16 +207,11 @@ class WalletTest(DigiByteTestFramework):
         assert_equal(self.nodes[1].getbalances()['mine']['trusted'], balance_node1)
         assert_equal(self.nodes[0].getbalance(), balance_node0)
         assert_equal(self.nodes[1].getbalance(), balance_node1)
->>>>>>> bitcoin/8.22.0
 
         # Send total balance away from node 1
         txs = create_transactions(self.nodes[1], self.nodes[0].getnewaddress(), Decimal('29.97'), [Decimal('0.01')])
         self.nodes[1].sendrawtransaction(txs[0]['hex'])
-<<<<<<< HEAD
-        self.nodes[1].generatetoaddress(2, RANDOM_COINBASE_ADDRESS)
-=======
         self.nodes[1].generatetoaddress(2, ADDRESS_WATCHONLY)
->>>>>>> bitcoin/8.22.0
         self.sync_all()
 
         # getbalance with a minconf incorrectly excludes coins that have been spent more recently than the minconf blocks ago
@@ -310,8 +222,6 @@ class WalletTest(DigiByteTestFramework):
         # getbalance with minconf=2 will show the new balance.
         assert_equal(self.nodes[1].getbalance(minconf=2), Decimal('0'))
 
-<<<<<<< HEAD
-=======
         # check mempool transactions count for wallet unconfirmed balance after
         # dynamically loading the wallet.
         before = self.nodes[1].getbalances()['mine']['untrusted_pending']
@@ -369,6 +279,5 @@ class WalletTest(DigiByteTestFramework):
         assert_equal(self.nodes[0].getbalance(minconf=0), total_amount + 1)  # The reorg recovered our fee of 1 coin
 
 
->>>>>>> bitcoin/8.22.0
 if __name__ == '__main__':
     WalletTest().main()

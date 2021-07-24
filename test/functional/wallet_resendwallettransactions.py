@@ -6,11 +6,6 @@
 """Test that the wallet resends transactions periodically."""
 import time
 
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, assert_raises_rpc_error
-
-=======
 from test_framework.blocktools import (
     create_block,
     create_coinbase,
@@ -20,7 +15,6 @@ from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import assert_equal
 
 
->>>>>>> bitcoin/8.22.0
 class ResendWalletTransactionsTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 1

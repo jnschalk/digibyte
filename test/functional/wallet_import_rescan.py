@@ -57,19 +57,11 @@ class Variant(collections.namedtuple("Variant", "call data address_type rescan p
 
         if self.call == Call.single:
             if self.data == Data.address:
-<<<<<<< HEAD
-                response = self.try_rpc(self.node.importaddress, address=self.address["address"], label=self.label, rescan=rescan)
-            elif self.data == Data.pub:
-                response = self.try_rpc(self.node.importpubkey, pubkey=self.address["pubkey"], label=self.label, rescan=rescan)
-            elif self.data == Data.priv:
-                response = self.try_rpc(self.node.importprivkey, privkey=self.key, label=self.label, rescan=rescan)
-=======
                 response = self.node.importaddress(address=self.address["address"], label=self.label, rescan=rescan)
             elif self.data == Data.pub:
                 response = self.node.importpubkey(pubkey=self.address["pubkey"], label=self.label, rescan=rescan)
             elif self.data == Data.priv:
                 response = self.node.importprivkey(privkey=self.key, label=self.label, rescan=rescan)
->>>>>>> bitcoin/8.22.0
             assert_equal(response, None)
 
         elif self.call in (Call.multiaddress, Call.multiscript):
@@ -92,18 +84,11 @@ class Variant(collections.namedtuple("Variant", "call data address_type rescan p
             )
             assert_equal(response, [{"success": True}])
 
-<<<<<<< HEAD
-    def check(self, txid=None, amount=None, confirmations=None):
-        """Verify that listtransactions/listreceivedbyaddress return expected values."""
-
-        txs = self.node.listtransactions(label=self.label, count=10000, skip=0, include_watchonly=True)
-=======
     def check(self, txid=None, amount=None, confirmation_height=None):
         """Verify that listtransactions/listreceivedbyaddress return expected values."""
 
         txs = self.node.listtransactions(label=self.label, count=10000, include_watchonly=True)
         current_height = self.node.getblockcount()
->>>>>>> bitcoin/8.22.0
         assert_equal(len(txs), self.expected_txs)
 
         addresses = self.node.listreceivedbyaddress(minconf=0, include_watchonly=True, address_filter=self.address['address'])
@@ -118,11 +103,7 @@ class Variant(collections.namedtuple("Variant", "call data address_type rescan p
             assert_equal(tx["category"], "receive")
             assert_equal(tx["label"], self.label)
             assert_equal(tx["txid"], txid)
-<<<<<<< HEAD
-            assert_equal(tx["confirmations"], confirmations)
-=======
             assert_equal(tx["confirmations"], 1 + current_height - confirmation_height)
->>>>>>> bitcoin/8.22.0
             assert_equal("trusted" not in tx, True)
 
             address, = [ad for ad in addresses if txid in ad["txids"]]
@@ -189,16 +170,6 @@ class ImportRescanTest(DigiByteTestFramework):
         self.import_deterministic_coinbase_privkeys()
         self.stop_nodes()
 
-<<<<<<< HEAD
-        self.add_nodes(self.num_nodes, extra_args=extra_args)
-
-        # Import keys
-        self.start_nodes(extra_args=[[]] * self.num_nodes)
-        super().import_deterministic_coinbase_privkeys()
-        self.stop_nodes()
-
-=======
->>>>>>> bitcoin/8.22.0
         self.start_nodes()
         for i in range(1, self.num_nodes):
             self.connect_nodes(i, 0)
@@ -211,14 +182,10 @@ class ImportRescanTest(DigiByteTestFramework):
         # each possible type of wallet import RPC.
         for i, variant in enumerate(IMPORT_VARIANTS):
             variant.label = "label {} {}".format(i, variant)
-<<<<<<< HEAD
-            variant.address = self.nodes[1].getaddressinfo(self.nodes[1].getnewaddress(variant.label))
-=======
             variant.address = self.nodes[1].getaddressinfo(self.nodes[1].getnewaddress(
                 label=variant.label,
                 address_type=variant.address_type.value,
             ))
->>>>>>> bitcoin/8.22.0
             variant.key = self.nodes[1].dumpprivkey(variant.address["address"])
             variant.initial_amount = get_rand_amount()
             variant.initial_txid = self.nodes[0].sendtoaddress(variant.address["address"], variant.initial_amount)

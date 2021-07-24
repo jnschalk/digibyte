@@ -14,10 +14,7 @@ Two nodes. Node1 is under test. Node0 is providing transactions and generating b
 import os
 import shutil
 
-<<<<<<< HEAD
-=======
 from test_framework.blocktools import COINBASE_MATURITY
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_equal,

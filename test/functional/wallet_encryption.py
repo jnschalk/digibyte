@@ -14,10 +14,6 @@ from test_framework.util import (
     assert_greater_than_or_equal,
 )
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bitcoin/8.22.0
 class WalletEncryptionTest(DigiByteTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True

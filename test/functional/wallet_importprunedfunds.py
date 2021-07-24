@@ -6,12 +6,9 @@
 """Test the importprunedfunds and removeprunedfunds RPCs."""
 from decimal import Decimal
 
-<<<<<<< HEAD
-=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.address import key_to_p2wpkh
 from test_framework.key import ECKey
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_equal,

@@ -7,10 +7,7 @@
 from decimal import Decimal
 from itertools import product
 
-<<<<<<< HEAD
-=======
 from test_framework.blocktools import COINBASE_MATURITY
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_array_result,
@@ -20,13 +17,10 @@ from test_framework.util import (
 )
 from test_framework.wallet_util import test_address
 
-<<<<<<< HEAD
-=======
 NOT_A_NUMBER_OR_STRING = "Amount is not a number or string"
 OUT_OF_RANGE = "Amount out of range"
 
 
->>>>>>> bitcoin/8.22.0
 class WalletTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
@@ -99,12 +93,6 @@ class WalletTest(DigiByteTestFramework):
         assert_equal(txout['value'], 50)
 
         # Send 21 DGB from 0 to 2 using sendtoaddress call.
-<<<<<<< HEAD
-        # Locked memory should use at least 32 bytes to sign each transaction
-        self.log.info("test getmemoryinfo")
-        memory_before = self.nodes[0].getmemoryinfo()
-=======
->>>>>>> bitcoin/8.22.0
         self.nodes[0].sendtoaddress(self.nodes[2].getnewaddress(), 11)
         mempool_txid = self.nodes[0].sendtoaddress(self.nodes[2].getnewaddress(), 10)
 
@@ -232,11 +220,8 @@ class WalletTest(DigiByteTestFramework):
         assert_equal(self.nodes[2].getbalance(), node_2_bal)
         node_0_bal = self.check_fee_amount(self.nodes[0].getbalance(), Decimal('20'), fee_per_byte, self.get_vsize(self.nodes[2].gettransaction(txid)['hex']))
 
-<<<<<<< HEAD
-=======
         self.log.info("Test sendmany")
 
->>>>>>> bitcoin/8.22.0
         # Sendmany 10 DGB
         txid = self.nodes[2].sendmany('', {address: 10}, 0, "", [])
         self.nodes[2].generate(1)
@@ -279,8 +264,6 @@ class WalletTest(DigiByteTestFramework):
         node_0_bal += amount
         assert_equal(self.nodes[0].getbalance(), node_0_bal)
 
-<<<<<<< HEAD
-=======
         for key in ["totalFee", "feeRate"]:
             assert_raises_rpc_error(-8, "Unknown named parameter key", self.nodes[2].sendtoaddress, address=address, amount=1, fee_rate=1, key=1)
 
@@ -319,7 +302,6 @@ class WalletTest(DigiByteTestFramework):
         self.connect_nodes(0, 3)
         self.sync_all()
 
->>>>>>> bitcoin/8.22.0
         # check if we can list zero value tx as available coins
         # 1. create raw_tx
         # 2. hex-changed one output to 0.0
@@ -568,13 +550,6 @@ class WalletTest(DigiByteTestFramework):
         maintenance = [
             '-rescan',
             '-reindex',
-<<<<<<< HEAD
-            '-zapwallettxes=1',
-            '-zapwallettxes=2',
-            # disabled until issue is fixed: https://github.com/digibyte/digibyte/issues/7463
-            # '-salvagewallet',
-=======
->>>>>>> bitcoin/8.22.0
         ]
         chainlimit = 6
         for m in maintenance:

@@ -8,10 +8,7 @@
 import os
 import shutil
 
-<<<<<<< HEAD
-=======
 from test_framework.blocktools import COINBASE_MATURITY
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_equal,
@@ -28,16 +25,6 @@ class WalletHDTest(DigiByteTestFramework):
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
-<<<<<<< HEAD
-
-    def run_test(self):
-        # Make sure can't switch off usehd after wallet creation
-        self.stop_node(1)
-        self.nodes[1].assert_start_raises_init_error(['-usehd=0'], "Error: Error loading : You can't disable HD on an already existing HD wallet")
-        self.start_node(1)
-        connect_nodes_bi(self.nodes, 0, 1)
-=======
->>>>>>> bitcoin/8.22.0
 
     def run_test(self):
         # Make sure we use hd, keep masterkeyid

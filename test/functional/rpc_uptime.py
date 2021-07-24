@@ -11,10 +11,7 @@ Test corresponds to code in rpc/server.cpp.
 import time
 
 from test_framework.test_framework import DigiByteTestFramework
-<<<<<<< HEAD
-=======
 from test_framework.util import assert_raises_rpc_error
->>>>>>> bitcoin/8.22.0
 
 
 class UptimeTest(DigiByteTestFramework):

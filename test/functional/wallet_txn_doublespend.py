@@ -12,10 +12,6 @@ from test_framework.util import (
     find_output,
 )
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bitcoin/8.22.0
 class TxnMallTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 3

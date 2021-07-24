@@ -6,14 +6,10 @@
 """Test RPC commands for signing and verifying messages."""
 
 from test_framework.test_framework import DigiByteTestFramework
-<<<<<<< HEAD
-from test_framework.util import assert_equal
-=======
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
 )
->>>>>>> bitcoin/8.22.0
 
 class SignMessagesTest(DigiByteTestFramework):
     def set_test_params(self):

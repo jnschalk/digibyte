@@ -15,12 +15,6 @@ Test the following RPCs:
 
 from collections import OrderedDict
 from decimal import Decimal
-<<<<<<< HEAD
-from io import BytesIO
-from test_framework.messages import CTransaction, ToHex
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, assert_raises_rpc_error, bytes_to_hex_str, connect_nodes_bi, hex_str_to_bytes
-=======
 
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.messages import (
@@ -34,7 +28,6 @@ from test_framework.util import (
     find_vout_for_address,
 )
 
->>>>>>> bitcoin/8.22.0
 
 class multidict(dict):
     """Dictionary that allows duplicate keys.
@@ -73,14 +66,7 @@ class RawTransactionsTest(DigiByteTestFramework):
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
 
-<<<<<<< HEAD
-    def skip_test_if_missing_module(self):
-        self.skip_if_no_wallet()
-
-    def setup_network(self, split=False):
-=======
     def setup_network(self):
->>>>>>> bitcoin/8.22.0
         super().setup_network()
         self.connect_nodes(0, 2)
 

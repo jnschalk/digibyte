@@ -66,38 +66,12 @@ class HTTPBasicsTest(DigiByteTestFramework):
         self.password = lines[3]
 
         with open(os.path.join(get_datadir_path(self.options.tmpdir, 0), "digibyte.conf"), 'a', encoding='utf8') as f:
-<<<<<<< HEAD
-            f.write(rpcauth+"\n")
-            f.write(rpcauth2+"\n")
-            f.write(rpcauth3+"\n")
-        with open(os.path.join(get_datadir_path(self.options.tmpdir, 1), "digibyte.conf"), 'a', encoding='utf8') as f:
-            f.write(rpcuser+"\n")
-            f.write(rpcpassword+"\n")
-
-    def run_test(self):
-
-        ##################################################
-        # Check correctness of the rpcauth config option #
-        ##################################################
-        url = urllib.parse.urlparse(self.nodes[0].url)
-
-        #Old authpair
-        authpair = url.username + ':' + url.password
-
-        #New authpair generated via share/rpcauth tool
-        password = "cA773lm788buwYe4g4WT+05pKyNruVKjQ25x3n0DQcM="
-
-        #Second authpair with different username
-        password2 = "8/F3uMDw4KSEbw96U3CA1C4X05dkHDN2BPFjTgZW4KI="
-        authpairnew = "rt:"+password
-=======
             f.write(rpcauth + "\n")
             f.write(rpcauth2 + "\n")
             f.write(rpcauth3 + "\n")
         with open(os.path.join(get_datadir_path(self.options.tmpdir, 1), "digibyte.conf"), 'a', encoding='utf8') as f:
             f.write("rpcuser={}\n".format(self.rpcuser))
             f.write("rpcpassword={}\n".format(self.rpcpassword))
->>>>>>> bitcoin/8.22.0
 
     def test_auth(self, node, user, password):
         self.log.info('Correct...')

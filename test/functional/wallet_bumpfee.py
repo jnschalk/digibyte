@@ -59,26 +59,18 @@ class BumpFeeTest(DigiByteTestFramework):
         self.num_nodes = 2
         self.setup_clean_chain = True
         self.extra_args = [[
-<<<<<<< HEAD
-            "-deprecatedrpc=addwitnessaddress",
-            "-walletrbf={}".format(i),
-=======
             "-walletrbf={}".format(i),
             "-mintxfee=0.00002",
             "-addresstype=bech32",
->>>>>>> bitcoin/8.22.0
         ] for i in range(self.num_nodes)]
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
-<<<<<<< HEAD
-=======
 
     def clear_mempool(self):
         # Clear mempool between subtests. The subtests may only depend on chainstate (utxos)
         self.nodes[1].generate(1)
         self.sync_all()
->>>>>>> bitcoin/8.22.0
 
     def run_test(self):
         # Encrypt wallet for test_locked_wallet_fails test

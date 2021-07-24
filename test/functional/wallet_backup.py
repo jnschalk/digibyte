@@ -55,9 +55,6 @@ class WalletBackupTest(DigiByteTestFramework):
         self.num_nodes = 4
         self.setup_clean_chain = True
         # nodes 1, 2,3 are spenders, let's give them a keypool=100
-<<<<<<< HEAD
-        self.extra_args = [["-keypool=100"], ["-keypool=100"], ["-keypool=100"], []]
-=======
         # whitelist all peers to speed up tx relay / mempool sync
         self.extra_args = [
             ["-whitelist=noban@127.0.0.1", "-keypool=100"],
@@ -66,16 +63,11 @@ class WalletBackupTest(DigiByteTestFramework):
             ["-whitelist=noban@127.0.0.1"],
         ]
         self.rpc_timeout = 120
->>>>>>> bitcoin/8.22.0
 
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
 
-<<<<<<< HEAD
-    def setup_network(self, split=False):
-=======
     def setup_network(self):
->>>>>>> bitcoin/8.22.0
         self.setup_nodes()
         self.connect_nodes(0, 3)
         self.connect_nodes(1, 3)

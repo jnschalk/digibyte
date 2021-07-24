@@ -88,16 +88,11 @@ EXTENDED_SCRIPTS = [
 BASE_SCRIPTS = [
     # Scripts that are run by default.
     # Longest test should go first, to favor running tests in parallel
-<<<<<<< HEAD
-    'wallet_hd.py',
-    'wallet_backup.py',
     'p2p_dandelion.py', # p2p dandelion anonymous tx test
-=======
     'wallet_hd.py --legacy-wallet',
     'wallet_hd.py --descriptors',
     'wallet_backup.py --legacy-wallet',
     'wallet_backup.py --descriptors',
->>>>>>> bitcoin/8.22.0
     # vv Tests less than 5m vv
     'mining_getblocktemplate_longpoll.py',
     'feature_maxuploadtarget.py',
@@ -143,13 +138,9 @@ BASE_SCRIPTS = [
     'wallet_keypool_topup.py --descriptors',
     'feature_fee_estimation.py',
     'interface_zmq.py',
-<<<<<<< HEAD
-    'interface_digibyte_cli.py',
-=======
     'rpc_invalid_address_message.py',
     'interface_digibyte_cli.py',
     'feature_bind_extra.py',
->>>>>>> bitcoin/8.22.0
     'mempool_resurrect.py',
     'wallet_txn_doublespend.py --mineblock',
     'tool_wallet.py --legacy-wallet',
@@ -235,17 +226,12 @@ BASE_SCRIPTS = [
     'p2p_leak_tx.py',
     'p2p_eviction.py',
     'rpc_signmessage.py',
-<<<<<<< HEAD
-    'wallet_balance.py',
-    'feature_nulldummy.py',
-=======
     'rpc_generateblock.py',
     'rpc_generate.py',
     'wallet_balance.py --legacy-wallet',
     'wallet_balance.py --descriptors',
     'feature_nulldummy.py --legacy-wallet',
     'feature_nulldummy.py --descriptors',
->>>>>>> bitcoin/8.22.0
     'mempool_accept.py',
     'mempool_expiry.py',
     'wallet_import_rescan.py --legacy-wallet',
@@ -313,12 +299,9 @@ BASE_SCRIPTS = [
     'wallet_startup.py',
     'p2p_i2p_ports.py',
     'feature_config_args.py',
-<<<<<<< HEAD
-=======
     'feature_settings.py',
     'rpc_getdescriptorinfo.py',
     'rpc_addresses_deprecation.py',
->>>>>>> bitcoin/8.22.0
     'rpc_help.py',
     'feature_help.py',
     'feature_shutdown.py',
@@ -392,15 +375,6 @@ def main():
 
     enable_digibyted = config["components"].getboolean("ENABLE_DIGIBYTED")
 
-<<<<<<< HEAD
-    if config["environment"]["EXEEXT"] == ".exe" and not args.force:
-        # https://github.com/digibyte/digibyte/commit/d52802551752140cf41f0d9a225a43e84404d3e9
-        # https://github.com/digibyte/digibyte/pull/5677#issuecomment-136646964
-        print("Tests currently disabled on Windows by default. Use --force option to enable")
-        sys.exit(0)
-
-=======
->>>>>>> bitcoin/8.22.0
     if not enable_digibyted:
         print("No functional tests to run.")
         print("Rerun ./configure with --with-daemon and then make")
@@ -482,13 +456,6 @@ def main():
 def run_tests(*, test_list, src_dir, build_dir, tmpdir, jobs=1, enable_coverage=False, args=None, combined_logs_len=0, failfast=False, use_term_control):
     args = args or []
 
-<<<<<<< HEAD
-    # Warn if digibyted is already running (unix only)
-    try:
-        if subprocess.check_output(["pidof", "digibyted"]) is not None:
-            print("%sWARNING!%s There is already a digibyted process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
-    except (OSError, subprocess.SubprocessError):
-=======
     # Warn if digibyted is already running
     try:
         # pgrep exits with code zero when one or more matching processes found
@@ -496,7 +463,6 @@ def run_tests(*, test_list, src_dir, build_dir, tmpdir, jobs=1, enable_coverage=
             print("%sWARNING!%s There is already a digibyted process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
     except OSError:
         # pgrep not supported
->>>>>>> bitcoin/8.22.0
         pass
 
     # Warn if there is a cache directory

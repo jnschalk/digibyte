@@ -37,15 +37,8 @@ class WalletGroupTest(DigiByteTestFramework):
     def skip_test_if_missing_module(self):
         self.skip_if_no_wallet()
 
-<<<<<<< HEAD
-    def skip_test_if_missing_module(self):
-        self.skip_if_no_wallet()
-
-    def run_test(self):
-=======
     def run_test(self):
         self.log.info("Setting up")
->>>>>>> bitcoin/8.22.0
         # Mine some coins
         self.nodes[0].generate(COINBASE_MATURITY + 1)
 
