@@ -84,11 +84,7 @@ class PruneTest(DigiByteTestFramework):
 
         # Create nodes 0 and 1 to mine.
         # Create node 2 to test pruning.
-<<<<<<< HEAD
-        self.full_node_default_args = ["-maxreceivebuffer=20000", "-checkblocks=5", "-limitdescendantcount=100", "-limitdescendantsize=5000", "-limitancestorcount=100", "-limitancestorsize=5000"]
-=======
         self.full_node_default_args = ["-maxreceivebuffer=20000", "-checkblocks=5"]
->>>>>>> bitcoin/8.22.0
         # Create nodes 3 and 4 to test manual pruning (they will be re-started with manual pruning later)
         # Create nodes 5 to test wallet in prune mode, but do not connect
         self.extra_args = [
