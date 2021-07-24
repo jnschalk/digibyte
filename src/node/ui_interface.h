@@ -1,20 +1,11 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-<<<<<<< HEAD:src/ui_interface.h
 // Copyright (c) 2009-2019 The Bitcoin Core developers
 // Copyright (c) 2014-2019 The DigiByte Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_UI_INTERFACE_H
-#define DIGIBYTE_UI_INTERFACE_H
-=======
-// Copyright (c) 2012-2020 The DigiByte Core developers
-// Distributed under the MIT software license, see the accompanying
-// file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
 #ifndef DIGIBYTE_NODE_UI_INTERFACE_H
 #define DIGIBYTE_NODE_UI_INTERFACE_H
->>>>>>> bitcoin/8.22.0:src/node/ui_interface.h
 
 #include <functional>
 #include <memory>
@@ -128,8 +119,4 @@ constexpr auto AbortError = InitError;
 
 extern CClientUIInterface uiInterface;
 
-<<<<<<< HEAD:src/ui_interface.h
-#endif // DIGIBYTE_UI_INTERFACE_H
-=======
 #endif // DIGIBYTE_NODE_UI_INTERFACE_H
->>>>>>> bitcoin/8.22.0:src/node/ui_interface.h
