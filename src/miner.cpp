@@ -26,20 +26,7 @@
 #include <algorithm>
 #include <utility>
 
-<<<<<<< HEAD
-// Unconfirmed transactions in the memory pool often depend on other
-// transactions in the memory pool. When we select transactions from the
-// pool, we select by highest fee rate of a transaction combined with all
-// its ancestors.
-
-uint64_t nLastBlockTx = 0;
-uint64_t nLastBlockWeight = 0;
-
-
 int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParams, const CBlockIndex* pindexPrev, int algo)
-=======
-int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParams, const CBlockIndex* pindexPrev)
->>>>>>> bitcoin/8.22.0
 {
     int64_t nOldTime = pblock->nTime;
     int64_t nNewTime = std::max(pindexPrev->GetMedianTimePast()+1, GetAdjustedTime());
@@ -113,11 +100,7 @@ void BlockAssembler::resetBlock()
     nFees = 0;
 }
 
-<<<<<<< HEAD
-std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, int algo, bool fMineWitnessTx)
-=======
-std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn)
->>>>>>> bitcoin/8.22.0
+std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, int algo)
 {
     int64_t nTimeStart = GetTimeMicros();
 
@@ -143,10 +126,7 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     if (!IsAlgoActive(pindexPrev, chainparams.GetConsensus(), algo))
         throw std::runtime_error(strprintf("Algorithm '%s' is not currently active.", GetAlgoName(algo).c_str()));
 
-<<<<<<< HEAD
-=======
     pblock->nVersion = g_versionbitscache.ComputeBlockVersion(pindexPrev, chainparams.GetConsensus());
->>>>>>> bitcoin/8.22.0
     // -regtest only: allow overriding block.nVersion with
     // -blockversion=N to test forking scenarios
     if (chainparams.MineBlocksOnDemand())
