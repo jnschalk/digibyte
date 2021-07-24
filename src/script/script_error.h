@@ -6,11 +6,8 @@
 
 #ifndef DIGIBYTE_SCRIPT_SCRIPT_ERROR_H
 #define DIGIBYTE_SCRIPT_SCRIPT_ERROR_H
-<<<<<<< HEAD
-=======
 
 #include <string>
->>>>>>> bitcoin/8.22.0
 
 typedef enum ScriptError_t
 {
