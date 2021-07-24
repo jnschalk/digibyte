@@ -12,17 +12,11 @@ For example:
 
     make HOST=x86_64-w64-mingw32 -j4
 
-<<<<<<< HEAD
-A prefix will be generated that's suitable for plugging into DigiByte's
-configure. In the above example, a dir named x86_64-w64-mingw32 will be
-created. To use it for DigiByte:
-=======
 **DigiByte Core's `configure` script by default will ignore the depends output.** In
 order for it to pick up libraries, tools, and settings from the depends build,
 you must set the `CONFIG_SITE` environment variable to point to a `config.site` settings file.
 In the above example, a file named `depends/x86_64-w64-mingw32/share/config.site` will be
 created. To use it during compilation:
->>>>>>> bitcoin/8.22.0
 
     CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure
 

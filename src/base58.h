@@ -14,12 +14,9 @@
  */
 #ifndef DIGIBYTE_BASE58_H
 #define DIGIBYTE_BASE58_H
-<<<<<<< HEAD
-=======
 
 #include <attributes.h>
 #include <span.h>
->>>>>>> bitcoin/8.22.0
 
 #include <string>
 #include <vector>

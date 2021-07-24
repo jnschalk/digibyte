@@ -103,8 +103,6 @@ public:
     bool Read(banmap_t& banSet, bool& dirty);
 };
 
-<<<<<<< HEAD
-=======
 /**
  * Dump the anchor IP address database (anchors.dat)
  *
@@ -121,5 +119,4 @@ void DumpAnchors(const fs::path& anchors_db_path, const std::vector<CAddress>& a
  */
 std::vector<CAddress> ReadAnchors(const fs::path& anchors_db_path);
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_ADDRDB_H

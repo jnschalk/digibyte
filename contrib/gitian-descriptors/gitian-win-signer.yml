@@ -15,12 +15,7 @@ remotes:
 - "url": "https://github.com/digibyte-core/digibyte-detached-sigs.git"
   "dir": "signature"
 files:
-<<<<<<< HEAD
-- "osslsigncode-1.7.1.tar.gz"
-- "osslsigncode-Backports-to-1.7.1.patch"
-=======
 - "osslsigncode-2.0.tar.gz"
->>>>>>> bitcoin/8.22.0
 - "digibyte-win-unsigned.tar.gz"
 script: |
   set -e -o pipefail
