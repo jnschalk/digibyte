@@ -11,29 +11,7 @@
 
 #include <string>
 
-<<<<<<< HEAD
-#include <stdint.h>
-
-#ifndef WIN32
-#include <sys/stat.h>
-#endif
-
-#include <boost/thread.hpp>
-
-namespace {
-//! Make sure database has a unique fileid within the environment. If it
-//! doesn't, throw an error. BDB caches do not work properly when more than one
-//! open database has the same fileid (values written to one database may show
-//! up in reads to other databases).
-//!
-//! BerkeleyDB generates unique fileids by default
-//! (https://docs.oracle.com/cd/E17275_01/html/programmer_reference/program_copy.html),
-//! so digibyte should never create different databases with the same fileid, but
-//! this error can be triggered if users manually copy database files.
-void CheckUniqueFileid(const BerkeleyEnvironment& env, const std::string& filename, Db& db)
-=======
 std::vector<fs::path> ListDatabases(const fs::path& wallet_dir)
->>>>>>> bitcoin/8.22.0
 {
     const size_t offset = wallet_dir.string().size() + (wallet_dir == wallet_dir.root_name() ? 0 : 1);
     std::vector<fs::path> paths;

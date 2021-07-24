@@ -176,8 +176,6 @@ public:
     bool TxnAbort() override { return true; }
 };
 
-<<<<<<< HEAD
-=======
 /** A dummy WalletDatabase that does nothing and never fails. Only used by unit tests.
  **/
 class DummyDatabase : public WalletDatabase
@@ -235,5 +233,4 @@ fs::path SQLiteDataFile(const fs::path& path);
 bool IsBDBFile(const fs::path& path);
 bool IsSQLiteFile(const fs::path& path);
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_WALLET_DB_H

@@ -232,25 +232,6 @@ static void SetFeeEstimateMode(const CWallet& wallet, CCoinControl& cc, const Un
     }
 }
 
-<<<<<<< HEAD
-    if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
-        return NullUniValue;
-    }
-
-    if (request.fHelp || request.params.size() > 2)
-        throw std::runtime_error(
-            "getnewaddress ( \"label\" \"address_type\" )\n"
-            "\nReturns a new DigiByte address for receiving payments.\n"
-            "If 'label' is specified, it is added to the address book \n"
-            "so payments received with the address will be associated with 'label'.\n"
-            "\nArguments:\n"
-            "1. \"label\"          (string, optional) The label name for the address to be linked to. If not provided, the default label \"\" is used. It can also be set to the empty string \"\" to represent the default label. The label does not need to exist, it will be created if there is no label by the given name.\n"
-            "2. \"address_type\"   (string, optional) The address type to use. Options are \"legacy\", \"p2sh-segwit\", and \"bech32\". Default is set by -addresstype.\n"
-            "\nResult:\n"
-            "\"address\"    (string) The new digibyte address\n"
-            "\nExamples:\n"
-            + HelpExampleCli("getnewaddress", "")
-=======
 static RPCHelpMan getnewaddress()
 {
     return RPCHelpMan{"getnewaddress",
@@ -266,7 +247,6 @@ static RPCHelpMan getnewaddress()
                 },
                 RPCExamples{
                     HelpExampleCli("getnewaddress", "")
->>>>>>> bitcoin/8.22.0
             + HelpExampleRpc("getnewaddress", "")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
@@ -296,55 +276,6 @@ static RPCHelpMan getnewaddress()
     }
 
     CTxDestination dest;
-<<<<<<< HEAD
-    if (!pwallet->GetLabelDestination(dest, label, bForceNew)) {
-        throw JSONRPCError(RPC_WALLET_KEYPOOL_RAN_OUT, "Error: Keypool ran out, please call keypoolrefill first");
-    }
-
-    return dest;
-}
-
-static UniValue getaccountaddress(const JSONRPCRequest& request)
-{
-    std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
-    CWallet* const pwallet = wallet.get();
-
-    if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
-        return NullUniValue;
-    }
-
-    if (!IsDeprecatedRPCEnabled("accounts")) {
-        if (request.fHelp) {
-            throw std::runtime_error("getaccountaddress (Deprecated, will be removed in V0.18. To use this command, start digibyted with -deprecatedrpc=accounts)");
-        }
-        throw JSONRPCError(RPC_METHOD_DEPRECATED, "getaccountaddress is deprecated and will be removed in V0.18. To use this command, start digibyted with -deprecatedrpc=accounts.");
-    }
-
-    if (request.fHelp || request.params.size() != 1)
-        throw std::runtime_error(
-            "getaccountaddress \"account\"\n"
-            "\n\nDEPRECATED. Returns the current DigiByte address for receiving payments to this account.\n"
-            "\nArguments:\n"
-            "1. \"account\"       (string, required) The account for the address. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created and a new address created  if there is no account by the given name.\n"
-            "\nResult:\n"
-            "\"address\"          (string) The account digibyte address\n"
-            "\nExamples:\n"
-            + HelpExampleCli("getaccountaddress", "")
-            + HelpExampleCli("getaccountaddress", "\"\"")
-            + HelpExampleCli("getaccountaddress", "\"myaccount\"")
-            + HelpExampleRpc("getaccountaddress", "\"myaccount\"")
-        );
-
-    LOCK2(cs_main, pwallet->cs_wallet);
-
-    // Parse the account first so we don't generate a key if there's an error
-    std::string account = LabelFromValue(request.params[0]);
-
-    UniValue ret(UniValue::VSTR);
-
-    ret = EncodeDestination(GetLabelDestination(pwallet, account));
-    return ret;
-=======
     std::string error;
     if (!pwallet->GetNewDestination(output_type, label, dest, error)) {
         throw JSONRPCError(RPC_WALLET_KEYPOOL_RAN_OUT, error);
@@ -353,31 +284,10 @@ static UniValue getaccountaddress(const JSONRPCRequest& request)
     return EncodeDestination(dest);
 },
     };
->>>>>>> bitcoin/8.22.0
 }
 
 static RPCHelpMan getrawchangeaddress()
 {
-<<<<<<< HEAD
-    std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
-    CWallet* const pwallet = wallet.get();
-
-    if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
-        return NullUniValue;
-    }
-
-    if (request.fHelp || request.params.size() > 1)
-        throw std::runtime_error(
-            "getrawchangeaddress ( \"address_type\" )\n"
-            "\nReturns a new DigiByte address, for receiving change.\n"
-            "This is for use with raw transactions, NOT normal use.\n"
-            "\nArguments:\n"
-            "1. \"address_type\"           (string, optional) The address type to use. Options are \"legacy\", \"p2sh-segwit\", and \"bech32\". Default is set by -changetype.\n"
-            "\nResult:\n"
-            "\"address\"    (string) The address\n"
-            "\nExamples:\n"
-            + HelpExampleCli("getrawchangeaddress", "")
-=======
     return RPCHelpMan{"getrawchangeaddress",
                 "\nReturns a new DigiByte address, for receiving change.\n"
                 "This is for use with raw transactions, NOT normal use.\n",
@@ -389,7 +299,6 @@ static RPCHelpMan getrawchangeaddress()
                 },
                 RPCExamples{
                     HelpExampleCli("getrawchangeaddress", "")
->>>>>>> bitcoin/8.22.0
             + HelpExampleRpc("getrawchangeaddress", "")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
@@ -426,33 +335,6 @@ static RPCHelpMan getrawchangeaddress()
 
 static RPCHelpMan setlabel()
 {
-<<<<<<< HEAD
-    std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
-    CWallet* const pwallet = wallet.get();
-
-    if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
-        return NullUniValue;
-    }
-
-    if (!IsDeprecatedRPCEnabled("accounts") && request.strMethod == "setaccount") {
-        if (request.fHelp) {
-            throw std::runtime_error("setaccount (Deprecated, will be removed in V0.18. To use this command, start digibyted with -deprecatedrpc=accounts)");
-        }
-        throw JSONRPCError(RPC_METHOD_DEPRECATED, "setaccount is deprecated and will be removed in V0.18. To use this command, start digibyted with -deprecatedrpc=accounts.");
-    }
-
-    if (request.fHelp || request.params.size() != 2)
-        throw std::runtime_error(
-            "setlabel \"address\" \"label\"\n"
-            "\nSets the label associated with the given address.\n"
-            "\nArguments:\n"
-            "1. \"address\"         (string, required) The digibyte address to be associated with a label.\n"
-            "2. \"label\"           (string, required) The label to assign to the address.\n"
-            "\nExamples:\n"
-            + HelpExampleCli("setlabel", "\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\" \"tabby\"")
-            + HelpExampleRpc("setlabel", "\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\", \"tabby\"")
-        );
-=======
     return RPCHelpMan{"setlabel",
                 "\nSets the label associated with the given address.\n",
                 {
@@ -468,7 +350,6 @@ static RPCHelpMan setlabel()
 {
     std::shared_ptr<CWallet> const pwallet = GetWalletForJSONRPCRequest(request);
     if (!pwallet) return NullUniValue;
->>>>>>> bitcoin/8.22.0
 
     LOCK(pwallet->cs_wallet);
 
@@ -555,49 +436,12 @@ void ParseRecipients(const UniValue& address_amounts, const UniValue& subtract_f
         CScript script_pub_key = GetScriptForDestination(dest);
         CAmount amount = AmountFromValue(address_amounts[i++]);
 
-<<<<<<< HEAD
-    if (!IsDeprecatedRPCEnabled("accounts")) {
-        if (request.fHelp) {
-            throw std::runtime_error("getaddressbyaccount (Deprecated, will be removed in V0.18. To use this command, start digibyted with -deprecatedrpc=accounts)");
-        }
-        throw JSONRPCError(RPC_METHOD_DEPRECATED, "getaddressesbyaccount is deprecated and will be removed in V0.18. To use this command, start digibyted with -deprecatedrpc=accounts.");
-    }
-
-    if (request.fHelp || request.params.size() != 1)
-        throw std::runtime_error(
-            "getaddressesbyaccount \"account\"\n"
-            "\nDEPRECATED. Returns the list of addresses for the given account.\n"
-            "\nArguments:\n"
-            "1. \"account\"        (string, required) The account name.\n"
-            "\nResult:\n"
-            "[                     (json array of string)\n"
-            "  \"address\"         (string) a digibyte address associated with the given account\n"
-            "  ,...\n"
-            "]\n"
-            "\nExamples:\n"
-            + HelpExampleCli("getaddressesbyaccount", "\"tabby\"")
-            + HelpExampleRpc("getaddressesbyaccount", "\"tabby\"")
-        );
-
-    LOCK2(cs_main, pwallet->cs_wallet);
-
-    std::string strAccount = LabelFromValue(request.params[0]);
-
-    // Find all addresses that have the given account
-    UniValue ret(UniValue::VARR);
-    for (const std::pair<const CTxDestination, CAddressBookData>& item : pwallet->mapAddressBook) {
-        const CTxDestination& dest = item.first;
-        const std::string& strName = item.second.name;
-        if (strName == strAccount) {
-            ret.push_back(EncodeDestination(dest));
-=======
         bool subtract_fee = false;
         for (unsigned int idx = 0; idx < subtract_fee_outputs.size(); idx++) {
             const UniValue& addr = subtract_fee_outputs[idx];
             if (addr.get_str() == address) {
                 subtract_fee = true;
             }
->>>>>>> bitcoin/8.22.0
         }
 
         CRecipient recipient = {script_pub_key, amount, subtract_fee};
@@ -615,13 +459,8 @@ UniValue SendMoney(CWallet& wallet, const CCoinControl &coin_control, std::vecto
         throw JSONRPCError(RPC_WALLET_ERROR, "Error: Private keys are disabled for this wallet");
     }
 
-<<<<<<< HEAD
-    // Parse DigiByte address
-    CScript scriptPubKey = GetScriptForDestination(address);
-=======
     // Shuffle recipient list
     std::shuffle(recipients.begin(), recipients.end(), FastRandomContext());
->>>>>>> bitcoin/8.22.0
 
     // Send
     CAmount nFeeRequired = 0;
@@ -645,44 +484,6 @@ UniValue SendMoney(CWallet& wallet, const CCoinControl &coin_control, std::vecto
 
 static RPCHelpMan sendtoaddress()
 {
-<<<<<<< HEAD
-    std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
-    CWallet* const pwallet = wallet.get();
-
-    if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
-        return NullUniValue;
-    }
-
-    if (request.fHelp || request.params.size() < 2 || request.params.size() > 8)
-        throw std::runtime_error(
-            "sendtoaddress \"address\" amount ( \"comment\" \"comment_to\" subtractfeefromamount replaceable conf_target \"estimate_mode\")\n"
-            "\nSend an amount to a given address.\n"
-            + HelpRequiringPassphrase(pwallet) +
-            "\nArguments:\n"
-            "1. \"address\"            (string, required) The digibyte address to send to.\n"
-            "2. \"amount\"             (numeric or string, required) The amount in " + CURRENCY_UNIT + " to send. eg 0.1\n"
-            "3. \"comment\"            (string, optional) A comment used to store what the transaction is for. \n"
-            "                             This is not part of the transaction, just kept in your wallet.\n"
-            "4. \"comment_to\"         (string, optional) A comment to store the name of the person or organization \n"
-            "                             to which you're sending the transaction. This is not part of the \n"
-            "                             transaction, just kept in your wallet.\n"
-            "5. subtractfeefromamount  (boolean, optional, default=false) The fee will be deducted from the amount being sent.\n"
-            "                             The recipient will receive less digibytes than you enter in the amount field.\n"
-            "6. replaceable            (boolean, optional) Allow this transaction to be replaced by a transaction with higher fees via BIP 125\n"
-            "7. conf_target            (numeric, optional) Confirmation target (in blocks)\n"
-            "8. \"estimate_mode\"      (string, optional, default=UNSET) The fee estimate mode, must be one of:\n"
-            "       \"UNSET\"\n"
-            "       \"ECONOMICAL\"\n"
-            "       \"CONSERVATIVE\"\n"
-            "\nResult:\n"
-            "\"txid\"                  (string) The transaction id.\n"
-            "\nExamples:\n"
-            + HelpExampleCli("sendtoaddress", "\"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\" 0.1")
-            + HelpExampleCli("sendtoaddress", "\"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\" 0.1 \"donation\" \"seans outpost\"")
-            + HelpExampleCli("sendtoaddress", "\"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\" 0.1 \"\" \"\" true")
-            + HelpExampleRpc("sendtoaddress", "\"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\", 0.1, \"donation\", \"seans outpost\"")
-        );
-=======
     return RPCHelpMan{"sendtoaddress",
                 "\nSend an amount to a given address." +
         HELP_REQUIRING_PASSPHRASE,
@@ -734,7 +535,6 @@ static RPCHelpMan sendtoaddress()
 {
     std::shared_ptr<CWallet> const pwallet = GetWalletForJSONRPCRequest(request);
     if (!pwallet) return NullUniValue;
->>>>>>> bitcoin/8.22.0
 
     // Make sure the results are valid at least up to the most recent block
     // the user could have gotten from another RPC command prior to now
@@ -876,26 +676,6 @@ static RPCHelpMan listaddressgroupings()
 
 static RPCHelpMan signmessage()
 {
-<<<<<<< HEAD
-    std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
-    CWallet* const pwallet = wallet.get();
-
-    if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
-        return NullUniValue;
-    }
-
-    if (request.fHelp || request.params.size() != 2)
-        throw std::runtime_error(
-            "signmessage \"address\" \"message\"\n"
-            "\nSign a message with the private key of an address"
-            + HelpRequiringPassphrase(pwallet) + "\n"
-            "\nArguments:\n"
-            "1. \"address\"         (string, required) The digibyte address to use for the private key.\n"
-            "2. \"message\"         (string, required) The message to create a signature of.\n"
-            "\nResult:\n"
-            "\"signature\"          (string) The signature of the message encoded in base 64\n"
-            "\nExamples:\n"
-=======
     return RPCHelpMan{"signmessage",
                 "\nSign a message with the private key of an address" +
         HELP_REQUIRING_PASSPHRASE,
@@ -907,7 +687,6 @@ static RPCHelpMan signmessage()
                     RPCResult::Type::STR, "signature", "The signature of the message encoded in base 64"
                 },
                 RPCExamples{
->>>>>>> bitcoin/8.22.0
             "\nUnlock the wallet for 30 seconds\n"
             + HelpExampleCli("walletpassphrase", "\"mypassphrase\" 30") +
             "\nCreate the signature\n"
@@ -1072,25 +851,6 @@ static RPCHelpMan getreceivedbyaddress()
     // the user could have gotten from another RPC command prior to now
     pwallet->BlockUntilSyncedToCurrentChain();
 
-<<<<<<< HEAD
-    if (!IsDeprecatedRPCEnabled("accounts") && request.strMethod == "getreceivedbyaccount") {
-        if (request.fHelp) {
-            throw std::runtime_error("getreceivedbyaccount (Deprecated, will be removed in V0.18. To use this command, start digibyted with -deprecatedrpc=accounts)");
-        }
-        throw JSONRPCError(RPC_METHOD_DEPRECATED, "getreceivedbyaccount is deprecated and will be removed in V0.18. To use this command, start digibyted with -deprecatedrpc=accounts.");
-    }
-
-    if (request.fHelp || request.params.size() < 1 || request.params.size() > 2)
-        throw std::runtime_error(
-            "getreceivedbylabel \"label\" ( minconf )\n"
-            "\nReturns the total amount received by addresses with <label> in transactions with at least [minconf] confirmations.\n"
-            "\nArguments:\n"
-            "1. \"label\"        (string, required) The selected label, may be the default label using \"\".\n"
-            "2. minconf          (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
-            "\nResult:\n"
-            "amount              (numeric) The total amount in " + CURRENCY_UNIT + " received for this label.\n"
-            "\nExamples:\n"
-=======
     LOCK(pwallet->cs_wallet);
 
     return ValueFromAmount(GetReceived(*pwallet, request.params, /* by_label */ false));
@@ -1111,7 +871,6 @@ static RPCHelpMan getreceivedbylabel()
                     RPCResult::Type::STR_AMOUNT, "amount", "The total amount in " + CURRENCY_UNIT + " received for this label."
                 },
                 RPCExamples{
->>>>>>> bitcoin/8.22.0
             "\nAmount received by the default label with at least 1 confirmation\n"
             + HelpExampleCli("getreceivedbylabel", "\"\"") +
             "\nAmount received at the tabby label including unconfirmed amounts with zero confirmations\n"
@@ -1140,54 +899,6 @@ static RPCHelpMan getreceivedbylabel()
 
 static RPCHelpMan getbalance()
 {
-<<<<<<< HEAD
-    std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
-    CWallet* const pwallet = wallet.get();
-
-    if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
-        return NullUniValue;
-    }
-
-    if (request.fHelp || (request.params.size() > 3 ))
-        throw std::runtime_error(
-           (IsDeprecatedRPCEnabled("accounts") ? std::string(
-            "getbalance ( \"account\" minconf include_watchonly )\n"
-            "\nIf account is not specified, returns the server's total available balance.\n"
-            "The available balance is what the wallet considers currently spendable, and is\n"
-            "thus affected by options which limit spendability such as -spendzeroconfchange.\n"
-            "If account is specified (DEPRECATED), returns the balance in the account.\n"
-            "Note that the account \"\" is not the same as leaving the parameter out.\n"
-            "The server total may be different to the balance in the default \"\" account.\n"
-            "\nArguments:\n"
-            "1. \"account\"         (string, optional) DEPRECATED. This argument will be removed in V0.18. \n"
-            "                     To use this deprecated argument, start digibyted with -deprecatedrpc=accounts. The account string may be given as a\n"
-            "                     specific account name to find the balance associated with wallet keys in\n"
-            "                     a named account, or as the empty string (\"\") to find the balance\n"
-            "                     associated with wallet keys not in any named account, or as \"*\" to find\n"
-            "                     the balance associated with all wallet keys regardless of account.\n"
-            "                     When this option is specified, it calculates the balance in a different\n"
-            "                     way than when it is not specified, and which can count spends twice when\n"
-            "                     there are conflicting pending transactions (such as those created by\n"
-            "                     the bumpfee command), temporarily resulting in low or even negative\n"
-            "                     balances. In general, account balance calculation is not considered\n"
-            "                     reliable and has resulted in confusing outcomes, so it is recommended to\n"
-            "                     avoid passing this argument.\n"
-            "2. minconf           (numeric, optional) Only include transactions confirmed at least this many times. \n"
-            "                     The default is 1 if an account is provided or 0 if no account is provided\n")
-            : std::string(
-            "getbalance ( \"(dummy)\" minconf include_watchonly )\n"
-            "\nReturns the total available balance.\n"
-            "The available balance is what the wallet considers currently spendable, and is\n"
-            "thus affected by options which limit spendability such as -spendzeroconfchange.\n"
-            "\nArguments:\n"
-            "1. (dummy)           (string, optional) Remains for backward compatibility. Must be excluded or set to \"*\".\n"
-            "2. minconf           (numeric, optional, default=0) Only include transactions confirmed at least this many times.\n")) +
-            "3. include_watchonly (bool, optional, default=false) Also include balance in watch-only addresses (see 'importaddress')\n"
-            "\nResult:\n"
-            "amount              (numeric) The total amount in " + CURRENCY_UNIT + " received for this account.\n"
-            "\nExamples:\n"
-            "\nThe total amount in the wallet with 1 or more confirmations\n"
-=======
     return RPCHelpMan{"getbalance",
                 "\nReturns the total available balance.\n"
                 "The available balance is what the wallet considers currently spendable, and is\n"
@@ -1203,7 +914,6 @@ static RPCHelpMan getbalance()
                 },
                 RPCExamples{
             "\nThe total amount in the wallet with 0 or more confirmations\n"
->>>>>>> bitcoin/8.22.0
             + HelpExampleCli("getbalance", "") +
             "\nThe total amount in the wallet with at least 6 confirmations\n"
             + HelpExampleCli("getbalance", "\"*\" 6") +
@@ -2202,12 +1912,8 @@ static void ListTransactions(const CWallet& wallet, const CWalletTx& wtx, int nM
     }
 
     // Sent
-<<<<<<< HEAD
-    if (list_sent) {
-=======
     if (!filter_label)
     {
->>>>>>> bitcoin/8.22.0
         for (const COutputEntry& s : listSent)
         {
             UniValue entry(UniValue::VOBJ);
@@ -2459,17 +2165,10 @@ static RPCHelpMan listtransactions()
     // the user could have gotten from another RPC command prior to now
     pwallet->BlockUntilSyncedToCurrentChain();
 
-<<<<<<< HEAD
-    std::string strAccount = "*";
-    if (!request.params[0].isNull()) {
-        strAccount = request.params[0].get_str();
-        if (!IsDeprecatedRPCEnabled("accounts") && strAccount.empty()) {
-=======
     const std::string* filter_label = nullptr;
     if (!request.params[0].isNull() && request.params[0].get_str() != "*") {
         filter_label = &request.params[0].get_str();
         if (filter_label->empty()) {
->>>>>>> bitcoin/8.22.0
             throw JSONRPCError(RPC_INVALID_PARAMETER, "Label argument must be a valid label name or \"*\".");
         }
     }
@@ -3106,31 +2805,6 @@ static RPCHelpMan keypoolrefill()
 
     if (pwallet->GetKeyPoolSize() < kpSize) {
         throw JSONRPCError(RPC_WALLET_ERROR, "Error refreshing keypool.");
-<<<<<<< HEAD
-    }
-
-    return NullUniValue;
-}
-
-
-static UniValue walletpassphrase(const JSONRPCRequest& request)
-{
-    std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
-    CWallet* const pwallet = wallet.get();
-
-    if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
-        return NullUniValue;
-    }
-
-    if (request.fHelp || request.params.size() != 2) {
-        throw std::runtime_error(
-            "walletpassphrase \"passphrase\" timeout\n"
-            "\nStores the wallet decryption key in memory for 'timeout' seconds.\n"
-            "This is needed prior to performing transactions related to private keys such as sending digibytes\n"
-            "\nArguments:\n"
-            "1. \"passphrase\"     (string, required) The wallet passphrase\n"
-            "2. timeout            (numeric, required) The time to keep the decryption key in seconds; capped at 100000000 (~3 years).\n"
-=======
     }
 
     return NullUniValue;
@@ -3144,7 +2818,6 @@ static RPCHelpMan walletpassphrase()
     return RPCHelpMan{"walletpassphrase",
                 "\nStores the wallet decryption key in memory for 'timeout' seconds.\n"
                 "This is needed prior to performing transactions related to private keys such as sending digibytes\n"
->>>>>>> bitcoin/8.22.0
             "\nNote:\n"
             "Issuing the walletpassphrase command while the wallet is already unlocked will set a new unlock\n"
             "time that overrides the old one.\n",
@@ -3207,10 +2880,6 @@ static RPCHelpMan walletpassphrase()
 
         pwallet->TopUpKeyPool();
 
-<<<<<<< HEAD
-    pwallet->nRelockTime = GetTime() + nSleepTime;
-
-=======
         pwallet->nRelockTime = GetTime() + nSleepTime;
         relock_time = pwallet->nRelockTime;
     }
@@ -3220,22 +2889,15 @@ static RPCHelpMan walletpassphrase()
     // previous timer (and waits for the callback to finish if already running)
     // and the callback locks cs_wallet.
     AssertLockNotHeld(wallet->cs_wallet);
->>>>>>> bitcoin/8.22.0
     // Keep a weak pointer to the wallet so that it is possible to unload the
     // wallet before the following callback is called. If a valid shared pointer
     // is acquired in the callback then the wallet is still loaded.
     std::weak_ptr<CWallet> weak_wallet = wallet;
-<<<<<<< HEAD
-    RPCRunLater(strprintf("lockwallet(%s)", pwallet->GetName()), [weak_wallet] {
-        if (auto shared_wallet = weak_wallet.lock()) {
-            LOCK(shared_wallet->cs_wallet);
-=======
     pwallet->chain().rpcRunLater(strprintf("lockwallet(%s)", pwallet->GetName()), [weak_wallet, relock_time] {
         if (auto shared_wallet = weak_wallet.lock()) {
             LOCK(shared_wallet->cs_wallet);
             // Skip if this is not the most recent rpcRunLater callback.
             if (shared_wallet->nRelockTime != relock_time) return;
->>>>>>> bitcoin/8.22.0
             shared_wallet->Lock();
             shared_wallet->nRelockTime = 0;
         }
@@ -3386,17 +3048,9 @@ static RPCHelpMan encryptwallet()
         throw JSONRPCError(RPC_WALLET_ENCRYPTION_FAILED, "Error: Failed to encrypt the wallet.");
     }
 
-<<<<<<< HEAD
-    // BDB seems to have a bad habit of writing old data into
-    // slack space in .dat files; that is bad if the old data is
-    // unencrypted private keys. So:
-    StartShutdown();
-    return "wallet encrypted; DigiByte server stopping, restart to run with encrypted wallet. The keypool has been flushed and a new HD seed was generated (if you are using HD). You need to make a new backup.";
-=======
     return "wallet encrypted; The keypool has been flushed and a new HD seed was generated (if you are using HD). You need to make a new backup.";
 },
     };
->>>>>>> bitcoin/8.22.0
 }
 
 static RPCHelpMan lockunspent()
@@ -3884,23 +3538,6 @@ static RPCHelpMan listwallets()
 
 static RPCHelpMan loadwallet()
 {
-<<<<<<< HEAD
-    if (request.fHelp || request.params.size() != 1)
-        throw std::runtime_error(
-            "loadwallet \"filename\"\n"
-            "\nLoads a wallet from a wallet file or directory."
-            "\nNote that all wallet command-line options used when starting digibyted will be"
-            "\napplied to the new wallet (eg -zapwallettxes, upgradewallet, rescan, etc).\n"
-            "\nArguments:\n"
-            "1. \"filename\"    (string, required) The wallet directory or .dat file.\n"
-            "\nResult:\n"
-            "{\n"
-            "  \"name\" :    <wallet_name>,        (string) The wallet name if loaded successfully.\n"
-            "  \"warning\" : <warning>,            (string) Warning message if wallet was not loaded cleanly.\n"
-            "}\n"
-            "\nExamples:\n"
-            + HelpExampleCli("loadwallet", "\"test.dat\"")
-=======
     return RPCHelpMan{"loadwallet",
                 "\nLoads a wallet from a wallet file or directory."
                 "\nNote that all wallet command-line options used when starting digibyted will be"
@@ -3918,7 +3555,6 @@ static RPCHelpMan loadwallet()
                 },
                 RPCExamples{
                     HelpExampleCli("loadwallet", "\"test.dat\"")
->>>>>>> bitcoin/8.22.0
             + HelpExampleRpc("loadwallet", "\"test.dat\"")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
@@ -4508,11 +4144,7 @@ void FundTransaction(CWallet& wallet, CMutableTransaction& tx, CAmount& fee_out,
             CTxDestination dest = DecodeDestination(change_address_str);
 
             if (!IsValidDestination(dest)) {
-<<<<<<< HEAD
-                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "changeAddress must be a valid digibyte address");
-=======
                 throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Change address must be a valid digibyte address");
->>>>>>> bitcoin/8.22.0
             }
 
             coinControl.destChange = dest;
@@ -4824,12 +4456,6 @@ RPCHelpMan signrawtransactionwithwallet()
     }
 
     // Sign the transaction
-<<<<<<< HEAD
-    LOCK2(cs_main, pwallet->cs_wallet);
-    EnsureWalletIsUnlocked(pwallet);
-
-    return SignTransaction(mtx, request.params[1], pwallet, false, request.params[2]);
-=======
     LOCK(pwallet->cs_wallet);
     EnsureWalletIsUnlocked(*pwallet);
 
@@ -4854,7 +4480,6 @@ RPCHelpMan signrawtransactionwithwallet()
     return result;
 },
     };
->>>>>>> bitcoin/8.22.0
 }
 
 static RPCHelpMan bumpfee_helper(std::string method_name)
@@ -6090,17 +5715,12 @@ static RPCHelpMan walletprocesspsbt()
 
     // Fill transaction with our data and also sign
     bool sign = request.params[1].isNull() ? true : request.params[1].get_bool();
-<<<<<<< HEAD
-    bool bip32derivs = request.params[3].isNull() ? false : request.params[3].get_bool();
-    bool complete = FillPSBT(pwallet, psbtx, nHashType, sign, bip32derivs);
-=======
     bool bip32derivs = request.params[3].isNull() ? true : request.params[3].get_bool();
     bool complete = true;
     const TransactionError err{wallet.FillPSBT(psbtx, complete, nHashType, sign, bip32derivs)};
     if (err != TransactionError::OK) {
         throw JSONRPCTransactionError(err);
     }
->>>>>>> bitcoin/8.22.0
 
     UniValue result(UniValue::VOBJ);
     CDataStream ssTx(SER_NETWORK, PROTOCOL_VERSION);
@@ -6279,10 +5899,6 @@ static RPCHelpMan walletcreatefundedpsbt()
 
     CAmount fee;
     int change_position;
-<<<<<<< HEAD
-    CMutableTransaction rawTx = ConstructTransaction(request.params[0], request.params[1], request.params[2], request.params[3]["replaceable"]);
-    FundTransaction(pwallet, rawTx, fee, change_position, request.params[3]);
-=======
     bool rbf{wallet.m_signal_rbf};
     const UniValue &replaceable_arg = request.params[3]["replaceable"];
     if (!replaceable_arg.isNull()) {
@@ -6295,23 +5911,17 @@ static RPCHelpMan walletcreatefundedpsbt()
     // be overridden by options.add_inputs.
     coin_control.m_add_inputs = rawTx.vin.size() == 0;
     FundTransaction(wallet, rawTx, fee, change_position, request.params[3], coin_control, /* override_min_fee */ true);
->>>>>>> bitcoin/8.22.0
 
     // Make a blank psbt
     PartiallySignedTransaction psbtx(rawTx);
 
     // Fill transaction with out data but don't sign
-<<<<<<< HEAD
-    bool bip32derivs = request.params[4].isNull() ? false : request.params[4].get_bool();
-    FillPSBT(pwallet, psbtx, 1, false, bip32derivs);
-=======
     bool bip32derivs = request.params[4].isNull() ? true : request.params[4].get_bool();
     bool complete = true;
     const TransactionError err{wallet.FillPSBT(psbtx, complete, 1, false, bip32derivs)};
     if (err != TransactionError::OK) {
         throw JSONRPCTransactionError(err);
     }
->>>>>>> bitcoin/8.22.0
 
     // Serialize the PSBT
     CDataStream ssTx(SER_NETWORK, PROTOCOL_VERSION);

@@ -36,12 +36,6 @@ void EnsureWalletIsUnlocked(const CWallet&);
 WalletContext& EnsureWalletContext(const std::any& context);
 LegacyScriptPubKeyMan& EnsureLegacyScriptPubKeyMan(CWallet& wallet, bool also_create = false);
 
-<<<<<<< HEAD
-UniValue getaddressinfo(const JSONRPCRequest& request);
-UniValue signrawtransactionwithwallet(const JSONRPCRequest& request);
-bool FillPSBT(const CWallet* pwallet, PartiallySignedTransaction& psbtx, int sighash_type = 1 /* SIGHASH_ALL */, bool sign = true, bool bip32derivs = false);
-=======
 RPCHelpMan getaddressinfo();
 RPCHelpMan signrawtransactionwithwallet();
->>>>>>> bitcoin/8.22.0
 #endif //DIGIBYTE_WALLET_RPCWALLET_H

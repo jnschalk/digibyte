@@ -1389,14 +1389,6 @@ public:
     }
 };
 
-<<<<<<< HEAD
-// Calculate the size of the transaction assuming all signatures are max size
-// Use DummySignatureCreator, which inserts 71 byte signatures everywhere.
-// NOTE: this requires that all inputs must be in mapWallet (eg the tx should
-// be IsAllFromMe).
-int64_t CalculateMaximumSignedTxSize(const CTransaction &tx, const CWallet *wallet, bool use_max_sig = false);
-int64_t CalculateMaximumSignedTxSize(const CTransaction &tx, const CWallet *wallet, const std::vector<CTxOut>& txouts, bool use_max_sig = false);
-=======
 struct TxSize {
     int64_t vsize{-1};
     int64_t weight{-1};
@@ -1415,5 +1407,4 @@ bool AddWalletSetting(interfaces::Chain& chain, const std::string& wallet_name);
 //! Remove wallet name from persistent configuration so it will not be loaded on startup.
 bool RemoveWalletSetting(interfaces::Chain& chain, const std::string& wallet_name);
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_WALLET_WALLET_H
