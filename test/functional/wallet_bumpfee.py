@@ -16,14 +16,6 @@ make assumptions about execution order.
 """
 from decimal import Decimal
 
-<<<<<<< HEAD
-from test_framework.blocktools import add_witness_commitment, create_block, create_coinbase, send_to_witness
-from test_framework.messages import BIP125_SEQUENCE_NUMBER, CTransaction
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, assert_greater_than, assert_raises_rpc_error, bytes_to_hex_str, connect_nodes_bi, hex_str_to_bytes, sync_mempools
-
-import io
-=======
 from test_framework.blocktools import (
     COINBASE_MATURITY,
     add_witness_commitment,
@@ -41,7 +33,6 @@ from test_framework.util import (
     assert_greater_than,
     assert_raises_rpc_error,
 )
->>>>>>> bitcoin/8.22.0
 
 WALLET_PASSPHRASE = "test"
 WALLET_PASSPHRASE_TIMEOUT = 3600

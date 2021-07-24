@@ -6,11 +6,6 @@
 """Test the -alertnotify, -blocknotify and -walletnotify options."""
 import os
 
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, wait_until, connect_nodes_bi
-
-=======
 from test_framework.address import ADDRESS_BCRT1_UNSPENDABLE
 from test_framework.descriptors import descsum_create
 from test_framework.test_framework import DigiByteTestFramework
@@ -29,7 +24,6 @@ def notify_outputname(walletname, txid):
     return txid if os.name == 'nt' else '{}_{}'.format(walletname, txid)
 
 
->>>>>>> bitcoin/8.22.0
 class NotificationsTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2

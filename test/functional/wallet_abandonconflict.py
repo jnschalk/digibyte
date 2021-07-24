@@ -13,11 +13,6 @@
 """
 from decimal import Decimal
 
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, assert_raises_rpc_error, connect_nodes, disconnect_nodes, sync_blocks, sync_mempools
-
-=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
@@ -26,7 +21,6 @@ from test_framework.util import (
 )
 
 
->>>>>>> bitcoin/8.22.0
 class AbandonConflictTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2

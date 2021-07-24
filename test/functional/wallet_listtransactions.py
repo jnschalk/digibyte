@@ -6,29 +6,16 @@
 """Test the listtransactions API."""
 from decimal import Decimal
 
-<<<<<<< HEAD
-from test_framework.messages import COIN, CTransaction
-=======
 from test_framework.messages import (
     COIN,
     tx_from_hex,
 )
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_array_result,
     assert_equal,
 )
 
-<<<<<<< HEAD
-def tx_from_hex(hexstring):
-    tx = CTransaction()
-    f = BytesIO(hex_str_to_bytes(hexstring))
-    tx.deserialize(f)
-    return tx
-
-=======
->>>>>>> bitcoin/8.22.0
 class ListTransactionsTest(DigiByteTestFramework):
     def set_test_params(self):
         self.num_nodes = 2

@@ -107,11 +107,7 @@ killed all its digibyted nodes), then there may be a port conflict which will
 cause the test to fail. It is recommended that you run the tests on a system
 where no other digibyted processes are running.
 
-<<<<<<< HEAD
-On linux, the test_framework will warn if there is another
-=======
 On linux, the test framework will warn if there is another
->>>>>>> bitcoin/8.22.0
 digibyted process running when the tests are started.
 
 If there are zombie digibyted processes after test failure, you can kill them
@@ -224,10 +220,6 @@ Use the path to find the pid file in the temp folder:
 
 ```bash
 cat /tmp/user/1000/testo9vsdjo3/node1/regtest/digibyted.pid
-<<<<<<< HEAD
-gdb /home/example/digibyted <pid>
-=======
->>>>>>> bitcoin/8.22.0
 ```
 
 Then you can use the pid to start `gdb`:

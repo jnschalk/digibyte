@@ -6,14 +6,6 @@
 """Test the ZMQ notification interface."""
 import struct
 
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.messages import CTransaction
-from test_framework.util import (
-    assert_equal,
-    bytes_to_hex_str,
-    hash256,
-=======
 from test_framework.address import (
     ADDRESS_BCRT1_P2WSH_OP_TRUE,
     ADDRESS_BCRT1_UNSPENDABLE,
@@ -32,7 +24,6 @@ from test_framework.messages import (
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
->>>>>>> bitcoin/8.22.0
 )
 from io import BytesIO
 from time import sleep

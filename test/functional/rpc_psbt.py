@@ -6,10 +6,6 @@
 """Test the Partially Signed Transaction RPCs.
 """
 
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, assert_raises_rpc_error, find_output, disconnect_nodes, connect_nodes_bi, sync_blocks
-=======
 from decimal import Decimal
 from itertools import product
 
@@ -21,7 +17,6 @@ from test_framework.util import (
     assert_raises_rpc_error,
     find_output,
 )
->>>>>>> bitcoin/8.22.0
 
 import json
 import os

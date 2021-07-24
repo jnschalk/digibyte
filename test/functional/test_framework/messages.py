@@ -1389,25 +1389,6 @@ class msg_mempool:
     def __repr__(self):
         return "msg_mempool()"
 
-<<<<<<< HEAD
-class msg_notfound():
-    command = b"notfound"
-        
-    def __init__(self):
-        pass
-                
-    def deserialize(self, f):
-        pass
-                        
-    def serialize(self):
-        return b""
-                                
-    def __repr__(self):
-        return "msg_notfound()"
-
-class msg_sendheaders():
-    command = b"sendheaders"
-=======
 
 class msg_notfound:
     __slots__ = ("vec", )
@@ -1429,7 +1410,6 @@ class msg_notfound:
 class msg_sendheaders:
     __slots__ = ()
     msgtype = b"sendheaders"
->>>>>>> bitcoin/8.22.0
 
     def __init__(self):
         pass

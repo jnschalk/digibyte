@@ -7,19 +7,12 @@
 
 from decimal import Decimal
 
-<<<<<<< HEAD
-from test_framework.messages import msg_feefilter
-from test_framework.mininode import mininode_lock, P2PInterface
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import sync_blocks, sync_mempools
-=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.messages import MSG_TX, MSG_WTX, msg_feefilter
 from test_framework.p2p import P2PInterface, p2p_lock
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import assert_equal
 from test_framework.wallet import MiniWallet
->>>>>>> bitcoin/8.22.0
 
 
 class FeefilterConn(P2PInterface):

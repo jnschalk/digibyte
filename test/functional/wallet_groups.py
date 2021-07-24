@@ -5,16 +5,11 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test wallet group functionality."""
 
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.messages import CTransaction, FromHex, ToHex
-=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.messages import (
     tx_from_hex,
 )
->>>>>>> bitcoin/8.22.0
 from test_framework.util import (
     assert_approx,
     assert_equal,

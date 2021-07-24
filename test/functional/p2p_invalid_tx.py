@@ -14,11 +14,7 @@ from test_framework.messages import (
     CTxIn,
     CTxOut,
 )
-<<<<<<< HEAD
-from test_framework.mininode import P2PDataStore
-=======
 from test_framework.p2p import P2PDataStore
->>>>>>> bitcoin/8.22.0
 from test_framework.test_framework import DigiByteTestFramework
 from test_framework.util import (
     assert_equal,

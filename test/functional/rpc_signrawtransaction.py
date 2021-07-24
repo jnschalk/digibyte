@@ -5,11 +5,6 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test transaction signing using the signrawtransaction* RPCs."""
 
-<<<<<<< HEAD
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import assert_equal, assert_raises_rpc_error
-
-=======
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.address import (
     script_to_p2sh,
@@ -46,7 +41,6 @@ from decimal import (
     Decimal,
     getcontext,
 )
->>>>>>> bitcoin/8.22.0
 
 class SignRawTransactionsTest(DigiByteTestFramework):
     def set_test_params(self):

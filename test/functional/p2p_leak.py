@@ -13,16 +13,6 @@ into sending us something it shouldn't."""
 
 import time
 
-<<<<<<< HEAD
-from test_framework.messages import msg_getaddr, msg_ping, msg_verack
-from test_framework.mininode import mininode_lock, P2PInterface
-from test_framework.test_framework import DigiByteTestFramework
-from test_framework.util import wait_until
-
-banscore = 10
-
-class CLazyNode(P2PInterface):
-=======
 from test_framework.messages import (
     msg_getaddr,
     msg_ping,
@@ -44,7 +34,6 @@ PEER_TIMEOUT = 3
 
 
 class LazyPeer(P2PInterface):
->>>>>>> bitcoin/8.22.0
     def __init__(self):
         super().__init__()
         self.unexpected_msg = False

@@ -18,13 +18,9 @@ from test_framework.messages import (
 )
 from test_framework.script import CScript, OP_DROP
 from test_framework.test_framework import DigiByteTestFramework
-<<<<<<< HEAD
-from test_framework.util import assert_equal, assert_raises_rpc_error, bytes_to_hex_str, satoshi_round
-=======
 from test_framework.util import assert_equal, assert_raises_rpc_error, satoshi_round
 from test_framework.script_util import DUMMY_P2WPKH_SCRIPT, DUMMY_2_P2WPKH_SCRIPT
 from test_framework.wallet import MiniWallet
->>>>>>> bitcoin/8.22.0
 
 MAX_REPLACEMENT_LIMIT = 100
 

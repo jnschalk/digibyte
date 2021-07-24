@@ -42,10 +42,6 @@ def trueDummy(tx):
     tx.vin[0].scriptSig = CScript(newscript)
     tx.rehash()
 
-<<<<<<< HEAD
-class NULLDUMMYTest(DigiByteTestFramework):
-=======
->>>>>>> bitcoin/8.22.0
 
 class NULLDUMMYTest(DigiByteTestFramework):
     def set_test_params(self):

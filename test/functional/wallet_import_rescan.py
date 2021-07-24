@@ -21,15 +21,11 @@ happened previously.
 """
 
 from test_framework.test_framework import DigiByteTestFramework
-<<<<<<< HEAD
-from test_framework.util import (assert_raises_rpc_error, connect_nodes, sync_blocks, assert_equal, set_node_times)
-=======
 from test_framework.address import AddressType
 from test_framework.util import (
     assert_equal,
     set_node_times,
 )
->>>>>>> bitcoin/8.22.0
 
 import collections
 from decimal import Decimal
