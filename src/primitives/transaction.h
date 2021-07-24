@@ -387,8 +387,6 @@ struct CMutableTransaction
 typedef std::shared_ptr<const CTransaction> CTransactionRef;
 template <typename Tx> static inline CTransactionRef MakeTransactionRef(Tx&& txIn) { return std::make_shared<const CTransaction>(std::forward<Tx>(txIn)); }
 
-<<<<<<< HEAD
-=======
 /** A generic txid reference (txid or wtxid). */
 class GenTxid
 {
@@ -402,5 +400,4 @@ public:
     friend bool operator<(const GenTxid& a, const GenTxid& b) { return std::tie(a.m_is_wtxid, a.m_hash) < std::tie(b.m_is_wtxid, b.m_hash); }
 };
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_PRIMITIVES_TRANSACTION_H
