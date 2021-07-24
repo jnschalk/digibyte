@@ -9,11 +9,8 @@
 #include <wallet/wallet.h>
 
 #include <boost/test/unit_test.hpp>
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <test/util/setup_common.h>
->>>>>>> bitcoin/8.22.0
 #include <wallet/test/wallet_test_fixture.h>
 
 BOOST_FIXTURE_TEST_SUITE(psbt_wallet_tests, WalletTestingSetup)
@@ -62,12 +59,8 @@ BOOST_AUTO_TEST_CASE(psbt_updater_test)
     ssData >> psbtx;
 
     // Fill transaction with our data
-<<<<<<< HEAD
-    FillPSBT(&m_wallet, psbtx, SIGHASH_ALL, false, true);
-=======
     bool complete = true;
     BOOST_REQUIRE_EQUAL(TransactionError::OK, m_wallet.FillPSBT(psbtx, complete, SIGHASH_ALL, false, true));
->>>>>>> bitcoin/8.22.0
 
     // Get the final tx
     CDataStream ssTx(SER_NETWORK, PROTOCOL_VERSION);

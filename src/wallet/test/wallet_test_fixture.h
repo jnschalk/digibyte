@@ -6,11 +6,8 @@
 #ifndef DIGIBYTE_WALLET_TEST_WALLET_TEST_FIXTURE_H
 #define DIGIBYTE_WALLET_TEST_WALLET_TEST_FIXTURE_H
 
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <test/util/setup_common.h>
->>>>>>> bitcoin/8.22.0
 
 #include <interfaces/chain.h>
 #include <interfaces/wallet.h>

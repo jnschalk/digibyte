@@ -72,8 +72,6 @@ enum WalletFlags : uint64_t {
 //! Get the path of the wallet directory.
 fs::path GetWalletDir();
 
-<<<<<<< HEAD
-=======
 /** Descriptor with some wallet metadata */
 class WalletDescriptor
 {
@@ -107,5 +105,4 @@ public:
     WalletDescriptor(std::shared_ptr<Descriptor> descriptor, uint64_t creation_time, int32_t range_start, int32_t range_end, int32_t next_index) : descriptor(descriptor), creation_time(creation_time), range_start(range_start), range_end(range_end), next_index(next_index) {}
 };
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_WALLET_WALLETUTIL_H

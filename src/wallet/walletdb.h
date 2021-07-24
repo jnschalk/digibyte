@@ -282,8 +282,6 @@ private:
 //! Compacts BDB state so that wallet.dat is self-contained (if there are changes)
 void MaybeCompactWalletDB();
 
-<<<<<<< HEAD
-=======
 //! Callback for filtering key types to deserialize in ReadKeyValue
 using KeyFilterFn = std::function<bool(const std::string&)>;
 
@@ -296,5 +294,4 @@ std::unique_ptr<WalletDatabase> CreateDummyWalletDatabase();
 /** Return object for accessing temporary in-memory database. */
 std::unique_ptr<WalletDatabase> CreateMockWalletDatabase();
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_WALLET_WALLETDB_H
