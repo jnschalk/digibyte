@@ -99,8 +99,6 @@ CTxDestination AddAndGetMultisigDestination(const int required, const std::vecto
 
 UniValue DescribeAddress(const CTxDestination& dest);
 
-<<<<<<< HEAD
-=======
 //! Parse a confirm target option and raise an RPC error if it is invalid.
 unsigned int ParseConfirmTarget(const UniValue& value, unsigned int max_target);
 
@@ -370,5 +368,4 @@ private:
     const RPCExamples m_examples;
 };
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_RPC_UTIL_H

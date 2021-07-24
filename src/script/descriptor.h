@@ -14,24 +14,6 @@
 #include <optional>
 #include <vector>
 
-<<<<<<< HEAD
-// Descriptors are strings that describe a set of scriptPubKeys, together with
-// all information necessary to solve them. By combining all information into
-// one, they avoid the need to separately import keys and scripts.
-//
-// Descriptors may be ranged, which occurs when the public keys inside are
-// specified in the form of HD chains (xpubs).
-//
-// Descriptors always represent public information - public keys and scripts -
-// but in cases where private keys need to be conveyed along with a descriptor,
-// they can be included inside by changing public keys to private keys (WIF
-// format), and changing xpubs by xprvs.
-//
-// Reference documentation about the descriptor language can be found in
-// doc/descriptors.md.
-
-/** Interface for parsed descriptor objects. */
-=======
 using ExtPubKeyMap = std::unordered_map<uint32_t, CExtPubKey>;
 
 /** Cache for single descriptor's derived extended pubkeys */
@@ -114,7 +96,6 @@ public:
  * Reference documentation about the descriptor language can be found in
  * doc/descriptors.md.
  */
->>>>>>> bitcoin/8.22.0
 struct Descriptor {
     virtual ~Descriptor() = default;
 
@@ -186,9 +167,6 @@ std::unique_ptr<Descriptor> Parse(const std::string& descriptor, FlatSigningProv
  */
 std::string GetDescriptorChecksum(const std::string& descriptor);
 
-<<<<<<< HEAD
-#endif // DIGIBYTE_SCRIPT_DESCRIPTOR_H
-=======
 /** Find a descriptor for the specified `script`, using information from `provider` where possible.
  *
  * A non-ranged descriptor which only generates the specified script will be returned in all
@@ -204,6 +182,5 @@ std::string GetDescriptorChecksum(const std::string& descriptor);
  * - Failing that, a "raw()" descriptor is returned.
  */
 std::unique_ptr<Descriptor> InferDescriptor(const CScript& script, const SigningProvider& provider);
->>>>>>> bitcoin/8.22.0
 
 #endif // DIGIBYTE_SCRIPT_DESCRIPTOR_H
