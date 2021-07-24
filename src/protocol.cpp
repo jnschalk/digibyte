@@ -38,9 +38,7 @@ const char *SENDCMPCT="sendcmpct";
 const char *CMPCTBLOCK="cmpctblock";
 const char *GETBLOCKTXN="getblocktxn";
 const char *BLOCKTXN="blocktxn";
-<<<<<<< HEAD
 const char *DANDELIONTX="dandeliontx";
-=======
 const char *GETCFILTERS="getcfilters";
 const char *CFILTER="cfilter";
 const char *GETCFHEADERS="getcfheaders";
@@ -48,7 +46,6 @@ const char *CFHEADERS="cfheaders";
 const char *GETCFCHECKPT="getcfcheckpt";
 const char *CFCHECKPT="cfcheckpt";
 const char *WTXIDRELAY="wtxidrelay";
->>>>>>> bitcoin/8.22.0
 } // namespace NetMsgType
 
 /** All known message types. Keep this in the same order as the list of

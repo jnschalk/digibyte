@@ -8,8 +8,6 @@
 
 #include <string>
 
-<<<<<<< HEAD
-=======
 struct bilingual_str;
 
 /** Non-GUI handler, which logs and prints messages. */
@@ -28,5 +26,4 @@ void noui_test_redirect();
 /** Reconnects the regular Non-GUI handlers after having used noui_test_redirect */
 void noui_reconnect();
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_NOUI_H

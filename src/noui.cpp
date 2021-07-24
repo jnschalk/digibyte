@@ -59,12 +59,6 @@ void noui_InitMessage(const std::string& message)
 
 void noui_connect()
 {
-<<<<<<< HEAD
-    // Connect digibyted signal handlers
-    uiInterface.ThreadSafeMessageBox.connect(noui_ThreadSafeMessageBox);
-    uiInterface.ThreadSafeQuestion.connect(noui_ThreadSafeQuestion);
-    uiInterface.InitMessage.connect(noui_InitMessage);
-=======
     noui_ThreadSafeMessageBoxConn = uiInterface.ThreadSafeMessageBox_connect(noui_ThreadSafeMessageBox);
     noui_ThreadSafeQuestionConn = uiInterface.ThreadSafeQuestion_connect(noui_ThreadSafeQuestion);
     noui_InitMessageConn = uiInterface.InitMessage_connect(noui_InitMessage);
@@ -103,5 +97,4 @@ void noui_reconnect()
     noui_ThreadSafeQuestionConn.disconnect();
     noui_InitMessageConn.disconnect();
     noui_connect();
->>>>>>> bitcoin/8.22.0
 }

@@ -164,18 +164,6 @@ static void TestChaCha20(const std::string &hex_message, const std::string &hexk
     }
 }
 
-<<<<<<< HEAD
-static void TestOdo(uint32_t key, const std::string &in, const std::string &hexout)
-{
-    assert(in.length() == OdoCrypt::DIGEST_SIZE);
-    std::vector<unsigned char> out = ParseHex(hexout);
-    std::vector<unsigned char> outres(OdoCrypt::DIGEST_SIZE);
-    OdoCrypt(key).Encrypt(reinterpret_cast<char*>(outres.data()), in.c_str());
-    BOOST_CHECK(out == outres);
-}
-
-static std::string LongTestString(void) {
-=======
 static void TestPoly1305(const std::string &hexmessage, const std::string &hexkey, const std::string& hextag)
 {
     std::vector<unsigned char> key = ParseHex(hexkey);
@@ -205,7 +193,6 @@ static void TestHKDF_SHA256_32(const std::string &ikm_hex, const std::string &sa
 
 static std::string LongTestString()
 {
->>>>>>> bitcoin/8.22.0
     std::string ret;
     for (int i = 0; i < 200000; i++) {
         ret += (char)(i);

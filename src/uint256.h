@@ -19,14 +19,6 @@ class base_blob
 {
 public:
     static constexpr int WIDTH = BITS / 8;
-<<<<<<< HEAD
-    uint8_t data[WIDTH];
-
-    base_blob()
-    {
-        memset(data, 0, sizeof(data));
-    }
-=======
     uint8_t m_data[WIDTH];
 public:
     /* construct 0 value by default */
@@ -34,7 +26,6 @@ public:
 
     /* constructor for constants between 1 and 255 */
     constexpr explicit base_blob(uint8_t v) : m_data{v} {}
->>>>>>> bitcoin/8.22.0
 
     explicit base_blob(const std::vector<unsigned char>& vch);
 

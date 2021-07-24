@@ -122,10 +122,6 @@ static constexpr uint16_t I2P_SAM31_PORT{0};
 class CNetAddr
 {
     protected:
-<<<<<<< HEAD
-        unsigned char ip[16]; // in network byte order
-        uint32_t scopeId{0}; // for scoped/link-local ipv6 addresses
-=======
         /**
          * Raw representation of the network address.
          * In network byte order (big endian) for IPv4 and IPv6.
@@ -142,7 +138,6 @@ class CNetAddr
          * See https://tools.ietf.org/html/rfc4007
          */
         uint32_t m_scope_id{0};
->>>>>>> bitcoin/8.22.0
 
     public:
         CNetAddr();
@@ -594,9 +589,6 @@ class CService : public CNetAddr
         }
 };
 
-<<<<<<< HEAD
-=======
 bool SanityCheckASMap(const std::vector<bool>& asmap);
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_NETADDRESS_H
