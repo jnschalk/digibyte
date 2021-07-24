@@ -57,13 +57,10 @@ namespace BCLog {
         COINDB      = (1 << 18),
         QT          = (1 << 19),
         LEVELDB     = (1 << 20),
-<<<<<<< HEAD
-        DANDELION   = (1 << 21),
-=======
         VALIDATION  = (1 << 21),
         I2P         = (1 << 22),
         IPC         = (1 << 23),
->>>>>>> bitcoin/8.22.0
+        DANDELION   = (1 << 24),
         ALL         = ~(uint32_t)0,
     };
 
@@ -197,31 +194,4 @@ static inline void LogPrintf_(const std::string& logging_function, const std::st
         }                                    \
     } while (0)
 
-<<<<<<< HEAD
-#ifdef USE_COVERAGE
-#define LogPrintf(...) do { MarkUsed(__VA_ARGS__); } while(0)
-#define LogPrint(category, ...) do { MarkUsed(__VA_ARGS__); } while(0)
-#else
-#define LogPrintf(...) do { \
-    if (g_logger->Enabled()) { \
-        std::string _log_msg_; /* Unlikely name to avoid shadowing variables */ \
-        try { \
-            _log_msg_ = tfm::format(__VA_ARGS__); \
-        } catch (tinyformat::format_error &fmterr) { \
-            /* Original format string will have newline so don't add one here */ \
-            _log_msg_ = "Error \"" + std::string(fmterr.what()) + "\" while formatting log message: " + FormatStringFromLogArgs(__VA_ARGS__); \
-        } \
-        g_logger->LogPrintStr(_log_msg_); \
-    } \
-} while(0)
-
-#define LogPrint(category, ...) do { \
-    if (LogAcceptCategory((category))) { \
-        LogPrintf(__VA_ARGS__); \
-    } \
-} while(0)
-#endif
-
-=======
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_LOGGING_H
