@@ -10,10 +10,7 @@
 #include <qt/optionsmodel.h>
 
 #include <qt/digibyteunits.h>
-<<<<<<< HEAD
-=======
 #include <qt/guiconstants.h>
->>>>>>> bitcoin/8.22.0
 #include <qt/guiutil.h>
 
 #include <interfaces/node.h>

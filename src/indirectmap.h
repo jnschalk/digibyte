@@ -5,11 +5,8 @@
 
 #ifndef DIGIBYTE_INDIRECTMAP_H
 #define DIGIBYTE_INDIRECTMAP_H
-<<<<<<< HEAD
-=======
 
 #include <map>
->>>>>>> bitcoin/8.22.0
 
 template <class T>
 struct DereferencingComparator { bool operator()(const T a, const T b) const { return *a < *b; } };

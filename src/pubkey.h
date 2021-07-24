@@ -317,13 +317,10 @@ public:
     ~ECCVerifyHandle();
 };
 
-<<<<<<< HEAD
-=======
 typedef struct secp256k1_context_struct secp256k1_context;
 
 /** Access to the internal secp256k1 context used for verification. Only intended to be used
  *  by key.cpp. */
 const secp256k1_context* GetVerifyContext();
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_PUBKEY_H

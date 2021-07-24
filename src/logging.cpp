@@ -156,13 +156,10 @@ const CLogCategoryDesc LogCategories[] =
     {BCLog::COINDB, "coindb"},
     {BCLog::QT, "qt"},
     {BCLog::LEVELDB, "leveldb"},
-<<<<<<< HEAD
     {BCLog::DANDELION, "dandelion"},
-=======
     {BCLog::VALIDATION, "validation"},
     {BCLog::I2P, "i2p"},
     {BCLog::IPC, "ipc"},
->>>>>>> bitcoin/8.22.0
     {BCLog::ALL, "1"},
     {BCLog::ALL, "all"},
 };

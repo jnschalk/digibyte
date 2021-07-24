@@ -69,8 +69,6 @@ namespace GUIUtil
     // Set up widget for address
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
 
-<<<<<<< HEAD
-=======
     /**
      * Connects an additional shortcut to a QAbstractButton. Works around the
      * one shortcut limitation of the button's shortcut property.
@@ -79,7 +77,6 @@ namespace GUIUtil
      */
     void AddButtonShortcut(QAbstractButton* button, const QKeySequence& shortcut);
 
->>>>>>> bitcoin/8.22.0
     // Parse "digibyte:" URI into recipient object, return true on successful parsing
     bool parseDigiByteURI(const QUrl &uri, SendCoinsRecipient *out);
     bool parseDigiByteURI(QString uri, SendCoinsRecipient *out);

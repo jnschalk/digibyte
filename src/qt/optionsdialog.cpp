@@ -11,10 +11,7 @@
 #include <qt/forms/ui_optionsdialog.h>
 
 #include <qt/digibyteunits.h>
-<<<<<<< HEAD
-=======
 #include <qt/guiconstants.h>
->>>>>>> bitcoin/8.22.0
 #include <qt/guiutil.h>
 #include <qt/optionsmodel.h>
 

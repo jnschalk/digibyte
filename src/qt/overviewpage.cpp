@@ -95,11 +95,7 @@ public:
             foreground = option.palette.color(QPalette::Text);
         }
         painter->setPen(foreground);
-<<<<<<< HEAD
-        QString amountText = DigiByteUnits::formatWithUnit(unit, amount, true, DigiByteUnits::separatorAlways);
-=======
         QString amountText = DigiByteUnits::formatWithUnit(unit, amount, true, DigiByteUnits::SeparatorStyle::ALWAYS);
->>>>>>> bitcoin/8.22.0
         if(!confirmed)
         {
             amountText = QString("[") + amountText + QString("]");

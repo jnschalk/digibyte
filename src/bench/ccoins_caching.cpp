@@ -17,11 +17,7 @@
 // characteristics than e.g. reindex timings. But that's not a requirement of
 // every benchmark."
 // (https://github.com/digibyte/digibyte/issues/7883#issuecomment-224807484)
-<<<<<<< HEAD
-static void CCoinsCaching(benchmark::State& state)
-=======
 static void CCoinsCaching(benchmark::Bench& bench)
->>>>>>> bitcoin/8.22.0
 {
     const ECCVerifyHandle verify_handle;
     ECC_Start();

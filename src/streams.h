@@ -63,10 +63,7 @@ public:
     int GetVersion() const { return nVersion; }
     int GetType() const { return nType; }
     size_t size() const { return stream->size(); }
-<<<<<<< HEAD
-=======
     void ignore(size_t size) { return stream->ignore(size); }
->>>>>>> bitcoin/8.22.0
 };
 
 /* Minimal stream for overwriting and/or appending to an existing byte vector

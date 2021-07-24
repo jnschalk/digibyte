@@ -35,11 +35,7 @@ NetworkStyle::NetworkStyle(const QString &_appName, const int iconColorHueShift,
     // Grab theme from settings
     QString theme = GUIUtil::getThemeName();
     // load pixmap
-<<<<<<< HEAD
     QPixmap pixmap(":/icons/" + theme + "/digibyte");
-=======
-    QPixmap pixmap(":/icons/digibyte");
->>>>>>> bitcoin/8.22.0
 
     if(iconColorHueShift != 0 && iconColorSaturationReduction != 0)
     {

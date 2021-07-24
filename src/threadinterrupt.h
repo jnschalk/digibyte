@@ -5,11 +5,8 @@
 
 #ifndef DIGIBYTE_THREADINTERRUPT_H
 #define DIGIBYTE_THREADINTERRUPT_H
-<<<<<<< HEAD
-=======
 
 #include <sync.h>
->>>>>>> bitcoin/8.22.0
 
 #include <atomic>
 #include <chrono>

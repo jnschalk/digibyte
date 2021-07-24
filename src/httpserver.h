@@ -148,9 +148,4 @@ private:
     struct event* ev;
 };
 
-<<<<<<< HEAD
-std::string urlDecode(const std::string &urlEncoded);
-
-=======
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_HTTPSERVER_H

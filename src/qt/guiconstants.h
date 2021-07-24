@@ -5,11 +5,8 @@
 
 #ifndef DIGIBYTE_QT_GUICONSTANTS_H
 #define DIGIBYTE_QT_GUICONSTANTS_H
-<<<<<<< HEAD
-=======
 
 #include <cstdint>
->>>>>>> bitcoin/8.22.0
 
 /* Milliseconds between model updates */
 static const int MODEL_UPDATE_DELAY = 250;

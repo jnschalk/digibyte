@@ -32,8 +32,6 @@ void StartTorControl(CService onion_service_target);
 void InterruptTorControl();
 void StopTorControl();
 
-<<<<<<< HEAD
-=======
 CService DefaultOnionServiceTarget();
 
 /** Reply from Tor, can be single or multi-line */
@@ -160,5 +158,4 @@ public:
     static void reconnect_cb(evutil_socket_t fd, short what, void *arg);
 };
 
->>>>>>> bitcoin/8.22.0
 #endif /* DIGIBYTE_TORCONTROL_H */

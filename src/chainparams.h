@@ -65,14 +65,7 @@ struct ChainTxData {
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
-<<<<<<< HEAD
- * DigiByte system. There are three: the main network on which people trade goods
- * and services, the public test network which gets reset from time to time and
- * a regression test mode which is intended for private networks only. It has
- * minimal difficulty to ensure that blocks can be found instantly.
-=======
  * DigiByte system.
->>>>>>> bitcoin/8.22.0
  */
 class CChainParams
 {
@@ -91,9 +84,6 @@ public:
 
     const Consensus::Params& GetConsensus() const { return consensus; }
     const CMessageHeader::MessageStartChars& MessageStart() const { return pchMessageStart; }
-<<<<<<< HEAD
-    int GetDefaultPort() const { return nDefaultPort; }
-=======
     uint16_t GetDefaultPort() const { return nDefaultPort; }
     uint16_t GetDefaultPort(Network net) const
     {
@@ -105,7 +95,6 @@ public:
         return a.SetSpecial(addr) ? GetDefaultPort(a.GetNetwork()) : GetDefaultPort();
     }
 
->>>>>>> bitcoin/8.22.0
     const CBlock& GenesisBlock() const { return genesis; }
     /** Default value for -checkmempool and -checkblockindex argument */
     bool DefaultConsistencyChecks() const { return fDefaultConsistencyChecks; }
@@ -179,12 +168,4 @@ const CChainParams &Params();
  */
 void SelectParams(const std::string& chain);
 
-<<<<<<< HEAD
-/**
- * Allows modifying the Version Bits regtest parameters.
- */
-void UpdateVersionBitsParameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout);
-
-=======
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_CHAINPARAMS_H

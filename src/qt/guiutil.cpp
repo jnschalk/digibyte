@@ -7,10 +7,7 @@
 
 #include <qt/digibyteaddressvalidator.h>
 #include <qt/digibyteunits.h>
-<<<<<<< HEAD
-=======
 #include <qt/platformstyle.h>
->>>>>>> bitcoin/8.22.0
 #include <qt/qvalidatedlineedit.h>
 #include <qt/sendcoinsrecipient.h>
 

@@ -1,8 +1,5 @@
-<<<<<<< HEAD:src/qt/digibytegui.h
-// Copyright (c) 2011-2018 The DigiByte Core developers
-=======
+// Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2011-2020 The DigiByte Core developers
->>>>>>> bitcoin/8.22.0:src/qt/bitcoingui.h
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -76,11 +73,7 @@ class DigiByteGUI : public QMainWindow
 public:
     static const std::string DEFAULT_UIPLATFORM;
 
-<<<<<<< HEAD:src/qt/digibytegui.h
-    explicit DigiByteGUI(interfaces::Node& node, const PlatformStyle *platformStyle, const NetworkStyle *networkStyle, QWidget *parent = 0);
-=======
     explicit DigiByteGUI(interfaces::Node& node, const PlatformStyle *platformStyle, const NetworkStyle *networkStyle, QWidget *parent = nullptr);
->>>>>>> bitcoin/8.22.0:src/qt/bitcoingui.h
     ~DigiByteGUI();
 
     /** Set the client model.

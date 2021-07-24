@@ -82,9 +82,7 @@ const static std::string allNetMessageTypes[] = {
     NetMsgType::CMPCTBLOCK,
     NetMsgType::GETBLOCKTXN,
     NetMsgType::BLOCKTXN,
-<<<<<<< HEAD
     NetMsgType::DANDELIONTX,
-=======
     NetMsgType::GETCFILTERS,
     NetMsgType::CFILTER,
     NetMsgType::GETCFHEADERS,
@@ -92,7 +90,6 @@ const static std::string allNetMessageTypes[] = {
     NetMsgType::GETCFCHECKPT,
     NetMsgType::CFCHECKPT,
     NetMsgType::WTXIDRELAY,
->>>>>>> bitcoin/8.22.0
 };
 const static std::vector<std::string> allNetMessageTypesVec(std::begin(allNetMessageTypes), std::end(allNetMessageTypes));
 

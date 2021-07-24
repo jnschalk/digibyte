@@ -6,11 +6,8 @@
 
 #ifndef DIGIBYTE_THREADSAFETY_H
 #define DIGIBYTE_THREADSAFETY_H
-<<<<<<< HEAD
-=======
 
 #include <mutex>
->>>>>>> bitcoin/8.22.0
 
 #ifdef __clang__
 // TL;DR Add GUARDED_BY(mutex) to member variables. The others are
@@ -56,8 +53,6 @@
 #define ASSERT_EXCLUSIVE_LOCK(...)
 #endif // __GNUC__
 
-<<<<<<< HEAD
-=======
 // StdMutex provides an annotated version of std::mutex for us,
 // and should only be used when sync.h Mutex/LOCK/etc are not usable.
 class LOCKABLE StdMutex : public std::mutex
@@ -80,5 +75,4 @@ public:
     ~StdLockGuard() UNLOCK_FUNCTION() {}
 };
 
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_THREADSAFETY_H

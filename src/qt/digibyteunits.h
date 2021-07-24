@@ -1,8 +1,5 @@
-<<<<<<< HEAD:src/qt/digibyteunits.h
-// Copyright (c) 2011-2018 The DigiByte Core developers
-=======
+// Copyright (c) 2011-2018 The Bitcoin Core developers
 // Copyright (c) 2011-2020 The DigiByte Core developers
->>>>>>> bitcoin/8.22.0:src/qt/bitcoinunits.h
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
