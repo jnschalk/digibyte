@@ -37,14 +37,6 @@ int64_t GetAdjustedTime()
     return GetTime() + GetTimeOffset();
 }
 
-<<<<<<< HEAD
-static int64_t abs64(int64_t n)
-{
-    return (n >= 0 ? n : -n);
-}
-
-=======
->>>>>>> bitcoin/8.22.0
 #define DIGIBYTE_TIMEDATA_MAX_SAMPLES 200
 
 void AddTimeData(const CNetAddr& ip, int64_t nOffsetSample)
