@@ -10,10 +10,7 @@ digibyted and digibyte-qt by interacting with them through the RPC and P2P
 interfaces.
 - [util](/test/util) which tests the digibyte utilities, currently only
 digibyte-tx.
-<<<<<<< HEAD
-=======
 - [lint](/test/lint/) which perform various static analysis checks.
->>>>>>> bitcoin/8.22.0
 
 The util tests are run as part of `make check` target. The functional
 tests and lint scripts can be run as explained in the sections below.
@@ -143,11 +140,7 @@ tests will fail. If this happens, remove the cache directory (and make
 sure digibyted processes are stopped as above):
 
 ```bash
-<<<<<<< HEAD
-rm -rf cache
-=======
 rm -rf test/cache
->>>>>>> bitcoin/8.22.0
 killall digibyted
 ```
 
@@ -162,11 +155,7 @@ levels using the logger included in the test_framework, e.g.
   `test_framework.log` and no logs are output to the console.
 - when run directly, *all* logs are written to `test_framework.log` and INFO
   level and above are output to the console.
-<<<<<<< HEAD
-- when run on Travis, no logs are output to the console. However, if a test
-=======
 - when run by [our CI (Continuous Integration)](/ci/README.md), no logs are output to the console. However, if a test
->>>>>>> bitcoin/8.22.0
   fails, the `test_framework.log` and digibyted `debug.log`s will all be dumped
   to the console to help troubleshooting.
 
