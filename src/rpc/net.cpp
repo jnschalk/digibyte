@@ -437,31 +437,6 @@ static RPCHelpMan disconnectnode()
 
 static RPCHelpMan getaddednodeinfo()
 {
-<<<<<<< HEAD
-    if (request.fHelp || request.params.size() > 1)
-        throw std::runtime_error(
-            "getaddednodeinfo ( \"node\" )\n"
-            "\nReturns information about the given added node, or all added nodes\n"
-            "(note that onetry addnodes are not listed here)\n"
-            "\nArguments:\n"
-            "1. \"node\"   (string, optional) If provided, return information about this specific node, otherwise all nodes are returned.\n"
-            "\nResult:\n"
-            "[\n"
-            "  {\n"
-            "    \"addednode\" : \"192.168.0.201\",   (string) The node IP address or name (as provided to addnode)\n"
-            "    \"connected\" : true|false,          (boolean) If connected\n"
-            "    \"addresses\" : [                    (list of objects) Only when connected = true\n"
-            "       {\n"
-            "         \"address\" : \"192.168.0.201:8333\",  (string) The digibyte server IP and port we're connected to\n"
-            "         \"connected\" : \"outbound\"           (string) connection, inbound or outbound\n"
-            "       }\n"
-            "     ]\n"
-            "  }\n"
-            "  ,...\n"
-            "]\n"
-            "\nExamples:\n"
-            + HelpExampleCli("getaddednodeinfo", "\"192.168.0.201\"")
-=======
     return RPCHelpMan{"getaddednodeinfo",
                 "\nReturns information about the given added node, or all added nodes\n"
                 "(note that onetry addnodes are not listed here)\n",
@@ -488,7 +463,6 @@ static RPCHelpMan getaddednodeinfo()
                 },
                 RPCExamples{
                     HelpExampleCli("getaddednodeinfo", "\"192.168.0.201\"")
->>>>>>> bitcoin/8.22.0
             + HelpExampleRpc("getaddednodeinfo", "\"192.168.0.201\"")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
