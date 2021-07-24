@@ -1620,7 +1620,6 @@ class msg_cmpctblock:
     def __repr__(self):
         return "msg_cmpctblock(HeaderAndShortIDs=%s)" % repr(self.header_and_shortids)
 
-<<<<<<< HEAD
 class msg_dandeliontx():
     command = b"dandeliontx"
         
@@ -1636,14 +1635,9 @@ class msg_dandeliontx():
     def __repr__(self):
         return "msg_dandeliontx(tx=%s)" % (repr(self.tx))
 
-class msg_getblocktxn():
-    command = b"getblocktxn"
-=======
-
 class msg_getblocktxn:
     __slots__ = ("block_txn_request",)
     msgtype = b"getblocktxn"
->>>>>>> bitcoin/8.22.0
 
     def __init__(self):
         self.block_txn_request = None

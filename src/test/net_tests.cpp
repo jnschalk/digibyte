@@ -5,18 +5,9 @@
 
 #include <addrdb.h>
 #include <addrman.h>
-<<<<<<< HEAD
-#include <test/test_digibyte.h>
-#include <string>
-#include <boost/test/unit_test.hpp>
-#include <hash.h>
-#include <serialize.h>
-#include <streams.h>
-=======
 #include <chainparams.h>
 #include <clientversion.h>
 #include <cstdint>
->>>>>>> bitcoin/8.22.0
 #include <net.h>
 #include <netaddress.h>
 #include <netbase.h>
