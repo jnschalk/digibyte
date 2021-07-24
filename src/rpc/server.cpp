@@ -174,17 +174,6 @@ static RPCHelpMan stop()
                 RPCExamples{""},
         [&](const RPCHelpMan& self, const JSONRPCRequest& jsonRequest) -> UniValue
 {
-<<<<<<< HEAD
-    // Accept the deprecated and ignored 'detach' boolean argument
-    if (jsonRequest.fHelp || jsonRequest.params.size() > 1)
-        throw std::runtime_error(
-            "stop\n"
-            "\nStop DigiByte server.");
-    // Event loop will exit after current HTTP requests have been handled, so
-    // this reply will get back to the client.
-    StartShutdown();
-    return "DigiByte server stopping";
-=======
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
@@ -194,7 +183,6 @@ static RPCHelpMan stop()
     return RESULT;
 },
     };
->>>>>>> bitcoin/8.22.0
 }
 
 static RPCHelpMan uptime()
@@ -508,15 +496,6 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 UniValue CRPCTable::dumpArgMap(const JSONRPCRequest& args_request) const
 {
-<<<<<<< HEAD
-    return "> digibyte-cli " + methodname + " " + args + "\n";
-}
-
-std::string HelpExampleRpc(const std::string& methodname, const std::string& args)
-{
-    return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
-        "\"method\": \"" + methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:14022/\n";
-=======
     JSONRPCRequest request = args_request;
     request.mode = JSONRPCRequest::GET_ARGS;
 
@@ -530,7 +509,6 @@ std::string HelpExampleRpc(const std::string& methodname, const std::string& arg
         }
     }
     return ret;
->>>>>>> bitcoin/8.22.0
 }
 
 void RPCSetTimerInterfaceIfUnset(RPCTimerInterface *iface)

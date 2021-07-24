@@ -142,14 +142,10 @@ static bool CreateSig(const BaseSignatureCreator& creator, SignatureData& sigdat
         sig_out = it->second.second;
         return true;
     }
-<<<<<<< HEAD
-    sigdata.misc_pubkeys.emplace(keyid, pubkey);
-=======
     KeyOriginInfo info;
     if (provider.GetKeyOrigin(keyid, info)) {
         sigdata.misc_pubkeys.emplace(keyid, std::make_pair(pubkey, std::move(info)));
     }
->>>>>>> bitcoin/8.22.0
     if (creator.CreateSig(provider, sig_out, keyid, scriptcode, sigversion)) {
         auto i = sigdata.signatures.emplace(keyid, SigPair(pubkey, sig_out));
         assert(i.second);
@@ -262,26 +258,18 @@ static bool SignStep(const SigningProvider& provider, const BaseSignatureCreator
     case TxoutType::NULL_DATA:
     case TxoutType::WITNESS_UNKNOWN:
         return false;
-<<<<<<< HEAD
-    case TX_PUBKEY:
-=======
     case TxoutType::PUBKEY:
->>>>>>> bitcoin/8.22.0
         if (!CreateSig(creator, sigdata, provider, sig, CPubKey(vSolutions[0]), scriptPubKey, sigversion)) return false;
         ret.push_back(std::move(sig));
         return true;
     case TxoutType::PUBKEYHASH: {
         CKeyID keyID = CKeyID(uint160(vSolutions[0]));
         CPubKey pubkey;
-<<<<<<< HEAD
-        GetPubKey(provider, sigdata, keyID, pubkey);
-=======
         if (!GetPubKey(provider, sigdata, keyID, pubkey)) {
             // Pubkey could not be found, add to missing
             sigdata.missing_pubkeys.push_back(keyID);
             return false;
         }
->>>>>>> bitcoin/8.22.0
         if (!CreateSig(creator, sigdata, provider, sig, pubkey, scriptPubKey, sigversion)) return false;
         ret.push_back(std::move(sig));
         ret.push_back(ToByteVector(pubkey));
@@ -302,10 +290,6 @@ static bool SignStep(const SigningProvider& provider, const BaseSignatureCreator
         ret.push_back(valtype()); // workaround CHECKMULTISIG bug
         for (size_t i = 1; i < vSolutions.size() - 1; ++i) {
             CPubKey pubkey = CPubKey(vSolutions[i]);
-<<<<<<< HEAD
-            if (ret.size() < required + 1 && CreateSig(creator, sigdata, provider, sig, pubkey, scriptPubKey, sigversion)) {
-                ret.push_back(std::move(sig));
-=======
             // We need to always call CreateSig in order to fill sigdata with all
             // possible signatures that we can create. This will allow further PSBT
             // processing to work as it needs all possible signature and pubkey pairs
@@ -313,7 +297,6 @@ static bool SignStep(const SigningProvider& provider, const BaseSignatureCreator
                 if (ret.size() < required + 1) {
                     ret.push_back(std::move(sig));
                 }
->>>>>>> bitcoin/8.22.0
             }
         }
         bool ok = ret.size() == required + 1;
