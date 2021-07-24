@@ -6,14 +6,9 @@
 #include <chainparams.h>
 #include <index/txindex.h>
 #include <script/standard.h>
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-#include <util.h>
-#include <utiltime.h>
-=======
 #include <test/util/setup_common.h>
 #include <util/time.h>
->>>>>>> bitcoin/8.22.0
 #include <validation.h>
 
 #include <boost/test/unit_test.hpp>
@@ -75,15 +70,11 @@ BOOST_FIXTURE_TEST_CASE(txindex_initial_sync, TestChain100Setup)
         }
     }
 
-<<<<<<< HEAD
-    txindex.Stop(); // Stop thread before calling destructor
-=======
     // shutdown sequence (c.f. Shutdown() in init.cpp)
     txindex.Stop();
 
     // Let scheduler events finish running to avoid accessing any memory related to txindex after it is destructed
     SyncWithValidationInterfaceQueue();
->>>>>>> bitcoin/8.22.0
 }
 
 BOOST_AUTO_TEST_SUITE_END()

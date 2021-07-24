@@ -9,13 +9,9 @@
 #include <key.h>
 #include <key_io.h>
 #include <script/script.h>
-<<<<<<< HEAD
-#include <utilstrencodings.h>
 #include <test/test_digibyte.h>
-=======
 #include <test/util/setup_common.h>
 #include <util/strencodings.h>
->>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 

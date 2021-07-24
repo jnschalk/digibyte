@@ -4,11 +4,8 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <chain.h>
-<<<<<<< HEAD
 #include <versionbits.h>
 #include <test/test_digibyte.h>
-=======
->>>>>>> bitcoin/8.22.0
 #include <chainparams.h>
 #include <consensus/params.h>
 #include <deploymentstatus.h>

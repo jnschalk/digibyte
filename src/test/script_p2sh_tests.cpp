@@ -10,14 +10,10 @@
 #include <script/script.h>
 #include <script/script_error.h>
 #include <script/sign.h>
-<<<<<<< HEAD
-#include <script/ismine.h>
 #include <test/test_digibyte.h>
-=======
 #include <script/signingprovider.h>
 #include <test/util/setup_common.h>
 #include <validation.h>
->>>>>>> bitcoin/8.22.0
 
 #include <vector>
 

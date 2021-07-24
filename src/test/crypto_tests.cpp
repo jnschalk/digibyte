@@ -5,15 +5,12 @@
 
 #include <crypto/aes.h>
 #include <crypto/chacha20.h>
-<<<<<<< HEAD
 #include <crypto/odocrypt.h>
-=======
 #include <crypto/chacha_poly_aead.h>
 #include <crypto/hkdf_sha256_32.h>
 #include <crypto/hmac_sha256.h>
 #include <crypto/hmac_sha512.h>
 #include <crypto/poly1305.h>
->>>>>>> bitcoin/8.22.0
 #include <crypto/ripemd160.h>
 #include <crypto/sha1.h>
 #include <crypto/sha256.h>
@@ -21,15 +18,11 @@
 #include <crypto/sha512.h>
 #include <crypto/muhash.h>
 #include <random.h>
-<<<<<<< HEAD
-#include <utilstrencodings.h>
 #include <test/test_digibyte.h>
-=======
 #include <streams.h>
 #include <test/util/setup_common.h>
 #include <util/strencodings.h>
 
->>>>>>> bitcoin/8.22.0
 #include <vector>
 #include <boost/test/unit_test.hpp>
 

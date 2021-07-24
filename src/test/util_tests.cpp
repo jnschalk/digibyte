@@ -9,12 +9,8 @@
 #include <hash.h> // For Hash()
 #include <key.h>  // For CKey
 #include <sync.h>
-<<<<<<< HEAD
 #include <utilstrencodings.h>
-#include <utilmoneystr.h>
 #include <test/test_digibyte.h>
-
-=======
 #include <test/util/logging.h>
 #include <test/util/setup_common.h>
 #include <test/util/str.h>
@@ -30,7 +26,6 @@
 
 #include <array>
 #include <optional>
->>>>>>> bitcoin/8.22.0
 #include <stdint.h>
 #include <string.h>
 #include <thread>

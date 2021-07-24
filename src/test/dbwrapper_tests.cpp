@@ -6,11 +6,7 @@
 #include <dbwrapper.h>
 #include <test/util/setup_common.h>
 #include <uint256.h>
-<<<<<<< HEAD
-#include <random.h>
 #include <test/test_digibyte.h>
-=======
->>>>>>> bitcoin/8.22.0
 
 #include <memory>
 
