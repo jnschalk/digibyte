@@ -16,12 +16,8 @@ OpenURIDialog::OpenURIDialog(QWidget *parent) :
     ui(new Ui::OpenURIDialog)
 {
     ui->setupUi(this);
-<<<<<<< HEAD
-    ui->uriEdit->setPlaceholderText("digibyte:");
-=======
 
     GUIUtil::handleCloseWindowShortcut(this);
->>>>>>> bitcoin/8.22.0
 }
 
 OpenURIDialog::~OpenURIDialog()
@@ -45,15 +41,3 @@ void OpenURIDialog::accept()
         ui->uriEdit->setValid(false);
     }
 }
-<<<<<<< HEAD
-
-void OpenURIDialog::on_selectFileButton_clicked()
-{
-    QString filename = GUIUtil::getOpenFileName(this, tr("Select payment request file to open"), "", "", nullptr);
-    if(filename.isEmpty())
-        return;
-    QUrl fileUri = QUrl::fromLocalFile(filename);
-    ui->uriEdit->setText("digibyte:?r=" + QUrl::toPercentEncoding(fileUri.toString()));
-}
-=======
->>>>>>> bitcoin/8.22.0

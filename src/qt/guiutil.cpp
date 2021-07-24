@@ -122,14 +122,11 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
         QString::fromStdString(DummyAddress(Params()))));
     widget->setValidator(new DigiByteAddressEntryValidator(parent));
     widget->setCheckValidator(new DigiByteAddressCheckValidator(parent));
-<<<<<<< HEAD
-=======
 }
 
 void AddButtonShortcut(QAbstractButton* button, const QKeySequence& shortcut)
 {
     QObject::connect(new QShortcut(shortcut, button), &QShortcut::activated, [button]() { button->animateClick(); });
->>>>>>> bitcoin/8.22.0
 }
 
 bool parseDigiByteURI(const QUrl &uri, SendCoinsRecipient *out)
@@ -197,22 +194,14 @@ bool parseDigiByteURI(QString uri, SendCoinsRecipient *out)
 
 QString formatDigiByteURI(const SendCoinsRecipient &info)
 {
-<<<<<<< HEAD
-    QString ret = QString("digibyte:%1").arg(info.address);
-=======
     bool bech_32 = info.address.startsWith(QString::fromStdString(Params().Bech32HRP() + "1"));
 
     QString ret = QString("digibyte:%1").arg(bech_32 ? info.address.toUpper() : info.address);
->>>>>>> bitcoin/8.22.0
     int paramCount = 0;
 
     if (info.amount)
     {
-<<<<<<< HEAD
-        ret += QString("?amount=%1").arg(DigiByteUnits::format(DigiByteUnits::DGB, info.amount, false, DigiByteUnits::separatorNever));
-=======
         ret += QString("?amount=%1").arg(DigiByteUnits::format(DigiByteUnits::DGB, info.amount, false, DigiByteUnits::SeparatorStyle::NEVER));
->>>>>>> bitcoin/8.22.0
         paramCount++;
     }
 
@@ -427,11 +416,7 @@ void openDebugLogfile()
 
 bool openDigiByteConf()
 {
-<<<<<<< HEAD
-    boost::filesystem::path pathConfig = GetConfigFile(gArgs.GetArg("-conf", DIGIBYTE_CONF_FILENAME));
-=======
     fs::path pathConfig = GetConfigFile(gArgs.GetArg("-conf", DIGIBYTE_CONF_FILENAME));
->>>>>>> bitcoin/8.22.0
 
     /* Create the file */
     fsbridge::ofstream configFile(pathConfig, std::ios_base::app);
@@ -442,9 +427,6 @@ bool openDigiByteConf()
     configFile.close();
 
     /* Open digibyte.conf with the associated application */
-<<<<<<< HEAD
-    return QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
-=======
     bool res = QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 #ifdef Q_OS_MAC
     // Workaround for macOS-specific behavior; see #15409.
@@ -454,7 +436,6 @@ bool openDigiByteConf()
 #endif
 
     return res;
->>>>>>> bitcoin/8.22.0
 }
 
 ToolTipToRichTextFilter::ToolTipToRichTextFilter(int _size_threshold, QObject *parent) :
@@ -593,11 +574,7 @@ fs::path static GetAutostartFilePath()
     std::string chain = gArgs.GetChainName();
     if (chain == CBaseChainParams::MAIN)
         return GetAutostartDir() / "digibyte.desktop";
-<<<<<<< HEAD
-    return GetAutostartDir() / strprintf("digibyte-%s.lnk", chain);
-=======
     return GetAutostartDir() / strprintf("digibyte-%s.desktop", chain);
->>>>>>> bitcoin/8.22.0
 }
 
 bool GetStartOnSystemStartup()

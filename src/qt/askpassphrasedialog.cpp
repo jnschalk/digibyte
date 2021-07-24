@@ -122,18 +122,7 @@ void AskPassphraseDialog::accept()
                     m_passphrase_out->assign(newpass1);
                     QMessageBox::warning(this, tr("Wallet to be encrypted"),
                                          "<qt>" +
-<<<<<<< HEAD
-                                         tr("%1 will close now to finish the encryption process. "
-                                         "Remember that encrypting your wallet cannot fully protect "
-                                         "your digibytes from being stolen by malware infecting your computer.").arg(tr(PACKAGE_NAME)) +
-                                         "<br><br><b>" +
-                                         tr("IMPORTANT: Any previous backups you have made of your wallet file "
-                                         "should be replaced with the newly generated, encrypted wallet file. "
-                                         "For security reasons, previous backups of the unencrypted wallet file "
-                                         "will become useless as soon as you start using the new, encrypted wallet.") +
-=======
                                          tr("Your wallet is about to be encrypted. ") + encryption_reminder +
->>>>>>> bitcoin/8.22.0
                                          "</b></qt>");
                 } else {
                     assert(model != nullptr);

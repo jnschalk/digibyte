@@ -122,11 +122,7 @@ public:
 };
 
 /**
-<<<<<<< HEAD
- * DigiByte RPC command dispatcher.
-=======
  * RPC command dispatcher.
->>>>>>> bitcoin/8.22.0
  */
 class CRPCTable
 {

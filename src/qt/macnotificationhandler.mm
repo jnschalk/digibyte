@@ -14,11 +14,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-<<<<<<< HEAD
-        return @"io.digibyte.DigiByte-Qt";
-=======
-        return @"org.digibytefoundation.DigiByte-Qt";
->>>>>>> bitcoin/8.22.0
+        return @"org.digibyte.DigiByte-Qt";
     } else {
         return [self __bundleIdentifier];
     }

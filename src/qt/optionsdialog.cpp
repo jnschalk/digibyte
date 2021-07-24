@@ -111,17 +111,10 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
 
     QDir translations(":translations");
 
-<<<<<<< HEAD
-    ui->digibyteAtStartup->setToolTip(ui->digibyteAtStartup->toolTip().arg(tr(PACKAGE_NAME)));
-    ui->digibyteAtStartup->setText(ui->digibyteAtStartup->text().arg(tr(PACKAGE_NAME)));
-
-    ui->openDigiByteConfButton->setToolTip(ui->openDigiByteConfButton->toolTip().arg(tr(PACKAGE_NAME)));
-=======
     ui->digibyteAtStartup->setToolTip(ui->digibyteAtStartup->toolTip().arg(PACKAGE_NAME));
     ui->digibyteAtStartup->setText(ui->digibyteAtStartup->text().arg(PACKAGE_NAME));
 
     ui->openDigiByteConfButton->setToolTip(ui->openDigiByteConfButton->toolTip().arg(PACKAGE_NAME));
->>>>>>> bitcoin/8.22.0
 
     ui->lang->setToolTip(ui->lang->toolTip().arg(PACKAGE_NAME));
     ui->lang->addItem(QString("(") + tr("default") + QString(")"), QVariant(""));
@@ -141,11 +134,6 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
             ui->lang->addItem(locale.nativeLanguageName() + QString(" (") + langStr + QString(")"), QVariant(langStr));
         }
     }
-<<<<<<< HEAD
-    ui->thirdPartyTxUrls->setPlaceholderText("https://example.com/tx/%s");
-
-=======
->>>>>>> bitcoin/8.22.0
     ui->unit->setModel(new DigiByteUnits(this));
 
     /* Widget-to-option mapper */
@@ -236,11 +224,6 @@ void OptionsDialog::setModel(OptionsModel *_model)
     connect(ui->connectSocks, &QCheckBox::clicked, this, &OptionsDialog::showRestartWarning);
     connect(ui->connectSocksTor, &QCheckBox::clicked, this, &OptionsDialog::showRestartWarning);
     /* Display */
-<<<<<<< HEAD
-    connect(ui->theme, SIGNAL(valueChanged()), this, SLOT(showRestartWarning()));
-    connect(ui->lang, SIGNAL(valueChanged()), this, SLOT(showRestartWarning()));
-    connect(ui->thirdPartyTxUrls, SIGNAL(textChanged(const QString &)), this, SLOT(showRestartWarning()));
-=======
     connect(ui->lang, qOverload<>(&QValueComboBox::valueChanged), [this]{ showRestartWarning(); });
     connect(ui->thirdPartyTxUrls, &QLineEdit::textChanged, [this]{ showRestartWarning(); });
 }
@@ -253,7 +236,6 @@ void OptionsDialog::setCurrentTab(OptionsDialog::Tab tab)
     if (tab_widget && ui->tabWidget->currentWidget() != tab_widget) {
         ui->tabWidget->setCurrentWidget(tab_widget);
     }
->>>>>>> bitcoin/8.22.0
 }
 
 void OptionsDialog::setMapper()

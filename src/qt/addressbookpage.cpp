@@ -11,10 +11,6 @@
 #include <qt/forms/ui_addressbookpage.h>
 
 #include <qt/addresstablemodel.h>
-<<<<<<< HEAD
-#include <qt/digibytegui.h>
-=======
->>>>>>> bitcoin/8.22.0
 #include <qt/csvmodelwriter.h>
 #include <qt/editaddressdialog.h>
 #include <qt/guiutil.h>
@@ -112,11 +108,7 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode _mode,
         ui->newAddress->setVisible(true);
         break;
     case ReceivingTab:
-<<<<<<< HEAD
-        ui->labelExplanation->setText(tr("These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction."));
-=======
         ui->labelExplanation->setText(tr("These are your DigiByte addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.\nSigning is only possible with addresses of the type 'legacy'."));
->>>>>>> bitcoin/8.22.0
         ui->deleteAddress->setVisible(false);
         ui->newAddress->setVisible(false);
         break;

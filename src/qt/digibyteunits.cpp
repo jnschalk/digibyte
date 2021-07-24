@@ -1,19 +1,9 @@
-<<<<<<< HEAD:src/qt/digibyteunits.cpp
-// Copyright (c) 2011-2018 The DigiByte Core developers
-=======
-// Copyright (c) 2011-2020 The DigiByte Core developers
->>>>>>> bitcoin/8.22.0:src/qt/bitcoinunits.cpp
+// Copyright (c) 2011-2018 The Bitcoin Core developers
+// Copyright (c) 2014-2020 The DigiByte Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <qt/digibyteunits.h>
-<<<<<<< HEAD:src/qt/digibyteunits.cpp
-
-#include <primitives/transaction.h>
-
-#include <QStringList>
-
-=======
 
 #include <QStringList>
 
@@ -21,7 +11,6 @@
 
 static constexpr auto MAX_DIGITS_DGB = 16;
 
->>>>>>> bitcoin/8.22.0:src/qt/bitcoinunits.cpp
 DigiByteUnits::DigiByteUnits(QObject *parent):
         QAbstractListModel(parent),
         unitlist(availableUnits())
@@ -110,11 +99,7 @@ int DigiByteUnits::decimals(int unit)
     }
 }
 
-<<<<<<< HEAD:src/qt/digibyteunits.cpp
-QString DigiByteUnits::format(int unit, const CAmount& nIn, bool fPlus, SeparatorStyle separators)
-=======
 QString DigiByteUnits::format(int unit, const CAmount& nIn, bool fPlus, SeparatorStyle separators, bool justify)
->>>>>>> bitcoin/8.22.0:src/qt/bitcoinunits.cpp
 {
     // Note: not using straight sprintf here because we do NOT want
     // localized number formatting.

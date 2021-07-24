@@ -9,11 +9,7 @@
 #include <qt/forms/ui_receivecoinsdialog.h>
 
 #include <qt/addresstablemodel.h>
-<<<<<<< HEAD
-#include <qt/digibyteunits.h>
-=======
 #include <qt/guiutil.h>
->>>>>>> bitcoin/8.22.0
 #include <qt/optionsmodel.h>
 #include <qt/platformstyle.h>
 #include <qt/receiverequestdialog.h>

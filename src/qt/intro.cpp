@@ -145,15 +145,9 @@ Intro::Intro(QWidget *parent, int64_t blockchain_size_gb, int64_t chain_state_si
     ui->storageLabel->setText(ui->storageLabel->text().arg(PACKAGE_NAME));
 
     ui->lblExplanation1->setText(ui->lblExplanation1->text()
-<<<<<<< HEAD
-        .arg(tr(PACKAGE_NAME))
-        .arg(BLOCK_CHAIN_SIZE)
-        .arg(2014)
-=======
         .arg(PACKAGE_NAME)
         .arg(m_blockchain_size_gb)
-        .arg(2009)
->>>>>>> bitcoin/8.22.0
+        .arg(2014)
         .arg(tr("DigiByte"))
     );
     ui->lblExplanation2->setText(ui->lblExplanation2->text().arg(PACKAGE_NAME));
@@ -164,14 +158,6 @@ Intro::Intro(QWidget *parent, int64_t blockchain_size_gb, int64_t chain_state_si
         ui->prune->setChecked(true);
         ui->prune->setEnabled(false);
     }
-<<<<<<< HEAD
-    requiredSpace += CHAIN_STATE_SIZE;
-    ui->sizeWarningLabel->setText(
-        tr("%1 will download and store a copy of the DigiByte block chain.").arg(tr(PACKAGE_NAME)) + " " +
-        storageRequiresMsg.arg(requiredSpace) + " " +
-        tr("The wallet will also be stored in this directory.")
-    );
-=======
     ui->pruneGB->setValue(m_prune_target_gb);
     ui->pruneGB->setToolTip(ui->prune->toolTip());
     ui->lblPruneSuffix->setToolTip(ui->prune->toolTip());
@@ -187,7 +173,6 @@ Intro::Intro(QWidget *parent, int64_t blockchain_size_gb, int64_t chain_state_si
         UpdateFreeSpaceLabel();
     });
 
->>>>>>> bitcoin/8.22.0
     startThread();
 }
 
@@ -256,10 +241,7 @@ bool Intro::showIfNeeded(bool& did_show_intro, int64_t& prune_MiB)
         Intro intro(0, Params().AssumedBlockchainSize(), Params().AssumedChainStateSize());
         intro.setDataDirectory(dataDir);
         intro.setWindowIcon(QIcon(":icons/digibyte"));
-<<<<<<< HEAD
-=======
         did_show_intro = true;
->>>>>>> bitcoin/8.22.0
 
         while(true)
         {

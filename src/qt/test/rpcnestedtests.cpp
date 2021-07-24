@@ -8,11 +8,7 @@
 #include <interfaces/node.h>
 #include <rpc/server.h>
 #include <qt/rpcconsole.h>
-<<<<<<< HEAD
-#include <test/test_digibyte.h>
-=======
 #include <test/util/setup_common.h>
->>>>>>> bitcoin/8.22.0
 #include <univalue.h>
 #include <util/system.h>
 

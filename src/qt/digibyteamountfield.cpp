@@ -1,8 +1,5 @@
-<<<<<<< HEAD:src/qt/digibyteamountfield.cpp
-// Copyright (c) 2011-2018 The DigiByte Core developers
-=======
-// Copyright (c) 2011-2020 The DigiByte Core developers
->>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.cpp
+// Copyright (c) 2011-2018 The Bitcoin Core developers
+// Copyright (c) 2014-2020 The DigiByte Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -28,13 +25,7 @@ class AmountSpinBox: public QAbstractSpinBox
 
 public:
     explicit AmountSpinBox(QWidget *parent):
-<<<<<<< HEAD:src/qt/digibyteamountfield.cpp
-        QAbstractSpinBox(parent),
-        currentUnit(DigiByteUnits::DGB),
-        singleStep(100000) // satoshis
-=======
         QAbstractSpinBox(parent)
->>>>>>> bitcoin/8.22.0:src/qt/bitcoinamountfield.cpp
     {
         setAlignment(Qt::AlignRight);
 
