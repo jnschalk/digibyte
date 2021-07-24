@@ -621,11 +621,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
             optionFile << "Name=DigiByte\n";
         else
             optionFile << strprintf("Name=DigiByte (%s)\n", chain);
-<<<<<<< HEAD
-        optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", gArgs.GetBoolArg("-testnet", false), gArgs.GetBoolArg("-regtest", false));
-=======
         optionFile << "Exec=" << pszExePath << strprintf(" -min -chain=%s\n", chain);
->>>>>>> bitcoin/8.22.0
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
         optionFile.close();

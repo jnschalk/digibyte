@@ -256,12 +256,7 @@ TransactionTableModel::TransactionTableModel(const PlatformStyle *_platformStyle
         fProcessingQueuedTransactions(false),
         platformStyle(_platformStyle)
 {
-<<<<<<< HEAD
-    columns << QString() << QString() << tr("Date") << tr("Type") << tr("Label") << DigiByteUnits::getAmountColumnTitle(walletModel->getOptionsModel()->getDisplayUnit());
-    priv->refreshWallet(walletModel->wallet());
-=======
     subscribeToCoreSignals();
->>>>>>> bitcoin/8.22.0
 
     columns << QString() << QString() << tr("Date") << tr("Type") << tr("Label") << DigiByteUnits::getAmountColumnTitle(walletModel->getOptionsModel()->getDisplayUnit());
     priv->refreshWallet(walletModel->wallet());
@@ -572,15 +567,9 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         case ToAddress:
             return formatTxToAddress(rec, false);
         case Amount:
-<<<<<<< HEAD
-            return formatTxAmount(rec, true, DigiByteUnits::separatorAlways);
-        }
-        break;
-=======
             return formatTxAmount(rec, true, DigiByteUnits::SeparatorStyle::ALWAYS);
         } // no default case, so the compiler can warn about missing cases
         assert(false);
->>>>>>> bitcoin/8.22.0
     case Qt::EditRole:
         // Edit role is used for sorting, so return the unformatted values
         switch (column) {
@@ -667,26 +656,15 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
                 details.append(QString::fromStdString(rec->address));
                 details.append(" ");
             }
-<<<<<<< HEAD
-            details.append(formatTxAmount(rec, false, DigiByteUnits::separatorNever));
-=======
             details.append(formatTxAmount(rec, false, DigiByteUnits::SeparatorStyle::NEVER));
->>>>>>> bitcoin/8.22.0
             return details;
         }
     case ConfirmedRole:
         return rec->status.status == TransactionStatus::Status::Confirming || rec->status.status == TransactionStatus::Status::Confirmed;
     case FormattedAmountRole:
         // Used for copy/export, so don't include separators
-<<<<<<< HEAD
-        return formatTxAmount(rec, false, DigiByteUnits::separatorNever);
-=======
         return formatTxAmount(rec, false, DigiByteUnits::SeparatorStyle::NEVER);
->>>>>>> bitcoin/8.22.0
-    case StatusRole:
-        return rec->status.status;
     }
-    return QVariant();
 }
 
 QVariant TransactionTableModel::headerData(int section, Qt::Orientation orientation, int role) const
