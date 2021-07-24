@@ -9,11 +9,8 @@
 #include <uint256.h>
 #include <util/time.h>
 
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <test/util/setup_common.h>
->>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 

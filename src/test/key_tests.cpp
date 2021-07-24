@@ -9,15 +9,10 @@
 #include <streams.h>
 #include <test/util/setup_common.h>
 #include <uint256.h>
-<<<<<<< HEAD
-#include <util.h>
-#include <utilstrencodings.h>
 #include <test/test_digibyte.h>
-=======
 #include <util/strencodings.h>
 #include <util/string.h>
 #include <util/system.h>
->>>>>>> bitcoin/8.22.0
 
 #include <string>
 #include <vector>

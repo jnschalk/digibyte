@@ -8,16 +8,10 @@
 #include <clientversion.h>
 #include <key.h>
 #include <key_io.h>
-<<<<<<< HEAD
-#include <uint256.h>
-#include <util.h>
-#include <utilstrencodings.h>
 #include <test/test_digibyte.h>
-=======
 #include <streams.h>
 #include <test/util/setup_common.h>
 #include <util/strencodings.h>
->>>>>>> bitcoin/8.22.0
 
 #include <string>
 #include <vector>

@@ -12,14 +12,8 @@
 #include <txdb.h>
 #include <uint256.h>
 #include <undo.h>
-<<<<<<< HEAD
-#include <utilstrencodings.h>
 #include <test/test_digibyte.h>
-#include <validation.h>
-#include <consensus/validation.h>
-=======
 #include <util/strencodings.h>
->>>>>>> bitcoin/8.22.0
 
 #include <map>
 #include <vector>

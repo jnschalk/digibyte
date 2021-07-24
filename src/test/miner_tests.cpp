@@ -18,11 +18,8 @@
 #include <util/time.h>
 #include <validation.h>
 
-<<<<<<< HEAD
 #include <test/test_digibyte.h>
-=======
 #include <test/util/setup_common.h>
->>>>>>> bitcoin/8.22.0
 
 #include <memory>
 

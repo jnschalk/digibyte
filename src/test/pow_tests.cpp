@@ -8,13 +8,8 @@
 #include <chain.h>
 #include <chainparams.h>
 #include <pow.h>
-<<<<<<< HEAD
-#include <random.h>
-#include <util.h>
 #include <test/test_digibyte.h>
-=======
 #include <test/util/setup_common.h>
->>>>>>> bitcoin/8.22.0
 
 #include <boost/test/unit_test.hpp>
 
