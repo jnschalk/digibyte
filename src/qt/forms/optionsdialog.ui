@@ -499,11 +499,7 @@
        <item>
         <widget class="QCheckBox" name="connectSocksTor">
          <property name="toolTip">
-<<<<<<< HEAD
-          <string>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor hidden services.</string>
-=======
           <string>Connect to the DigiByte network through a separate SOCKS5 proxy for Tor onion services.</string>
->>>>>>> bitcoin/8.22.0
          </property>
          <property name="text">
           <string>Use separate SOCKS&amp;5 proxy to reach peers via Tor onion services:</string>
