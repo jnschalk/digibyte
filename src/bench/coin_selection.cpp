@@ -28,11 +28,7 @@ static void addCoin(const CAmount& nValue, const CWallet& wallet, std::vector<st
 // same one over and over isn't too useful. Generating random isn't useful
 // either for measurements."
 // (https://github.com/digibyte/digibyte/issues/7883#issuecomment-224807484)
-<<<<<<< HEAD
-static void CoinSelection(benchmark::State& state)
-=======
 static void CoinSelection(benchmark::Bench& bench)
->>>>>>> bitcoin/8.22.0
 {
     NodeContext node;
     auto chain = interfaces::MakeChain(node);
