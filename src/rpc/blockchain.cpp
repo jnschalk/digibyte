@@ -115,7 +115,6 @@ CBlockPolicyEstimator& EnsureAnyFeeEstimator(const std::any& context)
  */
 double GetDifficulty(const CChain& chain, const CBlockIndex* blockindex, int algo)
 {
-<<<<<<< HEAD
     unsigned int nBits;
     unsigned int powLimit = InitialDifficulty(Params().GetConsensus(), algo);
     if (blockindex == nullptr)
@@ -135,12 +134,9 @@ double GetDifficulty(const CChain& chain, const CBlockIndex* blockindex, int alg
     else
         nBits = blockindex->nBits;
  
-    int nShift = (nBits >> 24) & 0xff;
-=======
     CHECK_NONFATAL(blockindex);
 
     int nShift = (blockindex->nBits >> 24) & 0xff;
->>>>>>> bitcoin/8.22.0
     double dDiff =
         (double)0x0000ffff / (double)(nBits & 0x00ffffff);
  

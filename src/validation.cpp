@@ -129,11 +129,10 @@ uint256 hashAssumeValid;
 arith_uint256 nMinimumChainWork;
 
 CFeeRate minRelayTxFee = CFeeRate(DEFAULT_MIN_RELAY_TX_FEE);
-<<<<<<< HEAD
 CAmount maxTxFee = DEFAULT_TRANSACTION_MAXFEE;
 
 CBlockPolicyEstimator feeEstimator;
-CTxMemPool mempool(&feeEstimator);
+
 std::atomic_bool g_is_mempool_loaded{false};
 CTxMemPool stempool(&feeEstimator);
 
@@ -141,8 +140,6 @@ CTxMemPool stempool(&feeEstimator);
 CScript COINBASE_FLAGS;
 
 const std::string strMessageMagic = "DigiByte Signed Message:\n";
-=======
->>>>>>> bitcoin/8.22.0
 
 // Internal stuff
 namespace {
@@ -251,14 +248,11 @@ bool CheckSequenceLocks(CBlockIndex* tip,
                         LockPoints* lp,
                         bool useExistingLockPoints)
 {
-<<<<<<< HEAD
     AssertLockHeld(cs_main);
     // We could be calling this with only the stempool lock held, but mempool lock is required.
     LOCK(mempool.cs);
 
     CBlockIndex* tip = chainActive.Tip();
-=======
->>>>>>> bitcoin/8.22.0
     assert(tip != nullptr);
 
     CBlockIndex index;
@@ -390,6 +384,8 @@ void CChainState::MaybeUpdateMempoolForReorg(
             // If the transaction doesn't make it in to the mempool, remove any
             // transactions that depend on it (which would now be orphans).
             m_mempool->removeRecursive(**it, MemPoolRemovalReason::REORG);
+            // Changes to mempool should also be made to Dandelion stempool
+            stempool.removeRecursive(**it, MemPoolRemovalReason::REORG);
         } else if (m_mempool->exists((*it)->GetHash())) {
 >>>>>>> bitcoin/8.22.0
             vHashUpdate.push_back((*it)->GetHash());
@@ -2382,17 +2378,15 @@ static void AppendWarning(bilingual_str& res, const bilingual_str& warn)
 void CChainState::UpdateTip(const CBlockIndex* pindexNew)
 {
     // New best block
-<<<<<<< HEAD
-    mempool.AddTransactionsUpdated(1);
-    // Changes to mempool should also be made to Dandelion stempool
-    stempool.AddTransactionsUpdated(1);
-    
-=======
     if (m_mempool) {
         m_mempool->AddTransactionsUpdated(1);
     }
+    
+    // Changes to mempool should also be made to Dandelion stempool
+    if (stempool) {
+        stempool->AddTransactionsUpdated(1);
+    }
 
->>>>>>> bitcoin/8.22.0
     {
         LOCK(g_best_block_mutex);
         g_best_block = pindexNew->GetBlockHash();
@@ -2796,13 +2790,9 @@ bool CChainState::ActivateBestChainStep(BlockValidationState& state, CBlockIndex
         // any disconnected transactions back to the mempool.
         MaybeUpdateMempoolForReorg(disconnectpool, true);
     }
-<<<<<<< HEAD
-    mempool.check(pcoinsTip.get());
-    // Changes to mempool should also be made to Dandelion stempool
-    stempool.check(pcoinsTip.get());
-=======
     if (m_mempool) m_mempool->check(*this);
->>>>>>> bitcoin/8.22.0
+    // Changes to mempool should also be made to Dandelion stempool
+    if (stempool) stempool->check(*this);
 
     CheckForkWarningConditions();
 
@@ -4356,14 +4346,11 @@ void UnloadBlockIndex(CTxMemPool* mempool, ChainstateManager& chainman)
     chainman.Unload();
     pindexBestInvalid = nullptr;
     pindexBestHeader = nullptr;
-<<<<<<< HEAD
-    mempool.clear();
+
+    if (mempool) mempool->clear();
     // Changes to mempool should also be made to Dandelion stempool
     stempool.clear();
-    mapBlocksUnlinked.clear();
-=======
-    if (mempool) mempool->clear();
->>>>>>> bitcoin/8.22.0
+
     vinfoBlockFile.clear();
     nLastBlockFile = 0;
     setDirtyBlockIndex.clear();
