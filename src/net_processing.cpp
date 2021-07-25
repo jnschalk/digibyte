@@ -1487,12 +1487,8 @@ void PeerManagerImpl::NewPoWValidBlock(const CBlockIndex *pindex, const std::sha
         return;
     nHighestFastAnnounce = pindex->nHeight;
 
-<<<<<<< HEAD
-    bool fWitnessEnabled = IsWitnessEnabled(pindex->pprev, Params().GetConsensus());
-    bool fOdoActive = IsAlgoActive(pindex->pprev, Params().GetConsensus(), ALGO_ODO);
-=======
     bool fWitnessEnabled = DeploymentActiveAt(*pindex, m_chainparams.GetConsensus(), Consensus::DEPLOYMENT_SEGWIT);
->>>>>>> bitcoin/8.22.0
+    bool fOdoActive = IsAlgoActive(pindex->pprev, Params().GetConsensus(), ALGO_ODO);
     uint256 hashBlock(pblock->GetHash());
 
     {
@@ -1503,13 +1499,8 @@ void PeerManagerImpl::NewPoWValidBlock(const CBlockIndex *pindex, const std::sha
         fWitnessesPresentInMostRecentCompactBlock = fWitnessEnabled;
     }
 
-<<<<<<< HEAD
-    connman->ForEachNode([this, &pcmpctblock, pindex, &msgMaker, fWitnessEnabled, fOdoActive, &hashBlock](CNode* pnode) {
-        AssertLockHeld(cs_main);
-=======
-    m_connman.ForEachNode([this, &pcmpctblock, pindex, &msgMaker, fWitnessEnabled, &hashBlock](CNode* pnode) EXCLUSIVE_LOCKS_REQUIRED(::cs_main) {
+    m_connman.ForEachNode([this, &pcmpctblock, pindex, &msgMaker, fWitnessEnabled, fOdoActive, &hashBlock](CNode* pnode) EXCLUSIVE_LOCKS_REQUIRED(::cs_main) {
         AssertLockHeld(::cs_main);
->>>>>>> bitcoin/8.22.0
 
         if (fOdoActive && pnode->nVersion < ODO_FORK_VERSION)
         {
@@ -2629,7 +2620,6 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
             return;
         }
 
-<<<<<<< HEAD
         int minVersion = MIN_PEER_PROTO_VERSION;
         {
             LOCK(cs_main);
@@ -2646,13 +2636,6 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
             }
             pfrom->fDisconnect = true;
             return false;
-=======
-        if (nVersion < MIN_PEER_PROTO_VERSION) {
-            // disconnect from peers older than this proto version
-            LogPrint(BCLog::NET, "peer=%d using obsolete version %i; disconnecting\n", pfrom.GetId(), nVersion);
-            pfrom.fDisconnect = true;
-            return;
->>>>>>> bitcoin/8.22.0
         }
 
         if (!vRecv.empty())
@@ -3192,17 +3175,10 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
 
         // Send the rest of the chain
         if (pindex)
-<<<<<<< HEAD
-            pindex = chainActive.Next(pindex);
-        int nLimit = 2500;
-        LogPrint(BCLog::NET, "getblocks %d to %s limit %d from peer=%d\n", (pindex ? pindex->nHeight : -1), hashStop.IsNull() ? "end" : hashStop.ToString(), nLimit, pfrom->GetId());
-        for (; pindex; pindex = chainActive.Next(pindex))
-=======
             pindex = m_chainman.ActiveChain().Next(pindex);
         int nLimit = 500;
         LogPrint(BCLog::NET, "getblocks %d to %s limit %d from peer=%d\n", (pindex ? pindex->nHeight : -1), hashStop.IsNull() ? "end" : hashStop.ToString(), nLimit, pfrom.GetId());
         for (; pindex; pindex = m_chainman.ActiveChain().Next(pindex))
->>>>>>> bitcoin/8.22.0
         {
             if (pindex->GetBlockHash() == hashStop)
             {
