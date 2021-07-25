@@ -154,14 +154,6 @@ double GetDifficulty(const CChain& chain, const CBlockIndex* blockindex, int alg
     return dDiff;
 }
 
-<<<<<<< HEAD
-double GetDifficulty(const CBlockIndex* blockindex, int algo)
-{
-    return GetDifficulty(chainActive, blockindex, algo);
-}
-
-UniValue blockheaderToJSON(const CBlockIndex* blockindex)
-=======
 static int ComputeNextBlockAndDepth(const CBlockIndex* tip, const CBlockIndex* blockindex, const CBlockIndex*& next)
 {
     next = tip->GetAncestor(blockindex->nHeight + 1);
@@ -200,7 +192,6 @@ CBlockIndex* ParseHashOrHeight(const UniValue& param, ChainstateManager& chainma
 }
 
 UniValue blockheaderToJSON(const CBlockIndex* tip, const CBlockIndex* blockindex)
->>>>>>> bitcoin/8.22.0
 {
     // Serialize passed information without accessing chain state of the active chain!
     AssertLockNotHeld(cs_main); // For performance reasons
@@ -528,7 +519,7 @@ static std::string EntryDescriptionString()
            "        \"transactionid\",    (string) child transaction id\n"
            "       ... ]\n";
 =======
-    return GetDifficulty(chainman.ActiveChain().Tip());
+    return GetDifficulty(chainman.ActiveChain().Tip(),miningAlgo);
 },
     };
 >>>>>>> bitcoin/8.22.0
