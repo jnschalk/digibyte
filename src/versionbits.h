@@ -101,12 +101,4 @@ public:
     void Clear();
 };
 
-<<<<<<< HEAD
-ThresholdState VersionBitsState(const CBlockIndex* pindexPrev, const Consensus::Params& params, Consensus::DeploymentPos pos, VersionBitsCache& cache);
-BIP9Stats VersionBitsStatistics(const CBlockIndex* pindexPrev, const Consensus::Params& params, Consensus::DeploymentPos pos);
-int VersionBitsStateSinceHeight(const CBlockIndex* pindexPrev, const Consensus::Params& params, Consensus::DeploymentPos pos, VersionBitsCache& cache);
-uint32_t VersionBitsMask(const Consensus::Params& params, Consensus::DeploymentPos pos);
-
-=======
->>>>>>> bitcoin/8.22.0
 #endif // DIGIBYTE_VERSIONBITS_H

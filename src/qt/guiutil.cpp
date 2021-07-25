@@ -629,39 +629,6 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     return true;
 }
 
-<<<<<<< HEAD
-
-#elif defined(Q_OS_MAC)
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-// based on: https://github.com/Mozketo/LaunchAtLoginController/blob/master/LaunchAtLoginController.m
-
-#include <CoreFoundation/CoreFoundation.h>
-#include <CoreServices/CoreServices.h>
-
-LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
-LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
-{
-    CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, nullptr);
-    if (listSnapshot == nullptr) {
-        return nullptr;
-    }
-
-    // loop through the list of startup items and try to find the digibyte app
-    for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
-        LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
-        UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
-        CFURLRef currentItemURL = nullptr;
-
-#if defined(MAC_OS_X_VERSION_MAX_ALLOWED) && MAC_OS_X_VERSION_MAX_ALLOWED >= 10100
-        if(&LSSharedFileListItemCopyResolvedURL)
-            currentItemURL = LSSharedFileListItemCopyResolvedURL(item, resolutionFlags, nullptr);
-#if defined(MAC_OS_X_VERSION_MIN_REQUIRED) && MAC_OS_X_VERSION_MIN_REQUIRED < 10100
-        else
-            LSSharedFileListItemResolve(item, resolutionFlags, &currentItemURL, nullptr);
-#endif
-=======
->>>>>>> bitcoin/8.22.0
 #else
 
 bool GetStartOnSystemStartup() { return false; }
