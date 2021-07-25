@@ -168,16 +168,10 @@ static UniValue generateBlocks(ChainstateManager& chainman, const CTxMemPool& me
         if (!GenerateBlock(chainman, *pblock, nMaxTries, nExtraNonce, block_hash)) {
             break;
         }
-<<<<<<< HEAD
-        while (nMaxTries > 0 && pblock->nNonce < nInnerLoopCount && !CheckProofOfWork(GetPoWAlgoHash(*pblock), pblock->nBits, Params().GetConsensus())) {
-            ++pblock->nNonce;
-            --nMaxTries;
-=======
 
         if (!block_hash.IsNull()) {
             ++nHeight;
             blockHashes.push_back(block_hash.GetHex());
->>>>>>> bitcoin/8.22.0
         }
     }
     return blockHashes;
@@ -219,23 +213,6 @@ static bool getScriptFromDescriptor(const std::string& descriptor, CScript& scri
 
 static RPCHelpMan generatetodescriptor()
 {
-<<<<<<< HEAD
-    if (request.fHelp || request.params.size() < 2 || request.params.size() > 4)
-        throw std::runtime_error(
-            "generatetoaddress nblocks address (maxtries)\n"
-            "\nMine blocks immediately to a specified address (before the RPC call returns)\n"
-            "\nArguments:\n"
-            "1. nblocks      (numeric, required) How many blocks are generated immediately.\n"
-            "2. address      (string, required) The address to send the newly generated digibyte to.\n"
-            "3. maxtries     (numeric, optional) How many iterations to try (default = 1000000).\n"
-            "4. algo         (string, optional) Which mining algorithm to use.\n"
-            "\nResult:\n"
-            "[ blockhashes ]     (array) hashes of blocks generated\n"
-            "\nExamples:\n"
-            "\nGenerate 11 blocks to myaddress\n"
-            + HelpExampleCli("generatetoaddress", "11 \"myaddress\"")
-        );
-=======
     return RPCHelpMan{
         "generatetodescriptor",
         "\nMine blocks immediately to a specified descriptor (before the RPC call returns)\n",
@@ -243,6 +220,7 @@ static RPCHelpMan generatetodescriptor()
             {"num_blocks", RPCArg::Type::NUM, RPCArg::Optional::NO, "How many blocks are generated immediately."},
             {"descriptor", RPCArg::Type::STR, RPCArg::Optional::NO, "The descriptor to send the newly generated digibyte to."},
             {"maxtries", RPCArg::Type::NUM, RPCArg::Default{DEFAULT_MAX_TRIES}, "How many iterations to try."},
+            {"algo", RPCArg::Type::STR, RPCArg::Optional::YES, "Which mining algorithm to use."},
         },
         RPCResult{
             RPCResult::Type::ARR, "", "hashes of blocks generated",
@@ -256,7 +234,6 @@ static RPCHelpMan generatetodescriptor()
 {
     const int num_blocks{request.params[0].get_int()};
     const uint64_t max_tries{request.params[2].isNull() ? DEFAULT_MAX_TRIES : request.params[2].get_int()};
->>>>>>> bitcoin/8.22.0
 
     CScript coinbase_script;
     std::string error;
@@ -466,9 +443,9 @@ static RPCHelpMan getmininginfo()
     const CChain& active_chain = chainman.ActiveChain();
 
     UniValue obj(UniValue::VOBJ);
-<<<<<<< HEAD
-    obj.pushKV("blocks",           (int)chainActive.Height());
-    obj.pushKV("currentblockweight", (uint64_t)nLastBlockWeight);
+    obj.pushKV("blocks",           active_chain.Height());
+    if (BlockAssembler::m_last_block_weight) obj.pushKV("currentblockweight", *BlockAssembler::m_last_block_weight);
+    if (BlockAssembler::m_last_block_num_txs) obj.pushKV("currentblocktx", *BlockAssembler::m_last_block_num_txs);
     obj.pushKV("pow_algo_id",        miningAlgo);
     obj.pushKV("pow_algo",           GetAlgoName(miningAlgo));
     obj.pushKV("difficulty",         (double)GetDifficulty(NULL, miningAlgo));
@@ -480,25 +457,10 @@ static RPCHelpMan getmininginfo()
             obj.pushKV(key, (double)GetDifficulty(NULL, algo));
         }
     }
-    obj.pushKV("errors",           GetWarnings("statusbar"));
-    //obj.push_back(Pair("networkhashps",    getnetworkhashps(request)));
-    obj.pushKV("pooledtx",         (uint64_t)mempool.size());
-    obj.pushKV("chain",            Params().NetworkIDString());
-    if (IsDeprecatedRPCEnabled("getmininginfo")) {
-        obj.pushKV("errors",       GetWarnings("statusbar"));
-    } else {
-        obj.pushKV("warnings",     GetWarnings("statusbar"));
-    }
-=======
-    obj.pushKV("blocks",           active_chain.Height());
-    if (BlockAssembler::m_last_block_weight) obj.pushKV("currentblockweight", *BlockAssembler::m_last_block_weight);
-    if (BlockAssembler::m_last_block_num_txs) obj.pushKV("currentblocktx", *BlockAssembler::m_last_block_num_txs);
-    obj.pushKV("difficulty",       (double)GetDifficulty(active_chain.Tip()));
     obj.pushKV("networkhashps",    getnetworkhashps().HandleRequest(request));
     obj.pushKV("pooledtx",         (uint64_t)mempool.size());
     obj.pushKV("chain",            Params().NetworkIDString());
     obj.pushKV("warnings",         GetWarnings(false).original);
->>>>>>> bitcoin/8.22.0
     return obj;
 },
     };
