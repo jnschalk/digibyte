@@ -1799,17 +1799,11 @@ public:
 
     bool Condition(const CBlockIndex* pindex, const Consensus::Params& params) const override
     {
-<<<<<<< HEAD
         int nAlgo = pindex->GetAlgo();
-        return ((pindex->nVersion & VERSIONBITS_TOP_MASK) == VERSIONBITS_TOP_BITS) &&
-               ((pindex->nVersion >> bit) & 1) != 0 &&
-               ((ComputeBlockVersion(pindex->pprev, params, nAlgo) >> bit) & 1) == 0;
-=======
         return pindex->nHeight >= params.MinBIP9WarningHeight &&
                ((pindex->nVersion & VERSIONBITS_TOP_MASK) == VERSIONBITS_TOP_BITS) &&
                ((pindex->nVersion >> bit) & 1) != 0 &&
-               ((g_versionbitscache.ComputeBlockVersion(pindex->pprev, params) >> bit) & 1) == 0;
->>>>>>> bitcoin/8.22.0
+               ((g_versionbitscache.ComputeBlockVersion(pindex->pprev, params, nAlgo) >> bit) & 1) == 0;
     }
 };
 
@@ -2035,11 +2029,9 @@ bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state,
     assert(pindex->pprev);
     CBlockIndex* pindexBIP34height = pindex->pprev->GetAncestor(m_params.GetConsensus().BIP34Height);
     //Only continue to enforce if we're below BIP34 activation height or the block hash at that height doesn't correspond.
-<<<<<<< HEAD
-    //fEnforceBIP30 = fEnforceBIP30 && (!pindexBIP34height || !(pindexBIP34height->GetBlockHash() == chainparams.GetConsensus().BIP34Hash));
-=======
-    fEnforceBIP30 = fEnforceBIP30 && (!pindexBIP34height || !(pindexBIP34height->GetBlockHash() == m_params.GetConsensus().BIP34Hash));
->>>>>>> bitcoin/8.22.0
+    
+    //DOES NOT APPLY TO DGB
+    //fEnforceBIP30 = fEnforceBIP30 && (!pindexBIP34height || !(pindexBIP34height->GetBlockHash() == m_params.GetConsensus().BIP34Hash));
 
     // TODO: Remove BIP30 checking from block height 1,983,702 on, once we have a
     // consensus change that ensures coinbases at those heights can not
@@ -2512,13 +2504,9 @@ bool CChainState::DisconnectTip(BlockValidationState& state, DisconnectedBlockTr
         while (disconnectpool->DynamicMemoryUsage() > MAX_DISCONNECTED_TX_POOL_SIZE * 1000) {
             // Drop the earliest entry, and remove its children from the mempool.
             auto it = disconnectpool->queuedTx.get<insertion_order>().begin();
-<<<<<<< HEAD
-            mempool.removeRecursive(**it, MemPoolRemovalReason::REORG);
+            m_mempool->removeRecursive(**it, MemPoolRemovalReason::REORG);
             // Changes to mempool should also be made to Dandelion stempool
             stempool.removeRecursive(**it, MemPoolRemovalReason::REORG);
-=======
-            m_mempool->removeRecursive(**it, MemPoolRemovalReason::REORG);
->>>>>>> bitcoin/8.22.0
             disconnectpool->removeEntry(it);
         }
     }
@@ -4818,13 +4806,9 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
 
             CAmount amountdelta = nFeeDelta;
             if (amountdelta) {
-<<<<<<< HEAD
-                mempool.PrioritiseTransaction(tx->GetHash(), amountdelta);
+                pool.PrioritiseTransaction(tx->GetHash(), amountdelta);
                 // Changes to mempool should also be made to Dandelion stempool
                 stempool.PrioritiseTransaction(tx->GetHash(), amountdelta);
-=======
-                pool.PrioritiseTransaction(tx->GetHash(), amountdelta);
->>>>>>> bitcoin/8.22.0
             }
             if (nTime > nNow - nExpiryTimeout) {
                 LOCK(cs_main);

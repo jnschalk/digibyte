@@ -874,11 +874,9 @@ private:
  *   have been downloaded and validated (via background validation), otherwise
  *   it will be the IBD chainstate.
  */
-<<<<<<< HEAD
 int32_t ComputeBlockVersion(const CBlockIndex* pindexPrev, const Consensus::Params& params, int algo);
 
 bool IsAlgoActive(const CBlockIndex* pindexPrev, const Consensus::Params& consensus, int algo);
-=======
 class ChainstateManager
 {
 private:
@@ -930,7 +928,6 @@ private:
         CChainState& snapshot_chainstate,
         CAutoFile& coins_file,
         const SnapshotMetadata& metadata);
->>>>>>> bitcoin/8.22.0
 
 public:
     std::thread m_load_block;
@@ -1078,34 +1075,6 @@ bool DumpMempool(const CTxMemPool& pool, FopenFn mockable_fopen_function = fsbri
 /** Load the mempool from disk. */
 bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mockable_fopen_function = fsbridge::fopen);
 
-<<<<<<< HEAD
-/** Compute at which vout of the block's coinbase transaction the witness commitment occurs, or -1 if not found */
-inline int GetWitnessCommitmentIndex(const CBlock& block)
-{
-    int commitpos = NO_WITNESS_COMMITMENT;
-    if (!block.vtx.empty()) {
-        for (size_t o = 0; o < block.vtx[0]->vout.size(); o++) {
-            const CTxOut& vout = block.vtx[0]->vout[o];
-            if (vout.scriptPubKey.size() >= MINIMUM_WITNESS_COMMITMENT &&
-                vout.scriptPubKey[0] == OP_RETURN &&
-                vout.scriptPubKey[1] == 0x24 &&
-                vout.scriptPubKey[2] == 0xaa &&
-                vout.scriptPubKey[3] == 0x21 &&
-                vout.scriptPubKey[4] == 0xa9 &&
-                vout.scriptPubKey[5] == 0xed) {
-                commitpos = o;
-            }
-        }
-    }
-    return commitpos;
-}
-
-//! Check whether the block associated with this index entry is pruned or not.
-inline bool IsBlockPruned(const CBlockIndex* pblockindex)
-{
-    return (fHavePruned && !(pblockindex->nStatus & BLOCK_HAVE_DATA) && pblockindex->nTx > 0);
-}
-=======
 /**
  * Return the expected assumeutxo value for a given height, if one exists.
  *
@@ -1114,6 +1083,5 @@ inline bool IsBlockPruned(const CBlockIndex* pblockindex)
  * @returns empty if no assumeutxo configuration exists for the given height.
  */
 const AssumeutxoData* ExpectedAssumeutxo(const int height, const CChainParams& params);
->>>>>>> bitcoin/8.22.0
 
 #endif // DIGIBYTE_VALIDATION_H

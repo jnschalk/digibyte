@@ -650,7 +650,6 @@ fs::path qstringToBoostPath(const QString &path)
     return fs::path(path.toStdString());
 }
 
-<<<<<<< HEAD
 void migrateQtSettings()
 {
     // Migration (12.1)
@@ -722,9 +721,7 @@ QString loadStyleSheet()
 }
 
 void setClipboard(const QString& str)
-=======
 QString boostPathToQString(const fs::path &path)
->>>>>>> bitcoin/8.22.0
 {
     return QString::fromStdString(path.string());
 }
