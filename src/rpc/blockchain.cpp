@@ -1449,12 +1449,7 @@ static void SoftForkDescPushBack(const CBlockIndex* active_chain_tip, UniValue& 
     softforks.pushKV(DeploymentName(dep), rv);
 }
 
-<<<<<<< HEAD
-
-static UniValue BIP9SoftForkDesc(const Consensus::Params& consensusParams, Consensus::DeploymentPos id)
-=======
 static void SoftForkDescPushBack(const CBlockIndex* active_chain_tip, UniValue& softforks, const Consensus::Params& consensusParams, Consensus::DeploymentPos id)
->>>>>>> bitcoin/8.22.0
 {
     // For BIP9 deployments.
 
@@ -1568,20 +1563,12 @@ RPCHelpMan getblockchaininfo()
     obj.pushKV("chain",                 Params().NetworkIDString());
     obj.pushKV("blocks",                height);
     obj.pushKV("headers",               pindexBestHeader ? pindexBestHeader->nHeight : -1);
-<<<<<<< HEAD
-    obj.pushKV("bestblockhash",         chainActive.Tip()->GetBlockHash().GetHex());
-    obj.pushKV("mediantime",            (int64_t)chainActive.Tip()->GetMedianTimePast());
-    obj.pushKV("verificationprogress",  GuessVerificationProgress(Params().TxData(), chainActive.Tip()));
-    obj.pushKV("initialblockdownload",  IsInitialBlockDownload());
-    obj.pushKV("chainwork",             chainActive.Tip()->nChainWork.GetHex());
-=======
     obj.pushKV("bestblockhash",         tip->GetBlockHash().GetHex());
     obj.pushKV("difficulty",            (double)GetDifficulty(tip));
     obj.pushKV("mediantime",            (int64_t)tip->GetMedianTimePast());
     obj.pushKV("verificationprogress",  GuessVerificationProgress(Params().TxData(), tip));
     obj.pushKV("initialblockdownload",  active_chainstate.IsInitialBlockDownload());
     obj.pushKV("chainwork",             tip->nChainWork.GetHex());
->>>>>>> bitcoin/8.22.0
     obj.pushKV("size_on_disk",          CalculateCurrentUsage());
     obj.pushKV("pruned",                fPruneMode);
     if (fPruneMode) {
