@@ -5,16 +5,35 @@
 #include <deploymentinfo.h>
 
 #include <consensus/params.h>
-
 const struct VBDeploymentInfo VersionBitsDeploymentInfo[Consensus::MAX_VERSION_BITS_DEPLOYMENTS] = {
     {
         /*.name =*/ "testdummy",
         /*.gbt_force =*/ true,
     },
     {
-        /*.name =*/ "taproot",
+        /*.name =*/ "csv",
         /*.gbt_force =*/ true,
     },
+    {
+        /*.name =*/ "segwit",
+        /*.gbt_force =*/ true,
+    },
+    {
+        /*.name =*/ "nversionbips",
+        /*.gbt_force =*/ true,
+    },
+    {
+        /*.name =*/ "reservealgo",
+        /*.gbt_force =*/ true,
+    },
+    {
+        /*.name =*/ "odo",
+        /*.gbt_force =*/ true,
+    },
+    //{
+       // /*.name =*/ "equihash",
+        ///*.gbt_force =*/ true,
+    //}
 };
 
 std::string DeploymentName(Consensus::BuriedDeployment dep)
