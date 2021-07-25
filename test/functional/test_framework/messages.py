@@ -58,9 +58,11 @@ MSG_BLOCK = 2
 MSG_FILTERED_BLOCK = 3
 MSG_CMPCT_BLOCK = 4
 MSG_WTX = 5
+MSG_DANDELION_TX = 6,
 MSG_WITNESS_FLAG = 1 << 30
 MSG_TYPE_MASK = 0xffffffff >> 2
 MSG_WITNESS_TX = MSG_TX | MSG_WITNESS_FLAG
+MSG_DANDELION_WITNESS_TX = MSG_DANDELION_TX | MSG_WITNESS_FLAG
 
 FILTER_TYPE_BASIC = 0
 
@@ -311,15 +313,6 @@ class CInv:
 
     typemap = {
         0: "Error",
-<<<<<<< HEAD
-        1: "TX",
-        2: "Block",
-        1|MSG_WITNESS_FLAG: "WitnessTx",
-        2|MSG_WITNESS_FLAG : "WitnessBlock",
-        4: "CompactBlock",
-        5: "DandelionTx",
-        5|MSG_WITNESS_FLAG: "DandelionWitnessTx"
-=======
         MSG_TX: "TX",
         MSG_BLOCK: "Block",
         MSG_TX | MSG_WITNESS_FLAG: "WitnessTx",
@@ -327,7 +320,8 @@ class CInv:
         MSG_FILTERED_BLOCK: "filtered Block",
         MSG_CMPCT_BLOCK: "CompactBlock",
         MSG_WTX: "WTX",
->>>>>>> bitcoin/8.22.0
+        MSG_DANDELION_TX: "DandelionTx",
+        MSG_DANDELION_WITNESS_TX | MSG_WITNESS_FLAG: "DandelionWitnessTx",
     }
 
     def __init__(self, t=0, h=0):
