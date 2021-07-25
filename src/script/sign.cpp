@@ -404,72 +404,8 @@ bool ProduceSignature(const SigningProvider& provider, const BaseSignatureCreato
     return sigdata.complete;
 }
 
-<<<<<<< HEAD
-bool PSBTInputSigned(PSBTInput& input)
-{
-    return !input.final_script_sig.empty() || !input.final_script_witness.IsNull();
-}
-
-bool SignPSBTInput(const SigningProvider& provider, PartiallySignedTransaction& psbt, SignatureData& sigdata, int index, int sighash)
-{
-    PSBTInput& input = psbt.inputs.at(index);
-    const CMutableTransaction& tx = *psbt.tx;
-
-    if (PSBTInputSigned(input)) {
-        return true;
-    }
-
-    // Fill SignatureData with input info
-    input.FillSignatureData(sigdata);
-
-    // Get UTXO
-    bool require_witness_sig = false;
-    CTxOut utxo;
-
-    // Verify input sanity, which checks that at most one of witness or non-witness utxos is provided.
-    if (!input.IsSane()) {
-        return false;
-    }
-
-    if (input.non_witness_utxo) {
-        // If we're taking our information from a non-witness UTXO, verify that it matches the prevout.
-        COutPoint prevout = tx.vin[index].prevout;
-        if (input.non_witness_utxo->GetHash() != prevout.hash) {
-            return false;
-        }
-        utxo = input.non_witness_utxo->vout[prevout.n];
-    } else if (!input.witness_utxo.IsNull()) {
-        utxo = input.witness_utxo;
-        // When we're taking our information from a witness UTXO, we can't verify it is actually data from
-        // the output being spent. This is safe in case a witness signature is produced (which includes this
-        // information directly in the hash), but not for non-witness signatures. Remember that we require
-        // a witness signature in this situation.
-        require_witness_sig = true;
-    } else {
-        return false;
-    }
-
-    MutableTransactionSignatureCreator creator(&tx, index, utxo.nValue, sighash);
-    sigdata.witness = false;
-    bool sig_complete = ProduceSignature(provider, creator, utxo.scriptPubKey, sigdata);
-    // Verify that a witness signature was produced in case one was required.
-    if (require_witness_sig && !sigdata.witness) return false;
-    input.FromSignatureData(sigdata);
-
-    // If we have a witness signature, use the smaller witness UTXO.
-    if (sigdata.witness) {
-        input.witness_utxo = utxo;
-        input.non_witness_utxo = nullptr;
-    }
-
-    return sig_complete;
-}
-
-class SignatureExtractorChecker final : public BaseSignatureChecker
-=======
 namespace {
 class SignatureExtractorChecker final : public DeferringSignatureChecker
->>>>>>> bitcoin/8.22.0
 {
 private:
     SignatureData& sigdata;
@@ -675,22 +611,7 @@ bool IsSolvable(const SigningProvider& provider, const CScript& script)
     return false;
 }
 
-<<<<<<< HEAD
-PartiallySignedTransaction::PartiallySignedTransaction(const CTransaction& tx) : tx(tx)
-{
-    inputs.resize(tx.vin.size());
-    outputs.resize(tx.vout.size());
-}
-
-bool PartiallySignedTransaction::IsNull() const
-{
-    return !tx && inputs.empty() && outputs.empty() && unknown.empty();
-}
-
-void PartiallySignedTransaction::Merge(const PartiallySignedTransaction& psbt)
-=======
 bool IsSegWitOutput(const SigningProvider& provider, const CScript& script)
->>>>>>> bitcoin/8.22.0
 {
     int version;
     valtype program;
