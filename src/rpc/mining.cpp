@@ -514,11 +514,7 @@ static RPCHelpMan getmininginfo()
 
 
 // NOTE: Unlike wallet RPC (which use DGB values), mining RPCs follow GBT (BIP 22) in using satoshi amounts
-<<<<<<< HEAD
-static UniValue prioritisetransaction(const JSONRPCRequest& request)
-=======
 static RPCHelpMan prioritisetransaction()
->>>>>>> bitcoin/8.22.0
 {
     return RPCHelpMan{"prioritisetransaction",
                 "Accepts the transaction into mined blocks at a higher (or lower) priority\n",
@@ -826,16 +822,6 @@ static RPCHelpMan getblocktemplate()
     if (strMode != "template")
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
 
-<<<<<<< HEAD
-    if(!g_connman)
-        throw JSONRPCError(RPC_CLIENT_P2P_DISABLED, "Error: Peer-to-peer functionality missing or disabled");
-
-    if (g_connman->GetNodeCount(CConnman::CONNECTIONS_ALL) == 0)
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "DigiByte is not connected!");
-
-    if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "DigiByte is downloading blocks...");
-=======
     if (!Params().IsTestChain()) {
         const CConnman& connman = EnsureConnman(node);
         if (connman.GetNodeCount(ConnectionDirection::Both) == 0) {
@@ -846,7 +832,6 @@ static RPCHelpMan getblocktemplate()
             throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, PACKAGE_NAME " is in initial sync and waiting for blocks...");
         }
     }
->>>>>>> bitcoin/8.22.0
 
     static unsigned int nTransactionsUpdatedLast;
     const CTxMemPool& mempool = EnsureMemPool(node);
@@ -1036,26 +1021,16 @@ static RPCHelpMan getblocktemplate()
                 break;
             case ThresholdState::LOCKED_IN:
                 // Ensure bit is set in block version
-<<<<<<< HEAD
-                 pblock->nVersion |= VersionBitsMask(consensusParams, pos);
-                // FALL THROUGH to get vbavailable set...
-=======
                 pblock->nVersion |= g_versionbitscache.Mask(consensusParams, pos);
                 [[fallthrough]];
->>>>>>> bitcoin/8.22.0
             case ThresholdState::STARTED:
             {
                 const struct VBDeploymentInfo& vbinfo = VersionBitsDeploymentInfo[pos];
                 vbavailable.pushKV(gbt_vb_name(pos), consensusParams.vDeployments[pos].bit);
                 if (setClientRules.find(vbinfo.name) == setClientRules.end()) {
                     if (!vbinfo.gbt_force) {
-<<<<<<< HEAD
-                         // If the client doesn't support this, don't indicate it in the [default] version
-                         pblock->nVersion &= ~VersionBitsMask(consensusParams, pos);
-=======
                         // If the client doesn't support this, don't indicate it in the [default] version
                         pblock->nVersion &= ~g_versionbitscache.Mask(consensusParams, pos);
->>>>>>> bitcoin/8.22.0
                     }
                 }
                 break;
@@ -1151,20 +1126,6 @@ protected:
 static RPCHelpMan submitblock()
 {
     // We allow 2 arguments for compliance with BIP22. Argument 2 is ignored.
-<<<<<<< HEAD
-    if (request.fHelp || request.params.size() < 1 || request.params.size() > 2) {
-        throw std::runtime_error(
-            "submitblock \"hexdata\"  ( \"dummy\" )\n"
-            "\nAttempts to submit new block to network.\n"
-            "See https://en.digibyte.it/wiki/BIP_0022 for full specification.\n"
-
-            "\nArguments\n"
-            "1. \"hexdata\"        (string, required) the hex-encoded block data to submit\n"
-            "2. \"dummy\"          (optional) dummy value, for compatibility with BIP22. This value is ignored.\n"
-            "\nResult:\n"
-            "\nExamples:\n"
-            + HelpExampleCli("submitblock", "\"mydata\"")
-=======
     return RPCHelpMan{"submitblock",
         "\nAttempts to submit new block to network.\n"
         "See https://en.digibyte.it/wiki/BIP_0022 for full specification.\n",
@@ -1178,7 +1139,6 @@ static RPCHelpMan submitblock()
         },
         RPCExamples{
                     HelpExampleCli("submitblock", "\"mydata\"")
->>>>>>> bitcoin/8.22.0
             + HelpExampleRpc("submitblock", "\"mydata\"")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
