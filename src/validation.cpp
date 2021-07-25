@@ -1944,11 +1944,7 @@ bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state,
                 //  artificially set the default assumed verified block further back.
                 // The test against nMinimumChainWork prevents the skipping when denied access to any chain at
                 //  least as good as the expected chain.
-<<<<<<< HEAD
                  fScriptChecks = false;
-=======
-                fScriptChecks = (GetBlockProofEquivalentTime(*pindexBestHeader, *pindex, *pindexBestHeader, m_params.GetConsensus()) <= 60 * 60 * 24 * 7 * 2);
->>>>>>> bitcoin/8.22.0
             }
         }
     }
@@ -4849,12 +4845,9 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
         file >> mapDeltas;
 
         for (const auto& i : mapDeltas) {
-<<<<<<< HEAD
-            mempool.PrioritiseTransaction(i.first, i.second);
+            pool.PrioritiseTransaction(i.first, i.second);
             // Changes to mempool should also be made to Dandelion stempool
             stempool.PrioritiseTransaction(i.first, i.second);
-=======
-            pool.PrioritiseTransaction(i.first, i.second);
         }
 
         std::set<uint256> unbroadcast_txids;
@@ -4864,7 +4857,6 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
             // Ensure transactions were accepted to mempool then add to
             // unbroadcast set.
             if (pool.get(txid) != nullptr) pool.AddUnbroadcastTx(txid);
->>>>>>> bitcoin/8.22.0
         }
     } catch (const std::exception& e) {
         LogPrintf("Failed to deserialize mempool data on disk: %s. Continuing anyway.\n", e.what());
