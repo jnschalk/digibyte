@@ -1526,11 +1526,8 @@ RPCHelpMan getblockchaininfo()
         }
     }
     const Consensus::Params& consensusParams = Params().GetConsensus();
-<<<<<<< HEAD
     CBlockIndex* tip = chainActive.Tip();
     UniValue difficulties(UniValue::VOBJ);
-    UniValue softforks(UniValue::VARR);
-    UniValue bip9_softforks(UniValue::VOBJ);
     for (int algo = 0; algo < NUM_ALGOS_IMPL; algo++)
     {
         if (IsAlgoActive(tip, consensusParams, algo))
@@ -1541,12 +1538,7 @@ RPCHelpMan getblockchaininfo()
     for (int pos = Consensus::DEPLOYMENT_CSV; pos != Consensus::MAX_VERSION_BITS_DEPLOYMENTS; ++pos) {
         BIP9SoftForkDescPushBack(bip9_softforks, consensusParams, static_cast<Consensus::DeploymentPos>(pos));
     }
-    obj.pushKV("difficulties",             difficulties);
-    obj.pushKV("softforks",             softforks);
-    obj.pushKV("bip9_softforks", bip9_softforks);
 
-    obj.pushKV("warnings", GetWarnings("statusbar"));
-=======
     UniValue softforks(UniValue::VOBJ);
     SoftForkDescPushBack(tip, softforks, consensusParams, Consensus::DEPLOYMENT_HEIGHTINCB);
     SoftForkDescPushBack(tip, softforks, consensusParams, Consensus::DEPLOYMENT_DERSIG);
@@ -1555,10 +1547,10 @@ RPCHelpMan getblockchaininfo()
     SoftForkDescPushBack(tip, softforks, consensusParams, Consensus::DEPLOYMENT_SEGWIT);
     SoftForkDescPushBack(tip, softforks, consensusParams, Consensus::DEPLOYMENT_TESTDUMMY);
     SoftForkDescPushBack(tip, softforks, consensusParams, Consensus::DEPLOYMENT_TAPROOT);
-    obj.pushKV("softforks", softforks);
 
+    obj.pushKV("difficulties", difficulties);
+    obj.pushKV("softforks", softforks);
     obj.pushKV("warnings", GetWarnings(false).original);
->>>>>>> bitcoin/8.22.0
     return obj;
 },
     };
