@@ -364,32 +364,24 @@ void CChainState::MaybeUpdateMempoolForReorg(
     auto it = disconnectpool.queuedTx.get<insertion_order>().rbegin();
     while (it != disconnectpool.queuedTx.get<insertion_order>().rend()) {
         // ignore validation errors in resurrected transactions
-<<<<<<< HEAD
-        CValidationState stateDummy;
-        bool ret = !AcceptToMemoryPool(mempool, stateDummy, *it, nullptr, nullptr, true, 0);
-        CValidationState dandelionStateDummy;
-        AcceptToMemoryPool(stempool, dandelionStateDummy, *it, nullptr, nullptr, true, 0);
-        if (!fAddToMempool || (*it)->IsCoinBase() || ret) {
-            // If the transaction doesn't make it in to the mempool, remove any
-            // transactions that depend on it (which would now be orphans).
-            mempool.removeRecursive(**it, MemPoolRemovalReason::REORG);
-            // Changes to mempool should also be made to Dandelion stempool
-            stempool.removeRecursive(**it, MemPoolRemovalReason::REORG);
-        } else if (mempool.exists((*it)->GetHash())) {
-=======
+
+        const MempoolAcceptResult result = AcceptToMemoryPool(*this, m_mempool, *it, true /* bypass_limits */);
+        const MempoolAcceptResult dresult = AcceptToMemoryPool(*this, m_stempool, *it, true /* bypass_limits */); // dandelion
+
         if (!fAddToMempool || (*it)->IsCoinBase() ||
-            AcceptToMemoryPool(
-                *this, *m_mempool, *it, true /* bypass_limits */).m_result_type !=
-                    MempoolAcceptResult::ResultType::VALID) {
+            result.m_result_type != MempoolAcceptResult::ResultType::INVALID ||
+            dresult.m_result_type != MempoolAcceptResult::ResultType::INVALID
+        ) {
             // If the transaction doesn't make it in to the mempool, remove any
             // transactions that depend on it (which would now be orphans).
             m_mempool->removeRecursive(**it, MemPoolRemovalReason::REORG);
             // Changes to mempool should also be made to Dandelion stempool
-            stempool.removeRecursive(**it, MemPoolRemovalReason::REORG);
-        } else if (m_mempool->exists((*it)->GetHash())) {
->>>>>>> bitcoin/8.22.0
+            m_stempool->removeRecursive(**it, MemPoolRemovalReason::REORG);
+
+        } else if (m_mempool->exists((*it)->GetHash()) || m_stempool->exists((*it)->GetHash())) {
             vHashUpdate.push_back((*it)->GetHash());
         }
+
         ++it;
     }
     disconnectpool.queuedTx.clear();
@@ -398,31 +390,25 @@ void CChainState::MaybeUpdateMempoolForReorg(
     // previously-confirmed transactions back to the mempool.
     // UpdateTransactionsFromBlock finds descendants of any transactions in
     // the disconnectpool that were added back and cleans up the mempool state.
-<<<<<<< HEAD
-    mempool.UpdateTransactionsFromBlock(vHashUpdate);
-    // Changes to mempool should also be made to Dandelion stempool
-    stempool.UpdateTransactionsFromBlock(vHashUpdate);
-
-    // We also need to remove any now-immature transactions
-    mempool.removeForReorg(pcoinsTip.get(), chainActive.Tip()->nHeight + 1, STANDARD_LOCKTIME_VERIFY_FLAGS);
-    // Changes to mempool should also be made to Dandelion stempool
-    stempool.removeForReorg(pcoinsTip.get(), chainActive.Tip()->nHeight + 1, STANDARD_LOCKTIME_VERIFY_FLAGS);
-    // Re-limit mempool size, in case we added any transactions
-    LimitMempoolSize(mempool, gArgs.GetArg("-maxmempool", DEFAULT_MAX_MEMPOOL_SIZE) * 1000000, gArgs.GetArg("-mempoolexpiry", DEFAULT_MEMPOOL_EXPIRY) * 60 * 60);
-    // Changes to mempool should also be made to Dandelion stempool
-    LimitMempoolSize(stempool, gArgs.GetArg("-maxmempool", DEFAULT_MAX_MEMPOOL_SIZE) * 1000000, gArgs.GetArg("-mempoolexpiry", DEFAULT_MEMPOOL_EXPIRY) * 60 * 60);
-=======
     m_mempool->UpdateTransactionsFromBlock(vHashUpdate);
+    m_stempool->UpdateTransactionsFromBlock(vHashUpdate);
 
     // We also need to remove any now-immature transactions
     m_mempool->removeForReorg(*this, STANDARD_LOCKTIME_VERIFY_FLAGS);
+    m_stempool->removeForReorg(*this, STANDARD_LOCKTIME_VERIFY_FLAGS);
+
     // Re-limit mempool size, in case we added any transactions
     LimitMempoolSize(
         *m_mempool,
         this->CoinsTip(),
         gArgs.GetArg("-maxmempool", DEFAULT_MAX_MEMPOOL_SIZE) * 1000000,
         std::chrono::hours{gArgs.GetArg("-mempoolexpiry", DEFAULT_MEMPOOL_EXPIRY)});
->>>>>>> bitcoin/8.22.0
+
+    LimitMempoolSize(
+        *m_stempool,
+        this->CoinsTip(),
+        gArgs.GetArg("-maxmempool", DEFAULT_MAX_MEMPOOL_SIZE) * 1000000,
+        std::chrono::hours{gArgs.GetArg("-mempoolexpiry", DEFAULT_MEMPOOL_EXPIRY)});    
 }
 
 /**
@@ -1171,19 +1157,11 @@ static MempoolAcceptResult AcceptToMemoryPoolWithTime(const CChainParams& chainp
         for (const COutPoint& hashTx : coins_to_uncache)
             active_chainstate.CoinsTip().Uncache(hashTx);
     }
-<<<<<<< HEAD
 
-    // Check the header
-    if (!CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, consensusParams))
-        return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
-
-    return true;
-=======
     // After we've (potentially) uncached entries, ensure our coins cache is still within its size limits
     BlockValidationState state_dummy;
     active_chainstate.FlushStateToDisk(state_dummy, FlushStateMode::PERIODIC);
     return result;
->>>>>>> bitcoin/8.22.0
 }
 
 MempoolAcceptResult AcceptToMemoryPool(CChainState& active_chainstate, CTxMemPool& pool, const CTransactionRef& tx,
@@ -1718,28 +1696,6 @@ DisconnectResult CChainState::DisconnectBlock(const CBlock& block, const CBlockI
 
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
-<<<<<<< HEAD
-void ThreadScriptCheck() {
-    RenameThread("digibyte-scriptch");
-    scriptcheckqueue.Thread();
-}
-
-// Protected by cs_main
-VersionBitsCache versionbitscache;
-
-int32_t ComputeBlockVersion(const CBlockIndex* pindexPrev, const Consensus::Params& params, int algo)
-{
-    LOCK(cs_main);
-    int32_t nVersion = VERSIONBITS_TOP_BITS | BLOCK_VERSION_DEFAULT;
-    for (int i = 0; i < (int)Consensus::MAX_VERSION_BITS_DEPLOYMENTS; i++) {
-        ThresholdState state = VersionBitsState(pindexPrev, params, static_cast<Consensus::DeploymentPos>(i), versionbitscache);
-        if (state == ThresholdState::LOCKED_IN || state == ThresholdState::STARTED) {
-            nVersion |= VersionBitsMask(params, static_cast<Consensus::DeploymentPos>(i));
-        }
-    }
-    nVersion |= GetVersionForAlgo(algo);
-    return nVersion;
-=======
 void StartScriptCheckWorkerThreads(int threads_num)
 {
     scriptcheckqueue.StartWorkerThreads(threads_num);
@@ -1748,16 +1704,19 @@ void StartScriptCheckWorkerThreads(int threads_num)
 void StopScriptCheckWorkerThreads()
 {
     scriptcheckqueue.StopWorkerThreads();
->>>>>>> bitcoin/8.22.0
 }
 
+// exported
 bool IsAlgoActive(const CBlockIndex* pindexPrev, const Consensus::Params& consensus, int algo)
 {
     if (!pindexPrev)
         return algo == ALGO_SCRYPT;
+
     const int nHeight = pindexPrev->nHeight;
-    if (nHeight < consensus.multiAlgoDiffChangeTarget)
+
+    if (nHeight < consensus.multiAlgoDiffChangeTarget) {
         return algo == ALGO_SCRYPT;
+    }
     else if (nHeight < consensus.algoSwapChangeTarget ||
              VersionBitsState(pindexPrev, consensus, Consensus::DEPLOYMENT_ODO, versionbitscache) != ThresholdState::ACTIVE)
     {
@@ -2395,7 +2354,10 @@ void CChainState::UpdateTip(const CBlockIndex* pindexNew)
 
     bilingual_str warning_messages;
     if (!this->IsInitialBlockDownload()) {
+        int nUpgraded = 0;
+        bool fAllAsicBoost = true;        
         const CBlockIndex* pindex = pindexNew;
+
         for (int bit = 0; bit < VERSIONBITS_NUM_BITS; bit++) {
             WarningBitsConditionChecker checker(bit);
             ThresholdState state = checker.GetStateFor(pindex, m_params.GetConsensus(), warningcache[bit]);
@@ -2408,7 +2370,7 @@ void CChainState::UpdateTip(const CBlockIndex* pindexNew)
                 }
             }
         }
-<<<<<<< HEAD
+
         // Check the version of the last 100 blocks to see if we need to upgrade:
         for (int i = 0; i < 100 && pindex != nullptr; i++)
         {
@@ -2426,7 +2388,10 @@ void CChainState::UpdateTip(const CBlockIndex* pindexNew)
             pindex = pindex->pprev;
         }
         if (nUpgraded > 0 && !fAllAsicBoost)
+        {
             AppendWarning(warningMessages, strprintf(_("%d of last 100 blocks have unexpected version"), nUpgraded));
+        }
+
         if (nUpgraded > 100/2)
         {
             std::string strWarning = _("Warning: Unknown block versions being mined! It's possible unknown rules are in effect");
@@ -2434,11 +2399,8 @@ void CChainState::UpdateTip(const CBlockIndex* pindexNew)
             DoWarning(strWarning);
         }
     }
+
     LogPrintf("%s: new best=%s height=%d version=0x%08x algo=%d (%s) log2_work=%.8g tx=%lu date='%s' progress=%f cache=%.1fMiB(%utxo)", __func__, /* Continued */
-=======
-    }
-    LogPrintf("%s: new best=%s height=%d version=0x%08x log2_work=%f tx=%lu date='%s' progress=%f cache=%.1fMiB(%utxo)%s\n", __func__,
->>>>>>> bitcoin/8.22.0
       pindexNew->GetBlockHash().ToString(), pindexNew->nHeight, pindexNew->nVersion,
       pindexNew->GetAlgo(), GetAlgoName(pindexNew->GetAlgo()),
       log(pindexNew->nChainWork.getdouble())/log(2.0), (unsigned long)pindexNew->nChainTx,
@@ -2609,23 +2571,25 @@ bool CChainState::ConnectTip(BlockValidationState& state, CBlockIndex* pindexNew
     int64_t nTime5 = GetTimeMicros(); nTimeChainState += nTime5 - nTime4;
     LogPrint(BCLog::BENCH, "  - Writing chainstate: %.2fms [%.2fs (%.2fms/blk)]\n", (nTime5 - nTime4) * MILLI, nTimeChainState * MICRO, nTimeChainState * MILLI / nBlocksTotal);
     // Remove conflicting transactions from the mempool.;
-<<<<<<< HEAD
-    mempool.removeForBlock(blockConnecting.vtx, pindexNew->nHeight);
-    // Changes to mempool should also be made to Dandelion stempool
-    stempool.removeForBlock(blockConnecting.vtx, pindexNew->nHeight);
-    disconnectpool.removeForBlock(blockConnecting.vtx);
-    // Update chainActive & related variables.
-    chainActive.SetTip(pindexNew);
-    UpdateTip(pindexNew, chainparams);
-=======
+
+    bool removedFromPool = false;
+
     if (m_mempool) {
         m_mempool->removeForBlock(blockConnecting.vtx, pindexNew->nHeight);
         disconnectpool.removeForBlock(blockConnecting.vtx);
+        removedFromPool = true;
+    }
+
+    if (m_stempool) {
+        m_stempool->removeForBlock(blockConnecting.vtx, pindexNew->nHeight);
+
+        if (!removedFromPool) {
+            disconnectpool.removeForBlock(blockConnecting.vtx);
+        }
     }
     // Update m_chain & related variables.
     m_chain.SetTip(pindexNew);
     UpdateTip(pindexNew);
->>>>>>> bitcoin/8.22.0
 
     int64_t nTime6 = GetTimeMicros(); nTimePostConnect += nTime6 - nTime5; nTimeTotal += nTime6 - nTime1;
     LogPrint(BCLog::BENCH, "  - Connect postprocess: %.2fms [%.2fs (%.2fms/blk)]\n", (nTime6 - nTime5) * MILLI, nTimePostConnect * MICRO, nTimePostConnect * MILLI / nBlocksTotal);
@@ -3410,22 +3374,13 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, BlockValidatio
 
     // Check timestamp
     if (block.GetBlockTime() > nAdjustedTime + MAX_FUTURE_BLOCK_TIME)
-<<<<<<< HEAD
-        return state.Invalid(false, REJECT_INVALID, "time-too-new", "block timestamp too far in the future");
-
-    if(block.nVersion < VERSIONBITS_TOP_BITS && IsWitnessEnabled(pindexPrev, consensusParams))
-    {
-            return state.Invalid(false, REJECT_OBSOLETE, strprintf("bad-version(0x%08x)", block.nVersion),
-=======
         return state.Invalid(BlockValidationResult::BLOCK_TIME_FUTURE, "time-too-new", "block timestamp too far in the future");
 
     // Reject blocks with outdated version
-    if ((block.nVersion < 2 && DeploymentActiveAfter(pindexPrev, consensusParams, Consensus::DEPLOYMENT_HEIGHTINCB)) ||
-        (block.nVersion < 3 && DeploymentActiveAfter(pindexPrev, consensusParams, Consensus::DEPLOYMENT_DERSIG)) ||
-        (block.nVersion < 4 && DeploymentActiveAfter(pindexPrev, consensusParams, Consensus::DEPLOYMENT_CLTV))) {
-            return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, strprintf("bad-version(0x%08x)", block.nVersion),
->>>>>>> bitcoin/8.22.0
-                                 strprintf("rejected nVersion=0x%08x block", block.nVersion));
+    if(block.nVersion < VERSIONBITS_TOP_BITS && IsWitnessEnabled(pindexPrev, consensusParams))
+    {
+        return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, strprintf("bad-version(0x%08x)", block.nVersion),
+                             strprintf("rejected nVersion=0x%08x block", block.nVersion));
     }
 
     return true;
@@ -4062,7 +4017,8 @@ void CChainState::LoadMempool(const ArgsManager& args)
 {
     if (!m_mempool) return;
     if (args.GetArg("-persistmempool", DEFAULT_PERSIST_MEMPOOL)) {
-        ::LoadMempool(*m_mempool, *this);
+        // We will intentionally not save the stempool for dandelion
+        ::LoadMempool(*m_mempool, "mempool.dat", *this);
     }
     m_mempool->SetIsLoaded(!ShutdownRequested());
 }
@@ -4779,33 +4735,11 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
             CAmount amountdelta = nFeeDelta;
             if (amountdelta) {
                 pool.PrioritiseTransaction(tx->GetHash(), amountdelta);
-                // Changes to mempool should also be made to Dandelion stempool
-                stempool.PrioritiseTransaction(tx->GetHash(), amountdelta);
             }
             if (nTime > nNow - nExpiryTimeout) {
                 LOCK(cs_main);
-<<<<<<< HEAD
-                int64_t nTimeCopy = nTime; // time isn't const, need copy for Dandelion
-                AcceptToMemoryPoolWithTime(chainparams, mempool, state, tx, nullptr /* pfMissingInputs */, nTime,
-                                           nullptr /* plTxnReplaced */, false /* bypass_limits */, 0 /* nAbsurdFee */,
-                                           false /* test_accept */);
-                // Changes to mempool should also be made to Dandelion stempool
-                CValidationState dummyState;
-                AcceptToMemoryPoolWithTime(chainparams, stempool, dummyState, tx, nullptr /* pfMissingInputs */, nTimeCopy,
-                                           nullptr /* plTxnReplaced */, false /* bypass_limits */, 0 /* nAbsurdFee */,
-                                           false /* test_accept */);
-                if (state.IsValid()) {
-=======
-                int64_t nTimeCopy = nTime; // time isn't const, need copy for Dandelion
                 if (AcceptToMemoryPoolWithTime(chainparams, pool, active_chainstate, tx, nTime, false /* bypass_limits */,
-                                               false /* test_accept */).m_result_type == MempoolAcceptResult::ResultType::VALID) 
-                // Changes to mempool should also be made to Dandelion stempool
-                CValidationState dummyState;                              
-                if (AcceptToMemoryPoolWithTime(chainparams, stempool, dummyState, tx, nTimeCopy, false /* bypass_limits */,
-                                               false /* test_accept */).m_result_type == MempoolAcceptResult::ResultType::VALID)
-                                               
-                                               {
->>>>>>> bitcoin/8.22.0
+                                               false /* test_accept */).m_result_type == MempoolAcceptResult::ResultType::VALID) {
                     ++count;
                 } else {
                     // mempool may contain the transaction already, e.g. from
@@ -4829,8 +4763,6 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
 
         for (const auto& i : mapDeltas) {
             pool.PrioritiseTransaction(i.first, i.second);
-            // Changes to mempool should also be made to Dandelion stempool
-            stempool.PrioritiseTransaction(i.first, i.second);
         }
 
         std::set<uint256> unbroadcast_txids;
@@ -4849,6 +4781,7 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
     LogPrintf("Imported mempool transactions from disk: %i succeeded, %i failed, %i expired, %i already there, %i waiting for initial broadcast\n", count, failed, expired, already_there, unbroadcast);
     return true;
 }
+
 
 bool DumpMempool(const CTxMemPool& pool, FopenFn mockable_fopen_function, bool skip_file_commit)
 {
