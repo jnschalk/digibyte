@@ -3226,15 +3226,9 @@ void CChainState::ReceivedBlockTransactions(const CBlock& block, CBlockIndex* pi
 
 static bool CheckBlockHeader(const CBlockHeader& block, BlockValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW = true)
 {
-<<<<<<< HEAD
-    //Check proof of work matches claimed amount
-    if (fCheckPOW && !CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, consensusParams))
-        return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
-=======
     // Check proof of work matches claimed amount
-    if (fCheckPOW && !CheckProofOfWork(block.GetHash(), block.nBits, consensusParams))
+    if (fCheckPOW && !CheckProofOfWork(GetPoWAlgoHash(block), block.nBits, consensusParams))
         return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, "high-hash", "proof of work failed");
->>>>>>> bitcoin/8.22.0
 
     return true;
 }
@@ -3385,15 +3379,10 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, BlockValidatio
 
     // Check proof of work
     const Consensus::Params& consensusParams = params.GetConsensus();
-<<<<<<< HEAD
     if (!IsAlgoActive(pindexPrev, consensusParams, block.GetAlgo()))
-        return state.Invalid(false, REJECT_INVALID, "algo-inactive", "PoW algorithm is not active");
+        return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, "algo-inactive", "PoW algorithm is not active");
     if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams, block.GetAlgo()))
-        return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, "incorrect proof of work");
-=======
-    if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
         return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, "bad-diffbits", "incorrect proof of work");
->>>>>>> bitcoin/8.22.0
 
     // Check for non-standard SCRYPT version.
     if (VersionBitsState(pindexPrev, consensusParams, Consensus::DEPLOYMENT_RESERVEALGO, versionbitscache) == ThresholdState::ACTIVE &&
@@ -4807,8 +4796,15 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
                                            false /* test_accept */);
                 if (state.IsValid()) {
 =======
+                int64_t nTimeCopy = nTime; // time isn't const, need copy for Dandelion
                 if (AcceptToMemoryPoolWithTime(chainparams, pool, active_chainstate, tx, nTime, false /* bypass_limits */,
-                                               false /* test_accept */).m_result_type == MempoolAcceptResult::ResultType::VALID) {
+                                               false /* test_accept */).m_result_type == MempoolAcceptResult::ResultType::VALID) 
+                // Changes to mempool should also be made to Dandelion stempool
+                CValidationState dummyState;                              
+                if (AcceptToMemoryPoolWithTime(chainparams, stempool, dummyState, tx, nTimeCopy, false /* bypass_limits */,
+                                               false /* test_accept */).m_result_type == MempoolAcceptResult::ResultType::VALID)
+                                               
+                                               {
 >>>>>>> bitcoin/8.22.0
                     ++count;
                 } else {
