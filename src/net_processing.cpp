@@ -1661,7 +1661,7 @@ void PeerManagerImpl::_RelayTransaction(const uint256& txid, const uint256& wtxi
     });
 }
     
-static void RelayDandelionTransaction(const CTransaction& tx, CConnman* connman, CNode* pfrom)
+static void RelayDandelionTransaction(const CTransaction& tx, CConnman& connman, CNode& pfrom)
 {
     FastRandomContext rng;
     if (rng.randrange(100)<DANDELION_FLUFF) {
@@ -3328,7 +3328,7 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
 
         const MempoolAcceptResult result = AcceptToMemoryPool(m_chainman.ActiveChainstate(), m_mempool, ptx, false /* bypass_limits */);
         const TxValidationState& state = result.m_state;
-        
+
         // Changes to mempool should also be made to Dandelion stempool
         const MempoolAcceptResult dresult = AcceptToMemoryPool(m_chainman.ActiveChainstate(), m_stempool, ptx, false /* bypass_limits */);
         const TxValidationState& dstate = dresult.m_state;
@@ -3524,7 +3524,7 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
             }
 
             if (m_stempool.exists(inv.hash)) {
-                RelayDandelionTransaction(tx, connman, pfrom);
+                RelayDandelionTransaction(tx, m_connman, pfrom);
             }
         }
     }
