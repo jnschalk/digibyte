@@ -3337,22 +3337,6 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
             connman->removeDandelionEmbargo(tx.GetHash());
         }
 
-//         if (!AlreadyHave(inv) &&
-//             AcceptToMemoryPool(mempool, state, ptx, &fMissingInputs, &lRemovedTxn, false /* bypass_limits */, 0 /* nAbsurdFee */)) {
-//             // Changes to mempool should also be made to Dandelion stempool
-//             AcceptToMemoryPool(stempool, dstate, ptx, &fMissingInputs, &lRemovedTxn, false /* bypass_limits */, 0 /* nAbsurdFee */));
-//             if (connman->isTxDandelionEmbargoed(tx.GetHash())) {
-//                 LogPrint(BCLog::DANDELION, "Embargoed dandeliontx %s found in mempool; removing from embargo map\n", tx.GetHash().ToString());
-//                 connman->removeDandelionEmbargo(tx.GetHash());
-//             }
-//             mempool.check(pcoinsTip.get());
-//             // Changes to mempool should also be made to Dandelion stempool
-//             stempool.check(pcoinsTip.get());
-//             RelayTransaction(tx, connman);
-//             for (unsigned int i = 0; i < tx.vout.size(); i++) {
-//                 vWorkQueue.emplace_back(inv.hash, i);
-//             }
-// =======
         if (result.m_result_type == MempoolAcceptResult::ResultType::VALID || dresult.m_result_type == MempoolAcceptResult::ResultType::VALID) {
             m_mempool.check(m_chainman.ActiveChainstate());
             m_stempool.check(m_chainman.ActiveChainstate());
