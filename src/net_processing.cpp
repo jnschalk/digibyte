@@ -3327,9 +3327,10 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
         }
 
         const MempoolAcceptResult result = AcceptToMemoryPool(m_chainman.ActiveChainstate(), m_mempool, ptx, false /* bypass_limits */);
+        const TxValidationState& state = result.m_state;
+        
         // Changes to mempool should also be made to Dandelion stempool
         const MempoolAcceptResult dresult = AcceptToMemoryPool(m_chainman.ActiveChainstate(), m_stempool, ptx, false /* bypass_limits */);
-        const TxValidationState& state = result.m_state;
         const TxValidationState& dstate = dresult.m_state;
 
         if (m_connman->isTxDandelionEmbargoed(tx.GetHash())) {
