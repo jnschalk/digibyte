@@ -1487,12 +1487,8 @@ void PeerManagerImpl::NewPoWValidBlock(const CBlockIndex *pindex, const std::sha
         return;
     nHighestFastAnnounce = pindex->nHeight;
 
-<<<<<<< HEAD
-    bool fWitnessEnabled = IsWitnessEnabled(pindex->pprev, Params().GetConsensus());
-    bool fOdoActive = IsAlgoActive(pindex->pprev, Params().GetConsensus(), ALGO_ODO);
-=======
     bool fWitnessEnabled = DeploymentActiveAt(*pindex, m_chainparams.GetConsensus(), Consensus::DEPLOYMENT_SEGWIT);
->>>>>>> bitcoin/8.22.0
+    bool fOdoActive = IsAlgoActive(pindex->pprev, Params().GetConsensus(), ALGO_ODO);
     uint256 hashBlock(pblock->GetHash());
 
     {
@@ -1503,13 +1499,8 @@ void PeerManagerImpl::NewPoWValidBlock(const CBlockIndex *pindex, const std::sha
         fWitnessesPresentInMostRecentCompactBlock = fWitnessEnabled;
     }
 
-<<<<<<< HEAD
-    connman->ForEachNode([this, &pcmpctblock, pindex, &msgMaker, fWitnessEnabled, fOdoActive, &hashBlock](CNode* pnode) {
-        AssertLockHeld(cs_main);
-=======
-    m_connman.ForEachNode([this, &pcmpctblock, pindex, &msgMaker, fWitnessEnabled, &hashBlock](CNode* pnode) EXCLUSIVE_LOCKS_REQUIRED(::cs_main) {
+    m_connman.ForEachNode([this, &pcmpctblock, pindex, &msgMaker, fWitnessEnabled, fOdoActive, &hashBlock](CNode* pnode) EXCLUSIVE_LOCKS_REQUIRED(::cs_main) {
         AssertLockHeld(::cs_main);
->>>>>>> bitcoin/8.22.0
 
         if (fOdoActive && pnode->nVersion < ODO_FORK_VERSION)
         {
@@ -1613,7 +1604,7 @@ void PeerManagerImpl::BlockChecked(const CBlock& block, const BlockValidationSta
 // Messages
 //
 
-
+// Dandelion must not call this function.
 bool PeerManagerImpl::AlreadyHaveTx(const GenTxid& gtxid)
 {
     assert(recentRejects);
@@ -1628,28 +1619,11 @@ bool PeerManagerImpl::AlreadyHaveTx(const GenTxid& gtxid)
 
     const uint256& hash = gtxid.GetHash();
 
-<<<<<<< HEAD
-            return recentRejects->contains(inv.hash) ||
-                   mempool.exists(inv.hash) ||
-                   pcoinsTip->HaveCoinInCache(COutPoint(inv.hash, 0)) || // Best effort: only try output 0 and 1
-                   pcoinsTip->HaveCoinInCache(COutPoint(inv.hash, 1));
-        }
-    case MSG_BLOCK:
-    case MSG_WITNESS_BLOCK:
-        return LookupBlockIndex(inv.hash) != nullptr;
-
-    case MSG_DANDELION_TX:
-    case MSG_DANDELION_WITNESS_TX:
-        // Do not use AlreadyHave for Dandelion transactions
-        // If accidentally used, returns false so tx is requested
-        return false;        
-=======
     if (m_orphanage.HaveTx(gtxid)) return true;
 
     {
         LOCK(m_recent_confirmed_transactions_mutex);
         if (m_recent_confirmed_transactions->contains(hash)) return true;
->>>>>>> bitcoin/8.22.0
     }
 
     return recentRejects->contains(hash) || m_mempool.exists(gtxid);
@@ -1957,33 +1931,9 @@ CTransactionRef PeerManagerImpl::FindTxForGetData(const CNode& peer, const GenTx
         }
     }
 
-<<<<<<< HEAD
-        while (it != pfrom->vRecvGetData.end() &&
-               (it->type == MSG_TX || it->type == MSG_WITNESS_TX || it->type == MSG_DANDELION_TX || it->type == MSG_DANDELION_WITNESS_TX)) {
-            if (interruptMsgProc)
-                return;
-            // Don't bother if send buffer is too full to respond anyway
-            if (pfrom->fPauseSend)
-                break;
+    // ToDo: Elaborate whether to check Dandelion Queue?
+    // stempool
 
-            const CInv &inv = *it;
-            it++;
-
-            // Send stream from relay memory
-            bool push = false;
-            if (inv.type == MSG_DANDELION_TX || inv.type == MSG_DANDELION_WITNESS_TX) {
-                int nSendFlags = (inv.type == MSG_DANDELION_TX ? SERIALIZE_TRANSACTION_NO_WITNESS : 0);
-                auto txinfo = stempool.info(inv.hash);
-                uint256 dandelionServiceDiscoveryHash;
-                dandelionServiceDiscoveryHash.SetHex("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-                if (txinfo.tx && !connman->isDandelionInbound(pfrom) && pfrom->setDandelionInventoryKnown.count(inv.hash)!=0) {
-                    connman->PushMessage(pfrom, msgMaker.Make(nSendFlags, NetMsgType::DANDELIONTX, *txinfo.tx));
-                    push = true;
-                } else if (inv.hash==dandelionServiceDiscoveryHash && pfrom->setDandelionInventoryKnown.count(inv.hash)!=0) {
-                    LogPrint(BCLog::DANDELION, "Peer %d supports Dandelion\n", pfrom->GetId());
-                    pfrom->fSupportsDandelion = true;
-                    push = true;
-=======
     return {};
 }
 
@@ -2018,52 +1968,44 @@ void PeerManagerImpl::ProcessGetData(CNode& pfrom, Peer& peer, const std::atomic
 
         CTransactionRef tx = FindTxForGetData(pfrom, ToGenTxid(inv), mempool_req, now);
         if (tx) {
-            // WTX and WITNESS_TX imply we serialize with witness
-            int nSendFlags = (inv.IsMsgTx() ? SERIALIZE_TRANSACTION_NO_WITNESS : 0);
-            m_connman.PushMessage(&pfrom, msgMaker.Make(nSendFlags, NetMsgType::TX, *tx));
-            m_mempool.RemoveUnbroadcastTx(tx->GetHash());
-            // As we're going to send tx, make sure its unconfirmed parents are made requestable.
-            std::vector<uint256> parent_ids_to_add;
-            {
-                LOCK(m_mempool.cs);
-                auto txiter = m_mempool.GetIter(tx->GetHash());
-                if (txiter) {
-                    const CTxMemPoolEntry::Parents& parents = (*txiter)->GetMemPoolParentsConst();
-                    parent_ids_to_add.reserve(parents.size());
-                    for (const CTxMemPoolEntry& parent : parents) {
-                        if (parent.GetTime() > now - UNCONDITIONAL_RELAY_DELAY) {
-                            parent_ids_to_add.push_back(parent.GetTx().GetHash());
+            if (inv.type == MSG_DANDELION_TX || inv.type == MSG_DANDELION_WITNESS_TX) {
+                int nSendFlags = (inv.type == MSG_DANDELION_TX ? SERIALIZE_TRANSACTION_NO_WITNESS : 0);
+                uint256 dandelionServiceDiscoveryHash;
+                dandelionServiceDiscoveryHash.SetHex("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+                if (!m_connman.isDandelionInbound(pfrom) && pfrom.setDandelionInventoryKnown.count(inv.hash)!=0) {
+                    m_connman.PushMessage(&pfrom, msgMaker.Make(nSendFlags, NetMsgType::DANDELIONTX, tx));
+                } else if (inv.hash == dandelionServiceDiscoveryHash && pfrom.setDandelionInventoryKnown.count(inv.hash)!=0) {
+                    LogPrint(BCLog::DANDELION, "Peer %d supports Dandelion\n", pfrom.GetId());
+                    pfrom.fSupportsDandelion = true;
+                } else {
+                    vNotFound.push_back(inv);
+                }
+            } else if (inv.type == inv.type == MSG_TX || inv.type == MSG_WITNESS_TX) {
+                // WTX and WITNESS_TX imply we serialize with witness
+                int nSendFlags = (inv.IsMsgTx() ? SERIALIZE_TRANSACTION_NO_WITNESS : 0);
+                m_connman.PushMessage(&pfrom, msgMaker.Make(nSendFlags, NetMsgType::TX, *tx));
+                m_mempool.RemoveUnbroadcastTx(tx->GetHash());
+                // As we're going to send tx, make sure its unconfirmed parents are made requestable.
+                std::vector<uint256> parent_ids_to_add;
+                {
+                    LOCK(m_mempool.cs);
+                    auto txiter = m_mempool.GetIter(tx->GetHash());
+                    if (txiter) {
+                        const CTxMemPoolEntry::Parents& parents = (*txiter)->GetMemPoolParentsConst();
+                        parent_ids_to_add.reserve(parents.size());
+                        for (const CTxMemPoolEntry& parent : parents) {
+                            if (parent.GetTime() > now - UNCONDITIONAL_RELAY_DELAY) {
+                                parent_ids_to_add.push_back(parent.GetTx().GetHash());
+                            }
                         }
                     }
->>>>>>> bitcoin/8.22.0
                 }
-            } else if(inv.type == MSG_TX || inv.type == MSG_WITNESS_TX) {
-                auto mi = mapRelay.find(inv.hash);
-                int nSendFlags = (inv.type == MSG_TX ? SERIALIZE_TRANSACTION_NO_WITNESS : 0);
-                if (!pfrom->fSupportsDandelion && !connman->isDandelionInbound(pfrom) && pfrom->setDandelionInventoryKnown.count(inv.hash)!=0) {
-                    auto txinfo = stempool.info(inv.hash);
-                    if (txinfo.tx) {
-                        connman->PushMessage(pfrom, msgMaker.Make(nSendFlags, NetMsgType::TX, *txinfo.tx));
-                        push = true;
+                for (const uint256& parent_txid : parent_ids_to_add) {
+                    // Relaying a transaction with a recent but unconfirmed parent.
+                    if (WITH_LOCK(pfrom.m_tx_relay->cs_tx_inventory, return !pfrom.m_tx_relay->filterInventoryKnown.contains(parent_txid))) {
+                        LOCK(cs_main);
+                        State(pfrom.GetId())->m_recently_announced_invs.insert(parent_txid);
                     }
-                } else if (mi != mapRelay.end()) {
-                    connman->PushMessage(pfrom, msgMaker.Make(nSendFlags, NetMsgType::TX, *mi->second));
-                    push = true;
-                } else if (pfrom->timeLastMempoolReq) {
-                    auto txinfo = mempool.info(inv.hash);
-                    // To protect privacy, do not answer getdata using the mempool when
-                    // that TX couldn't have been INVed in reply to a MEMPOOL request.
-                    if (txinfo.tx && txinfo.nTime <= pfrom->timeLastMempoolReq) {
-                        connman->PushMessage(pfrom, msgMaker.Make(nSendFlags, NetMsgType::TX, *txinfo.tx));
-                        push = true;
-                    }
-                }
-            }
-            for (const uint256& parent_txid : parent_ids_to_add) {
-                // Relaying a transaction with a recent but unconfirmed parent.
-                if (WITH_LOCK(pfrom.m_tx_relay->cs_tx_inventory, return !pfrom.m_tx_relay->filterInventoryKnown.contains(parent_txid))) {
-                    LOCK(cs_main);
-                    State(pfrom.GetId())->m_recently_announced_invs.insert(parent_txid);
                 }
             }
         } else {
