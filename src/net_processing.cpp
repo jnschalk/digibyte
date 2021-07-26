@@ -95,12 +95,12 @@ static constexpr std::chrono::microseconds GETDATA_TX_INTERVAL{std::chrono::seco
 /** Limit to avoid sending big packets. Not used in processing incoming GETDATA for compatibility */
 static const unsigned int MAX_GETDATA_SZ = 1000;
 /** Number of blocks that can be requested at any given time from a single peer. */
-static const int MAX_BLOCKS_IN_TRANSIT_PER_PEER = 16;
+static const int MAX_BLOCKS_IN_TRANSIT_PER_PEER = 32;
 /** Time during which a peer must stall block download progress before being disconnected. */
 static constexpr auto BLOCK_STALLING_TIMEOUT = 2s;
 /** Number of headers sent in one getheaders result. We rely on the assumption that if a peer sends
  *  less than this number, we reached its tip. Changing this value is a protocol upgrade. */
-static const unsigned int MAX_HEADERS_RESULTS = 2000;
+static const unsigned int MAX_HEADERS_RESULTS = 10000;
 /** Maximum depth of blocks we're willing to serve as compact blocks to peers
  *  when requested. For older blocks, a regular BLOCK response will be sent. */
 static const int MAX_CMPCTBLOCK_DEPTH = 5;
@@ -2571,7 +2571,6 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
             return;
         }
 
-<<<<<<< HEAD
         int minVersion = MIN_PEER_PROTO_VERSION;
         {
             LOCK(cs_main);
@@ -2588,13 +2587,6 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
             }
             pfrom->fDisconnect = true;
             return false;
-=======
-        if (nVersion < MIN_PEER_PROTO_VERSION) {
-            // disconnect from peers older than this proto version
-            LogPrint(BCLog::NET, "peer=%d using obsolete version %i; disconnecting\n", pfrom.GetId(), nVersion);
-            pfrom.fDisconnect = true;
-            return;
->>>>>>> bitcoin/8.22.0
         }
 
         if (!vRecv.empty())
@@ -3134,17 +3126,10 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
 
         // Send the rest of the chain
         if (pindex)
-<<<<<<< HEAD
-            pindex = chainActive.Next(pindex);
-        int nLimit = 2500;
-        LogPrint(BCLog::NET, "getblocks %d to %s limit %d from peer=%d\n", (pindex ? pindex->nHeight : -1), hashStop.IsNull() ? "end" : hashStop.ToString(), nLimit, pfrom->GetId());
-        for (; pindex; pindex = chainActive.Next(pindex))
-=======
             pindex = m_chainman.ActiveChain().Next(pindex);
         int nLimit = 500;
         LogPrint(BCLog::NET, "getblocks %d to %s limit %d from peer=%d\n", (pindex ? pindex->nHeight : -1), hashStop.IsNull() ? "end" : hashStop.ToString(), nLimit, pfrom.GetId());
         for (; pindex; pindex = m_chainman.ActiveChain().Next(pindex))
->>>>>>> bitcoin/8.22.0
         {
             if (pindex->GetBlockHash() == hashStop)
             {
@@ -3530,12 +3515,6 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
                 m_txrequest.ForgetTxHash(tx.GetWitnessHash());
             }
         } else {
-<<<<<<< HEAD
-            if (!tx.HasWitness() && !state.CorruptionPossible()) {
-                // Do not use rejection cache for witness transactions or
-                // witness-stripped transactions, as they can have been malleated.
-                // See https://github.com/digibyte/digibyte/issues/8279 for details.
-=======
             if (state.GetResult() != TxValidationResult::TX_WITNESS_STRIPPED) {
                 // We can add the wtxid of this transaction to our reject filter.
                 // Do not add txids of witness transactions or witness-stripped
@@ -3550,7 +3529,6 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
                 // See also comments in https://github.com/digibyte/digibyte/pull/18044#discussion_r443419034
                 // for concerns around weakening security of unupgraded nodes
                 // if we start doing this too early.
->>>>>>> bitcoin/8.22.0
                 assert(recentRejects);
                 recentRejects->insert(tx.GetWitnessHash());
                 m_txrequest.ForgetTxHash(tx.GetWitnessHash());

@@ -110,9 +110,6 @@ static RPCHelpMan getnetworkhashps()
     };
 }
 
-<<<<<<< HEAD
-UniValue generateBlocks(std::shared_ptr<CReserveScript> coinbaseScript, int nGenerate, uint64_t nMaxTries, bool keepScript, int algo)
-=======
 static bool GenerateBlock(ChainstateManager& chainman, CBlock& block, uint64_t& max_tries, unsigned int& extra_nonce, uint256& block_hash)
 {
     block_hash.SetNull();
@@ -124,7 +121,7 @@ static bool GenerateBlock(ChainstateManager& chainman, CBlock& block, uint64_t& 
 
     CChainParams chainparams(Params());
 
-    while (max_tries > 0 && block.nNonce < std::numeric_limits<uint32_t>::max() && !CheckProofOfWork(block.GetHash(), block.nBits, chainparams.GetConsensus()) && !ShutdownRequested()) {
+    while (max_tries > 0 && block.nNonce < std::numeric_limits<uint32_t>::max() && !CheckProofOfWork(GetPoWAlgoHash(*pblock), block.nBits, chainparams.GetConsensus()) && !ShutdownRequested()) {
         ++block.nNonce;
         --max_tries;
     }
@@ -144,8 +141,7 @@ static bool GenerateBlock(ChainstateManager& chainman, CBlock& block, uint64_t& 
     return true;
 }
 
-static UniValue generateBlocks(ChainstateManager& chainman, const CTxMemPool& mempool, const CScript& coinbase_script, int nGenerate, uint64_t nMaxTries)
->>>>>>> bitcoin/8.22.0
+static UniValue generateBlocks(ChainstateManager& chainman, const CTxMemPool& mempool, const CScript& coinbase_script, int nGenerate, uint64_t nMaxTries, int algo)
 {
     int nHeightEnd = 0;
     int nHeight = 0;
@@ -159,11 +155,7 @@ static UniValue generateBlocks(ChainstateManager& chainman, const CTxMemPool& me
     UniValue blockHashes(UniValue::VARR);
     while (nHeight < nHeightEnd && !ShutdownRequested())
     {
-<<<<<<< HEAD
-        std::unique_ptr<CBlockTemplate> pblocktemplate(BlockAssembler(Params()).CreateNewBlock(coinbaseScript->reserveScript, algo));
-=======
-        std::unique_ptr<CBlockTemplate> pblocktemplate(BlockAssembler(chainman.ActiveChainstate(), mempool, Params()).CreateNewBlock(coinbase_script));
->>>>>>> bitcoin/8.22.0
+        std::unique_ptr<CBlockTemplate> pblocktemplate(BlockAssembler(chainman.ActiveChainstate(), mempool, Params()).CreateNewBlock(coinbase_script, algo));
         if (!pblocktemplate.get())
             throw JSONRPCError(RPC_INTERNAL_ERROR, "Couldn't create new block");
         CBlock *pblock = &pblocktemplate->block;
@@ -172,16 +164,10 @@ static UniValue generateBlocks(ChainstateManager& chainman, const CTxMemPool& me
         if (!GenerateBlock(chainman, *pblock, nMaxTries, nExtraNonce, block_hash)) {
             break;
         }
-<<<<<<< HEAD
-        while (nMaxTries > 0 && pblock->nNonce < nInnerLoopCount && !CheckProofOfWork(GetPoWAlgoHash(*pblock), pblock->nBits, Params().GetConsensus())) {
-            ++pblock->nNonce;
-            --nMaxTries;
-=======
 
         if (!block_hash.IsNull()) {
             ++nHeight;
             blockHashes.push_back(block_hash.GetHex());
->>>>>>> bitcoin/8.22.0
         }
     }
     return blockHashes;
@@ -223,23 +209,6 @@ static bool getScriptFromDescriptor(const std::string& descriptor, CScript& scri
 
 static RPCHelpMan generatetodescriptor()
 {
-<<<<<<< HEAD
-    if (request.fHelp || request.params.size() < 2 || request.params.size() > 4)
-        throw std::runtime_error(
-            "generatetoaddress nblocks address (maxtries)\n"
-            "\nMine blocks immediately to a specified address (before the RPC call returns)\n"
-            "\nArguments:\n"
-            "1. nblocks      (numeric, required) How many blocks are generated immediately.\n"
-            "2. address      (string, required) The address to send the newly generated digibyte to.\n"
-            "3. maxtries     (numeric, optional) How many iterations to try (default = 1000000).\n"
-            "4. algo         (string, optional) Which mining algorithm to use.\n"
-            "\nResult:\n"
-            "[ blockhashes ]     (array) hashes of blocks generated\n"
-            "\nExamples:\n"
-            "\nGenerate 11 blocks to myaddress\n"
-            + HelpExampleCli("generatetoaddress", "11 \"myaddress\"")
-        );
-=======
     return RPCHelpMan{
         "generatetodescriptor",
         "\nMine blocks immediately to a specified descriptor (before the RPC call returns)\n",
@@ -247,6 +216,7 @@ static RPCHelpMan generatetodescriptor()
             {"num_blocks", RPCArg::Type::NUM, RPCArg::Optional::NO, "How many blocks are generated immediately."},
             {"descriptor", RPCArg::Type::STR, RPCArg::Optional::NO, "The descriptor to send the newly generated digibyte to."},
             {"maxtries", RPCArg::Type::NUM, RPCArg::Default{DEFAULT_MAX_TRIES}, "How many iterations to try."},
+            {"algo", RPCArg::Type::STR, RPCArg::Optional::YES, "Which mining algorithm to use."},
         },
         RPCResult{
             RPCResult::Type::ARR, "", "hashes of blocks generated",
@@ -260,7 +230,6 @@ static RPCHelpMan generatetodescriptor()
 {
     const int num_blocks{request.params[0].get_int()};
     const uint64_t max_tries{request.params[2].isNull() ? DEFAULT_MAX_TRIES : request.params[2].get_int()};
->>>>>>> bitcoin/8.22.0
 
     CScript coinbase_script;
     std::string error;
@@ -276,7 +245,7 @@ static RPCHelpMan generatetodescriptor()
     const CTxMemPool& mempool = EnsureMemPool(node);
     ChainstateManager& chainman = EnsureChainman(node);
 
-    return generateBlocks(chainman, mempool, coinbase_script, num_blocks, max_tries);
+    return generateBlocks(chainman, mempool, coinbase_script, num_blocks, max_tries, algo);
 },
     };
 }
@@ -296,6 +265,7 @@ static RPCHelpMan generatetoaddress()
                     {"nblocks", RPCArg::Type::NUM, RPCArg::Optional::NO, "How many blocks are generated immediately."},
                     {"address", RPCArg::Type::STR, RPCArg::Optional::NO, "The address to send the newly generated digibyte to."},
                     {"maxtries", RPCArg::Type::NUM, RPCArg::Default{DEFAULT_MAX_TRIES}, "How many iterations to try."},
+                    {"algo", RPCArg::Type::STR, RPCArg::Optional::YES, "Which mining algorithm to use."},
                 },
                 RPCResult{
                     RPCResult::Type::ARR, "", "hashes of blocks generated",
@@ -313,6 +283,11 @@ static RPCHelpMan generatetoaddress()
     const int num_blocks{request.params[0].get_int()};
     const uint64_t max_tries{request.params[2].isNull() ? DEFAULT_MAX_TRIES : request.params[2].get_int()};
 
+    int algo = miningAlgo;
+    if (!request.params[2].isNull()) {
+        algo = GetAlgoByName(request.params[2].get_str(), algo);
+    }
+
     CTxDestination destination = DecodeDestination(request.params[1].get_str());
     if (!IsValidDestination(destination)) {
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Error: Invalid address");
@@ -324,13 +299,9 @@ static RPCHelpMan generatetoaddress()
 
     CScript coinbase_script = GetScriptForDestination(destination);
 
-<<<<<<< HEAD
-    return generateBlocks(coinbaseScript, nGenerate, nMaxTries, false, algo);
-=======
-    return generateBlocks(chainman, mempool, coinbase_script, num_blocks, max_tries);
+    return generateBlocks(chainman, mempool, coinbase_script, num_blocks, max_tries, algo);
 },
     };
->>>>>>> bitcoin/8.22.0
 }
 
 static RPCHelpMan generateblock()
@@ -474,9 +445,9 @@ static RPCHelpMan getmininginfo()
     const CChain& active_chain = chainman.ActiveChain();
 
     UniValue obj(UniValue::VOBJ);
-<<<<<<< HEAD
-    obj.pushKV("blocks",           (int)chainActive.Height());
-    obj.pushKV("currentblockweight", (uint64_t)nLastBlockWeight);
+    obj.pushKV("blocks",           active_chain.Height());
+    if (BlockAssembler::m_last_block_weight) obj.pushKV("currentblockweight", *BlockAssembler::m_last_block_weight);
+    if (BlockAssembler::m_last_block_num_txs) obj.pushKV("currentblocktx", *BlockAssembler::m_last_block_num_txs);
     obj.pushKV("pow_algo_id",        miningAlgo);
     obj.pushKV("pow_algo",           GetAlgoName(miningAlgo));
     obj.pushKV("difficulty",         (double)GetDifficulty(NULL, miningAlgo));
@@ -488,25 +459,10 @@ static RPCHelpMan getmininginfo()
             obj.pushKV(key, (double)GetDifficulty(NULL, algo));
         }
     }
-    obj.pushKV("errors",           GetWarnings("statusbar"));
-    //obj.push_back(Pair("networkhashps",    getnetworkhashps(request)));
-    obj.pushKV("pooledtx",         (uint64_t)mempool.size());
-    obj.pushKV("chain",            Params().NetworkIDString());
-    if (IsDeprecatedRPCEnabled("getmininginfo")) {
-        obj.pushKV("errors",       GetWarnings("statusbar"));
-    } else {
-        obj.pushKV("warnings",     GetWarnings("statusbar"));
-    }
-=======
-    obj.pushKV("blocks",           active_chain.Height());
-    if (BlockAssembler::m_last_block_weight) obj.pushKV("currentblockweight", *BlockAssembler::m_last_block_weight);
-    if (BlockAssembler::m_last_block_num_txs) obj.pushKV("currentblocktx", *BlockAssembler::m_last_block_num_txs);
-    obj.pushKV("difficulty",       (double)GetDifficulty(active_chain.Tip()));
     obj.pushKV("networkhashps",    getnetworkhashps().HandleRequest(request));
     obj.pushKV("pooledtx",         (uint64_t)mempool.size());
     obj.pushKV("chain",            Params().NetworkIDString());
     obj.pushKV("warnings",         GetWarnings(false).original);
->>>>>>> bitcoin/8.22.0
     return obj;
 },
     };
@@ -514,11 +470,7 @@ static RPCHelpMan getmininginfo()
 
 
 // NOTE: Unlike wallet RPC (which use DGB values), mining RPCs follow GBT (BIP 22) in using satoshi amounts
-<<<<<<< HEAD
-static UniValue prioritisetransaction(const JSONRPCRequest& request)
-=======
 static RPCHelpMan prioritisetransaction()
->>>>>>> bitcoin/8.22.0
 {
     return RPCHelpMan{"prioritisetransaction",
                 "Accepts the transaction into mined blocks at a higher (or lower) priority\n",
@@ -585,85 +537,6 @@ static std::string gbt_vb_name(const Consensus::DeploymentPos pos) {
 
 static RPCHelpMan getblocktemplate()
 {
-<<<<<<< HEAD
-    if (request.fHelp || request.params.size() > 2)
-        throw std::runtime_error(
-            "getblocktemplate ( TemplateRequest )\n"
-            "\nIf the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.\n"
-            "It returns data needed to construct a block to work on.\n"
-            "For full specification, see BIPs 22, 23, 9, and 145:\n"
-            "    https://github.com/digibyte/bips/blob/master/bip-0022.mediawiki\n"
-            "    https://github.com/digibyte/bips/blob/master/bip-0023.mediawiki\n"
-            "    https://github.com/digibyte/bips/blob/master/bip-0009.mediawiki#getblocktemplate_changes\n"
-            "    https://github.com/digibyte/bips/blob/master/bip-0145.mediawiki\n"
-
-            "\nArguments:\n"
-            "1. template_request         (json object, optional) A json object in the following spec\n"
-            "     {\n"
-            "       \"mode\":\"template\"    (string, optional) This must be set to \"template\", \"proposal\" (see BIP 23), or omitted\n"
-            "       \"capabilities\":[     (array, optional) A list of strings\n"
-            "           \"support\"          (string) client side supported feature, 'longpoll', 'coinbasetxn', 'coinbasevalue', 'proposal', 'serverlist', 'workid'\n"
-            "           ,...\n"
-            "       ],\n"
-            "       \"rules\":[            (array, optional) A list of strings\n"
-            "           \"support\"          (string) client side supported softfork deployment\n"
-            "           ,...\n"
-            "       ]\n"
-            "     }\n"
-            "2. algo    (string, optional) The mining algorithm to use for this pow hash, 'sha256d', 'scrypt', 'groestl', 'skein', 'qubit', 'odo'\n"
-            "\n"
-
-            "\nResult:\n"
-            "{\n"
-            "  \"version\" : n,                    (numeric) The preferred block version\n"
-            "  \"rules\" : [ \"rulename\", ... ],    (array of strings) specific block rules that are to be enforced\n"
-            "  \"vbavailable\" : {                 (json object) set of pending, supported versionbit (BIP 9) softfork deployments\n"
-            "      \"rulename\" : bitnumber          (numeric) identifies the bit number as indicating acceptance and readiness for the named softfork rule\n"
-            "      ,...\n"
-            "  },\n"
-            "  \"vbrequired\" : n,                 (numeric) bit mask of versionbits the server requires set in submissions\n"
-            "  \"previousblockhash\" : \"xxxx\",     (string) The hash of current highest block\n"
-            "  \"transactions\" : [                (array) contents of non-coinbase transactions that should be included in the next block\n"
-            "      {\n"
-            "         \"data\" : \"xxxx\",             (string) transaction data encoded in hexadecimal (byte-for-byte)\n"
-            "         \"txid\" : \"xxxx\",             (string) transaction id encoded in little-endian hexadecimal\n"
-            "         \"hash\" : \"xxxx\",             (string) hash encoded in little-endian hexadecimal (including witness data)\n"
-            "         \"depends\" : [                (array) array of numbers \n"
-            "             n                          (numeric) transactions before this one (by 1-based index in 'transactions' list) that must be present in the final block if this one is\n"
-            "             ,...\n"
-            "         ],\n"
-            "         \"fee\": n,                    (numeric) difference in value between transaction inputs and outputs (in satoshis); for coinbase transactions, this is a negative Number of the total collected block fees (ie, not including the block subsidy); if key is not present, fee is unknown and clients MUST NOT assume there isn't one\n"
-            "         \"sigops\" : n,                (numeric) total SigOps cost, as counted for purposes of block limits; if key is not present, sigop cost is unknown and clients MUST NOT assume it is zero\n"
-            "         \"weight\" : n,                (numeric) total transaction weight, as counted for purposes of block limits\n"
-            "      }\n"
-            "      ,...\n"
-            "  ],\n"
-            "  \"coinbaseaux\" : {                 (json object) data that should be included in the coinbase's scriptSig content\n"
-            "      \"flags\" : \"xx\"                  (string) key name is to be ignored, and value included in scriptSig\n"
-            "  },\n"
-            "  \"coinbasevalue\" : n,              (numeric) maximum allowable input to coinbase transaction, including the generation award and transaction fees (in satoshis)\n"
-            "  \"coinbasetxn\" : { ... },          (json object) information for coinbase transaction\n"
-            "  \"target\" : \"xxxx\",                (string) The hash target\n"
-            "  \"mintime\" : xxx,                  (numeric) The minimum timestamp appropriate for next block time in seconds since epoch (Jan 1 1970 GMT)\n"
-            "  \"mutable\" : [                     (array of string) list of ways the block template may be changed \n"
-            "     \"value\"                          (string) A way the block template may be changed, e.g. 'time', 'transactions', 'prevblock'\n"
-            "     ,...\n"
-            "  ],\n"
-            "  \"noncerange\" : \"00000000ffffffff\",(string) A range of valid nonces\n"
-            "  \"sigoplimit\" : n,                 (numeric) limit of sigops in blocks\n"
-            "  \"sizelimit\" : n,                  (numeric) limit of block size\n"
-            "  \"weightlimit\" : n,                (numeric) limit of block weight\n"
-            "  \"curtime\" : ttt,                  (numeric) current timestamp in seconds since epoch (Jan 1 1970 GMT)\n"
-            "  \"bits\" : \"xxxxxxxx\",              (string) compressed target of next block\n"
-            "  \"height\" : n                      (numeric) The height of the next block\n"
-            "}\n"
-
-            "\nExamples:\n"
-            + HelpExampleCli("getblocktemplate", "{\"rules\": [\"segwit\"]}")
-            + HelpExampleRpc("getblocktemplate", "{\"rules\": [\"segwit\"]}")
-         );
-
-=======
     return RPCHelpMan{"getblocktemplate",
         "\nIf the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.\n"
         "It returns data needed to construct a block to work on.\n"
@@ -750,7 +623,6 @@ static RPCHelpMan getblocktemplate()
 {
     NodeContext& node = EnsureAnyNodeContext(request.context);
     ChainstateManager& chainman = EnsureChainman(node);
->>>>>>> bitcoin/8.22.0
     LOCK(cs_main);
 
     std::string strMode = "template";
@@ -826,16 +698,6 @@ static RPCHelpMan getblocktemplate()
     if (strMode != "template")
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
 
-<<<<<<< HEAD
-    if(!g_connman)
-        throw JSONRPCError(RPC_CLIENT_P2P_DISABLED, "Error: Peer-to-peer functionality missing or disabled");
-
-    if (g_connman->GetNodeCount(CConnman::CONNECTIONS_ALL) == 0)
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "DigiByte is not connected!");
-
-    if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "DigiByte is downloading blocks...");
-=======
     if (!Params().IsTestChain()) {
         const CConnman& connman = EnsureConnman(node);
         if (connman.GetNodeCount(ConnectionDirection::Both) == 0) {
@@ -846,7 +708,6 @@ static RPCHelpMan getblocktemplate()
             throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, PACKAGE_NAME " is in initial sync and waiting for blocks...");
         }
     }
->>>>>>> bitcoin/8.22.0
 
     static unsigned int nTransactionsUpdatedLast;
     const CTxMemPool& mempool = EnsureMemPool(node);
@@ -914,19 +775,10 @@ static RPCHelpMan getblocktemplate()
     static CBlockIndex* pindexPrev;
     static int64_t nStart;
     static std::unique_ptr<CBlockTemplate> pblocktemplate;
-<<<<<<< HEAD
-    // Cache whether the last invocation was with segwit support, to avoid returning
-    // a segwit-block to a non-segwit caller.
-    static bool fLastTemplateSupportsSegwit = true;
     static int lastAlgo;
-    if (pindexPrev != chainActive.Tip() ||
-        (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 5) ||
-        fLastTemplateSupportsSegwit != fSupportsSegwit ||
-        algo != lastAlgo)
-=======
     if (pindexPrev != active_chain.Tip() ||
-        (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 5))
->>>>>>> bitcoin/8.22.0
+        (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 5) ||
+        algo != lastAlgo)
     {
         // Clear pindexPrev so future calls make a new block, despite any failures from here on
         pindexPrev = nullptr;
@@ -935,19 +787,10 @@ static RPCHelpMan getblocktemplate()
         nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
         CBlockIndex* pindexPrevNew = active_chain.Tip();
         nStart = GetTime();
-<<<<<<< HEAD
-        fLastTemplateSupportsSegwit = fSupportsSegwit;
         lastAlgo = algo;
-
         // Create new block
         CScript scriptDummy = CScript() << OP_TRUE;
-        pblocktemplate = BlockAssembler(Params()).CreateNewBlock(scriptDummy, algo, fSupportsSegwit);
-=======
-
-        // Create new block
-        CScript scriptDummy = CScript() << OP_TRUE;
-        pblocktemplate = BlockAssembler(active_chainstate, mempool, Params()).CreateNewBlock(scriptDummy);
->>>>>>> bitcoin/8.22.0
+        pblocktemplate = BlockAssembler(active_chainstate, mempool, Params()).CreateNewBlock(scriptDummy, algo,);
         if (!pblocktemplate)
             throw JSONRPCError(RPC_OUT_OF_MEMORY, "Out of memory");
 
@@ -1036,26 +879,16 @@ static RPCHelpMan getblocktemplate()
                 break;
             case ThresholdState::LOCKED_IN:
                 // Ensure bit is set in block version
-<<<<<<< HEAD
-                 pblock->nVersion |= VersionBitsMask(consensusParams, pos);
-                // FALL THROUGH to get vbavailable set...
-=======
                 pblock->nVersion |= g_versionbitscache.Mask(consensusParams, pos);
                 [[fallthrough]];
->>>>>>> bitcoin/8.22.0
             case ThresholdState::STARTED:
             {
                 const struct VBDeploymentInfo& vbinfo = VersionBitsDeploymentInfo[pos];
                 vbavailable.pushKV(gbt_vb_name(pos), consensusParams.vDeployments[pos].bit);
                 if (setClientRules.find(vbinfo.name) == setClientRules.end()) {
                     if (!vbinfo.gbt_force) {
-<<<<<<< HEAD
-                         // If the client doesn't support this, don't indicate it in the [default] version
-                         pblock->nVersion &= ~VersionBitsMask(consensusParams, pos);
-=======
                         // If the client doesn't support this, don't indicate it in the [default] version
                         pblock->nVersion &= ~g_versionbitscache.Mask(consensusParams, pos);
->>>>>>> bitcoin/8.22.0
                     }
                 }
                 break;
@@ -1151,20 +984,6 @@ protected:
 static RPCHelpMan submitblock()
 {
     // We allow 2 arguments for compliance with BIP22. Argument 2 is ignored.
-<<<<<<< HEAD
-    if (request.fHelp || request.params.size() < 1 || request.params.size() > 2) {
-        throw std::runtime_error(
-            "submitblock \"hexdata\"  ( \"dummy\" )\n"
-            "\nAttempts to submit new block to network.\n"
-            "See https://en.digibyte.it/wiki/BIP_0022 for full specification.\n"
-
-            "\nArguments\n"
-            "1. \"hexdata\"        (string, required) the hex-encoded block data to submit\n"
-            "2. \"dummy\"          (optional) dummy value, for compatibility with BIP22. This value is ignored.\n"
-            "\nResult:\n"
-            "\nExamples:\n"
-            + HelpExampleCli("submitblock", "\"mydata\"")
-=======
     return RPCHelpMan{"submitblock",
         "\nAttempts to submit new block to network.\n"
         "See https://en.digibyte.it/wiki/BIP_0022 for full specification.\n",
@@ -1178,7 +997,6 @@ static RPCHelpMan submitblock()
         },
         RPCExamples{
                     HelpExampleCli("submitblock", "\"mydata\"")
->>>>>>> bitcoin/8.22.0
             + HelpExampleRpc("submitblock", "\"mydata\"")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
