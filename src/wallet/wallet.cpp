@@ -1711,37 +1711,6 @@ void CWallet::ReacceptWalletTransactions()
 
 bool CWalletTx::SubmitMemoryPoolAndRelay(std::string& err_string, bool relay)
 {
-<<<<<<< HEAD
-    assert(pwallet->GetBroadcastTransactions());
-    if (!IsCoinBase() && !isAbandoned() && GetDepthInMainChain() == 0)
-    {
-        LogPrintf("Inside IF Test \n");
-        CValidationState state;
-        /* GetDepthInMainChain already catches known conflicts. */
-        LogPrintf("Transaction in memory pool: %u, Accepted To MemoryPool: %u", InMempool(), AcceptToMemoryPool(maxTxFee, state));
-        if (InMempool() || AcceptToMemoryPool(maxTxFee, state)) {
-            pwallet->WalletLogPrintf("Relaying wtx %s\n", GetHash().ToString());
-            if (connman) {
-                if (!gArgs.GetBoolArg("-disabledandelion", DEFAULT_DISABLE_DANDELION)) {
-                    int64_t nCurrTime = GetTimeMicros();
-                    int64_t nEmbargo = 1000000*DANDELION_EMBARGO_MINIMUM+PoissonNextSend(nCurrTime, DANDELION_EMBARGO_AVG_ADD);
-                    connman->insertDandelionEmbargo(GetHash(),nEmbargo);
-                    LogPrint(BCLog::DANDELION, "dandeliontx %s embargoed for %d seconds\n", GetHash().ToString(), (nEmbargo-nCurrTime)/1000000);
-                    CInv inv(MSG_DANDELION_TX, GetHash());
-                    return connman->localDandelionDestinationPushInventory(inv);
-                } else {
-                    CInv inv(MSG_TX, GetHash());
-                    connman->ForEachNode([&inv](CNode* pnode)
-                    {
-                        pnode->PushInventory(inv);
-                    });
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
-=======
     // Can't relay if wallet is not broadcasting
     if (!pwallet->GetBroadcastTransactions()) return false;
     // Don't relay abandoned transactions
@@ -1766,7 +1735,6 @@ bool CWalletTx::SubmitMemoryPoolAndRelay(std::string& err_string, bool relay)
     bool ret = pwallet->chain().broadcastTransaction(tx, pwallet->m_default_max_tx_fee, relay, err_string);
     fInMempool |= ret;
     return ret;
->>>>>>> bitcoin/8.22.0
 }
 
 std::set<uint256> CWalletTx::GetConflicts() const
@@ -3007,33 +2975,11 @@ std::set<ScriptPubKeyMan*> CWallet::GetActiveScriptPubKeyMans() const
 
 std::set<ScriptPubKeyMan*> CWallet::GetAllScriptPubKeyMans() const
 {
-<<<<<<< HEAD
-    // We must set fInMempool here - while it will be re-set to true by the
-    // entered-mempool callback, if we did not there would be a race where a
-    // user could call sendmoney in a loop and hit spurious out of funds errors
-    // because we think that this newly generated transaction's change is
-    // unavailable as we're not yet aware that it is in the mempool.
-    bool ret;
-    if (!gArgs.GetBoolArg("-disabledandelion", DEFAULT_DISABLE_DANDELION)) {
-        ret = ::AcceptToMemoryPool(stempool, state, tx, nullptr /* pfMissingInputs */,
-                                   nullptr /* plTxnReplaced */, false /* bypass_limits */, nAbsurdFee);
-    } else {
-        ret = ::AcceptToMemoryPool(mempool, state, tx, nullptr /* pfMissingInputs */,
-                                   nullptr /* plTxnReplaced */, false /* bypass_limits */, nAbsurdFee);
-        // Changes to mempool should also be made to Dandelion stempool
-        CValidationState dummyState;
-        ret = ::AcceptToMemoryPool(stempool, dummyState, tx, nullptr /* pfMissingInputs */,
-                                   nullptr /* plTxnReplaced */, false /* bypass_limits */, nAbsurdFee);
-    }
-    fInMempool |= ret;
-    return ret;
-=======
     std::set<ScriptPubKeyMan*> spk_mans;
     for (const auto& spk_man_pair : m_spk_managers) {
         spk_mans.insert(spk_man_pair.second.get());
     }
     return spk_mans;
->>>>>>> bitcoin/8.22.0
 }
 
 ScriptPubKeyMan* CWallet::GetScriptPubKeyMan(const OutputType& type, bool internal) const
